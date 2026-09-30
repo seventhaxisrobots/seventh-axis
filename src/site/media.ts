@@ -16,6 +16,8 @@ export function initMedia(): void {
 
   if (still || !("IntersectionObserver" in window)) {
     for (const video of videos) {
+      // A hero's background clip stays on its still frame.
+      if (still && video.hasAttribute("data-bg")) continue;
       video.controls = true;
       video.preload = "none";
       video.addEventListener("play", () => load(video), { once: true });
@@ -31,7 +33,7 @@ export function initMedia(): void {
         if (isIntersecting) {
           load(video);
           void video.play().catch(() => {
-            video.controls = true;
+            if (!video.hasAttribute("data-bg")) video.controls = true;
           });
         } else {
           video.pause();
