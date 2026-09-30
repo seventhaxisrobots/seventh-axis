@@ -4,7 +4,7 @@
 
 Seventh Axis turns plain instructions in English, Bahasa Malaysia or 中文 into verified robot programs. Describe the task, watch it run in a digital twin, then export controller code for the arm on your line.
 
-The robotics company of Kuala Lumpur.
+The robotics company of Kuala Lumpur. Live at [seventh-axis.vercel.app](https://seventh-axis.vercel.app).
 
 ## What's here
 
