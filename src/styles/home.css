@@ -1,36 +1,5 @@
 /* Home: Kuala Lumpur at dusk, then three doors into the site. */
 
-.home .site-header {
-  position: fixed;
-  left: 0;
-  right: 0;
-}
-
-.home .site-header:not(.is-scrolled) {
-  background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  color: var(--paper);
-  --mark-hole: transparent;
-}
-
-.home .site-header:not(.is-scrolled) .site-nav a:not(.btn) {
-  color: rgba(243, 241, 236, 0.82);
-}
-
-.home .site-header:not(.is-scrolled) .site-nav a:not(.btn):hover {
-  color: var(--paper);
-}
-
-.home .site-header:not(.is-scrolled) .btn--primary {
-  background: var(--paper);
-  color: var(--ink);
-}
-
-.home .site-header:not(.is-scrolled) .menu-toggle {
-  color: var(--paper);
-}
-
 .kl {
   position: relative;
   min-height: 100svh;
