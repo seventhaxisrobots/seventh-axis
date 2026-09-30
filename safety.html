@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content" />
+    <title>Safety · How Seventh Axis keeps AI robot programs safe</title>
+    <meta name="description" content="Every Seventh Axis plan is simulated, checked for reach, collisions and payload, and approved by a person before a robot moves. How we handle safety and data." />
+    <meta name="theme-color" content="#0E1116" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:title" content="Safety at Seventh Axis: nothing moves until a person approves it" />
+  </head>
+  <body class="page">
+    <!--#header-->
+
+    <main id="main">
+      <section class="page-intro wrap" aria-labelledby="page-title">
+        <p class="hero__kicker">Safety</p>
+        <h1 id="page-title">Nothing moves until a person approves it.</h1>
+        <p class="lede">The AI writes the plan. The simulator checks it. Your team decides. That order never changes.</p>
+      </section>
+
+      <section class="section wrap" aria-labelledby="flow-title">
+        <h2 id="flow-title" class="section__title">From words to motion</h2>
+        <ol class="flow">
+          <li>
+            <h3>Plan</h3>
+            <p>You describe the task. The planner turns it into named steps you can read, not a black box.</p>
+          </li>
+          <li>
+            <h3>Simulate</h3>
+            <p>The plan runs on a digital twin of your cell with the real arm's kinematics and joint limits.</p>
+          </li>
+          <li>
+            <h3>Approve</h3>
+            <p>A person on your team reviews the motion and the checks, then approves it. Or doesn't.</p>
+          </li>
+          <li>
+            <h3>Export</h3>
+            <p>Only approved plans become robot code, which runs inside the safety system your integrator set up.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section wrap" aria-labelledby="checks-title">
+        <h2 id="checks-title" class="section__title">What we check, every time</h2>
+        <dl class="checks">
+          <div>
+            <dt>Reach and joint limits</dt>
+            <dd>Every target is solved with the arm's real inverse kinematics. Out of reach means the plan stops there.</dd>
+          </div>
+          <div>
+            <dt>Collisions</dt>
+            <dd>Paths are checked against the cell's fixtures, pallets, conveyor and the objects already placed.</dd>
+          </div>
+          <div>
+            <dt>Payload</dt>
+            <dd>Object weights are compared with the arm and gripper rating before anything is picked.</dd>
+          </div>
+          <div>
+            <dt>People nearby</dt>
+            <dd>In simulation, the arm slows when someone enters the warning zone and stops in the protective zone.</dd>
+          </div>
+          <div>
+            <dt>Stack stability</dt>
+            <dd>Layers, heights and placements are checked so a pallet pattern is buildable, not just drawable.</dd>
+          </div>
+          <div>
+            <dt>Honest failure</dt>
+            <dd>When a request isn't possible, the planner says why instead of guessing. Unclear instructions get a question back.</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="section wrap story" aria-labelledby="standards-title">
+        <h2 id="standards-title" class="section__title">Standards and responsibility</h2>
+        <div class="story__text">
+          <p>
+            Seventh Axis is software. It doesn't replace your cell's safety system, and it doesn't certify a cell. Guarding, light curtains,
+            area scanners and the risk assessment stay with your integrator, following ISO 10218 for industrial robots and ISO/TS 15066 where
+            people work alongside collaborative arms.
+          </p>
+          <p>
+            Exported programs run inside the limits the robot controller already enforces. Our checks are an extra layer on top, so problems
+            are caught at a desk instead of on the floor.
+          </p>
+          <p>
+            The Studio playground can throw and toss boxes for fun. Those moves are simulation-only and can never be exported.
+          </p>
+        </div>
+      </section>
+
+      <section class="section wrap story" aria-labelledby="data-title">
+        <h2 id="data-title" class="section__title">Your data</h2>
+        <div class="story__text">
+          <p>
+            We handle personal data under Malaysia's PDPA. Instructions you type are sent to our AI provider only to produce a plan or an
+            answer, and we don't sell data or use it for advertising. The details are in our <a class="textlink" href="/privacy">privacy notice</a>.
+          </p>
+          <p>
+            Found a security or safety issue? Please <a class="textlink" href="mailto:" data-contact-email>email us</a>. We'll reply within two
+            working days and credit you if you'd like.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!--#footer-->
+
+    <script type="module" src="/src/landing/main.ts"></script>
+  </body>
+</html>
