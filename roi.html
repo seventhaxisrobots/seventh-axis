@@ -12,24 +12,24 @@
     <meta property="og:image" content="/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
-  <body class="page">
+  <body class="page has-hero">
     <!--#header-->
 
     <main id="main">
-      <section class="page-intro wrap" aria-labelledby="page-title">
-        <p class="hero__kicker">ROI calculator</p>
-        <h1 id="page-title">What would a robot save your line?</h1>
-        <p class="lede">Malaysian wages, levies and the Smart Automation Grant, worked out in the open. Every assumption is listed below the numbers.</p>
+      <section class="photo-hero" data-hero aria-labelledby="page-title">
+        <img class="photo-hero__bg" src="/img/line-1920.webp" srcset="/img/line-960.webp 960w, /img/line-1920.webp 1920w" sizes="100vw" width="1920" height="1080" style="--pos: 50% 40%; --pos-sm: 70% 50%" alt="A modern automated production line with robot cells" fetchpriority="high" />
+        <div class="wrap photo-hero__content">
+          <div class="photo-hero__copy">
+            <p class="photo-hero__kicker">ROI calculator</p>
+            <h1 id="page-title" class="photo-hero__title">What would a robot save your line?</h1>
+            <p class="photo-hero__sub">Malaysian wages, levies and the Smart Automation Grant, worked out in the open. Every assumption is listed below the numbers.</p>
+            <div class="photo-hero__actions"><a class="btn btn--light" href="#calculator">Work out my payback</a></div>
+          </div>
+          <p class="photo-hero__aside photo-hero__list">Wages · EPF · SOCSO<br />Levy · Grant</p>
+        </div>
       </section>
 
-      <section class="section wrap" aria-label="Photo" style="padding-bottom: 40px">
-        <figure class="band">
-          <img src="/img/line-1920.webp" srcset="/img/line-960.webp 960w, /img/line-1920.webp 1920w" sizes="(max-width: 1340px) 100vw, 1248px" width="1920" height="1080" loading="lazy" alt="A modern automated production line with robot cells" />
-          <figcaption>Labour is the biggest line on most factory budgets. See what one robot cell changes.</figcaption>
-        </figure>
-      </section>
-
-      <section class="roi wrap" aria-label="Calculator">
+      <section class="roi wrap" id="calculator" aria-label="Calculator">
         <form class="roi__inputs" data-roi-form>
           <fieldset class="roi__group">
             <legend>Task</legend>
@@ -123,7 +123,8 @@
         </ul>
       </section>
 
-      <section class="pilot" aria-labelledby="pilot-title">
+      <section class="pilot pilot--photo" aria-labelledby="pilot-title">
+        <img class="pilot__bg" src="/img/workshop-1920.webp" srcset="/img/workshop-960.webp 960w, /img/workshop-1920.webp 1920w" sizes="100vw" width="1920" height="1080" style="--pos: 50% 40%" loading="lazy" alt="" />
         <div class="wrap pilot__inner">
           <h2 id="pilot-title">Check these numbers on your line.</h2>
           <p class="pilot__sub">Join the founding pilot. We'll send your estimate with our reply.</p>
