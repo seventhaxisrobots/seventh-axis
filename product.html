@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product · Seventh Axis</title>
+    <meta name="description" content="Program a robot arm by describing the task in English, Bahasa Malaysia or Mandarin. Every move is checked in simulation first." />
+    <meta name="theme-color" content="#F3F1EC" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:title" content="Seventh Axis: the missing axis is understanding" />
+    <meta property="og:image" content="/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class="page">
+    <!--#header-->
+
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero__copy">
+          <p class="hero__kicker">Product</p>
+          <h1 id="hero-title">The missing axis is understanding.</h1>
+          <p class="hero__lede">
+            Program a robot arm by describing the task in English, Bahasa Malaysia or <span lang="zh">中文</span>. Every move is checked in
+            simulation before the arm does anything.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="/studio">Try the live demo</a>
+            <a class="textlink" href="/book">Book a meeting</a>
+          </div>
+        </div>
+        <img
+          class="hero__photo"
+          src="/img/arm-studio-1920.webp"
+          srcset="/img/arm-studio-960.webp 960w, /img/arm-studio-1920.webp 1920w"
+          sizes="(max-width: 900px) 100vw, 62vw"
+          width="1920"
+          height="1080"
+          alt="An orange six-axis industrial robot arm"
+          fetchpriority="high"
+        />
+      </section>
+
+      <section class="values wrap" aria-label="What Seventh Axis does">
+        <div>
+          <h2>Speaks your line's language</h2>
+          <p>English, Bahasa Malaysia, <span lang="zh">中文</span> and Manglish, typed or spoken.</p>
+        </div>
+        <div>
+          <h2>Simulates every move first</h2>
+          <p>Reach, clearance and cycle time, checked in a digital twin.</p>
+        </div>
+        <div>
+          <h2>Ships real controller code</h2>
+          <p>URScript today. More controllers on the roadmap.</p>
+        </div>
+      </section>
+
+      <section class="showcase" aria-labelledby="how-title">
+        <div class="wrap">
+          <h2 id="how-title">Say it. Watch it. Approve it.</h2>
+          <p>The Studio turns one sentence into a checked, animated robot program. Nothing moves until you approve it.</p>
+          <figure>
+            <img
+              src="/img/studio-1600.webp"
+              srcset="/img/studio-960.webp 960w, /img/studio-1600.webp 1600w"
+              sizes="(max-width: 1340px) 100vw, 1248px"
+              width="1600"
+              height="1000"
+              loading="lazy"
+              alt="The Seventh Axis Studio: a simulated robot cell on the left, the conversation and generated plan on the right"
+            />
+            <figcaption>The Studio planning a palletising job from a Bahasa Malaysia instruction. <a class="textlink" href="/studio">Open it in your browser</a></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="languages" aria-labelledby="lang-title">
+        <div class="wrap">
+          <h2 id="lang-title">One arm. Every language on your floor.</h2>
+          <dl>
+            <div>
+              <dd lang="en">Stack the red boxes on pallet A, three high.</dd>
+              <dt>English</dt>
+            </div>
+            <div>
+              <dd lang="ms">Susun kotak merah atas palet A, tiga tingkat.</dd>
+              <dt>Bahasa Malaysia</dt>
+            </div>
+            <div>
+              <dd lang="zh">把红色箱子叠到A号托盘上，三层。</dd>
+              <dt lang="zh">中文</dt>
+            </div>
+            <div>
+              <dd>Boss, red boxes go pallet A, three layer <em>can?</em></dd>
+              <dt>Manglish</dt>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="safety" aria-labelledby="safety-title">
+        <div class="wrap safety__inner">
+          <img src="/img/operator-900.webp" width="900" height="900" loading="lazy" alt="An engineer in a hijab and hard hat" />
+          <div>
+            <h2 id="safety-title">Nothing moves until a human says so.</h2>
+            <p>
+              Every program runs in the digital twin first. Speed and zone limits are written into the exported code, and an operator
+              approves each change.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--#footer-->
+
+    <script type="module" src="/src/landing/main.ts"></script>
+  </body>
+</html>
