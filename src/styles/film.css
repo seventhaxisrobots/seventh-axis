@@ -1,0 +1,886 @@
+/* Launch film: 64 seconds on a 1920×1080 stage, scaled to fit the screen.
+   Plays once per session before the home page. Skip or Esc ends it. */
+
+@property --f-n {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 1;
+}
+
+@property --f-m {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 9;
+}
+
+.film-on,
+.film-on body {
+  overflow: hidden;
+}
+
+/* The home page waits behind the film, then plays its own reveal. */
+.film-on .site-header,
+.film-on .kl__photo,
+.film-on .kl__title .w,
+.film-on .kl .rise {
+  animation-play-state: paused;
+}
+
+.film {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  overflow: hidden;
+  background: #000;
+  color: var(--paper);
+  font-family: var(--font-sans);
+  line-height: 1.2;
+  animation: f-out 0.6s ease 64.4s forwards;
+}
+
+.film-on .film,
+.film.is-playing {
+  display: block;
+}
+
+.film.is-leaving {
+  animation: f-leave 0.5s ease forwards;
+}
+
+/* Hold the first frame until the Earth has loaded. */
+.film.is-waiting,
+.film.is-waiting * {
+  animation-play-state: paused !important;
+}
+
+.film.is-waiting .film__skip {
+  animation-play-state: running !important;
+}
+
+.film img,
+.film svg {
+  max-width: none;
+}
+
+.film__stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  transform: translate(-50%, -50%) scale(var(--film-scale, 1));
+}
+
+/* Portrait screens get the tall cut. The script keeps one stage and drops the other. */
+.film__stage--tall {
+  display: none;
+  width: 1080px;
+  height: 1920px;
+}
+
+@media (max-aspect-ratio: 1/1) {
+  .film__stage--wide {
+    display: none;
+  }
+
+  .film__stage--tall {
+    display: block;
+  }
+}
+
+.film .film__stage.is-chosen {
+  display: block;
+}
+
+.film .film__stage--tall .f-globe,
+.film .film__stage--tall .f-photo {
+  width: 1080px;
+  height: 1920px;
+}
+
+.film .film__stage--tall .f-card {
+  width: 860px;
+  padding: 32px 40px;
+}
+
+.film .film__stage--tall .f-card__lang {
+  font-size: 26px;
+}
+
+.film .film__stage--tall .f-card__text {
+  font-size: 44px;
+}
+
+.film .film__stage--tall .f-chip {
+  padding: 20px 30px;
+  font-size: 32px;
+}
+
+.film .film__stage--tall .f-code {
+  left: 60px;
+  bottom: 150px;
+  font-size: 22px;
+}
+
+.film .film__stage--tall .f-word {
+  bottom: 170px;
+  font-size: 240px;
+}
+
+.film__skip {
+  position: absolute;
+  right: clamp(16px, 3vw, 32px);
+  bottom: clamp(16px, 3vw, 32px);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 18px 0 20px;
+  border: 1px solid rgba(243, 241, 236, 0.28);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  animation: f-fadeIn 0.6s ease 1s both;
+}
+
+.film__skip:hover {
+  background: rgba(243, 241, 236, 0.14);
+}
+
+.film__skip kbd {
+  padding: 2px 6px;
+  border: 1px solid rgba(243, 241, 236, 0.22);
+  border-radius: 4px;
+  font: inherit;
+  font-size: 12px;
+  color: var(--steel-light);
+}
+
+@media (hover: none) {
+  .film__skip kbd {
+    display: none;
+  }
+}
+
+/* Building blocks */
+.film .f-sc {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.film .f-cut {
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.film .f-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.film .f-disp {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+}
+
+.film .f-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.film .f-photo {
+  position: absolute;
+  inset: 0;
+  width: 1920px;
+  height: 1080px;
+  object-fit: cover;
+}
+
+.film .f-globe {
+  position: absolute;
+  inset: 0;
+  width: 1920px;
+  height: 1080px;
+}
+
+.film .f-dot {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--paper);
+}
+
+.film .f-stars {
+  position: absolute;
+  inset: 0;
+  perspective: 600px;
+  transform-style: preserve-3d;
+}
+
+.film .f-stars .f-dot {
+  box-shadow: 0 0 6px rgba(243, 241, 236, 0.8);
+}
+
+.film .f-ring {
+  position: absolute;
+}
+
+.film .f-ring > span {
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(243, 241, 236, 0.1);
+  border-top-color: rgba(243, 241, 236, 0.45);
+  border-radius: 50%;
+}
+
+.film .f-count {
+  counter-reset: f-n var(--f-n);
+}
+
+.film .f-count::after {
+  content: counter(f-n);
+}
+
+.film .f-countdown {
+  counter-reset: f-m var(--f-m);
+}
+
+.film .f-countdown::after {
+  content: counter(f-m);
+}
+
+.film .f-sweep {
+  background: linear-gradient(100deg, #5b6472 0%, #5b6472 30%, #f3f1ec 42%, #ff5a1f 50%, #f3f1ec 58%, #f3f1ec 100%);
+  background-size: 260% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.film .f-type {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+
+.film .f-card {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 640px;
+  padding: 28px 32px;
+  border: 1px solid rgba(243, 241, 236, 0.16);
+  border-radius: 22px;
+  background: rgba(21, 26, 33, 0.88);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+.film .f-card--signal {
+  border-color: rgba(255, 90, 31, 0.5);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 90, 31, 0.2);
+}
+
+.film .f-card__lang {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ff7a45;
+}
+
+.film .f-card__text {
+  margin-top: 10px;
+  font-size: 36px;
+  line-height: 1.25;
+}
+
+.film .f-chip {
+  position: absolute;
+  display: flex;
+  gap: 18px;
+  padding: 18px 26px;
+  border: 1px solid rgba(46, 196, 182, 0.5);
+  border-radius: 999px;
+  background: rgba(14, 17, 22, 0.92);
+  font-size: 28px;
+}
+
+.film .f-chip__k {
+  color: var(--steel-light);
+}
+
+.film .f-chip__v {
+  font-weight: 600;
+  color: var(--twin);
+}
+
+.film .f-code {
+  position: absolute;
+  left: 120px;
+  bottom: 96px;
+  padding: 20px 28px;
+  border: 1px solid rgba(243, 241, 236, 0.12);
+  border-radius: 14px;
+  background: rgba(14, 17, 22, 0.85);
+  font-family: var(--font-mono);
+  font-size: 24px;
+  color: var(--mist-2);
+}
+
+.film .f-word {
+  position: absolute;
+  bottom: 60px;
+  font-size: 330px;
+}
+
+.film .f-word span {
+  color: var(--signal);
+}
+
+.film .f-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.film .f-grain {
+  position: absolute;
+  left: -140px;
+  top: -110px;
+  pointer-events: none;
+  opacity: 0.09;
+  mix-blend-mode: overlay;
+  animation: f-grain 0.6s steps(4) infinite;
+}
+
+.film .f-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: var(--signal);
+  opacity: 0.85;
+  transform-origin: 0 50%;
+  animation: f-progress 64.4s linear both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .film {
+    display: none !important;
+  }
+}
+
+/* Timeline */
+@keyframes f-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes f-leave {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes f-sc {
+  0% {
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  96% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes f-cut {
+  0%,
+  100% {
+    visibility: visible;
+  }
+}
+
+@keyframes f-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes f-fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes f-fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(44px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes f-fadeOutUp {
+  to {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes f-blurIn {
+  from {
+    opacity: 0;
+    filter: blur(28px);
+    transform: scale(1.12);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: none;
+  }
+}
+
+@keyframes f-trackIn {
+  from {
+    opacity: 0;
+    letter-spacing: 0.7em;
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    letter-spacing: 0.12em;
+    filter: blur(0);
+  }
+}
+
+@keyframes f-pop {
+  0% {
+    transform: scale(0);
+  }
+  60% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes f-pop7 {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes f-bloom {
+  from {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes f-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.45;
+  }
+}
+
+@keyframes f-shock {
+  from {
+    transform: scale(0.2);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(9);
+    opacity: 0;
+  }
+}
+
+@keyframes f-dive {
+  to {
+    transform: scale(4);
+    filter: blur(12px);
+    opacity: 0;
+  }
+}
+
+@keyframes f-ping {
+  from {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+@keyframes f-draw {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes f-zoomThru {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(34);
+    opacity: 0;
+  }
+}
+
+@keyframes f-flash {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes f-flare {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0;
+  }
+}
+
+@keyframes f-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes f-ringOn {
+  to {
+    border-color: rgba(243, 241, 236, 0.9);
+    box-shadow: 0 0 30px rgba(243, 241, 236, 0.28), inset 0 0 18px rgba(243, 241, 236, 0.12);
+  }
+}
+
+@keyframes f-collapse {
+  to {
+    transform: scale(0) rotate(120deg);
+    opacity: 0;
+  }
+}
+
+@keyframes f-countUp {
+  from {
+    --f-n: 1;
+  }
+  to {
+    --f-n: 6;
+  }
+}
+
+@keyframes f-countDown {
+  from {
+    --f-m: 9;
+  }
+  to {
+    --f-m: 0;
+  }
+}
+
+@keyframes f-sweep {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: 0% 0;
+  }
+}
+
+@keyframes f-warp {
+  from {
+    transform: translateZ(-1500px);
+    opacity: 0;
+  }
+  18% {
+    opacity: 1;
+  }
+  to {
+    transform: translateZ(560px);
+    opacity: 1;
+  }
+}
+
+@keyframes f-twinkle {
+  0%,
+  100% {
+    opacity: 0.08;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes f-fly {
+  from {
+    opacity: 0;
+    transform: translate3d(calc(var(--x) * 0.2), calc(var(--y) * 0.2), -2600px) rotateY(calc(var(--r) * -3)) rotateX(24deg);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(var(--x), var(--y), 0) rotateY(var(--r)) rotateX(0);
+  }
+}
+
+@keyframes f-converge {
+  from {
+    opacity: 1;
+    transform: translate3d(var(--x), var(--y), 0) rotateY(var(--r));
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(0, 0, -900px) rotateY(0) scale(0.3);
+  }
+}
+
+@keyframes f-tiltIn {
+  from {
+    opacity: 0;
+    transform: perspective(2200px) rotateX(64deg) translateY(340px) scale(0.86);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(2200px) rotateX(9deg) translateY(0) scale(1);
+  }
+}
+
+@keyframes f-drift {
+  from {
+    transform: perspective(2200px) rotateX(0) rotateY(0) scale(1);
+  }
+  to {
+    transform: perspective(2200px) rotateX(-9deg) rotateY(-5deg) scale(1.04);
+  }
+}
+
+@keyframes f-zoomIn {
+  to {
+    transform: scale(2.4) translate(3%, 4%);
+    opacity: 0;
+    filter: blur(6px);
+  }
+}
+
+@keyframes f-pushIn {
+  from {
+    transform: scale(1.02);
+  }
+  to {
+    transform: scale(1.16);
+  }
+}
+
+@keyframes f-pullOut {
+  from {
+    transform: scale(1.45);
+    filter: blur(10px) brightness(0.5);
+  }
+  to {
+    transform: scale(1);
+    filter: blur(0) brightness(1);
+  }
+}
+
+@keyframes f-slowZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes f-scan {
+  0% {
+    transform: translateY(60px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(1010px);
+    opacity: 0;
+  }
+}
+
+@keyframes f-scanTall {
+  0% {
+    transform: translateY(60px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(1860px);
+    opacity: 0;
+  }
+}
+
+@keyframes f-type {
+  to {
+    width: 62ch;
+  }
+}
+
+@keyframes f-typeShort {
+  to {
+    width: 22ch;
+  }
+}
+
+@keyframes f-wipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes f-slam {
+  0% {
+    opacity: 0;
+    transform: scale(1.7);
+  }
+  35% {
+    opacity: 1;
+    transform: scale(0.97);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes f-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.55em);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes f-grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-3%, 2%);
+  }
+  50% {
+    transform: translate(2%, -3%);
+  }
+  75% {
+    transform: translate(-2%, -1%);
+  }
+}
+
+@keyframes f-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes f-beam {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  25% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1.4);
+    opacity: 0;
+  }
+}

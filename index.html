@@ -15,12 +15,22 @@
     <meta name="twitter:card" content="summary_large_image" />
     <script>
       try {
-        if (sessionStorage.getItem("sa_intro")) document.documentElement.classList.add("intro-seen");
+        var root = document.documentElement;
+        var film = /[?&]film\b/.test(location.search) || !sessionStorage.getItem("sa_film");
+        if (film && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          root.classList.add("film-on", "intro-seen");
+          var tall = innerWidth <= innerHeight;
+          root.style.setProperty("--film-scale", Math.min(innerWidth / (tall ? 1080 : 1920), innerHeight / (tall ? 1920 : 1080)));
+          sessionStorage.setItem("sa_film", "1");
+        }
+        if (sessionStorage.getItem("sa_intro")) root.classList.add("intro-seen");
         else sessionStorage.setItem("sa_intro", "1");
       } catch (e) {}
     </script>
   </head>
   <body class="page home">
+    <!--#film-->
+
     <div class="intro" aria-hidden="true" data-intro>
       <div class="intro__brand">
         <svg width="88" height="88" viewBox="0 0 64 64">
