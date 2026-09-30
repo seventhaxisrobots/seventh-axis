@@ -10,17 +10,23 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta property="og:title" content="Safety at Seventh Axis: nothing moves until a person approves it" />
   </head>
-  <body class="page">
+  <body class="page has-hero">
     <!--#header-->
 
     <main id="main">
-      <section class="page-intro wrap" aria-labelledby="page-title">
-        <p class="hero__kicker">Safety</p>
-        <h1 id="page-title">Nothing moves until a person approves it.</h1>
-        <p class="lede">The AI writes the plan. The simulator checks it. Your team decides. That order never changes.</p>
+      <section class="photo-hero photo-hero--bright" data-hero aria-labelledby="page-title">
+        <img class="photo-hero__bg" src="/img/team-cobot-1920.webp" srcset="/img/team-cobot-960.webp 960w, /img/team-cobot-1920.webp 1920w" sizes="100vw" width="1920" height="1080" style="--pos: 50% 35%; --pos-sm: 40% 50%" alt="Two engineers watching a collaborative robot at work" fetchpriority="high" />
+        <div class="wrap photo-hero__content">
+          <div class="photo-hero__copy">
+            <p class="photo-hero__kicker">Safety</p>
+            <h1 id="page-title" class="photo-hero__title">Nothing moves until a person approves it.</h1>
+            <p class="photo-hero__sub">The AI writes the plan. The simulator checks it. Your team decides. That order never changes.</p>
+          </div>
+          <ol class="photo-hero__aside photo-hero__steps"><li><span>01</span>Plan</li><li><span>02</span>Simulate</li><li><span>03</span>Approve</li><li><span>04</span>Export</li></ol>
+        </div>
       </section>
 
-      <section class="section wrap" aria-labelledby="flow-title">
+      <section class="section wrap" aria-labelledby="flow-title" style="padding-top: clamp(64px, 8vw, 112px)">
         <h2 id="flow-title" class="section__title">From words to motion</h2>
         <ol class="flow">
           <li>
@@ -130,6 +136,17 @@
             Found a security or safety issue? Please <a class="textlink" href="mailto:" data-contact-email>email us</a>. We'll reply within two
             working days and credit you if you'd like.
           </p>
+        </div>
+      </section>
+      <section class="pilot pilot--photo" aria-labelledby="join-title">
+        <img class="pilot__bg" src="/img/factory-orange-1920.webp" srcset="/img/factory-orange-960.webp 960w, /img/factory-orange-1920.webp 1920w" sizes="100vw" width="1920" height="1080" style="--pos: 50% 45%" loading="lazy" alt="" />
+        <div class="wrap pilot__inner">
+          <h2 id="join-title">Build it with us.</h2>
+          <p class="pilot__sub">We're choosing a small group of founding pilot factories.</p>
+          <div class="hero__actions" style="justify-content: center; margin-top: 32px">
+            <a class="btn btn--signal" href="/pilot">Apply for the pilot</a>
+            <a class="textlink" href="/book" style="color: var(--paper)">Book a meeting</a>
+          </div>
         </div>
       </section>
     </main>
