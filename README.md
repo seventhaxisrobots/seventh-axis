@@ -11,6 +11,7 @@ The robotics company of Kuala Lumpur. Live at [seventh-axis.vercel.app](https://
 | Path | What it is |
 | --- | --- |
 | `index.html` | Home: Kuala Lumpur at dusk, with the intro animation |
+| `partials/film.html`, `src/home/film.ts`, `src/home/globe.ts` | The 64-second launch film, wide and portrait cuts, with a WebGL Earth. Plays once per visit; add `?film` to the URL to replay it |
 | `product.html`, `industries.html`, `pilot.html` | Product, industries and the pilot waitlist |
 | `studio.html` | The Studio: a live 3D palletising cell you program by typing or speaking |
 | `book.html` | Book a meeting (intro call, Studio walkthrough, line visit) |
@@ -61,4 +62,4 @@ npm run waitlist:export
 
 ## Credits
 
-Photography from [Unsplash](https://unsplash.com) by Mathew Schwartz, Meriç Dağlı, Mohd Jon Ramlan, Irfan Syahmi, Job Savelsberg, Simon Kadula, Homa Appliances, ThisisEngineering and Sufyan. Typefaces: Barlow and Barlow Semi Condensed by Jeremy Tribby (SIL Open Font License).
+Photography from [Unsplash](https://unsplash.com) by Mathew Schwartz, Meriç Dağlı, Mohd Jon Ramlan, Irfan Syahmi, Job Savelsberg, Simon Kadula, Homa Appliances, ThisisEngineering and Sufyan. Earth imagery from [NASA Earth Observatory](https://earthobservatory.nasa.gov) (Blue Marble, Black Marble). Typefaces: Barlow and Barlow Semi Condensed by Jeremy Tribby (SIL Open Font License).
