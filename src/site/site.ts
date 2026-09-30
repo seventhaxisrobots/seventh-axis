@@ -2,6 +2,7 @@ import "../styles/base.css";
 import "../styles/site.css";
 import { SITE } from "./config.ts";
 import { initAskAxis } from "./ask.ts";
+import { initMedia } from "./media.ts";
 import { initConsent } from "./consent.ts";
 
 function initHeader(): void {
@@ -59,4 +60,5 @@ export function initSite(): void {
   fillContactDetails();
   initConsent();
   initAskAxis();
+  initMedia();
 }
