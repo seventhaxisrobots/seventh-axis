@@ -217,6 +217,38 @@ html {
   .site-header__inner {
     height: 68px;
   }
+
+  /* Open menu: an opaque sheet under the header that fills the screen. */
+  .menu-open {
+    overflow: hidden;
+  }
+
+  .menu-open .site-header {
+    background: var(--paper);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 68px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-top: 8px;
+    background: var(--paper);
+  }
+}
+
+.menu-toggle__close,
+.menu-toggle[aria-expanded="true"] .menu-toggle__open {
+  display: none;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle__close {
+  display: block;
 }
 
 @media (min-width: 861px) {
@@ -309,6 +341,20 @@ html {
 
   .site-footer__credits {
     text-align: left;
+  }
+
+  /* Bigger tap targets */
+  .site-footer nav {
+    gap: 0;
+  }
+
+  .site-footer nav h2 {
+    margin-bottom: 4px;
+  }
+
+  .site-footer nav a,
+  .site-footer .linklike {
+    padding: 10px 0;
   }
 }
 
@@ -635,9 +681,61 @@ html {
   }
 }
 
+/* Phones: each table row becomes a small labelled card */
 @media (max-width: 640px) {
-  .prose table {
+  .prose table,
+  .prose tbody,
+  .prose tr,
+  .prose td {
     display: block;
-    overflow-x: auto;
+  }
+
+  .prose thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .prose tr {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--paper-line);
+  }
+
+  .prose td {
+    padding: 0;
+    border: 0;
+  }
+
+  .prose td + td {
+    margin-top: 8px;
+  }
+
+  .prose td:first-child {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .prose td + td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 13px;
+    color: var(--steel);
+  }
+}
+
+/* Touch screens: bigger hit areas for standalone text links, without moving anything */
+@media (pointer: coarse) {
+  .textlink,
+  .why__figures a {
+    position: relative;
+  }
+
+  .textlink::after,
+  .why__figures a::after {
+    content: "";
+    position: absolute;
+    inset: -10px -4px;
   }
 }
