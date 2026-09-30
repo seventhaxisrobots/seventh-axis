@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content" />
+    <title>ROI calculator · Seventh Axis</title>
+    <meta name="description" content="How fast would a robot cell pay for itself on your line? Malaysian wages, levies and the Smart Automation Grant, worked out in the open." />
+    <meta name="theme-color" content="#0E1116" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:title" content="How fast would a robot pay for itself on your line?" />
+    <meta property="og:image" content="/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class="page">
+    <!--#header-->
+
+    <main id="main">
+      <section class="page-intro wrap" aria-labelledby="page-title">
+        <p class="hero__kicker">ROI calculator</p>
+        <h1 id="page-title">What would a robot save your line?</h1>
+        <p class="lede">Malaysian wages, levies and the Smart Automation Grant, worked out in the open. Every assumption is listed below the numbers.</p>
+      </section>
+
+      <section class="roi wrap" aria-label="Calculator">
+        <form class="roi__inputs" data-roi-form>
+          <fieldset class="roi__group">
+            <legend>Task</legend>
+            <div class="roi__choices" role="radiogroup">
+              <label><input type="radio" name="task" value="palletising" /><span>Palletising</span></label>
+              <label><input type="radio" name="task" value="tending" /><span>Machine tending</span></label>
+              <label><input type="radio" name="task" value="picking" /><span>Pick and place</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="roi__group">
+            <legend>Shifts per day</legend>
+            <div class="roi__choices" role="radiogroup">
+              <label><input type="radio" name="shifts" value="1" /><span>1</span></label>
+              <label><input type="radio" name="shifts" value="2" /><span>2</span></label>
+              <label><input type="radio" name="shifts" value="3" /><span>3</span></label>
+            </div>
+          </fieldset>
+
+          <div class="roi__range">
+            <label for="r-people">Operators on this task, per shift</label>
+            <output for="r-people" data-out="people"></output>
+            <input id="r-people" name="people" type="range" min="1" max="6" step="1" />
+          </div>
+
+          <div class="roi__range">
+            <label for="r-wage">Monthly wage per operator</label>
+            <output for="r-wage" data-out="wage"></output>
+            <input id="r-wage" name="wage" type="range" min="1700" max="5000" step="50" />
+            <p class="roi__hint">Minimum wage is RM1,700.</p>
+          </div>
+
+          <div class="roi__range">
+            <label for="r-foreign">Foreign workers on this task</label>
+            <output for="r-foreign" data-out="foreign"></output>
+            <input id="r-foreign" name="foreign" type="range" min="0" max="100" step="10" />
+          </div>
+
+          <div class="roi__range">
+            <label for="r-cell">Robot cell price</label>
+            <output for="r-cell" data-out="cell"></output>
+            <input id="r-cell" name="cell" type="range" min="80000" max="400000" step="5000" />
+            <p class="roi__hint">Arm, gripper, guarding and installation.</p>
+          </div>
+
+          <div class="roi__range">
+            <label for="r-grant">Smart Automation Grant coverage</label>
+            <output for="r-grant" data-out="grant"></output>
+            <input id="r-grant" name="grant" type="range" min="0" max="70" step="5" />
+            <p class="roi__hint">The grant matches up to 70% of eligible costs, subject to approval. Set 0% to leave it out.</p>
+          </div>
+        </form>
+
+        <div class="roi__results" aria-live="polite">
+          <p class="roi__label">Payback</p>
+          <p class="roi__hero" data-payback></p>
+          <dl class="roi__figures">
+            <div><dt>Labour on this task, per year</dt><dd data-fig="labour"></dd></div>
+            <div><dt>Hours the robot takes over, in wages</dt><dd data-fig="freed"></dd></div>
+            <div><dt>Running cost, per year</dt><dd data-fig="running"></dd></div>
+            <div><dt>Your cost after the grant</dt><dd data-fig="upfront"></dd></div>
+            <div class="roi__net"><dt>Net after 3 years</dt><dd data-fig="net"></dd></div>
+          </dl>
+
+          <figure class="roi__chart">
+            <figcaption>Cumulative cash position, month by month</figcaption>
+            <div class="roi__plot" data-chart></div>
+            <details class="roi__table">
+              <summary>Show as a table</summary>
+              <table>
+                <thead><tr><th scope="col">Month</th><th scope="col">Cumulative</th></tr></thead>
+                <tbody data-table></tbody>
+              </table>
+            </details>
+          </figure>
+
+          <button type="button" class="textlink roi__share" data-share>Copy a link to these numbers</button>
+        </div>
+      </section>
+
+      <p class="roi__peek" data-peek aria-hidden="true"></p>
+
+      <section class="roi-notes wrap" aria-labelledby="notes-title">
+        <h2 id="notes-title">How we worked it out</h2>
+        <ul>
+          <li>We count the hours the robot takes over (90% of palletising, 85% of machine tending, 75% of pick and place), not jobs cut. Most sites move those people to inspection, changeovers and running the cell.</li>
+          <li>Local operators cost wage plus employer EPF (13%), SOCSO (1.75%) and EIS (0.2%). Foreign operators cost wage plus employer EPF (2%), SOCSO employment injury (1.25%) and the RM1,850 yearly levy.</li>
+          <li>Running cost is the Seventh Axis subscription (RM1,200 a month per cell) plus 3% of the cell price a year for maintenance.</li>
+          <li>We leave out productivity gains, fewer injuries and night shifts without overtime, so real payback is usually faster.</li>
+          <li>This is an estimate, not a quote or financial advice. A pilot measures it on your line.</li>
+        </ul>
+      </section>
+
+      <section class="pilot" aria-labelledby="pilot-title">
+        <div class="wrap pilot__inner">
+          <h2 id="pilot-title">Check these numbers on your line.</h2>
+          <p class="pilot__sub">Join the founding pilot. We'll send your estimate with our reply.</p>
+          <form class="pilot__form" novalidate data-waitlist>
+            <div class="pilot__fields">
+              <div class="pill-field">
+                <label for="f-name" class="visually-hidden">Full name</label>
+                <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Full name" required maxlength="100" />
+              </div>
+              <div class="pill-field">
+                <label for="f-email" class="visually-hidden">Work email</label>
+                <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="Work email" required maxlength="254" />
+              </div>
+              <div class="pill-field">
+                <label for="f-company" class="visually-hidden">Company (optional)</label>
+                <input id="f-company" name="company" type="text" autocomplete="organization" placeholder="Company" maxlength="120" />
+              </div>
+              <button class="btn btn--signal" type="submit">Request a slot</button>
+            </div>
+            <label class="check pilot__consent" for="f-consent">
+              <input id="f-consent" name="consent" type="checkbox" required />
+              <span>I agree to Seventh Axis contacting me about the pilot, as described in the <a class="textlink" href="/privacy">privacy notice</a>.</span>
+            </label>
+            <input type="hidden" name="task" data-roi-summary />
+            <div class="hp" aria-hidden="true">
+              <label for="f-website">Website</label>
+              <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+            <p class="pilot__errors" id="f-name-error" hidden></p>
+            <p class="pilot__errors" id="f-email-error" hidden></p>
+            <p class="pilot__errors" id="f-consent-error" hidden></p>
+            <p class="form__status pilot__errors" role="status" aria-live="polite" data-status></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!--#footer-->
+
+    <script type="module" src="/src/roi/main.ts"></script>
+  </body>
+</html>

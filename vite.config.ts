@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import type { IncomingMessage } from "node:http";
 
-const PAGES = ["index", "product", "industries", "pilot", "studio", "book", "privacy", "cookies", "terms", "404"];
+const PAGES = ["index", "product", "industries", "roi", "pilot", "studio", "book", "privacy", "cookies", "terms", "404"];
 
 // Serves the Vercel functions in /api during `npm run dev`, so the whole
 // product runs locally without the Vercel CLI.
