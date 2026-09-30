@@ -10,7 +10,7 @@ export const FOUNDER = {
   github: "https://github.com/zishaan1911",
   school: "Universiti Tunku Abdul Rahman (UTAR)",
   summary:
-    "Software and systems engineer and Computer Science (Honours) student at UTAR. Built OpenRover, a simulation-first autonomous rover platform in C++20, and SmolGPT, a 51M-parameter language model trained from scratch. MUBA Hackathon 2026 finalist and Top Coders Malaysia 2026 national finalist.",
+    "Software and systems engineer and Computer Science (Honours) student at UTAR. MUBA Hackathon 2026 finalist and Top Coders Malaysia 2026 national finalist.",
 };
 
 export interface Plan {
