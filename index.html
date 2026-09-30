@@ -18,10 +18,448 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <main id="top">
-      <h1>Seventh Axis</h1>
-      <p><a href="/studio">Open the Studio</a></p>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="nav" data-nav>
+      <div class="nav__inner">
+        <a class="brand" href="#top" aria-label="Seventh Axis, back to top">
+          <svg class="brand__mark" viewBox="0 0 64 64" width="36" height="36" aria-hidden="true">
+            <path d="M13 17 H47 L29 53" fill="none" stroke="#F3F1EC" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="13" cy="17" r="6.5" fill="#0E1116" stroke="#F3F1EC" stroke-width="3.5" />
+            <circle cx="47" cy="17" r="7.5" fill="#FF5A1F" />
+            <circle cx="29" cy="53" r="4.5" fill="#F3F1EC" />
+          </svg>
+          <span class="brand__word">SEVENTH AXIS</span>
+        </a>
+        <nav class="nav__links" aria-label="Primary">
+          <a href="#how">How it works</a>
+          <a href="#use-cases">Use cases</a>
+          <a href="#safety">Safety</a>
+          <a class="pill pill--signal nav__demo" href="/studio">Try the live demo</a>
+          <a class="pill pill--signal nav__pilot" href="#pilot">Pilot</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero__media">
+          <img
+            src="/img/red-cobot-1920.webp"
+            srcset="/img/red-cobot-960.webp 960w, /img/red-cobot-1920.webp 1920w"
+            sizes="(max-width: 860px) 100vw, 62vw"
+            width="1920"
+            height="1280"
+            alt="A red collaborative robot arm poised against a black background"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="hero__inner">
+          <div class="hero__copy">
+            <p class="eyebrow eyebrow--signal">The robotics company of Kuala Lumpur</p>
+            <h1 id="hero-title" class="hero__title">The missing axis is understanding.</h1>
+            <p class="hero__lede">
+              Seventh Axis turns plain instructions in English, Bahasa Malaysia or <span lang="zh">中文</span> into verified robot
+              programs. Describe the task, watch it run in simulation, send it to the arm on your line.
+            </p>
+            <div class="hero__ctas">
+              <a class="btn btn--signal" href="/studio">Try the live demo</a>
+              <a class="btn btn--outline" href="#pilot">Join the pilot waitlist</a>
+            </div>
+            <ul class="hero__facts" role="list">
+              <li>EN · BM · <span lang="zh">中文</span> · Manglish</li>
+              <li>Exports URScript</li>
+              <li>Simulate before it moves</li>
+            </ul>
+          </div>
+
+          <aside class="plan-card" aria-label="Example: an operator instruction and the resulting plan">
+            <p class="label">Operator · Line 3</p>
+            <p class="plan-card__say" aria-live="off">
+              <span data-typer>Susun kotak merah atas palet A, tiga tingkat.</span><span class="caret" aria-hidden="true"></span>
+            </p>
+            <hr />
+            <p class="label label--signal">Seventh Axis · Plan ready</p>
+            <ul class="status-list" role="list">
+              <li>3 red boxes found on conveyor</li>
+              <li>Pallet A · 3 layers</li>
+              <li>Reach OK · 0 collisions</li>
+            </ul>
+            <a class="btn btn--signal btn--block" href="/studio">Run in simulation</a>
+          </aside>
+        </div>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>PICK ● PLACE ● PALLETISE ● SUSUN ● ANGKAT ● 堆叠 ● 搬运 ● TEND ● INSPECT ● SCREW ● SORT ● ASINGKAN ●&nbsp;</span>
+          <span>PICK ● PLACE ● PALLETISE ● SUSUN ● ANGKAT ● 堆叠 ● 搬运 ● TEND ● INSPECT ● SCREW ● SORT ● ASINGKAN ●&nbsp;</span>
+        </div>
+      </div>
+
+      <section class="section section--paper lang" aria-labelledby="lang-title">
+        <div class="container lang__grid">
+          <figure class="lang__photo reveal">
+            <img
+              src="/img/mamak-960.webp"
+              srcset="/img/mamak-960.webp 960w, /img/mamak-1920.webp 1920w"
+              sizes="(max-width: 860px) 100vw, 45vw"
+              width="960"
+              height="640"
+              loading="lazy"
+              alt="Young Malaysians talking at a night street stall in Kuala Lumpur"
+            />
+            <figcaption class="lang__overlay">Robots that speak Manglish.</figcaption>
+          </figure>
+          <div class="lang__copy reveal">
+            <p class="eyebrow eyebrow--deep">01 · Language</p>
+            <h2 id="lang-title" class="h2">Speaks the line's language.</h2>
+            <p class="lede">
+              Your supervisors shouldn't need a robotics course. Say the task the way you'd say it to a new hire, in any language your
+              floor speaks.
+            </p>
+            <ul class="phrases" role="list">
+              <li class="phrase">
+                <span class="tag">English</span>
+                <span lang="en">Pick the red boxes off the conveyor and stack them three high on pallet A.</span>
+              </li>
+              <li class="phrase">
+                <span class="tag">BM</span>
+                <span lang="ms">Ambil kotak merah dari konveyor, susun tiga tingkat atas palet A.</span>
+              </li>
+              <li class="phrase">
+                <span class="tag">中文</span>
+                <span lang="zh">把传送带上的红色箱子搬到A号托盘，叠三层。</span>
+              </li>
+              <li class="phrase phrase--ink">
+                <span class="tag">Manglish</span>
+                <span>Boss, red boxes go pallet A, three layer can?</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--ink why" aria-labelledby="why-title">
+        <div class="why__strip">
+          <img
+            src="/img/workshop-1920.webp"
+            srcset="/img/workshop-960.webp 960w, /img/workshop-1920.webp 1920w"
+            sizes="100vw"
+            width="1920"
+            height="1280"
+            loading="lazy"
+            alt="A machinist at work in a metal workshop"
+          />
+        </div>
+        <div class="container">
+          <div class="split reveal">
+            <div>
+              <p class="eyebrow eyebrow--signal">02 · Why now</p>
+              <h2 id="why-title" class="h2">Robots got cheaper. Programming them didn't.</h2>
+            </div>
+            <p class="lede">
+              Arms are affordable and grants cover most of the cost. The bottleneck is the specialist who has to program every new task.
+            </p>
+          </div>
+          <ul class="stats" role="list">
+            <li class="stat reveal">
+              <p class="stat__num">RM1,700</p>
+              <p class="stat__text">National minimum wage, compulsory for every employer since 1 August 2025.</p>
+              <a
+                class="source"
+                href="https://www.humanresourcesonline.net/all-employers-in-malaysia-must-comply-with-rm1-700-minimum-wage-from-1-august-2025"
+                target="_blank"
+                rel="noopener"
+                >Human Resources Online<span class="visually-hidden"> (opens in a new tab)</span></a
+              >
+            </li>
+            <li class="stat reveal">
+              <p class="stat__num">RM1,850</p>
+              <p class="stat__text">Yearly levy per foreign manufacturing worker in the Peninsula, with a multi-tier levy on the way.</p>
+              <a
+                class="source"
+                href="https://www.freemalaysiatoday.com/category/nation/2025/07/31/multi-tier-levy-for-foreign-workers-delayed-to-2026"
+                target="_blank"
+                rel="noopener"
+                >FMT<span class="visually-hidden"> (opens in a new tab)</span></a
+              >
+            </li>
+            <li class="stat reveal">
+              <p class="stat__num">70%</p>
+              <p class="stat__text">Of automation costs the Smart Automation Grant can match, up to RM1 million per company.</p>
+              <a class="source" href="https://www.crowe.com/my/insights/the-madani-smart-automation-grant" target="_blank" rel="noopener"
+                >Crowe Malaysia<span class="visually-hidden"> (opens in a new tab)</span></a
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section section--paper how" id="how" aria-labelledby="how-title">
+        <div class="container">
+          <div class="reveal">
+            <p class="eyebrow eyebrow--deep">03 · How it works</p>
+            <h2 id="how-title" class="h2">Say it. See it. Ship it.</h2>
+          </div>
+          <ol class="steps" role="list">
+            <li class="step reveal">
+              <div class="tile tile--white" aria-hidden="true">
+                <span class="label label--steel">You</span>
+                <p class="bubble">Load the CNC, take finished parts to the tray.</p>
+              </div>
+              <h3 class="step__title"><span class="step__num">01</span> Say it</h3>
+              <p>Type or speak. Seventh Axis reads the cell, finds the parts and asks when something is unclear.</p>
+            </li>
+            <li class="step reveal">
+              <div class="tile tile--ink" aria-hidden="true">
+                <svg class="twin-svg" viewBox="0 0 320 180" preserveAspectRatio="xMidYMid meet">
+                  <g stroke="rgba(243,241,236,0.08)" stroke-width="1">
+                    <path d="M0 40H320M0 80H320M0 120H320M0 160H320" />
+                    <path d="M40 0V180M80 0V180M120 0V180M160 0V180M200 0V180M240 0V180M280 0V180" />
+                  </g>
+                  <rect x="44" y="120" width="30" height="30" rx="3" fill="#FF5A1F" />
+                  <path d="M59 116 Q160 -10 256 96" fill="none" stroke="#2EC4B6" stroke-width="2.5" stroke-dasharray="6 6" stroke-linecap="round" />
+                  <circle cx="256" cy="96" r="4" fill="#2EC4B6" />
+                  <g fill="none" stroke="#F3F1EC" stroke-width="2">
+                    <rect x="240" y="102" width="32" height="16" rx="2" />
+                    <rect x="240" y="118" width="32" height="16" rx="2" />
+                    <rect x="240" y="134" width="32" height="16" rx="2" />
+                  </g>
+                </svg>
+                <span class="label label--twin tile__label">Digital twin · Reach OK</span>
+              </div>
+              <h3 class="step__title"><span class="step__num">02</span> See it</h3>
+              <p>Every plan runs in a digital twin first. Reach, collisions and cycle time are checked before anything moves.</p>
+            </li>
+            <li class="step reveal">
+              <div class="tile tile--graphite">
+                <pre class="code"><code>def load_cnc():
+  movej(home, a=1.2, v=0.8)
+  movel(p[0.42,-0.30,0.18,0,3.14,0])
+  set_digital_out(0, <b>True</b>)
+end</code></pre>
+              </div>
+              <h3 class="step__title"><span class="step__num">03</span> Ship it</h3>
+              <p>Approve it and export controller code. URScript for Universal Robots today, more controllers on the roadmap.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="manifesto" aria-labelledby="manifesto-title">
+        <img
+          class="manifesto__bg"
+          src="/img/kl-dusk-1920.webp"
+          srcset="/img/kl-dusk-960.webp 960w, /img/kl-dusk-1920.webp 1920w"
+          sizes="100vw"
+          width="1920"
+          height="1080"
+          loading="lazy"
+          alt="Kuala Lumpur skyline at dusk with KL Tower"
+        />
+        <div class="container manifesto__inner reveal">
+          <p class="label label--signal manifesto__home">HOME = p[3.1390, 101.6869, 0, 0, 0, 0]</p>
+          <h2 id="manifesto-title" class="manifesto__title">
+            Six axes are standard.
+            <span>The seventh is Malaysian.</span>
+          </h2>
+          <p class="manifesto__text">Built in Kuala Lumpur for the factories of Penang, Johor, Selangor and everywhere in between.</p>
+        </div>
+      </section>
+
+      <section class="section section--paper" id="use-cases" aria-labelledby="uses-title">
+        <div class="container">
+          <div class="split reveal">
+            <div>
+              <p class="eyebrow eyebrow--deep">04 · Use cases</p>
+              <h2 id="uses-title" class="h2">Built for Malaysian lines.</h2>
+            </div>
+            <p class="lede">High mix, short runs, tasks that change every week. The work robots were too hard to reprogram for.</p>
+          </div>
+          <ul class="uses" role="list">
+            <li class="use reveal">
+              <img
+                src="/img/line-960.webp"
+                srcset="/img/line-960.webp 960w, /img/line-1920.webp 1920w"
+                sizes="(max-width: 600px) 100vw, (max-width: 1100px) 50vw, 25vw"
+                width="960"
+                height="640"
+                loading="lazy"
+                alt="An automated electronics production line"
+              />
+              <h3>E&amp;E and appliances</h3>
+              <p>Tray loading, screwdriving and test-station tending.</p>
+            </li>
+            <li class="use reveal">
+              <img
+                src="/img/factory-orange-960.webp"
+                srcset="/img/factory-orange-960.webp 960w, /img/factory-orange-1920.webp 1920w"
+                sizes="(max-width: 600px) 100vw, (max-width: 1100px) 50vw, 25vw"
+                width="960"
+                height="640"
+                loading="lazy"
+                alt="Rows of orange industrial robot arms on a factory floor"
+              />
+              <h3>Palletising</h3>
+              <p>Mixed-SKU pallets from a sentence, not a pattern editor.</p>
+            </li>
+            <li class="use reveal">
+              <img
+                src="/img/team-cobot-960.webp"
+                srcset="/img/team-cobot-960.webp 960w, /img/team-cobot-1920.webp 1920w"
+                sizes="(max-width: 600px) 100vw, (max-width: 1100px) 50vw, 25vw"
+                width="960"
+                height="640"
+                loading="lazy"
+                alt="Two engineers working alongside a collaborative robot"
+              />
+              <h3>Small-batch &amp; labs</h3>
+              <p>Change the task before lunch, without an integrator visit.</p>
+            </li>
+            <li class="use reveal">
+              <img
+                src="/img/arm-studio-960.webp"
+                srcset="/img/arm-studio-960.webp 960w, /img/arm-studio-1920.webp 1920w"
+                sizes="(max-width: 600px) 100vw, (max-width: 1100px) 50vw, 25vw"
+                width="960"
+                height="540"
+                loading="lazy"
+                alt="An orange six-axis robot arm on a light background"
+              />
+              <h3>Machine tending</h3>
+              <p>CNC, moulding and presses, loaded around the clock.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section section--ink" id="safety" aria-labelledby="safety-title">
+        <div class="container safety">
+          <img
+            class="safety__photo reveal"
+            src="/img/operator-900.webp"
+            width="900"
+            height="900"
+            loading="lazy"
+            alt="A woman engineer in a hijab, hard hat and orange coveralls"
+          />
+          <div class="reveal">
+            <p class="eyebrow eyebrow--signal">05 · Safety</p>
+            <h2 id="safety-title" class="h2">Nothing moves until a human says so.</h2>
+            <ol class="rules" role="list">
+              <li><span class="rules__num">01</span>Every program runs in the digital twin first.</li>
+              <li><span class="rules__num">02</span>Speed and zone limits you set are written into the exported code.</li>
+              <li><span class="rules__num">03</span>An operator approves each change, and every change is logged.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="pilot" id="pilot" aria-labelledby="pilot-title">
+        <div class="container pilot__grid">
+          <div class="pilot__copy reveal">
+            <p class="eyebrow">06 · Founding pilot</p>
+            <h2 id="pilot-title" class="pilot__title">Put the seventh axis on your line.</h2>
+            <p class="lede">
+              We're building Seventh Axis with a small group of Malaysian factories. Tell us about your line and we'll be in touch about a
+              pilot.
+            </p>
+          </div>
+
+          <div class="form-card reveal" data-form-card>
+            <form class="form" novalidate data-waitlist>
+              <div class="field">
+                <label for="f-name">Full name</label>
+                <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="120" />
+                <p class="field__error" id="f-name-error" hidden></p>
+              </div>
+              <div class="field">
+                <label for="f-email">Work email</label>
+                <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="200" />
+                <p class="field__error" id="f-email-error" hidden></p>
+              </div>
+              <div class="field">
+                <label for="f-company">Company</label>
+                <input id="f-company" name="company" type="text" autocomplete="organization" maxlength="160" />
+              </div>
+              <div class="field">
+                <label for="f-industry">Industry</label>
+                <select id="f-industry" name="industry">
+                  <option value="ee">E&amp;E / semiconductors</option>
+                  <option value="fnb">Food &amp; beverage</option>
+                  <option value="rubber">Rubber &amp; gloves</option>
+                  <option value="furniture">Furniture &amp; wood</option>
+                  <option value="logistics">Logistics</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-robots">Robots on site</label>
+                <select id="f-robots" name="robots">
+                  <option value="none">None yet</option>
+                  <option value="1-5">1–5</option>
+                  <option value="6+">6 or more</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-state">State</label>
+                <select id="f-state" name="state">
+                  <option>Selangor</option>
+                  <option>Kuala Lumpur</option>
+                  <option>Penang</option>
+                  <option>Johor</option>
+                  <option>Perak</option>
+                  <option>Negeri Sembilan</option>
+                  <option>Melaka</option>
+                  <option>Kedah</option>
+                  <option>Pahang</option>
+                  <option>Sabah</option>
+                  <option>Sarawak</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field field--wide">
+                <label for="f-task">What should the robot do?</label>
+                <textarea
+                  id="f-task"
+                  name="task"
+                  rows="4"
+                  maxlength="600"
+                  placeholder="e.g. Pack gloves into cartons and palletise them at the end of line 2"
+                ></textarea>
+              </div>
+              <div class="hp" aria-hidden="true">
+                <label for="f-website">Website</label>
+                <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+              <div class="field--wide">
+                <button class="btn btn--signal btn--block" type="submit">Request a pilot slot</button>
+                <p class="form__status" role="status" aria-live="polite" data-status></p>
+                <p class="form__small">We only use your details to talk to you about the pilot.</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="footer__word" aria-hidden="true">SEVENTH AXIS</p>
+        <div class="footer__row">
+          <div>
+            <p class="footer__tag">Made in Malaysia. Moves everywhere.</p>
+            <p class="label label--steel">Kuala Lumpur · 3.1390° N, 101.6869° E · © 2026</p>
+          </div>
+          <p class="footer__credits">
+            Photography via <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>: Mathew Schwartz, Meriç Dağlı, Mohd Jon
+            Ramlan, Irfan Syahmi, Muhammad Faiz Zulkeflee, Job Savelsberg, Simon Kadula, Homa Appliances, ThisisEngineering, Sufyan.
+          </p>
+        </div>
+      </div>
+    </footer>
+
     <script type="module" src="/src/landing/main.ts"></script>
   </body>
 </html>
