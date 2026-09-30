@@ -99,6 +99,9 @@ const about = {
     "@type": "Person",
     name: FOUNDER.name,
     jobTitle: FOUNDER.role,
+    image: `${SITE_URL}${FOUNDER.image}`,
+    sameAs: [FOUNDER.linkedin, FOUNDER.github],
+    alumniOf: { "@type": "CollegeOrUniversity", name: FOUNDER.school },
     worksFor: { "@id": `${SITE_URL}/#organization` },
   },
 };
