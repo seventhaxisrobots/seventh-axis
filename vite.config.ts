@@ -1,6 +1,9 @@
 import { defineConfig, loadEnv, type Plugin } from "vite";
+import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import type { IncomingMessage } from "node:http";
+
+const PAGES = ["index", "studio", "book", "privacy", "cookies", "terms", "404"];
 
 // Serves the Vercel functions in /api during `npm run dev`, so the whole
 // product runs locally without the Vercel CLI.
@@ -47,6 +50,20 @@ function localApi(): Plugin {
   };
 }
 
+// Lets pages share markup: <!--#header--> pulls in partials/header.html.
+function partials(): Plugin {
+  return {
+    name: "html-partials",
+    transformIndexHtml: {
+      order: "pre",
+      handler: (html) =>
+        html.replace(/<!--#([a-z-]+)-->/g, (_, name: string) =>
+          readFileSync(resolve(process.cwd(), "partials", `${name}.html`), "utf8"),
+        ),
+    },
+  };
+}
+
 function readBody(req: IncomingMessage): Promise<Buffer> {
   return new Promise((ok, fail) => {
     const chunks: Buffer[] = [];
@@ -61,13 +78,12 @@ export default defineConfig(({ mode }) => {
   Object.assign(process.env, loadEnv(mode, process.cwd(), ""));
 
   return {
-    plugins: [localApi()],
+    plugins: [partials(), localApi()],
     build: {
+      // three.js makes the Studio bundle large; it loads only on /studio.
+      chunkSizeWarningLimit: 800,
       rollupOptions: {
-        input: {
-          main: resolve(process.cwd(), "index.html"),
-          studio: resolve(process.cwd(), "studio.html"),
-        },
+        input: Object.fromEntries(PAGES.map((p) => [p, resolve(process.cwd(), `${p}.html`)])),
       },
     },
   };

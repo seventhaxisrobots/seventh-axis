@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book a meeting · Seventh Axis</title>
+    <meta name="description" content="Book an intro call, a Studio walkthrough or a visit to your line with the Seventh Axis team in Kuala Lumpur." />
+    <meta name="theme-color" content="#F3F1EC" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:title" content="Book a meeting with Seventh Axis" />
+    <meta property="og:image" content="/og.png" />
+  </head>
+  <body class="page">
+    <!--#header-->
+
+    <main id="main" class="wrap">
+      <form class="book" novalidate data-booking>
+        <div class="book__main">
+          <header class="book__head">
+            <h1>Book a meeting</h1>
+            <p>Malaysia time (GMT+8). We confirm by email within one working day.</p>
+            <p class="book__instant" data-instant hidden>
+              Prefer live availability? <a class="textlink" data-instant-link href="#" target="_blank" rel="noopener">Open our calendar</a>
+            </p>
+          </header>
+
+          <fieldset class="book__group">
+            <legend>Format</legend>
+            <div class="rows" data-types></div>
+          </fieldset>
+
+          <fieldset class="book__group">
+            <legend>Day</legend>
+            <div class="chips" data-days></div>
+          </fieldset>
+
+          <fieldset class="book__group">
+            <legend>Time</legend>
+            <div class="chips" data-times></div>
+          </fieldset>
+
+          <fieldset class="book__group">
+            <legend>Your details</legend>
+            <div class="form">
+              <div class="field">
+                <label for="b-name">Full name</label>
+                <input id="b-name" name="name" type="text" autocomplete="name" required maxlength="100" />
+                <p class="field__error" id="b-name-error" hidden></p>
+              </div>
+              <div class="field">
+                <label for="b-email">Work email</label>
+                <input id="b-email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="254" />
+                <p class="field__error" id="b-email-error" hidden></p>
+              </div>
+              <div class="field">
+                <label for="b-company">Company <span class="optional">(optional)</span></label>
+                <input id="b-company" name="company" type="text" autocomplete="organization" maxlength="120" />
+              </div>
+              <div class="field">
+                <label for="b-phone">Phone or WhatsApp <span class="optional">(optional)</span></label>
+                <input id="b-phone" name="phone" type="tel" autocomplete="tel" maxlength="20" />
+              </div>
+              <div class="field field--wide">
+                <label for="b-notes">Anything we should know? <span class="optional">(optional)</span></label>
+                <textarea id="b-notes" name="notes" rows="3" maxlength="800"></textarea>
+              </div>
+              <div class="hp" aria-hidden="true">
+                <label for="b-website">Website</label>
+                <input id="b-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <aside class="book__card" aria-label="Your meeting">
+          <p class="book__label">Your meeting</p>
+          <p class="book__title" data-summary-title>Intro call</p>
+          <p class="book__when" data-summary-when>Choose a day and a time</p>
+          <p class="book__desc" data-summary-desc></p>
+          <label class="check" for="b-consent">
+            <input id="b-consent" name="consent" type="checkbox" required />
+            <span>I agree to Seventh Axis using these details to arrange this meeting, as described in the <a class="textlink" href="/privacy">privacy notice</a>.</span>
+          </label>
+          <p class="field__error" id="b-consent-error" hidden></p>
+          <button class="btn btn--primary btn--block" type="submit">Request this time</button>
+          <p class="form__status" role="status" aria-live="polite" data-status></p>
+          <p class="book__fallback">Can't find a time? Email <a class="textlink" href="mailto:" data-contact-email="show"></a></p>
+        </aside>
+      </form>
+    </main>
+
+    <!--#footer-->
+
+    <script type="module" src="/src/book/main.ts"></script>
+  </body>
+</html>

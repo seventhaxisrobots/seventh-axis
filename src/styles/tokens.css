@@ -1,3 +1,10 @@
+@import "@fontsource/barlow/400.css";
+@import "@fontsource/barlow/500.css";
+@import "@fontsource/barlow/600.css";
+@import "@fontsource/barlow/400-italic.css";
+@import "@fontsource/barlow-semi-condensed/600.css";
+@import "@fontsource/barlow-semi-condensed/700.css";
+
 :root {
   /* Colour */
   --ink: #0e1116;
@@ -7,7 +14,7 @@
   --line-2: #2e3643;
   --paper: #f3f1ec;
   --paper-2: #ffffff;
-  --paper-line: #e4e0d7;
+  --paper-line: #dcd8ce;
   --steel: #5b6472;
   --steel-light: #9aa3af;
   --mist: #c9c6bf;
@@ -18,16 +25,15 @@
   --twin: #2ec4b6;
 
   /* Type */
-  --font-sans: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
-  --display-stretch: 125%;
+  --font-sans: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Barlow Semi Condensed", "Barlow", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Menlo, Consolas, monospace;
 
   /* Shape */
-  --radius-s: 10px;
-  --radius-m: 16px;
-  --radius-pill: 999px;
+  --radius: 4px;
+  --radius-m: 8px;
 
   /* Layout */
-  --gutter: clamp(16px, 5.5vw, 80px);
+  --gutter: clamp(16px, 5vw, 72px);
   --max: 1280px;
 }

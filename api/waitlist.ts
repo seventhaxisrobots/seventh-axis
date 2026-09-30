@@ -16,6 +16,8 @@ export interface WaitlistEntry {
   state: string;
   task: string;
   created_at: string;
+  /** Version of the privacy notice the person agreed to. */
+  consent: string;
 }
 
 export async function POST(req: Request): Promise<Response> {
@@ -39,9 +41,12 @@ export async function POST(req: Request): Promise<Response> {
     state: text("state", 40),
     task: text("task", 600),
     created_at: new Date().toISOString(),
+    consent: "privacy-notice-2026-09-30",
   };
 
   if (!EMAIL.test(entry.email)) return json({ ok: false, error: "invalid_email" }, 400);
+  // PDPA: we only store details the person has agreed we can use.
+  if (body.consent !== true) return json({ ok: false, error: "consent_required" }, 400);
   if (!entry.name || (entry.industry && !INDUSTRIES.has(entry.industry)) || (entry.robots && !ROBOTS.has(entry.robots))) {
     return json({ ok: false, error: "invalid_input" }, 400);
   }

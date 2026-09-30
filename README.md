@@ -5,3 +5,59 @@
 Seventh Axis turns plain instructions in English, Bahasa Malaysia or 中文 into verified robot programs. Describe the task, watch it run in a digital twin, then export controller code for the arm on your line.
 
 The robotics company of Kuala Lumpur.
+
+## What's here
+
+| Path | What it is |
+| --- | --- |
+| `index.html` | Landing page with the pilot waitlist |
+| `studio.html` | The Studio: a live 3D palletising cell you program by typing or speaking |
+| `book.html` | Book a meeting (intro call, Studio walkthrough, line visit) |
+| `privacy.html`, `cookies.html`, `terms.html` | Privacy notice (English and BM, PDPA 2010), cookie policy, terms of use |
+| `api/plan.ts` | Turns an instruction and the cell state into a structured plan using Gemini |
+| `api/waitlist.ts`, `api/book.ts` | Store pilot sign-ups and meeting requests in Upstash Redis |
+| `src/studio/` | Kinematics, motion planning with reach and clearance checks, URScript export, offline planner |
+| `src/site/` | Shared header/footer behaviour, cookie consent, form handling |
+| `partials/` | Header and footer markup shared by every page |
+
+## Run it locally
+
+```bash
+npm install
+cp .env.example .env.local   # add your GEMINI_API_KEY
+npm run dev
+```
+
+Without a Gemini key the Studio falls back to its built-in offline planner, which understands the common "move these boxes there" instructions in all three languages. Without Redis, sign-ups and meeting requests are written to `.waitlist-dev.jsonl` and `.bookings-dev.jsonl`.
+
+```bash
+npm test          # kinematics, planning and motion checks
+npm run build     # type-check and production build
+```
+
+## Deploy to Vercel
+
+1. Import this repository at [vercel.com/new](https://vercel.com/new). The defaults are right: Vite, `npm run build`, output `dist`.
+2. In **Settings → Environment Variables** add `GEMINI_API_KEY` from [Google AI Studio](https://aistudio.google.com/apikey).
+3. In **Storage**, add **Upstash for Redis** from the Marketplace and connect it to the project. It sets `KV_REST_API_URL` and `KV_REST_API_TOKEN` for you.
+4. Optional: enable **Web Analytics** in the project and set `VITE_ANALYTICS=vercel`. It only loads for visitors who accept analytics.
+5. Optional: set `VITE_BOOKING_URL` to a Cal.com or Calendly link to offer instant scheduling on `/book`.
+6. Redeploy.
+
+Export sign-ups and meeting requests to CSV at any time:
+
+```bash
+npx vercel env pull .env.local
+npm run waitlist:export
+```
+
+## Before a public launch
+
+- [ ] Replace the placeholder contact email and company details in `src/site/config.ts`.
+- [ ] Have the privacy notice and terms reviewed by a Malaysian lawyer, and register the company with SSM.
+- [ ] Move the Gemini key to a paid tier if you don't want Google to use Studio prompts to improve its models.
+- [ ] Check the Petronas Twin Towers photo (`kl-night`) isn't used in paid advertising without permission from KLCC.
+
+## Credits
+
+Photography from [Unsplash](https://unsplash.com) by Mathew Schwartz, Meriç Dağlı, Mohd Jon Ramlan, Irfan Syahmi, Muhammad Faiz Zulkeflee, Job Savelsberg, Simon Kadula, Homa Appliances, ThisisEngineering and Sufyan. Typefaces: Barlow and Barlow Semi Condensed by Jeremy Tribby (SIL Open Font License).

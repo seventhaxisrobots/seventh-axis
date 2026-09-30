@@ -1,7 +1,9 @@
 // Gemini generateContent over REST with structured JSON output.
 
 const ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models";
-const DEFAULT_MODELS = ["gemini-3.8-flash", "gemini-flash-latest"];
+const DEFAULT_MODELS = ["gemini-3.8-flash", "gemini-flash-latest", "gemini-flash-lite-latest"];
+// Unknown model, quota exhausted or overloaded: another model may still answer.
+const TRY_NEXT_MODEL = new Set([404, 429, 500, 503]);
 
 export function geminiConfigured(): boolean {
   return Boolean(process.env.GEMINI_API_KEY);
@@ -61,8 +63,8 @@ export async function generateJson({ system, prompt, schema, timeoutMs }: Genera
       }
 
       lastError = new Error(`Gemini ${model} responded ${res.status}: ${body.error?.message ?? "unknown error"}`);
-      if (res.status === 404) break; // unknown model: try the next one
-      if (res.status !== 400) throw lastError; // auth, quota and server errors won't improve on retry
+      if (TRY_NEXT_MODEL.has(res.status)) break;
+      if (res.status !== 400) throw lastError; // bad key or permissions won't improve on retry
     }
   }
   throw lastError;
