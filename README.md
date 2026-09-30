@@ -59,7 +59,7 @@ npm run waitlist:export
 - [ ] Have the privacy notice and terms reviewed by a Malaysian lawyer, and register the company with SSM.
 - [ ] Move the Gemini key to a paid tier if you don't want Google to use Studio prompts to improve its models.
 - [ ] Verify the site in Google Search Console and Bing Webmaster Tools, then submit https://seventh-axis.vercel.app/sitemap.xml.
-- [ ] Check the cell price range and grant wording in `seo.ts` (FAQ) and `src/roi/model.ts` (subscription price is a placeholder).
+- [ ] Check pricing, the FAQ and the founder bio in `src/shared/knowledge.ts` and `about.html`, and the subscription price in `src/roi/model.ts` (all placeholders). Add a real founder photo.
 - [ ] Check the Petronas Twin Towers photo (`kl-night`) isn't used in paid advertising without permission from KLCC.
 
 ## Credits
