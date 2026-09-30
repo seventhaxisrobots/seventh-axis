@@ -134,7 +134,9 @@
   margin: 64px 0 0;
 }
 
-.showcase img {
+.showcase img,
+.showcase video {
+  display: block;
   width: 100%;
   height: auto;
   border-radius: 14px;
@@ -613,7 +615,8 @@
   }
 
   /* Show the 3D cell rather than a tiny full screenshot */
-  .showcase img {
+  .showcase img,
+  .showcase video {
     aspect-ratio: 1;
     object-fit: cover;
     object-position: 0 50%;
