@@ -1,7 +1,8 @@
 import { defineConfig, loadEnv, type Plugin } from "vite";
 import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { basename, resolve } from "node:path";
 import type { IncomingMessage } from "node:http";
+import { PAGE_SEO, SITE_NAME, SITE_URL } from "./seo.ts";
 
 const PAGES = ["index", "product", "industries", "roi", "pilot", "studio", "book", "privacy", "cookies", "terms", "404"];
 
@@ -64,6 +65,64 @@ function partials(): Plugin {
   };
 }
 
+const attr = (v: string) => v.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+
+// Canonical URLs, complete share tags and structured data for each page, plus the sitemap.
+function seo(): Plugin {
+  return {
+    name: "seo",
+    transformIndexHtml(html, ctx) {
+      const page = PAGE_SEO[basename(ctx.filename, ".html")];
+      if (!page) return html;
+      const pick = (re: RegExp) => html.match(re)?.[1];
+      const title = pick(/<title>([^<]*)<\/title>/) ?? SITE_NAME;
+      const description = pick(/<meta name="description" content="([^"]*)"/) ?? "";
+      const ogTitle = pick(/<meta property="og:title" content="([^"]*)"/) ?? title;
+      const ogDescription = pick(/<meta property="og:description" content="([^"]*)"/) ?? description;
+      const url = `${SITE_URL}${page.path}`;
+      const image = `${SITE_URL}${page.image ?? "/og.png"}`;
+
+      const tags = [
+        page.noindex ? `<meta name="robots" content="noindex" />` : `<link rel="canonical" href="${url}" />`,
+        `<meta property="og:type" content="website" />`,
+        `<meta property="og:site_name" content="${SITE_NAME}" />`,
+        `<meta property="og:locale" content="en_MY" />`,
+        `<meta property="og:url" content="${url}" />`,
+        `<meta property="og:title" content="${ogTitle}" />`,
+        `<meta property="og:description" content="${ogDescription}" />`,
+        `<meta property="og:image" content="${image}" />`,
+        `<meta property="og:image:width" content="1200" />`,
+        `<meta property="og:image:height" content="630" />`,
+        `<meta property="og:image:alt" content="${attr(ogTitle)}" />`,
+        `<meta name="twitter:card" content="summary_large_image" />`,
+        `<meta name="twitter:title" content="${ogTitle}" />`,
+        `<meta name="twitter:description" content="${ogDescription}" />`,
+        `<meta name="twitter:image" content="${image}" />`,
+        ...(page.jsonLd ?? []).map(
+          (data) => `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, "\u003c")}</script>`,
+        ),
+      ];
+      return html
+        .replace(/\s*<meta (?:property="og:[^"]*"|name="twitter:[^"]*")[^>]*>/g, "")
+        .replace("</head>", `    ${tags.join("\n    ")}\n  </head>`);
+    },
+    generateBundle() {
+      const today = new Date().toISOString().slice(0, 10);
+      const urls = Object.values(PAGE_SEO)
+        .filter((p) => !p.noindex)
+        .map(
+          (p) =>
+            `  <url><loc>${SITE_URL}${p.path}</loc><lastmod>${today}</lastmod><priority>${(p.priority ?? 0.5).toFixed(1)}</priority></url>`,
+        );
+      this.emitFile({
+        type: "asset",
+        fileName: "sitemap.xml",
+        source: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>\n`,
+      });
+    },
+  };
+}
+
 function readBody(req: IncomingMessage): Promise<Buffer> {
   return new Promise((ok, fail) => {
     const chunks: Buffer[] = [];
@@ -78,7 +137,7 @@ export default defineConfig(({ mode }) => {
   Object.assign(process.env, loadEnv(mode, process.cwd(), ""));
 
   return {
-    plugins: [partials(), localApi()],
+    plugins: [partials(), seo(), localApi()],
     build: {
       // three.js makes the Studio bundle large; it loads only on /studio.
       chunkSizeWarningLimit: 800,
