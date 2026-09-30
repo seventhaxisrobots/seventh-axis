@@ -40,8 +40,16 @@ function fillContactDetails(): void {
   document.querySelectorAll<HTMLElement>("[data-legal-entity]").forEach((el) => (el.textContent = SITE.legalEntity));
 }
 
+function markCurrentPage(): void {
+  const path = location.pathname.replace(/\.html$/, "").replace(/\/$/, "") || "/";
+  document.querySelectorAll<HTMLAnchorElement>(".site-nav a, .mobile-menu a").forEach((a) => {
+    if (a.getAttribute("href") === path) a.setAttribute("aria-current", "page");
+  });
+}
+
 export function initSite(): void {
   initHeader();
+  markCurrentPage();
   fillContactDetails();
   initConsent();
 }
