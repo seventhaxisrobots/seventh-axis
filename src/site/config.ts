@@ -4,7 +4,7 @@
 export const SITE = {
   name: "Seventh Axis",
   // TODO: replace with a monitored inbox (the .example domain can't receive mail).
-  contactEmail: "hello@seventhaxis.example",
+  contactEmail: "iamzishaan@gmail.com",
   // TODO: fill in once the company is registered with SSM.
   legalEntity: "Seventh Axis (company registration pending)",
   city: "Kuala Lumpur, Malaysia",
