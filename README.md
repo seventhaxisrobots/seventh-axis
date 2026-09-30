@@ -60,4 +60,4 @@ npm run waitlist:export
 
 ## Credits
 
-Photography from [Unsplash](https://unsplash.com) by Mathew Schwartz, Meriç Dağlı, Mohd Jon Ramlan, Irfan Syahmi, Muhammad Faiz Zulkeflee, Job Savelsberg, Simon Kadula, Homa Appliances, ThisisEngineering and Sufyan. Typefaces: Barlow and Barlow Semi Condensed by Jeremy Tribby (SIL Open Font License).
+Photography from [Unsplash](https://unsplash.com) by Mathew Schwartz, Meriç Dağlı, Mohd Jon Ramlan, Irfan Syahmi, Job Savelsberg, Simon Kadula, Homa Appliances, ThisisEngineering and Sufyan. Typefaces: Barlow and Barlow Semi Condensed by Jeremy Tribby (SIL Open Font License).

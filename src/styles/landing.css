@@ -339,6 +339,7 @@
   height: auto;
   aspect-ratio: 1;
   object-fit: cover;
+  object-position: 55% 60%;
 }
 
 .safety h2 {
