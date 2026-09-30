@@ -513,6 +513,13 @@ html {
   }
 }
 
+/* While someone types on a phone, the banner would sit on top of the field above the keyboard. */
+@media (max-width: 860px) {
+  body:has(input:not([type="checkbox"], [type="radio"]):focus, textarea:focus, select:focus) .consent {
+    display: none;
+  }
+}
+
 /* Content pages: legal text, booking */
 .page {
   background: var(--paper);
