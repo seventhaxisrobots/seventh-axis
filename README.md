@@ -13,7 +13,7 @@ The robotics company of Kuala Lumpur. Live at [seventh-axis.vercel.app](https://
 | `index.html` | Home: Kuala Lumpur at dusk, with the intro animation |
 | `partials/film.html`, `src/home/film.ts`, `src/home/globe.ts` | The 64-second launch film, wide and portrait cuts, with a WebGL Earth. Plays once per visit; add `?film` to the URL to replay it |
 | `product.html`, `industries.html`, `pilot.html` | Product, industries and the pilot waitlist |
-| `studio.html` | The Studio: a live 3D palletising cell you program by typing or speaking |
+| `studio.html` | The Studio: a live 3D cell (palletising, a CNC machine, a 14 kg crate, fragile and damaged boxes) you program by typing or speaking. It sorts, tends the CNC, answers questions and can undo |
 | `book.html` | Book a meeting (intro call, Studio walkthrough, line visit) |
 | `privacy.html`, `cookies.html`, `terms.html` | Privacy notice (English and BM, PDPA 2010), cookie policy, terms of use |
 | `api/plan.ts` | Turns an instruction and the cell state into a structured plan using Gemini |
