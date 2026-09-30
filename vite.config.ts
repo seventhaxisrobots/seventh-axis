@@ -68,6 +68,10 @@ const GENERATED: Record<string, () => string> = {
           <a class="btn ${p.featured ? "btn--signal" : "btn--primary"} plan__cta" href="${p.cta.href}">${esc(p.cta.label)}</a>
         </article>`,
     ).join("\n        "),
+  "hero-prices": () =>
+    PRICING.filter((p) => p.price.startsWith("RM"))
+      .map((p) => `<div><strong>${esc(p.price)}</strong>${esc(p.cadence)}</div>`)
+      .join(""),
   faq: () =>
     FAQ.map((f) => `<details class="faq__item"><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("\n          "),
 };
