@@ -2,6 +2,8 @@
 // seo() plugin in vite.config.ts: canonical URLs, absolute share tags,
 // structured data and the sitemap all come from here.
 
+import { FAQ, FOUNDER, PRICING } from "./src/shared/knowledge.ts";
+
 export const SITE_URL = (process.env.SITE_URL ?? "https://seventh-axis.vercel.app").replace(/\/$/, "");
 export const SITE_NAME = "Seventh Axis";
 
@@ -51,38 +53,7 @@ const software = {
   publisher: { "@id": `${SITE_URL}/#organization` },
 };
 
-export const FAQ: { q: string; a: string }[] = [
-  {
-    q: "Can I program a robot arm in Bahasa Malaysia?",
-    a: "Yes. Seventh Axis understands English, Bahasa Malaysia, Chinese and Manglish, typed or spoken, and turns the instruction into a robot program you can check in simulation before it runs.",
-  },
-  {
-    q: "How much does a robot cell cost in Malaysia?",
-    a: "A collaborative palletising or machine-tending cell with arm, gripper, guarding and installation typically costs RM120,000 to RM250,000. The Smart Automation Grant can match part of eligible costs, and our ROI calculator shows the payback with Malaysian wages and levies.",
-  },
-  {
-    q: "Does the Smart Automation Grant cover robots?",
-    a: "The Smart Automation Grant is a matching grant for Malaysian manufacturers and service companies that automate. Robot cells and their integration are typical eligible costs; coverage depends on approval.",
-  },
-  {
-    q: "Does Seventh Axis sell robots?",
-    a: "No. Seventh Axis is software. You buy the robot arm from your usual supplier or integrator, and Seventh Axis lets your team program it in plain language, with every move checked in simulation first.",
-  },
-  {
-    q: "Which robot arms does Seventh Axis work with?",
-    a: "Programs export as URScript for Universal Robots arms today. More controllers are on the roadmap, and the planner itself is independent of the arm brand.",
-  },
-  {
-    q: "Is it safe to let an AI program a robot?",
-    a: "The AI only decides what moves where. Every move is checked for reach, collisions, payload and fragile items in a digital twin, speeds are capped, and nothing runs until an operator approves the program.",
-  },
-  {
-    q: "Do we need a robot programmer on staff?",
-    a: "No. Line staff describe the task in their own words. An engineer reviews and approves the simulated program, then loads it on the teach pendant.",
-  },
-];
-
-// Ready for when the FAQ is shown on the product page (the markup must match visible content).
+// The FAQ shown on /product; the markup must match the visible content.
 export const faqPage = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -102,6 +73,36 @@ const calculator = {
   publisher: { "@id": `${SITE_URL}/#organization` },
 };
 
+const pricing = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Seventh Axis",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web browser",
+  url: `${SITE_URL}/pricing`,
+  offers: PRICING.filter((p) => p.price.startsWith("RM")).map((p) => ({
+    "@type": "Offer",
+    name: p.name,
+    price: p.price.replace(/[^0-9.]/g, ""),
+    priceCurrency: "MYR",
+    description: `${p.cadence}. ${p.summary}`,
+  })),
+  publisher: { "@id": `${SITE_URL}/#organization` },
+};
+
+const about = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  url: `${SITE_URL}/about`,
+  mainEntity: { "@id": `${SITE_URL}/#organization` },
+  about: {
+    "@type": "Person",
+    name: FOUNDER.name,
+    jobTitle: FOUNDER.role,
+    worksFor: { "@id": `${SITE_URL}/#organization` },
+  },
+};
+
 const crumbs = (name: string, path: string) => ({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -113,12 +114,15 @@ const crumbs = (name: string, path: string) => ({
 
 export const PAGE_SEO: Record<string, PageSeo> = {
   index: { path: "/", priority: 1, jsonLd: [organization, website] },
-  product: { path: "/product", priority: 0.9, jsonLd: [software, crumbs("Product", "/product")] },
-  industries: { path: "/industries", priority: 0.8, jsonLd: [crumbs("Industries", "/industries")] },
-  roi: { path: "/roi", priority: 0.9, jsonLd: [calculator, crumbs("ROI calculator", "/roi")] },
-  pilot: { path: "/pilot", priority: 0.8, jsonLd: [crumbs("Pilot programme", "/pilot")] },
-  studio: { path: "/studio", priority: 0.9, jsonLd: [software, crumbs("Studio", "/studio")] },
-  book: { path: "/book", priority: 0.7, jsonLd: [crumbs("Book a meeting", "/book")] },
+  product: { path: "/product", image: "/og/product.jpg", priority: 0.9, jsonLd: [software, faqPage, crumbs("Product", "/product")] },
+  pricing: { path: "/pricing", image: "/og/pricing.jpg", priority: 0.9, jsonLd: [pricing, crumbs("Pricing", "/pricing")] },
+  industries: { path: "/industries", image: "/og/industries.jpg", priority: 0.8, jsonLd: [crumbs("Industries", "/industries")] },
+  roi: { path: "/roi", image: "/og/roi.jpg", priority: 0.9, jsonLd: [calculator, crumbs("ROI calculator", "/roi")] },
+  pilot: { path: "/pilot", image: "/og/pilot.jpg", priority: 0.8, jsonLd: [crumbs("Pilot programme", "/pilot")] },
+  studio: { path: "/studio", image: "/og/studio.jpg", priority: 0.9, jsonLd: [software, crumbs("Studio", "/studio")] },
+  about: { path: "/about", image: "/og/about.jpg", priority: 0.6, jsonLd: [about, crumbs("About", "/about")] },
+  safety: { path: "/safety", image: "/og/safety.jpg", priority: 0.6, jsonLd: [crumbs("Safety", "/safety")] },
+  book: { path: "/book", image: "/og/book.jpg", priority: 0.7, jsonLd: [crumbs("Book a meeting", "/book")] },
   privacy: { path: "/privacy", priority: 0.2 },
   cookies: { path: "/cookies", priority: 0.2 },
   terms: { path: "/terms", priority: 0.2 },

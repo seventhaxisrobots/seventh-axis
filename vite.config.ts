@@ -3,8 +3,9 @@ import { readFileSync } from "node:fs";
 import { basename, resolve } from "node:path";
 import type { IncomingMessage } from "node:http";
 import { PAGE_SEO, SITE_NAME, SITE_URL } from "./seo.ts";
+import { FAQ, PRICING } from "./src/shared/knowledge.ts";
 
-const PAGES = ["index", "product", "industries", "roi", "pilot", "studio", "book", "privacy", "cookies", "terms", "404"];
+const PAGES = ["index", "product", "industries", "roi", "pricing", "pilot", "studio", "book", "about", "safety", "privacy", "cookies", "terms", "404"];
 
 // Serves the Vercel functions in /api during `npm run dev`, so the whole
 // product runs locally without the Vercel CLI.
@@ -52,6 +53,25 @@ function localApi(): Plugin {
 }
 
 // Lets pages share markup: <!--#header--> pulls in partials/header.html.
+const esc = (v: string) => v.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+// Markup rendered from src/shared/knowledge.ts, so the pages and Ask Axis always agree.
+const GENERATED: Record<string, () => string> = {
+  "pricing-cards": () =>
+    PRICING.map(
+      (p) => `<article class="plan${p.featured ? " plan--featured" : ""}">
+          <h2 class="plan__name">${esc(p.name)}</h2>
+          <p class="plan__price">${esc(p.price)}</p>
+          <p class="plan__cadence">${esc(p.cadence)}</p>
+          <p class="plan__summary">${esc(p.summary)}</p>
+          <ul class="plan__features">${p.features.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>
+          <a class="btn ${p.featured ? "btn--signal" : "btn--primary"} plan__cta" href="${p.cta.href}">${esc(p.cta.label)}</a>
+        </article>`,
+    ).join("\n        "),
+  faq: () =>
+    FAQ.map((f) => `<details class="faq__item"><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("\n          "),
+};
+
 function partials(): Plugin {
   return {
     name: "html-partials",
@@ -59,7 +79,7 @@ function partials(): Plugin {
       order: "pre",
       handler: (html) =>
         html.replace(/<!--#([a-z-]+)-->/g, (_, name: string) =>
-          readFileSync(resolve(process.cwd(), "partials", `${name}.html`), "utf8"),
+          GENERATED[name]?.() ?? readFileSync(resolve(process.cwd(), "partials", `${name}.html`), "utf8"),
         ),
     },
   };
