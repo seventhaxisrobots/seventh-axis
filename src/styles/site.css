@@ -165,6 +165,18 @@ html {
 .site-nav a:not(.btn) {
   color: var(--text-soft);
   text-decoration: none;
+  white-space: nowrap;
+}
+
+.brand__name {
+  white-space: nowrap;
+}
+
+@media (max-width: 1180px) {
+  .site-nav {
+    gap: 22px;
+    font-size: 15px;
+  }
 }
 
 .site-nav a:not(.btn):hover,
@@ -205,7 +217,7 @@ html {
   display: none;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 960px) {
   .site-nav {
     display: none;
   }
