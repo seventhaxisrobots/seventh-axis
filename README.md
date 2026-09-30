@@ -10,7 +10,8 @@ The robotics company of Kuala Lumpur.
 
 | Path | What it is |
 | --- | --- |
-| `index.html` | Landing page with the pilot waitlist |
+| `index.html` | Home: Kuala Lumpur at dusk, with the intro animation |
+| `product.html`, `industries.html`, `pilot.html` | Product, industries and the pilot waitlist |
 | `studio.html` | The Studio: a live 3D palletising cell you program by typing or speaking |
 | `book.html` | Book a meeting (intro call, Studio walkthrough, line visit) |
 | `privacy.html`, `cookies.html`, `terms.html` | Privacy notice (English and BM, PDPA 2010), cookie policy, terms of use |
