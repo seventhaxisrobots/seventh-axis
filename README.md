@@ -2,7 +2,7 @@
 
 **The missing axis is understanding.**
 
-Seventh Axis turns plain instructions in English, Bahasa Malaysia or 中文 into verified robot programs. Describe the task, watch it run in a digital twin, then export controller code for the arm on your line.
+Seventh Axis is software that turns plain instructions in English, Bahasa Malaysia or 中文 into verified programs for the robot arm a factory already has. We don't sell robots. Describe the task, watch it run in a digital twin, then export controller code for the arm on your line.
 
 The robotics company of Kuala Lumpur. Live at [seventh-axis.vercel.app](https://seventh-axis.vercel.app).
 

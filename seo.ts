@@ -22,7 +22,7 @@ const organization = {
   url: SITE_URL,
   logo: `${SITE_URL}/apple-touch-icon.png`,
   slogan: "The missing axis is understanding.",
-  description: "Seventh Axis lets factory staff program robot arms in plain English, Bahasa Malaysia or Chinese, with every move checked in simulation first.",
+  description: "Seventh Axis makes software that lets factory staff program robot arms in plain English, Bahasa Malaysia or Chinese, with every move checked in simulation first.",
   address: { "@type": "PostalAddress", addressLocality: "Kuala Lumpur", addressCountry: "MY" },
   areaServed: { "@type": "Country", name: "Malaysia" },
   knowsLanguage: ["en", "ms", "zh"],
@@ -63,6 +63,10 @@ export const FAQ: { q: string; a: string }[] = [
   {
     q: "Does the Smart Automation Grant cover robots?",
     a: "The Smart Automation Grant is a matching grant for Malaysian manufacturers and service companies that automate. Robot cells and their integration are typical eligible costs; coverage depends on approval.",
+  },
+  {
+    q: "Does Seventh Axis sell robots?",
+    a: "No. Seventh Axis is software. You buy the robot arm from your usual supplier or integrator, and Seventh Axis lets your team program it in plain language, with every move checked in simulation first.",
   },
   {
     q: "Which robot arms does Seventh Axis work with?",
