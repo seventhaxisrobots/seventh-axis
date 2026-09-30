@@ -211,8 +211,8 @@
 
 .founder {
   display: grid;
-  grid-template-columns: 200px minmax(0, 1fr);
-  gap: 36px;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 40px;
   align-items: start;
   padding: 36px;
   border-radius: 20px;
@@ -220,17 +220,32 @@
 }
 
 .founder__photo {
-  display: grid;
-  place-items: center;
-  width: 200px;
-  aspect-ratio: 1;
+  width: 260px;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
   border-radius: 16px;
-  background: var(--ink);
-  color: var(--paper);
-  font-family: var(--font-display);
-  font-size: 64px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  background: var(--paper-line);
+}
+
+.founder__facts {
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 15px;
+}
+
+.founder__facts li {
+  padding: 10px 0;
+  border-top: 1px solid var(--paper-line);
+  line-height: 1.5;
+  color: var(--text-soft);
+}
+
+.founder__facts strong {
+  display: block;
+  color: var(--ink);
+  font-weight: 600;
 }
 
 .founder__role {
@@ -370,8 +385,7 @@
   }
 
   .founder__photo {
-    width: 120px;
-    font-size: 40px;
+    width: 200px;
   }
 }
 
