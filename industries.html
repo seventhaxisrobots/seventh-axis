@@ -12,14 +12,20 @@
     <meta property="og:image" content="/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
-  <body class="page">
+  <body class="page has-hero">
     <!--#header-->
 
     <main id="main">
-      <section class="page-intro wrap" aria-labelledby="page-title">
-        <p class="hero__kicker">Industries</p>
-        <h1 id="page-title">Built for Malaysian lines.</h1>
-        <p class="lede">High mix, short runs, tasks that change every week: the work robots were always too hard to reprogram for.</p>
+      <section class="photo-hero" data-hero aria-labelledby="page-title">
+        <img class="photo-hero__bg" src="/img/factory-orange-1920.webp" srcset="/img/factory-orange-960.webp 960w, /img/factory-orange-1920.webp 1920w" sizes="100vw" width="1920" height="1080" style="--pos: 50% 45%; --pos-sm: 30% 50%" alt="Rows of orange industrial robot arms on a factory floor" fetchpriority="high" />
+        <div class="wrap photo-hero__content">
+          <div class="photo-hero__copy">
+            <p class="photo-hero__kicker">Industries</p>
+            <h1 id="page-title" class="photo-hero__title">Built for Malaysian lines.</h1>
+            <p class="photo-hero__sub">High mix, short runs, tasks that change every week: the work robots were always too hard to reprogram for.</p>
+          </div>
+          <ul class="photo-hero__aside photo-hero__list"><li>E&amp;E and appliances</li><li>Palletising</li><li>Small batches and labs</li><li>Machine tending</li></ul>
+        </div>
       </section>
 
       <section class="uses wrap" aria-label="Use cases">

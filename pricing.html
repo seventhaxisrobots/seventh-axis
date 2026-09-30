@@ -10,28 +10,28 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta property="og:title" content="Seventh Axis pricing: pay for the software, not a programmer" />
   </head>
-  <body class="page">
+  <body class="page has-hero">
     <!--#header-->
 
     <main id="main">
-      <section class="page-intro wrap" aria-labelledby="page-title">
-        <p class="hero__kicker">Pricing</p>
-        <h1 id="page-title">Pay for the software, not a programmer.</h1>
-        <p class="lede">Seventh Axis is software for the robot arms you buy from your integrator. Start with a free pilot on one cell.</p>
+      <section class="photo-hero" data-hero aria-labelledby="page-title">
+        <img class="photo-hero__bg" src="/img/workshop-1920.webp" srcset="/img/workshop-960.webp 960w, /img/workshop-1920.webp 1920w" sizes="100vw" width="1920" height="1080" style="--pos: 50% 35%; --pos-sm: 62% 50%" alt="A worker operating a traditional rolling machine in a factory" fetchpriority="high" />
+        <div class="wrap photo-hero__content">
+          <div class="photo-hero__copy">
+            <p class="photo-hero__kicker">Pricing</p>
+            <h1 id="page-title" class="photo-hero__title">Pay for the software, not a programmer.</h1>
+            <p class="photo-hero__sub">Seventh Axis is software for the robot arms you buy from your integrator. Start with a free pilot on one cell.</p>
+            <div class="photo-hero__actions"><a class="btn btn--light" href="#plans">See the plans</a><a class="textlink" href="/roi">Work out your payback</a></div>
+          </div>
+          <div class="photo-hero__aside photo-hero__prices"><!--#hero-prices--></div>
+        </div>
       </section>
 
-      <section class="section wrap" aria-label="Plans">
+      <section class="section wrap" id="plans" aria-label="Plans" style="padding-top: clamp(56px, 7vw, 96px)">
         <div class="plans">
         <!--#pricing-cards-->
         </div>
         <p class="plans__note">Prices exclude SST. The robot arm, gripper and installation come from your integrator and aren't included. The Smart Automation Grant can match part of eligible automation costs.</p>
-      </section>
-
-      <section class="section wrap" aria-label="Photo">
-        <figure class="band">
-          <img src="/img/workshop-1920.webp" srcset="/img/workshop-960.webp 960w, /img/workshop-1920.webp 1920w" sizes="(max-width: 1340px) 100vw, 1248px" width="1920" height="1080" loading="lazy" alt="A worker operating a traditional rolling machine in a factory" />
-          <figcaption>Most Malaysian lines still run on skilled hands. Seventh Axis gives those people a robot they can direct in their own words.</figcaption>
-        </figure>
       </section>
 
       <section class="section wrap" aria-labelledby="compare-title">
@@ -55,6 +55,17 @@
         <h2 id="faq-title" class="section__title">Questions</h2>
         <div class="faq__list">
           <!--#faq-->
+        </div>
+      </section>
+      <section class="pilot pilot--photo" aria-labelledby="join-title">
+        <img class="pilot__bg" src="/img/line-1920.webp" srcset="/img/line-960.webp 960w, /img/line-1920.webp 1920w" sizes="100vw" width="1920" height="1080" style="--pos: 50% 45%" loading="lazy" alt="" />
+        <div class="wrap pilot__inner">
+          <h2 id="join-title">Build it with us.</h2>
+          <p class="pilot__sub">We're choosing a small group of founding pilot factories.</p>
+          <div class="hero__actions" style="justify-content: center; margin-top: 32px">
+            <a class="btn btn--signal" href="/pilot">Apply for the pilot</a>
+            <a class="textlink" href="/book" style="color: var(--paper)">Book a meeting</a>
+          </div>
         </div>
       </section>
     </main>

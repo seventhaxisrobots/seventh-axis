@@ -11,15 +11,24 @@
     <meta property="og:title" content="Book a meeting with Seventh Axis" />
     <meta property="og:image" content="/og.png" />
   </head>
-  <body class="page">
+  <body class="page has-hero">
     <!--#header-->
 
-    <main id="main" class="wrap">
+    <main id="main">
+      <section class="photo-hero photo-hero--short" data-hero aria-labelledby="book-title">
+        <img class="photo-hero__bg" src="/img/mamak-1920.webp" srcset="/img/mamak-960.webp 960w, /img/mamak-1920.webp 1920w" sizes="100vw" width="1920" height="1080" style="--pos: 50% 40%" alt="Friends talking over dinner at a mamak stall at night" fetchpriority="high" />
+        <div class="wrap photo-hero__content">
+          <div class="photo-hero__copy">
+            <p class="photo-hero__kicker">Book a meeting</p>
+            <h1 id="book-title" class="photo-hero__title">Let's talk about your line.</h1>
+            <p class="photo-hero__sub">Malaysia time (GMT+8). We confirm by email within one working day.</p>
+          </div>
+        </div>
+      </section>
+      <div class="wrap">
       <form class="book" novalidate data-booking>
         <div class="book__main">
           <header class="book__head">
-            <h1>Book a meeting</h1>
-            <p>Malaysia time (GMT+8). We confirm by email within one working day.</p>
             <p class="book__instant" data-instant hidden>
               Prefer live availability? <a class="textlink" data-instant-link href="#" target="_blank" rel="noopener">Open our calendar</a>
             </p>
@@ -88,6 +97,7 @@
           <p class="book__fallback">Can't find a time? Email <a class="textlink" href="mailto:" data-contact-email="show"></a></p>
         </aside>
       </form>
+      </div>
     </main>
 
     <!--#footer-->

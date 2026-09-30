@@ -12,33 +12,21 @@
     <meta property="og:image" content="/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
-  <body class="page">
+  <body class="page has-hero">
     <!--#header-->
 
     <main id="main">
-      <section class="hero wrap" aria-labelledby="hero-title">
-        <div class="hero__copy">
-          <p class="hero__kicker">Product</p>
-          <h1 id="hero-title">The missing axis is understanding.</h1>
-          <p class="hero__lede">
-            Program a robot arm by describing the task in English, Bahasa Malaysia or <span lang="zh">中文</span>. Every move is checked in
-            simulation before the arm does anything.
-          </p>
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="/studio">Try the live demo</a>
-            <a class="textlink" href="/book">Book a meeting</a>
+      <section class="photo-hero" data-hero aria-labelledby="hero-title">
+        <video class="photo-hero__bg" data-clip="/video/production.mp4" data-bg poster="/video/production.webp" width="1280" height="720" muted loop playsinline preload="none" aria-hidden="true"></video>
+        <div class="wrap photo-hero__content">
+          <div class="photo-hero__copy">
+            <p class="photo-hero__kicker">Product</p>
+            <h1 id="hero-title" class="photo-hero__title">The missing axis is understanding.</h1>
+            <p class="photo-hero__sub">Program a robot arm by describing the task in English, Bahasa Malaysia or <span lang="zh">中文</span>. Every move is checked in simulation before the arm does anything.</p>
+            <div class="photo-hero__actions"><a class="btn btn--light" href="/studio">Try the live demo</a><a class="textlink" href="/book">Book a meeting</a></div>
           </div>
+          <p class="photo-hero__aside"><span class="photo-hero__chip">Live from the Studio</span></p>
         </div>
-        <img
-          class="hero__photo"
-          src="/img/arm-studio-1920.webp"
-          srcset="/img/arm-studio-960.webp 960w, /img/arm-studio-1920.webp 1920w"
-          sizes="(max-width: 900px) 100vw, 62vw"
-          width="1920"
-          height="1080"
-          alt="An orange six-axis industrial robot arm"
-          fetchpriority="high"
-        />
       </section>
 
       <section class="values wrap" aria-label="What Seventh Axis does">
@@ -130,6 +118,17 @@
         <h2 id="faq-title" class="section__title">Questions</h2>
         <div class="faq__list">
           <!--#faq-->
+        </div>
+      </section>
+      <section class="pilot pilot--photo" aria-labelledby="join-title">
+        <img class="pilot__bg" src="/img/red-cobot-1920.webp" srcset="/img/red-cobot-960.webp 960w, /img/red-cobot-1920.webp 1920w" sizes="100vw" width="1920" height="1080" style="--pos: 50% 50%" loading="lazy" alt="" />
+        <div class="wrap pilot__inner">
+          <h2 id="join-title">Build it with us.</h2>
+          <p class="pilot__sub">We're choosing a small group of founding pilot factories.</p>
+          <div class="hero__actions" style="justify-content: center; margin-top: 32px">
+            <a class="btn btn--signal" href="/pilot">Apply for the pilot</a>
+            <a class="textlink" href="/book" style="color: var(--paper)">Book a meeting</a>
+          </div>
         </div>
       </section>
     </main>
