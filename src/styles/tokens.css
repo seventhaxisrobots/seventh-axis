@@ -1,0 +1,33 @@
+:root {
+  /* Colour */
+  --ink: #0e1116;
+  --graphite: #1c222b;
+  --graphite-2: #151a21;
+  --line: #1f262f;
+  --line-2: #2e3643;
+  --paper: #f3f1ec;
+  --paper-2: #ffffff;
+  --paper-line: #e4e0d7;
+  --steel: #5b6472;
+  --steel-light: #9aa3af;
+  --mist: #c9c6bf;
+  --mist-2: #d6d3cc;
+  --text-soft: #3f4652;
+  --signal: #ff5a1f;
+  --signal-deep: #c2410c;
+  --twin: #2ec4b6;
+
+  /* Type */
+  --font-sans: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --display-stretch: 125%;
+
+  /* Shape */
+  --radius-s: 10px;
+  --radius-m: 16px;
+  --radius-pill: 999px;
+
+  /* Layout */
+  --gutter: clamp(16px, 5.5vw, 80px);
+  --max: 1280px;
+}
