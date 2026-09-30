@@ -1,10 +1,16 @@
 // What Seventh Axis is, in one place: the FAQ on /product, the search
 // metadata, the pricing page and the Ask Axis assistant all read from here.
-// Prices and founder details are placeholders to confirm before launch.
+// Prices are placeholders to confirm before launch.
 
 export const FOUNDER = {
   name: "Zishaan Ahmed",
   role: "Founder",
+  image: "/img/founder-960.webp",
+  linkedin: "https://www.linkedin.com/in/zishaan-ahmed",
+  github: "https://github.com/zishaan1911",
+  school: "Universiti Tunku Abdul Rahman (UTAR)",
+  summary:
+    "Software and systems engineer and Computer Science (Honours) student at UTAR. Built OpenRover, a simulation-first autonomous rover platform in C++20, and SmolGPT, a 51M-parameter language model trained from scratch. MUBA Hackathon 2026 finalist and Top Coders Malaysia 2026 national finalist.",
 };
 
 export interface Plan {
@@ -122,7 +128,7 @@ export function knowledgeText(): string {
     "Every plan is simulated in a digital twin first: reach, collisions, payload, fragile items and cycle time are checked, speeds are capped, and a person approves before the program is exported (URScript for Universal Robots arms today; other controllers on the roadmap).",
     "The Studio demo cell has a conveyor, two pallets, a reject bin, a CNC machine with billets, a 14 kg crate (over the 10 kg payload), a fragile box and a camera-flagged damaged box. It can palletise, sort by colour, tend the CNC, run continuous production, slow down when a person comes near, and has a simulation-only playground (throws, juggling, towers).",
     "Seventh Axis does not sell robots or hardware. Customers buy arms from their usual supplier or integrator.",
-    `Founder: ${FOUNDER.name}. Based in Kuala Lumpur, Malaysia.`,
+    `Founder: ${FOUNDER.name}. ${FOUNDER.summary} The company is based in Kuala Lumpur, Malaysia.`,
     "Pricing: " + PRICING.map((p) => `${p.name}: ${p.price} ${p.cadence}. ${p.summary}`).join(" "),
     "FAQ: " + FAQ.map((f) => `Q: ${f.q} A: ${f.a}`).join(" "),
     "Pages: " + PAGES.map((p) => `${p.path} (${p.title}: ${p.about})`).join("; "),
