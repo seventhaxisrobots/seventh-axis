@@ -72,7 +72,7 @@
 }
 
 .kl__title {
-  font-size: clamp(52px, 7.6vw, 112px);
+  font-size: clamp(min(52px, 14.5vw), 7.6vw, 112px);
   font-weight: 600;
   line-height: 0.93;
   letter-spacing: -0.015em;

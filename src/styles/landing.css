@@ -30,7 +30,7 @@
 
 .hero h1 {
   margin-top: 28px;
-  font-size: clamp(54px, 7vw, 104px);
+  font-size: clamp(min(54px, 15vw), 7vw, 104px);
   font-weight: 600;
   line-height: 0.95;
   letter-spacing: -0.015em;
@@ -76,7 +76,7 @@
 .page-intro h1 {
   margin-top: 20px;
   max-width: 14ch;
-  font-size: clamp(54px, 7vw, 104px);
+  font-size: clamp(min(54px, 15vw), 7vw, 104px);
   line-height: 0.95;
 }
 
@@ -182,6 +182,7 @@
   font-weight: 500;
   font-size: clamp(24px, 3.1vw, 44px);
   line-height: 1.15;
+  text-wrap: balance;
 }
 
 .languages dd:lang(zh) {
@@ -536,8 +537,34 @@
     min-height: 520px;
   }
 
-  .pilot__fields {
+  /* Once the fields stack, the consent box comes before the button. */
+  .pilot__form {
+    display: flex;
     flex-direction: column;
+    gap: 12px;
+  }
+
+  .pilot__fields {
+    display: contents;
+  }
+
+  .pill-field {
+    flex: none;
+  }
+
+  .pilot__consent {
+    order: 1;
+    justify-content: flex-start;
+    margin: 6px 0 8px;
+  }
+
+  .pilot__fields .btn {
+    order: 2;
+  }
+
+  .pilot__errors,
+  .hp {
+    order: 3;
   }
 }
 
@@ -557,5 +584,38 @@
 
   .hero__actions {
     flex-wrap: wrap;
+  }
+
+  /* Tighter rhythm on phones */
+  .showcase,
+  .languages,
+  .safety {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .uses {
+    padding-top: 0;
+    padding-bottom: 56px;
+  }
+
+  .uses__grid {
+    margin-top: 24px;
+  }
+
+  .why {
+    padding-top: 48px;
+    padding-bottom: 64px;
+  }
+
+  .showcase figure {
+    margin-top: 40px;
+  }
+
+  /* Show the 3D cell rather than a tiny full screenshot */
+  .showcase img {
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: 0 50%;
   }
 }

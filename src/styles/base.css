@@ -78,6 +78,10 @@ pre,
   border: 0;
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
