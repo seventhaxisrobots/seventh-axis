@@ -128,7 +128,7 @@ export function knowledgeText(): string {
     "Every plan is simulated in a digital twin first: reach, collisions, payload, fragile items and cycle time are checked, speeds are capped, and a person approves before the program is exported (URScript for Universal Robots arms today; other controllers on the roadmap).",
     "The Studio demo cell has a conveyor, two pallets, a reject bin, a CNC machine with billets, a 14 kg crate (over the 10 kg payload), a fragile box and a camera-flagged damaged box. It can palletise, sort by colour, tend the CNC, run continuous production, slow down when a person comes near, and has a simulation-only playground (throws, juggling, towers).",
     "Seventh Axis does not sell robots or hardware. Customers buy arms from their usual supplier or integrator.",
-    `Founder: ${FOUNDER.name}. ${FOUNDER.summary} The company is based in Kuala Lumpur, Malaysia.`,
+    `Founder: ${FOUNDER.name}. ${FOUNDER.summary} LinkedIn: ${FOUNDER.linkedin}. GitHub: ${FOUNDER.github}. More on /about. The company is based in Kuala Lumpur, Malaysia.`,
     "Pricing: " + PRICING.map((p) => `${p.name}: ${p.price} ${p.cadence}. ${p.summary}`).join(" "),
     "FAQ: " + FAQ.map((f) => `Q: ${f.q} A: ${f.a}`).join(" "),
     "Pages: " + PAGES.map((p) => `${p.path} (${p.title}: ${p.about})`).join("; "),
