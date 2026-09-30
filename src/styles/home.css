@@ -1,0 +1,173 @@
+/* Home: Kuala Lumpur at dusk, then three doors into the site. */
+
+.home .site-header {
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+
+.home .site-header:not(.is-scrolled) {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  color: var(--paper);
+  --mark-hole: transparent;
+}
+
+.home .site-header:not(.is-scrolled) .site-nav a:not(.btn) {
+  color: rgba(243, 241, 236, 0.82);
+}
+
+.home .site-header:not(.is-scrolled) .site-nav a:not(.btn):hover {
+  color: var(--paper);
+}
+
+.home .site-header:not(.is-scrolled) .btn--primary {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.home .site-header:not(.is-scrolled) .menu-toggle {
+  color: var(--paper);
+}
+
+.kl {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--graphite);
+  color: var(--paper);
+}
+
+.kl__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 60%;
+}
+
+.kl::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(14, 17, 22, 0.45) 0%, rgba(14, 17, 22, 0.05) 28%, rgba(14, 17, 22, 0.28) 50%, rgba(14, 17, 22, 0.82) 100%);
+}
+
+.kl__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  padding-bottom: clamp(56px, 8vh, 96px);
+}
+
+.kl__copy {
+  max-width: 920px;
+}
+
+.kl__title {
+  font-size: clamp(52px, 7.6vw, 112px);
+  font-weight: 600;
+  line-height: 0.93;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.kl__sub {
+  margin-top: 28px;
+  font-size: clamp(18px, 1.6vw, 21px);
+  color: #e6e3dc;
+}
+
+.kl__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 28px;
+  margin-top: 32px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.kl__coords {
+  flex-shrink: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #e6e3dc;
+  text-align: right;
+}
+
+/* Doors */
+.doors {
+  display: flex;
+  flex-direction: column;
+  padding-top: clamp(80px, 10vw, 128px);
+  padding-bottom: clamp(80px, 10vw, 128px);
+}
+
+.door {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 24px;
+  padding: 32px 0;
+  border-top: 1px solid var(--paper-line);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.door:last-child {
+  border-bottom: 1px solid var(--paper-line);
+}
+
+.door__label {
+  font-size: 16px;
+  color: var(--steel);
+}
+
+.door__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(30px, 3.6vw, 52px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.door__arrow {
+  font-size: 28px;
+  transition: transform 0.25s ease;
+}
+
+.door:hover .door__arrow {
+  transform: translateX(8px);
+}
+
+.door:hover .door__title {
+  color: var(--signal-deep);
+}
+
+@media (max-width: 760px) {
+  .kl__content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .kl__coords {
+    text-align: left;
+  }
+
+  .door {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px 16px;
+  }
+
+  .door__label {
+    grid-column: 1 / -1;
+  }
+}

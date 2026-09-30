@@ -143,6 +143,10 @@ html {
   text-decoration: none;
 }
 
+.mark__hole {
+  fill: var(--mark-hole, var(--paper));
+}
+
 .brand__name {
   font-family: var(--font-display);
   font-weight: 600;
