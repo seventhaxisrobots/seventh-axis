@@ -61,44 +61,6 @@
   z-index: 1;
 }
 
-.band {
-  position: relative;
-  margin: 0;
-  overflow: hidden;
-  border-radius: 20px;
-  background: var(--paper-line);
-}
-
-.band img {
-  display: block;
-  width: 100%;
-  height: clamp(220px, 34vw, 460px);
-  object-fit: cover;
-}
-
-.band figcaption {
-  position: absolute;
-  left: 24px;
-  bottom: 20px;
-  right: 24px;
-  max-width: 560px;
-  color: var(--paper);
-  font-size: 17px;
-  line-height: 1.45;
-  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.65);
-}
-
-.band::after {
-  content: "";
-  position: absolute;
-  inset: 50% 0 0;
-  background: linear-gradient(transparent, rgba(14, 17, 22, 0.6));
-  pointer-events: none;
-}
-
-.band figcaption {
-  z-index: 1;
-}
 
 .media-section {
   padding-bottom: clamp(64px, 8vw, 110px);
@@ -155,15 +117,235 @@
 }
 
 @media (max-width: 560px) {
-  .clip,
-  .band {
+  .clip {
     border-radius: 14px;
   }
+}
 
-  .band figcaption {
-    left: 16px;
-    right: 16px;
-    bottom: 14px;
-    font-size: 15px;
+/* Full-bleed photo heroes, like Kuala Lumpur on the home page */
+.photo-hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--graphite);
+  color: var(--paper);
+}
+
+.photo-hero--short {
+  min-height: min(64svh, 640px);
+}
+
+.photo-hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--pos, 50% 50%);
+}
+
+.photo-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(14, 17, 22, 0.5) 0%, rgba(14, 17, 22, 0.08) 26%, rgba(14, 17, 22, 0.36) 52%, rgba(14, 17, 22, 0.88) 100%);
+}
+
+.photo-hero__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 48px;
+  padding-top: 140px;
+  padding-bottom: clamp(56px, 8vh, 88px);
+}
+
+.photo-hero__copy {
+  max-width: 1000px;
+}
+
+.photo-hero__kicker {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ff8a5c;
+}
+
+.photo-hero__title {
+  margin-top: 20px;
+  font-size: clamp(min(50px, 13vw), 7vw, 108px);
+  font-weight: 600;
+  line-height: 0.93;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.photo-hero__sub {
+  margin-top: 28px;
+  max-width: 640px;
+  font-size: clamp(17px, 1.5vw, 21px);
+  line-height: 1.5;
+  color: #e6e3dc;
+}
+
+.photo-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
+  margin-top: 34px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.photo-hero__aside {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #e6e3dc;
+  text-align: right;
+}
+
+.photo-hero__steps li {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  font-size: 16px;
+  color: var(--paper);
+}
+
+.photo-hero__steps span {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: #ff8a5c;
+}
+
+.photo-hero__prices {
+  display: flex;
+  gap: 32px;
+}
+
+.photo-hero__prices strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--paper);
+}
+
+.photo-hero__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(14, 17, 22, 0.6);
+  font-size: 14px;
+}
+
+.photo-hero__chip::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--signal);
+}
+
+.has-hero .site-header:not(.is-scrolled) .site-nav a[aria-current="page"] {
+  color: var(--paper);
+  border-bottom: 1px solid currentColor;
+}
+
+/* Closing band on a photo */
+.pilot--photo {
+  position: relative;
+  overflow: hidden;
+}
+
+.pilot__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--pos, 50% 60%);
+}
+
+.pilot--photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(14, 17, 22, 0.7);
+}
+
+.pilot--photo .pilot__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.pilot--photo .pilot__sub,
+.pilot--photo .pilot__alt,
+.pilot--photo .pilot__consent {
+  color: #e6e3dc;
+}
+
+.pilot--photo .pill-field input {
+  background: rgba(14, 17, 22, 0.55);
+  border-color: rgba(243, 241, 236, 0.45);
+}
+
+.pilot--photo .pill-field input::placeholder {
+  color: #c9c5bc;
+}
+
+@media (max-width: 900px) {
+  .photo-hero__content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    padding-bottom: 44px;
   }
+
+  .photo-hero__aside {
+    text-align: left;
+  }
+
+  .photo-hero__steps,
+  .photo-hero__list {
+    display: none;
+  }
+
+  .photo-hero__prices strong {
+    font-size: 32px;
+  }
+
+  .photo-hero__bg {
+    object-position: var(--pos-sm, var(--pos, 50% 50%));
+  }
+}
+
+@media (max-width: 560px) {
+  .photo-hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.pilot--photo.pilot--page {
+  min-height: 100svh;
+}
+
+/* Bright photos need a deeper wash for white type. */
+.photo-hero--bright::after {
+  background: linear-gradient(180deg, rgba(14, 17, 22, 0.55) 0%, rgba(14, 17, 22, 0.3) 30%, rgba(14, 17, 22, 0.62) 55%, rgba(14, 17, 22, 0.92) 100%);
 }

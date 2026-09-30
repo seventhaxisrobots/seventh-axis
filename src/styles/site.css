@@ -127,6 +127,38 @@ html {
   border-bottom-color: var(--paper-line);
 }
 
+/* Over a full-bleed photo hero the header is transparent until the hero scrolls away. */
+.has-hero .site-header {
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+
+.has-hero .site-header:not(.is-scrolled) {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  color: var(--paper);
+  --mark-hole: transparent;
+}
+
+.has-hero .site-header:not(.is-scrolled) .site-nav a:not(.btn) {
+  color: rgba(243, 241, 236, 0.82);
+}
+
+.has-hero .site-header:not(.is-scrolled) .site-nav a:not(.btn):hover {
+  color: var(--paper);
+}
+
+.has-hero .site-header:not(.is-scrolled) .btn--primary {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.has-hero .site-header:not(.is-scrolled) .menu-toggle {
+  color: var(--paper);
+}
+
 .site-header__inner {
   height: 88px;
   display: flex;
