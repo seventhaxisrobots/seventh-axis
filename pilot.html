@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pilot programme · Seventh Axis</title>
+    <meta name="description" content="Join the Seventh Axis founding pilot for Malaysian factories." />
+    <meta name="theme-color" content="#0E1116" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:title" content="Put the seventh axis on your line" />
+    <meta property="og:image" content="/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class="page">
+    <!--#header-->
+
+    <main id="main">
+      <section class="pilot pilot--page" aria-labelledby="pilot-title">
+        <div class="wrap pilot__inner">
+          <h1 id="pilot-title">Put the seventh axis on your line.</h1>
+          <p class="pilot__sub">A founding pilot for a small group of Malaysian factories.</p>
+          <form class="pilot__form" novalidate data-waitlist>
+            <div class="pilot__fields">
+              <div class="pill-field">
+                <label for="f-name" class="visually-hidden">Full name</label>
+                <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Full name" required maxlength="100" />
+              </div>
+              <div class="pill-field">
+                <label for="f-email" class="visually-hidden">Work email</label>
+                <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="Work email" required maxlength="254" />
+              </div>
+              <div class="pill-field">
+                <label for="f-company" class="visually-hidden">Company (optional)</label>
+                <input id="f-company" name="company" type="text" autocomplete="organization" placeholder="Company" maxlength="120" />
+              </div>
+              <button class="btn btn--signal" type="submit">Request a slot</button>
+            </div>
+            <label class="check pilot__consent" for="f-consent">
+              <input id="f-consent" name="consent" type="checkbox" required />
+              <span>I agree to Seventh Axis contacting me about the pilot, as described in the <a class="textlink" href="/privacy">privacy notice</a>.</span>
+            </label>
+            <div class="hp" aria-hidden="true">
+              <label for="f-website">Website</label>
+              <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+            <p class="pilot__errors" id="f-name-error" hidden></p>
+            <p class="pilot__errors" id="f-email-error" hidden></p>
+            <p class="pilot__errors" id="f-consent-error" hidden></p>
+            <p class="form__status pilot__errors" role="status" aria-live="polite" data-status></p>
+          </form>
+          <p class="pilot__alt">Prefer to talk? <a class="textlink" href="/book">Book a meeting</a></p>
+        </div>
+      </section>
+    </main>
+
+    <!--#footer-->
+
+    <script type="module" src="/src/landing/main.ts"></script>
+  </body>
+</html>

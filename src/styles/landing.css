@@ -389,6 +389,13 @@
   text-align: center;
 }
 
+.pilot--page {
+  min-height: calc(100svh - 88px);
+  display: flex;
+  align-items: center;
+}
+
+.pilot h1,
 .pilot h2 {
   max-width: 14ch;
   font-size: clamp(44px, 5.8vw, 84px);
