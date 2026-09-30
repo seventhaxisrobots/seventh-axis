@@ -1,8 +1,10 @@
 /* Landing page: premium and minimal. One idea per section, lots of room. */
 
+.page h1,
 .page h2 {
   font-weight: 600;
   letter-spacing: -0.01em;
+  text-wrap: balance;
 }
 
 /* Hero */
@@ -474,6 +476,7 @@
     position: static;
     width: calc(100% + 2 * var(--gutter));
     height: auto;
+    max-width: none;
     aspect-ratio: 4 / 3;
     margin: 32px calc(-1 * var(--gutter)) 0;
     -webkit-mask-image: none;
