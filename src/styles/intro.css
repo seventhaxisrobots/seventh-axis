@@ -1,0 +1,152 @@
+/* Home intro: the 7 draws itself, the elbow lights up, the name settles,
+   then the curtain lifts on Kuala Lumpur. Plays once per session. */
+
+:root {
+  --intro: 2.05s;
+}
+
+.intro-seen {
+  --intro: 0.1s;
+}
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+  animation: intro-lift 0.75s cubic-bezier(0.7, 0, 0.2, 1) 1.55s forwards;
+}
+
+.intro-seen .intro {
+  display: none;
+}
+
+.intro__brand {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.intro__arm {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: intro-draw 0.7s cubic-bezier(0.65, 0, 0.35, 1) 0.2s forwards;
+}
+
+.intro__shoulder,
+.intro__elbow,
+.intro__wrist {
+  transform: scale(0);
+}
+
+.intro__shoulder {
+  transform-origin: 13px 17px;
+  animation: intro-pop 0.35s cubic-bezier(0.3, 1.6, 0.5, 1) 0.05s forwards;
+}
+
+.intro__elbow {
+  transform-origin: 47px 17px;
+  animation: intro-pop 0.45s cubic-bezier(0.3, 1.9, 0.5, 1) 0.8s forwards;
+}
+
+.intro__wrist {
+  transform-origin: 29px 53px;
+  animation: intro-pop 0.3s ease-out 0.85s forwards;
+}
+
+.intro__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(22px, 3vw, 34px);
+  letter-spacing: 0.4em;
+  opacity: 0;
+  animation: intro-settle 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.95s forwards;
+}
+
+/* The page behind the curtain */
+.home .site-header {
+  animation: intro-fade 0.8s ease calc(var(--intro) + 0.3s) both;
+}
+
+.kl__photo {
+  animation: intro-photo 2.6s cubic-bezier(0.2, 0.7, 0.2, 1) calc(var(--intro) - 0.5s) both;
+}
+
+.kl__title .w {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.45em);
+  animation: intro-rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  animation-delay: calc(var(--intro) + var(--i) * 80ms);
+}
+
+.kl .rise {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: intro-rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  animation-delay: calc(var(--intro) + var(--d, 0.5s));
+}
+
+@keyframes intro-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes intro-pop {
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes intro-settle {
+  to {
+    opacity: 1;
+    letter-spacing: 0.1em;
+  }
+}
+
+@keyframes intro-lift {
+  to {
+    transform: translateY(-100%);
+    visibility: hidden;
+  }
+}
+
+@keyframes intro-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes intro-photo {
+  from {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes intro-rise {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro {
+    display: none;
+  }
+
+  .home .site-header,
+  .kl__photo,
+  .kl__title .w,
+  .kl .rise {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

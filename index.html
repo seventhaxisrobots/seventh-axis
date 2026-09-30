@@ -13,8 +13,26 @@
     <meta property="og:description" content="Program robot arms in plain English, BM or 中文. The robotics company of Kuala Lumpur." />
     <meta property="og:image" content="/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      try {
+        if (sessionStorage.getItem("sa_intro")) document.documentElement.classList.add("intro-seen");
+        else sessionStorage.setItem("sa_intro", "1");
+      } catch (e) {}
+    </script>
   </head>
   <body class="page home">
+    <div class="intro" aria-hidden="true" data-intro>
+      <div class="intro__brand">
+        <svg width="88" height="88" viewBox="0 0 64 64">
+          <path class="intro__arm" d="M13 17 H47 L29 53" pathLength="100" fill="none" stroke="#F3F1EC" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+          <circle class="intro__shoulder" cx="13" cy="17" r="6.5" fill="#0E1116" stroke="#F3F1EC" stroke-width="3.5" />
+          <circle class="intro__elbow" cx="47" cy="17" r="7.5" fill="#FF5A1F" />
+          <circle class="intro__wrist" cx="29" cy="53" r="4.5" fill="#F3F1EC" />
+        </svg>
+        <span class="intro__name">SEVENTH AXIS</span>
+      </div>
+    </div>
+
     <!--#header-->
 
     <main id="main">
@@ -31,14 +49,14 @@
         />
         <div class="wrap kl__content">
           <div class="kl__copy">
-            <h1 id="hero-title" class="kl__title">The robotics company of Kuala Lumpur.</h1>
-            <p class="kl__sub">Robot arms you program by talking to them.</p>
-            <div class="kl__actions">
+            <h1 id="hero-title" class="kl__title"><span class="w" style="--i: 0">The</span> <span class="w" style="--i: 1">robotics</span> <span class="w" style="--i: 2">company</span> <span class="w" style="--i: 3">of</span> <span class="w" style="--i: 4">Kuala</span> <span class="w" style="--i: 5">Lumpur.</span></h1>
+            <p class="kl__sub rise" style="--d: 0.55s">Robot arms you program by talking to them.</p>
+            <div class="kl__actions rise" style="--d: 0.7s">
               <a class="btn btn--light" href="/studio">Try the live demo</a>
               <a class="textlink" href="/book">Book a meeting</a>
             </div>
           </div>
-          <p class="kl__coords">3.1390° N<br />101.6869° E</p>
+          <p class="kl__coords rise" style="--d: 0.9s">3.1390° N<br />101.6869° E</p>
         </div>
       </section>
 
