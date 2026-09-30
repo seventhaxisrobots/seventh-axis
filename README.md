@@ -64,4 +64,4 @@ npm run waitlist:export
 
 ## Credits
 
-Photography from [Unsplash](https://unsplash.com) by Mathew Schwartz, Meriç Dağlı, Mohd Jon Ramlan, Irfan Syahmi, Job Savelsberg, Simon Kadula, Homa Appliances, ThisisEngineering and Sufyan. Earth imagery from [NASA Earth Observatory](https://earthobservatory.nasa.gov) (Blue Marble, Black Marble). Typefaces: Barlow and Barlow Semi Condensed by Jeremy Tribby (SIL Open Font License).
+Photography from [Unsplash](https://unsplash.com) by Mathew Schwartz, Meriç Dağlı, Mohd Jon Ramlan, Irfan Syahmi, Job Savelsberg, Simon Kadula, Homa Appliances, ThisisEngineering and Sufyan. Earth imagery from [NASA Earth Observatory](https://earthobservatory.nasa.gov) (Blue Marble, Black Marble). Studio models: UR10e meshes from [Universal Robots](https://github.com/UniversalRobots/Universal_Robots_ROS2_Description) (BSD-3-Clause, see `public/models/LICENSES.txt`), props and lighting from [Poly Haven](https://polyhaven.com) (CC0). Physics by [Rapier](https://rapier.rs) (Apache-2.0). Typefaces: Barlow and Barlow Semi Condensed by Jeremy Tribby (SIL Open Font License).
