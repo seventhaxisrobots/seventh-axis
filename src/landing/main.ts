@@ -1,6 +1,7 @@
 import { initSite } from "../site/site.ts";
 import { bindForm } from "../site/forms.ts";
 import "../styles/landing.css";
+import "../styles/pages.css";
 
 initSite();
 
