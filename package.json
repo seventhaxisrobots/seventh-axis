@@ -13,7 +13,9 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
-    "waitlist:export": "node scripts/export-waitlist.mjs"
+    "waitlist:export": "node scripts/export-waitlist.mjs",
+    "bridge": "node --experimental-strip-types bridge/src/cli.ts",
+    "ursim": "docker run -d --rm --name ursim -e ROBOT_MODEL=UR10 -p 6080:6080 -p 29999:29999 -p 30001-30004:30001-30004 universalrobots/ursim_e-series"
   },
   "dependencies": {
     "@dimforge/rapier3d-compat": "^0.12.0",
