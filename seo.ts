@@ -130,4 +130,5 @@ export const PAGE_SEO: Record<string, PageSeo> = {
   cookies: { path: "/cookies", priority: 0.2 },
   terms: { path: "/terms", priority: 0.2 },
   "404": { path: "/404", noindex: true },
+  app: { path: "/app", noindex: true },
 };
