@@ -60,14 +60,6 @@
   --ask-hole: var(--ink);
 }
 
-.ask__mark {
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: var(--graphite);
-}
 
 .ask__title {
   font-weight: 600;
@@ -127,14 +119,8 @@
   border-bottom-right-radius: 4px;
 }
 
-.ask__msg.is-typing p {
-  animation: ask-typing 1s ease-in-out infinite;
-}
-
-@keyframes ask-typing {
-  50% {
-    opacity: 0.3;
-  }
+.ask__msg.is-typing {
+  padding: 12px 14px;
 }
 
 .ask__action {
