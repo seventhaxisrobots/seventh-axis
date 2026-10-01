@@ -1,5 +1,6 @@
 import "../styles/ask.css";
 import { FAQ } from "../shared/knowledge.ts";
+import { makeOrb, orbDots } from "../shared/orb.ts";
 import { EMAIL_RE } from "./forms.ts";
 
 // Ask Axis: a floating assistant on every page except the Studio. It answers
@@ -30,6 +31,7 @@ let log: HTMLElement;
 let chips: HTMLElement;
 let input: HTMLInputElement;
 let busy = false;
+let headOrb: HTMLElement;
 
 function load(): void {
   try {
@@ -80,7 +82,7 @@ function build(): void {
   panel.setAttribute("aria-label", "Ask Axis, the Seventh Axis assistant");
   panel.innerHTML = `
     <header class="ask__head">
-      <span class="ask__mark">${MARK}</span>
+      <span class="ask__mark"></span>
       <div><p class="ask__title">Ask Axis</p><p class="ask__sub">AI assistant · EN · BM · 中文</p></div>
       <button type="button" class="ask__close" aria-label="Close">×</button>
     </header>
@@ -93,6 +95,8 @@ function build(): void {
     </form>
     <p class="ask__note">AI answers can be wrong. Messages go to Google Gemini to write replies. <a href="/privacy">Privacy</a></p>`;
   document.body.append(panel);
+  headOrb = makeOrb(36);
+  panel.querySelector(".ask__mark")!.replaceWith(headOrb);
   log = panel.querySelector(".ask__log")!;
   chips = panel.querySelector(".ask__chips")!;
   input = panel.querySelector("#ask-input")!;
@@ -161,8 +165,11 @@ async function ask(question: string): Promise<void> {
   turns.push(user);
   render(user);
   save();
-  const typing = render({ role: "assistant", text: "…" });
+  // Axis is thinking: the header orb quickens and small orbs stand in for the reply.
+  const typing = render({ role: "assistant", text: "" });
   typing.classList.add("is-typing");
+  typing.replaceChildren(orbDots("Axis is thinking"));
+  headOrb.classList.add("is-thinking");
 
   let answer: Answer;
   try {
@@ -179,6 +186,7 @@ async function ask(question: string): Promise<void> {
     answer = offline(text);
   }
   typing.remove();
+  headOrb.classList.remove("is-thinking");
   const { suggestions, ...turn } = answer;
   turns.push(turn);
   render(turn);
