@@ -1,0 +1,54 @@
+/* The cobot builds the headline (home page) */
+
+.cobot {
+  position: relative;
+  height: 320vh;
+  background: radial-gradient(ellipse at 50% 100%, #1b2029 0%, var(--ink) 65%);
+  color: var(--paper);
+}
+
+.cobot__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.cobot__stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center;
+}
+
+.cobot__layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+}
+
+.cobot__word {
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  padding: 6px 14px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-size: 84px;
+  font-weight: 600;
+  line-height: 1;
+  will-change: transform;
+}
+
+/* Reduced motion: the finished headline, no scroll-driven build. */
+.cobot--still {
+  height: auto;
+}
+
+.cobot--still .cobot__sticky {
+  position: relative;
+}
