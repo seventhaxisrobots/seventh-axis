@@ -3,97 +3,334 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content" />
-    <title>About · Seventh Axis, the robotics company of Kuala Lumpur</title>
-    <meta name="description" content="Seventh Axis is a Kuala Lumpur software company making robot arms as easy to direct as a new colleague. Meet the company and its founder." />
+    <title>About and investors · Seventh Axis, the robotics company of Kuala Lumpur</title>
+    <meta name="description" content="Seventh Axis is a Kuala Lumpur software company that lets factory teams program robot arms in plain language. Our story, our founder, the market, the business model, five-year financials and RM6 million seed round." />
     <meta name="theme-color" content="#0A0A0A" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta property="og:title" content="About Seventh Axis" />
+    <meta property="og:title" content="About Seventh Axis, and investing in it" />
+    <meta property="og:description" content="Robot arms got cheap. Programming them didn't. Our story, our plan, our numbers and our RM6 million seed round." />
+    <script>
+      // The 3D scenes need WebGL and motion; without either the page shows its 2D charts.
+      try {
+        var c = document.createElement("canvas");
+        if (!matchMedia("(prefers-reduced-motion: reduce)").matches && (c.getContext("webgl2") || c.getContext("webgl"))) document.documentElement.classList.add("s3d-on");
+      } catch (e) {}
+    </script>
   </head>
   <body class="page has-hero">
     <!--#header-->
 
-    <main id="main">
-      <section class="photo-hero" data-hero aria-labelledby="page-title">
-        <img class="photo-hero__bg" src="/img/kl-night-1920.webp" srcset="/img/kl-night-960.webp 960w, /img/kl-night-1920.webp 1920w" sizes="100vw" width="1920" height="1080" style="--pos: 50% 45%; --pos-sm: 62% 50%" alt="Kuala Lumpur at night with the Petronas Twin Towers and light trails on the highway" fetchpriority="high" />
-        <div class="wrap photo-hero__content">
-          <div class="photo-hero__copy">
-            <p class="photo-hero__kicker">About</p>
-            <h1 id="page-title" class="photo-hero__title">Robots should understand the people who run them.</h1>
-            <p class="photo-hero__sub">Seventh Axis is a software company in Kuala Lumpur. We make robot arms as easy to direct as a new colleague on the line.</p>
-          </div>
-          <p class="photo-hero__aside photo-hero__list">Made in Kuala Lumpur<br />for Malaysian lines</p>
-        </div>
-      </section>
-
-      <section class="section wrap story" aria-labelledby="story-title" style="padding-top: clamp(64px, 8vw, 112px)">
-        <h2 id="story-title" class="section__title">Why we started</h2>
-        <div class="story__text">
-          <p>
-            Malaysian factories are short of hands. Wages and levies are rising, and robot arms have never been cheaper. Yet most cells still sit
-            on one job for years, because changing what a robot does takes a specialist, a teach pendant and days of downtime.
-          </p>
-          <p>
-            A robot arm moves on six axes. We think the seventh is understanding: an arm that takes instructions in the language your team
-            already speaks, English, Bahasa Malaysia, Chinese or Manglish, and shows you exactly what it will do before it does anything.
-          </p>
-          <p>
-            We don't sell robots. We build the software that makes the one you buy worth more, and we build it here, for Malaysian lines first.
-          </p>
-        </div>
-      </section>
-
-      <section class="section wrap" aria-labelledby="founder-title">
-        <h2 id="founder-title" class="visually-hidden">Founder</h2>
-        <article class="founder">
-          <img
-            class="founder__photo"
-            src="/img/founder-480.webp"
-            srcset="/img/founder-480.webp 480w, /img/founder-960.webp 960w"
-            sizes="(max-width: 900px) 200px, 260px"
-            width="480"
-            height="600"
-            loading="lazy"
-            alt="Zishaan Ahmed, founder of Seventh Axis"
-          />
-          <div>
-            <p class="founder__role">Founder</p>
-            <p class="founder__name">Zishaan Ahmed</p>
-            <p class="founder__bio">
-              Zishaan started Seventh Axis to close the gap between what robot arms can do and what factory teams can ask of them, and builds
-              the product end to end: the planner, the digital twin and the robot code it exports.
-            </p>
-            <p class="founder__bio">
-              Zishaan is a software and systems engineer and a Computer Science (Honours) student at Universiti Tunku Abdul Rahman, with a
-              habit of testing everything in simulation before it touches hardware.
-            </p>
-            <ul class="founder__facts">
-              <li><strong>Recognition</strong> MUBA Hackathon 2026 finalist · Top Coders Malaysia 2026 national finalist · Top 50 on GitHub in Malaysia</li>
-            </ul>
-            <div class="founder__links">
-              <a class="textlink" href="https://www.linkedin.com/in/zishaan-ahmed" target="_blank" rel="noopener">LinkedIn</a>
-              <a class="textlink" href="https://github.com/zishaan1911" target="_blank" rel="noopener">GitHub</a>
-              <a class="textlink" href="mailto:" data-contact-email>Email</a>
-              <a class="textlink" href="/book">Book a meeting</a>
+    <main id="main" class="inv">
+      <section class="s3d s3d--hero" data-scene="globe" data-hero style="--len: 200vh" aria-labelledby="page-title">
+        <div class="s3d__sticky" data-stage>
+          <img class="s3d__poster" src="/img/kl-night-1920.webp" srcset="/img/kl-night-960.webp 960w, /img/kl-night-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="" fetchpriority="high" />
+          <div class="s3d__labels" data-labels></div>
+          <div class="wrap s3d__copy s3d__copy--hero">
+            <p class="inv-kicker">About Seventh Axis</p>
+            <h1 id="page-title" class="inv-hero__title">Robot arms got cheap. Programming them didn't.</h1>
+            <p class="inv-hero__sub">We're a software company in Kuala Lumpur. Factory teams use Seventh Axis to program the robot arms they already buy, by describing the task in English, Bahasa Malaysia or Mandarin. We're raising a RM6 million seed round to take it to Malaysia's factories.</p>
+            <div class="inv-hero__actions">
+              <a class="btn btn--signal" href="/book">Book a call</a>
+              <a class="textlink" href="#investors">See the numbers</a>
             </div>
           </div>
-        </article>
+          <ol class="wrap s3d__steps s3d__steps--hero" aria-label="Where we start and where we go next">
+            <li data-step="0" class="is-on"><strong>Made in Kuala Lumpur</strong>For Malaysian lines first</li>
+            <li data-step="1"><strong>Malaysia first</strong>About 21,000 industrial robots: RM302M a year at our price</li>
+            <li data-step="2"><strong>Then ASEAN</strong>Thailand, Vietnam and Indonesia: about RM480M a year by 2030</li>
+          </ol>
+          <p class="s3d__hint" aria-hidden="true">Scroll</p>
+        </div>
       </section>
 
-      <section class="section wrap" aria-labelledby="values-title">
-        <h2 id="values-title" class="section__title">How we work</h2>
-        <div class="values-grid">
-          <div>
+      <section class="wrap inv-stats" id="investors" aria-label="The plan in numbers">
+        <div data-tilt><strong data-count="302" data-prefix="RM" data-suffix="M">RM302M</strong><span>a year: every industrial robot in Malaysia, at our price</span></div>
+        <div data-tilt><strong data-count="1800">1,800</strong><span>paying robot cells by the end of 2031</span></div>
+        <div data-tilt><strong data-count="23.9" data-decimals="1" data-prefix="RM" data-suffix="M">RM23.9M</strong><span>yearly recurring revenue by the end of 2031</span></div>
+        <div data-tilt><strong data-count="80" data-suffix="%">80%</strong><span>gross margin by 2031</span></div>
+        <div data-tilt><strong data-count="6" data-prefix="RM" data-suffix="M">RM6M</strong><span>seed round, closing Q1 2027</span></div>
+      </section>
+
+      <nav class="wrap inv-toc" aria-label="On this page">
+        <a href="#why">Why we started</a>
+        <a href="#product">Product</a>
+        <a href="#market">Market</a>
+        <a href="#model">Business model</a>
+        <a href="#financials">Financials</a>
+        <a href="#round">The round</a>
+        <a href="#risks">Risks</a>
+        <a href="#team">Team</a>
+      </nav>
+
+      <section class="section wrap" id="why" aria-labelledby="why-title">
+        <div class="inv-split">
+          <div class="reveal">
+            <p class="inv-kicker">01 · Why we started</p>
+            <h2 id="why-title" class="section__title">Robots should understand the people who run them.</h2>
+          </div>
+          <div class="inv-prose reveal">
+            <p>Malaysian factories are short of hands. Wages and levies are rising, and robot arms have never been cheaper. Yet most cells still sit on one job for years, because changing what a robot does takes a specialist, a teach pendant and days of downtime.</p>
+            <p>A robot arm moves on six axes. We think the seventh is <strong>understanding</strong>: an arm that takes instructions in the language your team already speaks, and shows you exactly what it will do before it does anything.</p>
+            <p>We don't sell robots. We build the software that makes the one you buy worth more, and we build it here, for Malaysian lines first.</p>
+          </div>
+        </div>
+
+        <div class="inv-pressure">
+          <figure class="density reveal" aria-labelledby="density-title">
+            <figcaption id="density-title"><strong>Malaysia is under-automated</strong>Industrial robots per 10,000 manufacturing workers</figcaption>
+            <div class="density__row is-key" style="--v: 37%; --i: 0"><span>Malaysia</span><i></i><b data-count="74">74</b></div>
+            <div class="density__row" style="--v: 49%; --i: 1"><span>Thailand</span><i></i><b data-count="98">98</b></div>
+            <div class="density__row" style="--v: 81%; --i: 2"><span>World average</span><i></i><b data-count="162">162</b></div>
+            <div class="density__row is-broken" style="--v: 100%; --i: 3"><span>Singapore</span><i></i><b data-count="818">818</b></div>
+            <p class="density__note">IFR data. The Singapore bar is cut short to fit.</p>
+          </figure>
+          <div class="facts">
+            <div class="reveal" data-tilt style="--i: 0"><strong data-count="1700" data-prefix="RM">RM1,700</strong><span>monthly minimum wage for every employer since August 2025</span></div>
+            <div class="reveal" data-tilt style="--i: 1"><strong data-count="1850" data-prefix="RM">RM1,850</strong><span>yearly levy per foreign worker in manufacturing, with a tiered levy coming</span></div>
+            <div class="reveal" data-tilt style="--i: 2"><strong data-count="70" data-suffix="%">70%</strong><span>of eligible automation costs matched by the Smart Automation Grant</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="s3d" id="product" data-scene="flow" style="--len: 300vh" aria-labelledby="product-title">
+        <div class="s3d__sticky" data-stage>
+          <div class="s3d__labels" data-labels></div>
+          <div class="wrap s3d__copy">
+            <p class="inv-kicker">02 · The product</p>
+            <h2 id="product-title" class="s3d__title">The AI never moves the robot.</h2>
+            <p class="s3d__lede">A language model turns the operator's words into a plan. Our own code checks it, a named person approves it, and only that signed program runs. The server and the bridge enforce the order, not just the screen.</p>
+          </div>
+          <ol class="wrap s3d__steps">
+            <li data-step="0" class="is-on"><strong>Ask</strong>Type or say the task in BM, English or Mandarin.</li>
+            <li data-step="1"><strong>Check</strong>Reach, collisions, payload and speed near people, against the real cell.</li>
+            <li data-step="2"><strong>Approve</strong>Watch it run in 3D, then a named person signs that exact program.</li>
+            <li data-step="3"><strong>Run</strong>The bridge beside the cell runs it, and refuses anything unsigned.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section wrap inv-values" aria-labelledby="values-title">
+        <h2 id="values-title" class="inv-subhead">How we work</h2>
+        <div class="values">
+          <div class="reveal" data-tilt style="--i: 0">
+            <svg class="draw" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 24s7-13 20-13 20 13 20 13-7 13-20 13S4 24 4 24z" /><circle cx="24" cy="24" r="6" /></svg>
             <h3>Show before it moves</h3>
             <p>Every plan is simulated and checked first. A person approves it. Nothing surprising happens on the floor.</p>
           </div>
-          <div>
+          <div class="reveal" data-tilt style="--i: 1">
+            <svg class="draw" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 10h26v18H18l-8 7v-7H6z" /><path d="M36 18h6v16h-4v6l-7-6H22" /></svg>
             <h3>Your language, your line</h3>
-            <p>BM, English, Chinese and Manglish are first-class. The software fits the team, not the other way round.</p>
+            <p>BM, English and Mandarin are first-class. The software fits the team, not the other way round.</p>
           </div>
-          <div>
+          <div class="reveal" data-tilt style="--i: 2">
+            <svg class="draw" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 40V8" /><path d="M6 40h36" /><path d="M10 32l9-9 7 6 14-15" /><path d="M32 14h8v8" /></svg>
             <h3>Measured payback</h3>
             <p>We start with a pilot on one cell and a number you can check. If it doesn't pay, you'll know in 90 days.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="s3d" id="market" data-scene="market" style="--len: 260vh" aria-labelledby="market-title">
+        <div class="s3d__sticky" data-stage>
+          <div class="s3d__labels" data-labels></div>
+          <div class="wrap s3d__copy">
+            <p class="inv-kicker">03 · Market</p>
+            <h2 id="market-title" class="s3d__title">RM300 million a year in Malaysia. More across ASEAN.</h2>
+            <p class="s3d__lede">Sized from robots in use, because we charge per robot cell: about 2.84 million manufacturing workers at 74 robots per 10,000 is about 21,000 robots, each worth RM14,400 a year at our price.</p>
+            <p class="s3d__legend"><span class="s3d__dot"></span>Each slab's area is its yearly value. Each dot is 100 robots.</p>
+          </div>
+          <div class="wrap s3d__fallback">
+            <!--#investor-market-->
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap" id="model" aria-labelledby="model-title">
+        <div class="reveal">
+          <p class="inv-kicker">04 · Business model</p>
+          <h2 id="model-title" class="section__title">Software by the cell. Integrators sell it.</h2>
+        </div>
+
+        <figure class="flowmap reveal" aria-labelledby="flowmap-title">
+          <figcaption id="flowmap-title" class="visually-hidden">The factory pays Seventh Axis RM1,200 per cell per month; Seventh Axis pays the integrator 20%; the integrator installs and supports the cell.</figcaption>
+          <svg viewBox="0 0 900 262" aria-hidden="true">
+            <defs>
+              <path id="fm-pay" d="M130 118 C 130 62, 240 58, 352 58" />
+              <path id="fm-share" d="M548 58 C 660 58, 770 62, 770 114" />
+              <path id="fm-install" d="M770 202 C 650 256, 250 256, 130 202" />
+            </defs>
+            <use href="#fm-pay" class="flowmap__path is-money" />
+            <use href="#fm-share" class="flowmap__path is-money" />
+            <use href="#fm-install" class="flowmap__path" />
+            <g class="flowmap__node" transform="translate(40 122)"><rect width="180" height="76" rx="12" /><text x="90" y="34">Factory</text><text class="flowmap__sub" x="90" y="56">buys the arm and the cell</text></g>
+            <g class="flowmap__node is-key" transform="translate(360 20)"><rect width="180" height="76" rx="12" /><text x="90" y="34">Seventh Axis</text><text class="flowmap__sub" x="90" y="56">software, checks, updates</text></g>
+            <g class="flowmap__node" transform="translate(680 122)"><rect width="180" height="76" rx="12" /><text x="90" y="34">Integrator</text><text class="flowmap__sub" x="90" y="56">installs and supports</text></g>
+            <text class="flowmap__label" x="214" y="44">RM1,200 / cell / month</text>
+            <text class="flowmap__label" x="690" y="44">20% share, for life</text>
+            <text class="flowmap__label" x="450" y="226">installs, maintains, brings new cells</text>
+            <circle r="6" class="flowmap__coin"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#fm-pay" /></animateMotion></circle>
+            <circle r="6" class="flowmap__coin"><animateMotion dur="2.6s" begin="1.3s" repeatCount="indefinite"><mpath href="#fm-pay" /></animateMotion></circle>
+            <circle r="5" class="flowmap__coin"><animateMotion dur="2.6s" begin="0.7s" repeatCount="indefinite"><mpath href="#fm-share" /></animateMotion></circle>
+            <circle r="5" class="flowmap__dot"><animateMotion dur="4s" repeatCount="indefinite"><mpath href="#fm-install" /></animateMotion></circle>
+            <circle r="5" class="flowmap__dot"><animateMotion dur="4s" begin="2s" repeatCount="indefinite"><mpath href="#fm-install" /></animateMotion></circle>
+          </svg>
+          <ol class="flowmap__list" aria-hidden="true">
+            <li><strong>Factory</strong>buys the arm and the cell</li>
+            <li class="is-link is-money">RM1,200 / cell / month</li>
+            <li class="is-key"><strong>Seventh Axis</strong>software, checks, updates</li>
+            <li class="is-link is-money">20% share, for life</li>
+            <li><strong>Integrator</strong>installs and supports</li>
+            <li class="is-link">installs, maintains, brings new cells to the factory</li>
+          </ol>
+        </figure>
+
+        <div class="inv-cards">
+          <div data-tilt class="reveal" style="--i: 0"><h3 data-count="1200" data-prefix="RM">RM1,200</h3><p>per robot cell per month, billed yearly, after a free 90-day pilot. Enterprise pricing for groups and integrators.</p></div>
+          <div data-tilt class="reveal" style="--i: 1"><h3 data-count="5000" data-prefix="RM">RM5,000</h3><p>onboarding per site, once: mapping the cell, setting up approvals and training operators.</p></div>
+          <div data-tilt class="reveal" style="--i: 2"><h3 data-count="20" data-suffix="%">20%</h3><p>of the subscription goes to the integrator who brings the customer, for as long as they stay.</p></div>
+        </div>
+
+        <figure class="fall reveal" aria-labelledby="fall-title">
+          <figcaption id="fall-title"><strong>What one cell earns us, per year</strong>Unit economics in 2029</figcaption>
+          <div class="fall__chart">
+            <div class="fall__col" style="--top: 0%; --h: 100%; --i: 0"><b>RM14,400</b><i></i><span>List price</span></div>
+            <div class="fall__col is-neg" style="--top: 0%; --h: 8%; --i: 1"><b>−1,152</b><i></i><span>Discounts</span></div>
+            <div class="fall__col is-neg" style="--top: 8%; --h: 17.36%; --i: 2"><b>−2,500</b><i></i><span>Cost to serve</span></div>
+            <div class="fall__col is-neg" style="--top: 25.36%; --h: 11.04%; --i: 3"><b>−1,590</b><i></i><span>Integrator share</span></div>
+            <div class="fall__col is-key" style="--top: 36.4%; --h: 63.6%; --i: 4"><b>RM9,158</b><i></i><span>Contribution</span></div>
+          </div>
+          <p class="fall__note">It costs about <strong>RM8,745</strong> to win a cell (pilots, sales and partner staff, marketing), earned back in <strong>11.5 months</strong>. Five years of contribution is 5.2× that cost. Gross margin is 81%.</p>
+        </figure>
+      </section>
+
+      <section class="s3d" id="financials" data-scene="chart" style="--len: 440vh" aria-labelledby="fin-title">
+        <div class="s3d__sticky" data-stage>
+          <div class="s3d__labels" data-labels></div>
+          <div class="wrap s3d__copy">
+            <p class="inv-kicker">05 · Financials</p>
+            <h2 id="fin-title" class="s3d__title">RM23.9M of recurring revenue by 2031.</h2>
+            <p class="s3d__lede">A bottom-up five-year model from paying cells. Each year's column is its recurring revenue at year end; each crate is about RM0.4M.</p>
+          </div>
+          <div class="wrap s3d__fallback">
+            <!--#investor-arr-->
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap inv-after" aria-labelledby="pl-title">
+        <h2 id="pl-title" class="inv-subhead">Profit and loss</h2>
+        <div class="fin-scroll reveal fin-stagger">
+          <!--#investor-pl-->
+        </div>
+        <p class="inv-small">RM million. Figures may not add exactly because of rounding. The model treats EBITDA as cash flow; customers pay a year ahead, so real cash would be higher. No grants are counted.</p>
+      </section>
+
+      <section class="s3d" id="cash" data-scene="cash" style="--len: 280vh" aria-labelledby="cash-title">
+        <div class="s3d__sticky" data-stage>
+          <div class="s3d__labels" data-labels></div>
+          <div class="wrap s3d__copy">
+            <p class="inv-kicker">Cash</p>
+            <h2 id="cash-title" class="s3d__title">Cash never falls below RM1.8M once the seed closes.</h2>
+            <p class="s3d__lede">Month-end cash, January 2027 to December 2031. The tightest moments are just before each round, so the seed must close by March 2027.</p>
+          </div>
+          <div class="wrap s3d__fallback">
+            <div class="fin-scroll">
+              <!--#investor-cash-->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap inv-after" aria-labelledby="whatif-title">
+        <h2 id="whatif-title" class="inv-subhead">What if we're wrong?</h2>
+        <div class="fin-scroll reveal fin-stagger">
+          <!--#investor-sensitivities-->
+        </div>
+        <p class="inv-note">The plan survives a much slower ramp without new money, provided hiring follows sales. Volume matters more than price: 30% more cells adds about RM3.5M to 2031 EBITDA, while a 13% lower price costs about RM2M.</p>
+      </section>
+
+      <section class="section wrap" id="round" aria-labelledby="round-title">
+        <div class="reveal">
+          <p class="inv-kicker">06 · The round</p>
+          <h2 id="round-title" class="section__title">RM6 million to prove it, RM20 million to scale it.</h2>
+        </div>
+        <!--#investor-rounds-->
+      </section>
+
+      <section class="s3d" id="funds" data-scene="funds" style="--len: 220vh" aria-labelledby="funds-title">
+        <div class="s3d__sticky" data-stage>
+          <div class="s3d__labels" data-labels></div>
+          <div class="wrap s3d__copy">
+            <p class="inv-kicker">Use of funds</p>
+            <h2 id="funds-title" class="s3d__title">Where the seed goes.</h2>
+            <p class="s3d__lede">In 2027 and 2028 we spend RM5.6M and earn RM1.6M from customers. The seed covers the gap and leaves about RM2.4M going into 2029, enough to absorb a Series A that arrives a quarter late.</p>
+          </div>
+          <div class="wrap s3d__fallback">
+            <!--#investor-funds-->
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap" aria-labelledby="milestones-title">
+        <h2 id="milestones-title" class="inv-subhead">What the seed buys</h2>
+        <ol class="timeline" data-timeline>
+          <li><span>Q4 2026</span>A real cell runs a signed program end to end; first pilot letters</li>
+          <li><span>Q1 2027</span>Seed closes; first pilots running</li>
+          <li><span>Q2 2027</span>First paying cell; first integrators signed</li>
+          <li><span>Q4 2027</span>30 paying cells, 5 integrators</li>
+          <li><span>Q4 2028</span>130 paying cells, 15 integrators, about RM1.7M recurring revenue</li>
+        </ol>
+      </section>
+
+      <section class="section wrap" id="risks" aria-labelledby="risks-title">
+        <div class="reveal">
+          <p class="inv-kicker">07 · Risks</p>
+          <h2 id="risks-title" class="section__title">What could go wrong, and what we do about it.</h2>
+        </div>
+        <dl class="checks risks">
+          <div class="reveal" style="--i: 0"><dt>Pilots don't show a clear payback</dt><dd>We choose sites with frequent changeovers, agree what to measure before we start and publish the payback report. If fewer than half of the first 10 pilots convert, we stop and rethink.</dd></div>
+          <div class="reveal" style="--i: 1"><dt>A robot maker builds the same thing into its pendant</dt><dd>We work across cells and brands, keep the approval record, speak BM and Mandarin well, and aim to be the integrators' tool before it happens.</dd></div>
+          <div class="reveal" style="--i: 2"><dt>Someone is hurt at a cell running our program</dt><dd>Checks and simulation before every run, signed approval by a named person, and the controller's own safety system always in charge. Product liability insurance from the first pilot.</dd></div>
+          <div class="reveal" style="--i: 3"><dt>Integrators see us as a threat</dt><dd>They earn 20% of every subscription they bring, for life, and keep their installation business. We never install or sell hardware.</dd></div>
+          <div class="reveal" style="--i: 4"><dt>Why READY Robotics failed, and why we won't</dt><dd>It raised over USD 41M for a universal robot OS that needed extra hardware and a new language. We need neither, and we work with robot makers' channels, not against them.</dd></div>
+          <div class="reveal" style="--i: 5"><dt>One robot brand today</dt><dd>Universal Robots leads SME cobot cells, so we start there. A second brand follows in 2028; the bridge is built so new brands plug in.</dd></div>
+        </dl>
+      </section>
+
+      <section class="section wrap" id="team" aria-labelledby="team-title">
+        <div class="reveal">
+          <p class="inv-kicker">08 · Team</p>
+          <h2 id="team-title" class="section__title">Built end to end by its founder.</h2>
+        </div>
+        <div class="team">
+          <article class="founder reveal" data-tilt>
+            <img class="founder__photo" src="/img/founder-480.webp" srcset="/img/founder-480.webp 480w, /img/founder-960.webp 960w" sizes="(max-width: 900px) 200px, 220px" width="480" height="600" loading="lazy" alt="Zishaan Ahmed, founder of Seventh Axis" />
+            <div>
+              <p class="founder__role">Founder</p>
+              <p class="founder__name">Zishaan Ahmed</p>
+              <p class="founder__bio">Zishaan built the whole product: the planner, the simulator and checks, signed approvals, the web app and the bridge that runs programs on Universal Robots controllers.</p>
+              <p class="founder__bio">A software and systems engineer and Computer Science (Honours) student at Universiti Tunku Abdul Rahman, with a habit of testing everything in simulation before it touches hardware.</p>
+              <ul class="founder__facts">
+                <li><strong>Recognition</strong> MUBA Hackathon 2026 finalist · Top Coders Malaysia 2026 national finalist · Top 50 on GitHub in Malaysia</li>
+              </ul>
+              <div class="founder__links">
+                <a class="textlink" href="https://www.linkedin.com/in/zishaan-ahmed" target="_blank" rel="noopener">LinkedIn</a>
+                <a class="textlink" href="https://github.com/zishaan1911" target="_blank" rel="noopener">GitHub</a>
+                <a class="textlink" href="mailto:" data-contact-email>Email</a>
+              </div>
+            </div>
+          </article>
+          <div class="hires">
+            <h3 class="hires__title">First hires with the seed</h3>
+            <ol>
+              <li class="reveal" style="--i: 0"><strong>Robotics and motion engineer</strong>Owns the checker and the bridge on real cells</li>
+              <li class="reveal" style="--i: 1"><strong>Applications engineer</strong>Has commissioned cobot cells; runs pilots on site</li>
+              <li class="reveal" style="--i: 2"><strong>Partnerships lead</strong>From the integrator world; signs the first five</li>
+              <li class="reveal" style="--i: 3"><strong>AI and planner engineer</strong>BM and Mandarin accuracy, lower model costs</li>
+              <li class="reveal" style="--i: 4"><strong>Full-stack engineer</strong>Operator app, approvals, integrator portal</li>
+            </ol>
+            <p class="hires__note">From 3 people at the start of 2027 to 16 by the end of 2028 and 52 by 2031.</p>
           </div>
         </div>
       </section>
@@ -102,17 +339,22 @@
         <img class="pilot__bg" src="/img/kl-dusk-1920.webp" srcset="/img/kl-dusk-960.webp 960w, /img/kl-dusk-1920.webp 1920w" sizes="100vw" width="1920" height="1080" style="--pos: 50% 60%" loading="lazy" alt="" />
         <div class="wrap pilot__inner">
           <h2 id="join-title">Build it with us.</h2>
-          <p class="pilot__sub">We're choosing a small group of founding pilot factories.</p>
-          <div class="hero__actions" style="justify-content: center; margin-top: 32px">
+          <p class="pilot__sub">Factories: put the seventh axis on your line. Investors: ask us for the full plan and model.</p>
+          <div class="hero__actions" style="justify-content: center; margin-top: 28px">
             <a class="btn btn--signal" href="/pilot">Apply for the pilot</a>
-            <a class="textlink" href="/book" style="color: var(--paper)">Book a meeting</a>
+            <a class="btn btn--light" href="/book">Book an investor call</a>
+            <a class="textlink" href="mailto:" data-contact-email style="color: var(--paper)">Email us</a>
           </div>
         </div>
+      </section>
+
+      <section class="wrap inv-legal" aria-label="Important information">
+        <p>This page is for information only. It is not an offer to sell, or a solicitation of an offer to buy, any shares or other securities of Seventh Axis. Projections are the company's own estimates, based on assumptions that may prove wrong; actual results may differ materially. Market figures come from IFR, DOSM, MITI and other public sources listed in the full plan.</p>
       </section>
     </main>
 
     <!--#footer-->
 
-    <script type="module" src="/src/landing/main.ts"></script>
+    <script type="module" src="/src/investors/main.ts"></script>
   </body>
 </html>
