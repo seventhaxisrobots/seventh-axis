@@ -67,7 +67,8 @@ export function cashChart(): string {
 const row = (cells: string[], cls = "") => `<tr${cls ? ` class="${cls}"` : ""}><th scope="row">${cells[0]}</th>${cells.slice(1).map((c) => `<td>${c}</td>`).join("")}</tr>`;
 
 export function plTable(): string {
-  const line = (name: string, pick: (p: (typeof PLAN)[number]) => string, cls = "") => row([name, ...PLAN.map(pick)], cls);
+  let n = 0;
+  const line = (name: string, pick: (p: (typeof PLAN)[number]) => string, cls = "") => row([name, ...PLAN.map(pick)], cls).replace("<tr", `<tr style="--i: ${n++}"`);
   return `<table class="fin">
           <thead><tr><th scope="col">RM million</th>${PLAN.map((p) => `<th scope="col">${p.year}</th>`).join("")}</tr></thead>
           <tbody>
@@ -112,20 +113,29 @@ export function fundsBars(): string {
         </div>`;
 }
 
-export function roundsTable(): string {
-  return `<table class="fin fin--text fin--rounds">
-          <thead><tr><th scope="col">Round</th><th scope="col">When</th><th scope="col">Amount</th><th scope="col">Pays for</th><th scope="col">Milestones it must reach</th></tr></thead>
-          <tbody>
-            ${ROUNDS.map((r) => row([esc(r.name), r.when, `RM${r.amount}M <small>about USD ${r.usd}M</small>`, esc(r.pays), esc(r.milestones)])).join("\n            ")}
-          </tbody>
-        </table>`;
+export function roundsCards(): string {
+  return `<div class="rounds">
+          ${ROUNDS.map(
+            (r, i) => `<article class="round${i === 0 ? " is-key" : ""} reveal" data-tilt style="--i: ${i}">
+            <p class="round__when">${esc(r.name)} · ${r.when}</p>
+            <p class="round__amount" data-count="${r.amount}" data-prefix="RM" data-suffix="M">RM${r.amount}M</p>
+            <p class="round__usd">about USD ${r.usd}M</p>
+            <dl class="round__facts"><div><dt>Pays for</dt><dd>${esc(r.pays)}</dd></div><div><dt>Must reach</dt><dd>${esc(r.milestones)}</dd></div></dl>
+          </article>`,
+          ).join("\n          ")}
+        </div>`;
 }
 
 export function sensitivityTable(): string {
-  return `<table class="fin fin--text">
+  // EBITDA as a bar either side of zero, on one scale for every case.
+  const reach = Math.max(...SENSITIVITIES.map((s) => Math.abs(s.ebitda)));
+  return `<table class="fin fin--text fin--whatif">
           <thead><tr><th scope="col">Case</th><th scope="col">What changes</th><th scope="col">2031 revenue</th><th scope="col">2031 EBITDA</th><th scope="col">Cash, end 2031</th></tr></thead>
           <tbody>
-            ${SENSITIVITIES.map((s, i) => row([esc(s.name), esc(s.change), `RM${s.revenue.toFixed(1)}M`, `${s.ebitda < 0 ? "−" : "+"}RM${Math.abs(s.ebitda).toFixed(1)}M`, `RM${s.cash.toFixed(1)}M`], i === 0 ? "is-key" : "")).join("\n            ")}
+            ${SENSITIVITIES.map((s, i) => {
+              const bar = `<span class="dv" aria-hidden="true"><i class="${s.ebitda < 0 ? "is-neg" : "is-pos"}" style="--v: ${((Math.abs(s.ebitda) / reach) * 50).toFixed(1)}%; --i: ${i}"></i></span>`;
+              return row([esc(s.name), esc(s.change), `RM${s.revenue.toFixed(1)}M`, `${bar}${s.ebitda < 0 ? "−" : "+"}RM${Math.abs(s.ebitda).toFixed(1)}M`, `RM${s.cash.toFixed(1)}M`], i === 0 ? "is-key" : "");
+            }).join("\n            ")}
           </tbody>
         </table>`;
 }
