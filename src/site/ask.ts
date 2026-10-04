@@ -23,7 +23,7 @@ interface Answer extends Turn {
 const STORE = "sa_ask";
 const STARTERS = ["What does Seventh Axis do?", "How much does it cost?", "Show me palletising", "Do you sell robots?"];
 const MARK =
-  '<svg width="22" height="22" viewBox="0 0 64 64" aria-hidden="true"><path d="M13 17 H47 L29 53" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="13" cy="17" r="6.5" fill="var(--ask-hole, #0E1116)" stroke="currentColor" stroke-width="3.5"/><circle cx="47" cy="17" r="7.5" fill="#FF5A1F"/><circle cx="29" cy="53" r="4.5" fill="currentColor"/></svg>';
+  '<svg width="22" height="22" viewBox="0 0 64 64" aria-hidden="true"><path d="M12 10H50L44.382 19.941M29.618 46.059L24 56" fill="none" stroke="currentColor" stroke-width="5.2" stroke-linejoin="miter"/><path d="M46.534 21.418A15 15 0 0 1 31.994 47.140ZM27.466 44.582A15 15 0 0 1 42.006 18.860Z" fill="currentColor"/></svg>';
 
 let turns: Turn[] = [];
 let panel: HTMLElement | null = null;
