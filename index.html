@@ -16,7 +16,8 @@
     <script>
       try {
         var root = document.documentElement;
-        var film = /[?&]film\b/.test(location.search) || !sessionStorage.getItem("sa_film");
+        // The launch film is paused for now: it only plays when asked for with ?film.
+        var film = /[?&]film\b/.test(location.search);
         if (film && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
           root.classList.add("film-on", "intro-seen");
           var tall = innerWidth <= innerHeight;
