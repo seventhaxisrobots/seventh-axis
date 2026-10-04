@@ -175,8 +175,9 @@ html {
   text-decoration: none;
 }
 
-.mark__hole {
-  fill: var(--mark-hole, var(--paper));
+.brand__word {
+  display: block;
+  flex-shrink: 0;
 }
 
 .brand__name {
