@@ -1,0 +1,903 @@
+/* About and investors: tighter rhythm, and the animated visuals in the white sections */
+
+/* ---------- Rhythm ---------- */
+.inv .section {
+  padding-top: 0;
+  padding-bottom: clamp(56px, 6.5vw, 96px);
+}
+
+.inv .s3d + .section,
+.inv .inv-after {
+  padding-top: clamp(48px, 6vw, 80px);
+}
+
+.inv .section__title {
+  max-width: 20ch;
+  font-size: clamp(32px, 3.6vw, 52px);
+}
+
+.inv-kicker {
+  margin-bottom: 10px;
+}
+
+.inv-subhead {
+  margin: 0 0 18px;
+  font-size: clamp(22px, 2vw, 28px);
+}
+
+.inv-stats {
+  margin-top: clamp(32px, 4vw, 56px);
+}
+
+.inv-toc {
+  margin-top: clamp(28px, 3vw, 40px);
+  margin-bottom: clamp(48px, 6vw, 80px);
+}
+
+.inv-split {
+  align-items: start;
+}
+
+.inv-prose p {
+  font-size: 17px;
+}
+
+.inv-note {
+  margin-top: 16px;
+}
+
+/* A stagger for anything revealed in a group. */
+.reveal-on .reveal {
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+
+/* ---------- 01 · The pressure on Malaysian lines ---------- */
+.inv-pressure {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+  margin-top: clamp(40px, 5vw, 64px);
+  align-items: stretch;
+}
+
+.density {
+  margin: 0;
+  padding: clamp(20px, 2.6vw, 32px);
+  border-radius: 16px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.density figcaption {
+  margin-bottom: 22px;
+  font-size: 14px;
+  color: #a3a3a3;
+}
+
+.density figcaption strong {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--paper);
+}
+
+.density__row {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr) 56px;
+  gap: 14px;
+  align-items: center;
+  padding: 9px 0;
+  font-size: 15px;
+}
+
+.density__row i {
+  position: relative;
+  display: block;
+  height: 14px;
+  border-radius: 2px;
+  background: #4a4a4a;
+  width: var(--v);
+  transform-origin: left center;
+}
+
+.density__row.is-key i {
+  background: var(--signal);
+}
+
+.density__row.is-key span,
+.density__row.is-key b {
+  color: var(--signal);
+}
+
+/* Singapore runs off the scale: a zig-zag break at the end of its bar. */
+.density__row.is-broken i {
+  -webkit-mask: linear-gradient(90deg, #000 calc(100% - 22px), transparent calc(100% - 22px)), conic-gradient(from -45deg at 100% 50%, transparent 90deg, #000 0) right / 22px 7px;
+  mask: linear-gradient(90deg, #000 calc(100% - 22px), transparent calc(100% - 22px)), conic-gradient(from -45deg at 100% 50%, transparent 90deg, #000 0) right / 22px 7px;
+}
+
+.density__row b {
+  font-family: var(--font-display);
+  font-size: 20px;
+  text-align: right;
+}
+
+.density__note {
+  margin-top: 14px;
+  font-size: 12px;
+  color: #8a8a8a;
+}
+
+.reveal-on .density i {
+  transform: scaleX(0);
+  transition: transform 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.25s + var(--i) * 120ms);
+}
+
+.reveal-on .density.is-in i {
+  transform: scaleX(1);
+}
+
+.facts {
+  display: grid;
+  gap: 12px;
+}
+
+.facts div {
+  padding: 18px 20px;
+  border: 1px solid var(--paper-line);
+  border-radius: 14px;
+  background: var(--paper);
+}
+
+.facts strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(30px, 3vw, 40px);
+  line-height: 1;
+}
+
+.facts span {
+  display: block;
+  margin-top: 6px;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--steel);
+}
+
+/* ---------- How we work ---------- */
+.values {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.values div {
+  padding: 22px;
+  border: 1px solid var(--paper-line);
+  border-radius: 16px;
+}
+
+.values h3 {
+  margin-top: 14px;
+  font-size: 21px;
+}
+
+.values p {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-soft);
+}
+
+/* Icons that draw themselves in. */
+.draw {
+  width: 40px;
+  height: 40px;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.draw :first-child {
+  stroke: var(--signal-deep);
+}
+
+.reveal-on .draw * {
+  stroke-dasharray: 160;
+  stroke-dashoffset: 160;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.4, 0, 0.2, 1) calc(0.2s + var(--i, 0) * 90ms);
+}
+
+.reveal-on .is-in .draw * {
+  stroke-dashoffset: 0;
+}
+
+/* ---------- 04 · Business model ---------- */
+.flowmap {
+  margin: clamp(28px, 3.5vw, 44px) 0 0;
+  padding: clamp(12px, 2vw, 24px);
+  border-radius: 18px;
+  background: var(--ink);
+}
+
+.flowmap svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: var(--font-sans);
+}
+
+.flowmap__path {
+  fill: none;
+  stroke: #4a4a4a;
+  stroke-width: 2;
+  stroke-dasharray: 6 8;
+  animation: flow-dash 1.2s linear infinite;
+}
+
+.flowmap__path.is-money {
+  stroke: rgba(255, 205, 17, 0.55);
+}
+
+@keyframes flow-dash {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
+.flowmap__node rect {
+  fill: #171717;
+  stroke: #3a3a3a;
+}
+
+.flowmap__node.is-key rect {
+  fill: #1f1a05;
+  stroke: var(--signal);
+  stroke-width: 1.5;
+}
+
+.flowmap__node text {
+  fill: var(--paper);
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.flowmap__node .flowmap__sub {
+  fill: #a3a3a3;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.flowmap__label {
+  fill: #d9d9d9;
+  font-size: 15px;
+  text-anchor: middle;
+}
+
+.flowmap__coin {
+  fill: var(--signal);
+}
+
+.flowmap__dot {
+  fill: #e6e6e6;
+}
+
+.inv-cards {
+  margin-top: 16px;
+  gap: 16px;
+}
+
+.inv-cards div {
+  padding: 20px 22px;
+  border: 1px solid var(--paper-line);
+  border-top: 2px solid var(--ink);
+  border-radius: 0 0 14px 14px;
+}
+
+/* Unit economics as a waterfall: each step drops from where the last one ended. */
+.fall {
+  margin: 16px 0 0;
+  padding: clamp(20px, 2.6vw, 32px);
+  border: 1px solid var(--paper-line);
+  border-radius: 16px;
+}
+
+.fall figcaption {
+  font-size: 14px;
+  color: var(--steel);
+}
+
+.fall figcaption strong {
+  display: block;
+  margin-bottom: 2px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--ink);
+}
+
+.fall__chart {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(8px, 2vw, 24px);
+  height: 260px;
+  margin-top: 20px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--ink);
+}
+
+.fall__col {
+  position: relative;
+}
+
+.fall__col i {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: calc(var(--top) * 0.86 + 14%);
+  height: calc(var(--h) * 0.86);
+  border-radius: 2px;
+  background: var(--mist);
+  transform-origin: top;
+}
+
+.fall__col.is-neg i {
+  background: repeating-linear-gradient(135deg, #e3e3e3 0 6px, #cfcfcf 6px 12px);
+}
+
+.fall__col.is-key i {
+  background: var(--signal);
+  transform-origin: bottom;
+}
+
+.fall__col b {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(var(--top) * 0.86 + 14% - 24px);
+  font-family: var(--font-display);
+  font-size: clamp(14px, 1.5vw, 19px);
+  text-align: center;
+}
+
+.fall__col span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -26px;
+  font-size: 13px;
+  text-align: center;
+  color: var(--steel);
+}
+
+.reveal-on .fall__col i {
+  transform: scaleY(0);
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.2s + var(--i) * 220ms);
+}
+
+.reveal-on .fall__col b {
+  opacity: 0;
+  transition: opacity 0.4s calc(0.5s + var(--i) * 220ms);
+}
+
+.reveal-on .fall.is-in .fall__col i {
+  transform: scaleY(1);
+}
+
+.reveal-on .fall.is-in .fall__col b {
+  opacity: 1;
+}
+
+.fall__note {
+  margin-top: 18px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-soft);
+}
+
+/* ---------- Tables that build row by row ---------- */
+.reveal-on .fin-stagger tbody tr {
+  opacity: 0;
+  translate: -12px 0;
+  transition: opacity 0.5s, translate 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: calc(var(--i, 0) * 45ms);
+}
+
+.reveal-on .fin-stagger.is-in tbody tr {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.fin-stagger.reveal {
+  translate: none;
+}
+
+/* What-if: EBITDA as a bar either side of zero. */
+.fin--whatif td:nth-child(4) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.dv {
+  position: relative;
+  flex: none;
+  width: 90px;
+  height: 12px;
+  background: linear-gradient(var(--ink), var(--ink)) center / 1px 100% no-repeat;
+}
+
+.dv i {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  width: var(--v);
+  border-radius: 1px;
+}
+
+.dv i.is-neg {
+  right: 50%;
+  background: #b9b9b9;
+  transform-origin: right;
+}
+
+.dv i.is-pos {
+  left: 50%;
+  background: var(--signal);
+  transform-origin: left;
+}
+
+.reveal-on .dv i {
+  transform: scaleX(0);
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.3s + var(--i) * 90ms);
+}
+
+.reveal-on .is-in .dv i {
+  transform: scaleX(1);
+}
+
+/* ---------- 06 · The round ---------- */
+.rounds {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: clamp(24px, 3vw, 36px);
+}
+
+.round {
+  padding: clamp(22px, 2.6vw, 32px);
+  border: 1px solid var(--paper-line);
+  border-radius: 18px;
+}
+
+.round.is-key {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.round__when {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--steel);
+}
+
+.round.is-key .round__when {
+  color: var(--signal);
+}
+
+.round__amount {
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: clamp(52px, 6vw, 84px);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.round__usd {
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--steel);
+}
+
+.round.is-key .round__usd {
+  color: #a3a3a3;
+}
+
+.round__facts {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0 0;
+}
+
+.round__facts div {
+  padding-top: 12px;
+  border-top: 1px solid var(--paper-line);
+}
+
+.round.is-key .round__facts div {
+  border-color: #2e2e2e;
+}
+
+.round__facts dt {
+  font-size: 13px;
+  color: var(--steel);
+}
+
+.round.is-key .round__facts dt {
+  color: #a3a3a3;
+}
+
+.round__facts dd {
+  margin: 4px 0 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* ---------- Milestones: a line that draws as you scroll ---------- */
+.timeline {
+  --prog: 0;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 30px 0 0;
+  list-style: none;
+}
+
+.timeline::before,
+.timeline::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--paper-line);
+}
+
+.timeline::after {
+  background: var(--ink);
+  transform: scaleX(var(--prog));
+  transform-origin: left;
+}
+
+.timeline li {
+  position: relative;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--steel);
+  transition: color 0.4s;
+}
+
+.timeline li::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 0;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--paper-line);
+  border-radius: 50%;
+  background: var(--paper);
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.timeline li span {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--steel-light);
+  transition: color 0.4s;
+}
+
+.timeline li.is-on {
+  color: var(--text-soft);
+}
+
+.timeline li.is-on span {
+  color: var(--ink);
+}
+
+.timeline li.is-on::before {
+  border-color: var(--ink);
+  background: var(--signal);
+  transform: scale(1.15);
+}
+
+/* ---------- 07 · Risks: a yellow rule draws across each as it arrives ---------- */
+.risks {
+  margin-top: 24px;
+  gap: 0 40px;
+}
+
+.risks div {
+  position: relative;
+  padding: 16px 0;
+}
+
+.risks div::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 56px;
+  height: 2px;
+  background: var(--signal);
+  transform-origin: left;
+}
+
+.reveal-on .risks div::before {
+  transform: scaleX(0);
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.3s + var(--i, 0) * 90ms);
+}
+
+.reveal-on .risks div.is-in::before {
+  transform: scaleX(1);
+}
+
+/* ---------- 08 · Team ---------- */
+.team {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 16px;
+  margin-top: clamp(24px, 3vw, 36px);
+  align-items: stretch;
+}
+
+.team .founder {
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 28px;
+  margin: 0;
+  padding: 24px;
+  border: 1px solid var(--paper-line);
+}
+
+.team .founder__photo {
+  width: 200px;
+}
+
+.team .founder__name {
+  font-size: clamp(28px, 2.8vw, 38px);
+}
+
+.team .founder__bio {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.hires {
+  padding: 24px;
+  border-radius: 20px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.hires__title {
+  font-size: 20px;
+}
+
+.hires ol {
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: hire;
+}
+
+.hires li {
+  position: relative;
+  padding: 10px 0 10px 40px;
+  border-top: 1px solid #2a2a2a;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #a3a3a3;
+  counter-increment: hire;
+}
+
+.hires li::before {
+  content: counter(hire);
+  position: absolute;
+  left: 0;
+  top: 11px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1.5px solid var(--signal);
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--signal);
+}
+
+.hires li strong {
+  display: block;
+  font-weight: 600;
+  color: var(--paper);
+}
+
+.hires__note {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #8a8a8a;
+}
+
+.inv-legal {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+/* ---------- Narrow screens ---------- */
+@media (max-width: 900px) {
+  .inv-pressure,
+  .team,
+  .rounds {
+    grid-template-columns: 1fr;
+  }
+
+  .values {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 0 0 0 34px;
+  }
+
+  .timeline::before,
+  .timeline::after {
+    top: 0;
+    bottom: 0;
+    left: 7px;
+    right: auto;
+    width: 2px;
+    height: auto;
+  }
+
+  .timeline::after {
+    transform: scaleY(var(--prog));
+    transform-origin: top;
+  }
+
+  .timeline li::before {
+    top: 2px;
+    left: -34px;
+  }
+}
+
+@media (max-width: 560px) {
+  .density__row {
+    grid-template-columns: 84px minmax(0, 1fr) 40px;
+    gap: 10px;
+    font-size: 13px;
+  }
+
+  .team .founder {
+    grid-template-columns: 1fr;
+  }
+
+  .team .founder__photo {
+    width: 160px;
+  }
+
+  .fall__chart {
+    height: 220px;
+  }
+
+  .fall__col span {
+    font-size: 11px;
+  }
+
+  .flowmap {
+    padding: 8px;
+  }
+}
+
+/* Phones: the flow map as a stacked list, connectors marching downwards. */
+.flowmap__list {
+  display: none;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+}
+
+.flowmap__list li {
+  padding: 12px 14px;
+  border: 1px solid #3a3a3a;
+  border-radius: 12px;
+  background: #171717;
+  font-size: 13px;
+  color: #a3a3a3;
+  text-align: center;
+}
+
+.flowmap__list li strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--paper);
+}
+
+.flowmap__list li.is-key {
+  border-color: var(--signal);
+  background: #1f1a05;
+}
+
+.flowmap__list li.is-link {
+  position: relative;
+  padding: 18px 0 18px 26px;
+  border: 0;
+  background: none;
+  font-size: 14px;
+  color: #d9d9d9;
+  text-align: left;
+  margin-left: calc(50% - 1px);
+}
+
+.flowmap__list li.is-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: repeating-linear-gradient(to bottom, #6a6a6a 0 6px, transparent 6px 12px);
+  background-size: 2px 12px;
+  animation: flow-down 0.6s linear infinite;
+}
+
+.flowmap__list li.is-link.is-money::before {
+  background-image: repeating-linear-gradient(to bottom, var(--signal) 0 6px, transparent 6px 12px);
+}
+
+@keyframes flow-down {
+  to {
+    background-position: 0 12px;
+  }
+}
+
+@media (max-width: 700px) {
+  .flowmap svg {
+    display: none;
+  }
+
+  .flowmap__list {
+    display: block;
+  }
+
+  .inv-cards div {
+    padding: 16px 18px;
+  }
+
+  .inv-cards h3 {
+    font-size: 30px;
+  }
+
+  .inv-cards p,
+  .values p,
+  .facts span {
+    font-size: 14px;
+  }
+
+  .values div {
+    padding: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flowmap__path,
+  .flowmap__list li.is-link::before {
+    animation: none;
+  }
+}
