@@ -36,7 +36,7 @@ const lerp = (a: V3, b: V3, u: number): V3 => ({ x: a.x + (b.x - a.x) * u, y: a.
 const arc = (a: V3, b: V3, u: number, h: number): V3 => ({ ...lerp(a, b, u), y: a.y + (b.y - a.y) * u + Math.sin(Math.PI * u) * h });
 const mix = (a: number[], b: number[], u: number) => `rgb(${a.map((v, i) => Math.round(v + (b[i] - v) * u)).join(",")})`;
 const INK_BROWN = [59, 42, 23];
-const PAPER = [243, 241, 236];
+const PAPER = [255, 255, 255];
 
 interface Layout {
   font: number;
@@ -58,11 +58,11 @@ export function startCobot(section: HTMLElement, stage: HTMLElement, words: HTML
   const scene = new THREE.Scene();
   scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
   scene.environmentIntensity = 0.55;
-  scene.add(new THREE.HemisphereLight(0xdfe6ee, 0x0e1116, 0.7));
+  scene.add(new THREE.HemisphereLight(0xeeeeee, 0x0a0a0a, 0.7));
   const key = new THREE.DirectionalLight(0xffffff, 2.2);
   key.position.set(2, 4, 3);
   scene.add(key);
-  const rim = new THREE.DirectionalLight(0xff5a1f, 0.8);
+  const rim = new THREE.DirectionalLight(0xffcd11, 0.6);
   rim.position.set(-3, 2, -2);
   scene.add(rim);
 
@@ -100,7 +100,7 @@ export function startCobot(section: HTMLElement, stage: HTMLElement, words: HTML
     c.width = 128;
     c.height = 32;
     const g = c.getContext("2d")!;
-    g.fillStyle = "#151a21";
+    g.fillStyle = "#151515";
     g.fillRect(0, 0, 128, 32);
     g.fillStyle = "#28303b";
     for (let x = 0; x < 128; x += 32) g.fillRect(x, 0, 6, 32);
