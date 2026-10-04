@@ -39,7 +39,7 @@
   border-color: var(--ink);
   background: var(--ink);
   color: var(--paper);
-  box-shadow: 0 30px 70px rgba(14, 17, 22, 0.2);
+  box-shadow: 0 30px 70px rgba(10, 10, 10, 0.2);
 }
 
 .plan__name {

@@ -3,7 +3,7 @@
 .cobot {
   position: relative;
   height: 320vh;
-  background: radial-gradient(ellipse at 50% 100%, #1b2029 0%, var(--ink) 65%);
+  background: radial-gradient(ellipse at 50% 100%, #1c1c1c 0%, var(--ink) 65%);
   color: var(--paper);
 }
 
@@ -42,7 +42,7 @@
   line-height: 1;
   will-change: transform;
   /* Readable when the arm passes behind a word. */
-  text-shadow: 0 2px 14px rgba(14, 17, 22, 0.85), 0 0 2px rgba(14, 17, 22, 0.6);
+  text-shadow: 0 2px 14px rgba(10, 10, 10, 0.85), 0 0 2px rgba(10, 10, 10, 0.6);
   /* Until the 3D scene has placed them. */
   opacity: 0;
   transition: opacity 0.4s;

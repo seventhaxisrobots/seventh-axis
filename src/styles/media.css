@@ -53,7 +53,7 @@
   content: "";
   position: absolute;
   inset: 45% 0 0;
-  background: linear-gradient(transparent, rgba(14, 17, 22, 0.75));
+  background: linear-gradient(transparent, rgba(10, 10, 10, 0.75));
   pointer-events: none;
 }
 
@@ -150,7 +150,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(14, 17, 22, 0.5) 0%, rgba(14, 17, 22, 0.08) 26%, rgba(14, 17, 22, 0.36) 52%, rgba(14, 17, 22, 0.88) 100%);
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.5) 0%, rgba(10, 10, 10, 0.08) 26%, rgba(10, 10, 10, 0.36) 52%, rgba(10, 10, 10, 0.88) 100%);
 }
 
 .photo-hero__content {
@@ -174,7 +174,7 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #ff8a5c;
+  color: #FFCD11;
 }
 
 .photo-hero__title {
@@ -191,7 +191,7 @@
   max-width: 640px;
   font-size: clamp(17px, 1.5vw, 21px);
   line-height: 1.5;
-  color: #e6e3dc;
+  color: #e6e6e6;
 }
 
 .photo-hero__actions {
@@ -211,7 +211,7 @@
   list-style: none;
   font-size: 15px;
   line-height: 1.6;
-  color: #e6e3dc;
+  color: #e6e6e6;
   text-align: right;
 }
 
@@ -226,7 +226,7 @@
 .photo-hero__steps span {
   font-family: var(--font-display);
   font-weight: 700;
-  color: #ff8a5c;
+  color: #FFCD11;
 }
 
 .photo-hero__prices {
@@ -249,7 +249,7 @@
   gap: 10px;
   padding: 10px 16px;
   border-radius: 999px;
-  background: rgba(14, 17, 22, 0.6);
+  background: rgba(10, 10, 10, 0.6);
   font-size: 14px;
 }
 
@@ -285,7 +285,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(14, 17, 22, 0.7);
+  background: rgba(10, 10, 10, 0.7);
 }
 
 .pilot--photo .pilot__inner {
@@ -296,12 +296,12 @@
 .pilot--photo .pilot__sub,
 .pilot--photo .pilot__alt,
 .pilot--photo .pilot__consent {
-  color: #e6e3dc;
+  color: #e6e6e6;
 }
 
 .pilot--photo .pill-field input {
-  background: rgba(14, 17, 22, 0.55);
-  border-color: rgba(243, 241, 236, 0.45);
+  background: rgba(10, 10, 10, 0.55);
+  border-color: rgba(255, 255, 255, 0.45);
 }
 
 .pilot--photo .pill-field input::placeholder {
@@ -347,5 +347,5 @@
 
 /* Bright photos need a deeper wash for white type. */
 .photo-hero--bright::after {
-  background: linear-gradient(180deg, rgba(14, 17, 22, 0.55) 0%, rgba(14, 17, 22, 0.3) 30%, rgba(14, 17, 22, 0.62) 55%, rgba(14, 17, 22, 0.92) 100%);
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.55) 0%, rgba(10, 10, 10, 0.3) 30%, rgba(10, 10, 10, 0.62) 55%, rgba(10, 10, 10, 0.92) 100%);
 }

@@ -138,7 +138,7 @@
   gap: 10px;
   height: 44px;
   padding: 0 18px 0 20px;
-  border: 1px solid rgba(243, 241, 236, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 999px;
   background: rgba(0, 0, 0, 0.45);
   -webkit-backdrop-filter: blur(8px);
@@ -150,12 +150,12 @@
 }
 
 .film__skip:hover {
-  background: rgba(243, 241, 236, 0.14);
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .film__skip kbd {
   padding: 2px 6px;
-  border: 1px solid rgba(243, 241, 236, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 4px;
   font: inherit;
   font-size: 12px;
@@ -231,7 +231,7 @@
 }
 
 .film .f-stars .f-dot {
-  box-shadow: 0 0 6px rgba(243, 241, 236, 0.8);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
 }
 
 .film .f-ring {
@@ -241,8 +241,8 @@
 .film .f-ring > span {
   position: absolute;
   inset: 0;
-  border: 2px solid rgba(243, 241, 236, 0.1);
-  border-top-color: rgba(243, 241, 236, 0.45);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-top-color: rgba(255, 255, 255, 0.45);
   border-radius: 50%;
 }
 
@@ -263,7 +263,7 @@
 }
 
 .film .f-sweep {
-  background: linear-gradient(100deg, #5b6472 0%, #5b6472 30%, #f3f1ec 42%, #ff5a1f 50%, #f3f1ec 58%, #f3f1ec 100%);
+  background: linear-gradient(100deg, #5b6472 0%, #5b6472 30%, #FFFFFF 42%, #FFCD11 50%, #FFFFFF 58%, #FFFFFF 100%);
   background-size: 260% 100%;
   background-position: 100% 0;
   -webkit-background-clip: text;
@@ -285,15 +285,15 @@
   top: 0;
   width: 640px;
   padding: 28px 32px;
-  border: 1px solid rgba(243, 241, 236, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 22px;
-  background: rgba(21, 26, 33, 0.88);
+  background: rgba(17, 17, 17, 0.88);
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
 }
 
 .film .f-card--signal {
-  border-color: rgba(255, 90, 31, 0.5);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 90, 31, 0.2);
+  border-color: rgba(255, 205, 17, 0.5);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 205, 17, 0.2);
 }
 
 .film .f-card__lang {
@@ -313,9 +313,9 @@
   display: flex;
   gap: 18px;
   padding: 18px 26px;
-  border: 1px solid rgba(46, 196, 182, 0.5);
+  border: 1px solid rgba(255, 205, 17, 0.5);
   border-radius: 999px;
-  background: rgba(14, 17, 22, 0.92);
+  background: rgba(10, 10, 10, 0.92);
   font-size: 28px;
 }
 
@@ -333,9 +333,9 @@
   left: 120px;
   bottom: 96px;
   padding: 20px 28px;
-  border: 1px solid rgba(243, 241, 236, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 14px;
-  background: rgba(14, 17, 22, 0.85);
+  background: rgba(10, 10, 10, 0.85);
   font-family: var(--font-mono);
   font-size: 24px;
   color: var(--mist-2);
@@ -585,6 +585,24 @@
   }
 }
 
+/* The logo zooms into the dark inside the 7 and is gone before anything white fills the frame. */
+@keyframes f-zoomLogo {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  45% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    transform: scale(34);
+    opacity: 0;
+  }
+}
+
 @keyframes f-flash {
   0% {
     opacity: 0;
@@ -619,8 +637,8 @@
 
 @keyframes f-ringOn {
   to {
-    border-color: rgba(243, 241, 236, 0.9);
-    box-shadow: 0 0 30px rgba(243, 241, 236, 0.28), inset 0 0 18px rgba(243, 241, 236, 0.12);
+    border-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.28), inset 0 0 18px rgba(255, 255, 255, 0.12);
   }
 }
 

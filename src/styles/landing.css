@@ -140,7 +140,7 @@
   width: 100%;
   height: auto;
   border-radius: 14px;
-  box-shadow: 0 30px 80px rgba(14, 17, 22, 0.18);
+  box-shadow: 0 30px 80px rgba(10, 10, 10, 0.18);
 }
 
 .showcase figcaption {
@@ -226,7 +226,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(14, 17, 22, 0.35);
+  background: rgba(10, 10, 10, 0.35);
 }
 
 .poster__text {
@@ -244,7 +244,7 @@
 .poster p {
   margin-top: 16px;
   font-size: 18px;
-  color: #e6e3dc;
+  color: #e6e6e6;
 }
 
 /* Why now */
