@@ -15,7 +15,7 @@ export function fundsScene(stage: HTMLElement): SceneSpec {
   const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 40);
   lights(scene);
 
-  stageFloor(scene, 20, -0.01);
+  stageFloor(scene, 6, -0.01);
 
   const total = USE_OF_SEED.reduce((s, u) => s + u.amount, 0);
   const group = new THREE.Group();
@@ -40,7 +40,7 @@ export function fundsScene(stage: HTMLElement): SceneSpec {
     group.add(mesh);
     const mid = (a0 + a1) / 2;
     const el = label(stage, `s3d-label--slice${key ? " is-key" : ""}`, `<strong>${Math.round(share * 100)}%</strong><span>${SHORT[i] ?? u.item}</span><small>RM${u.amount.toFixed(2)}M</small>`);
-    return { mesh, mid, height, el, i };
+    return { mesh, mid, height, el, i, share };
   });
   const centre = label(stage, "s3d-label--centre", `<strong>RM${total.toFixed(1)}M</strong><span>spent in 2027 and 2028</span>`);
   const target = new THREE.Vector3(0, 0.25, 0);
@@ -50,14 +50,10 @@ export function fundsScene(stage: HTMLElement): SceneSpec {
     scene,
     camera,
     update({ p, time, w, h }) {
-      const wide = w / h > 1.05;
       const spin = -0.4 + p * 0.8 + time * 0.03;
       group.rotation.y = spin;
       dir.set(0, 0.95, 1);
-      frame(camera, target, dir, wide ? 3.0 : 1.95, 1.55, 1.0);
-      if (!wide) camera.position.y += 0.5;
-      // Wide screens: the donut sits right of the copy.
-      if (wide) camera.position.x -= 1.15;
+      frame(camera, target, dir, 1.75, 1.25, 1.04);
       camera.updateMatrixWorld();
       fog(scene, camera, target, 1.0, 2.0);
       const open = ease(span(0.45, 0.8, p));
@@ -66,7 +62,10 @@ export function fundsScene(stage: HTMLElement): SceneSpec {
         s.mesh.scale.set(1, Math.max(0.02, s.height * rise), 1);
         const out = open * 0.22;
         s.mesh.position.set(Math.cos(s.mid) * out, 0, -Math.sin(s.mid) * out);
-        const anchor = new THREE.Vector3(Math.cos(s.mid) * (OUTER + out + 0.12), s.height * rise + 0.05, -Math.sin(s.mid) * (OUTER + out + 0.12)).applyAxisAngle(new THREE.Vector3(0, 1, 0), spin);
+        // Thin slices sit next to each other: push their labels further out, one higher than the other.
+        const r = OUTER + out + (s.share < 0.1 ? 0.42 : 0.12);
+        const lift = s.share < 0.1 ? (s.i % 2) * 0.34 : 0;
+        const anchor = new THREE.Vector3(Math.cos(s.mid) * r, s.height * rise + 0.05 + lift, -Math.sin(s.mid) * r).applyAxisAngle(new THREE.Vector3(0, 1, 0), spin);
         placeLabel(s.el, toStage(anchor, camera, w, h), clamp((rise - 0.6) / 0.4));
       }
       placeLabel(centre, toStage(new THREE.Vector3(0, 0.05, 0), camera, w, h), clamp(p * 4));

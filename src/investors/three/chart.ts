@@ -32,7 +32,7 @@ export function chartScene(stage: HTMLElement): SceneSpec {
 
   const graphite = new THREE.MeshStandardMaterial({ color: 0x1b1b1b, roughness: 0.55, metalness: 0.35 });
   const rail = new THREE.MeshStandardMaterial({ color: 0x3a3a3a, roughness: 0.4, metalness: 0.6 });
-  stageFloor(scene, 24, FLOOR);
+  stageFloor(scene, 6, FLOOR);
 
   const pedestal = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.2, PEDESTAL, 48), graphite);
   pedestal.position.y = -PEDESTAL / 2;
@@ -108,16 +108,13 @@ export function chartScene(stage: HTMLElement): SceneSpec {
   const total = PLAN.length;
   const RUN = total + 0.5;
   const camDir = new THREE.Vector3(0.16, 0.36, 1);
-  const target = new THREE.Vector3(0, 0.22, 0.35);
+  const target = new THREE.Vector3(0.18, 0.1, 0.35);
 
   return {
     scene,
     camera,
     update({ p, w, h }) {
-      const wide = w / h > 1.05;
-      frame(camera, target, camDir, wide ? 2.05 : 1.05, 1.12, 1.0);
-      // Wide screens: move the camera left so the chart sits right of the copy.
-      if (wide) camera.position.add(new THREE.Vector3(-0.62, 0, 0.1));
+      frame(camera, target, camDir, 1.15, 1.14, 1.04);
       camera.updateMatrixWorld();
       fog(scene, camera, target, 1.0, 2.2);
       const face = Math.atan2(camDir.x, camDir.z);

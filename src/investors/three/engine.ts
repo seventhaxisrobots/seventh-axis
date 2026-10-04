@@ -1,6 +1,7 @@
 // One WebGL canvas for every 3D scene on /investors. The canvas is fixed over the
 // viewport; each scene draws only inside its own sticky stage (viewport + scissor),
 // so six scenes share one GPU context and the white sections stay untouched.
+// Each stage's copy and the 3D sit in separate grid areas, so they never overlap.
 //
 // Scroll drives each scene: progress runs 0 → 1 while its section scrolls past,
 // eased so wheel steps don't jerk. Scrolling back up rewinds.
@@ -68,7 +69,8 @@ export class Engine {
   }
 
   add(section: HTMLElement, spec: SceneSpec): void {
-    const stage = section.querySelector<HTMLElement>("[data-stage]") ?? section;
+    // The scene draws only inside its view box, which the layout keeps clear of the copy.
+    const stage = section.querySelector<HTMLElement>("[data-view]") ?? section;
     spec.scene.environment = this.env;
     const entry: Entry = { ...spec, section, stage, shown: this.still ? 1 : 0, target: this.still ? 1 : 0, visible: false };
     entry.shown = entry.target = this.progress(entry);
@@ -144,15 +146,38 @@ export function fog(scene: THREE.Scene, camera: THREE.Camera, target: THREE.Vect
 
 /** A dark floor with a faint grid, for the stages. */
 export function stageFloor(scene: THREE.Scene, size: number, y = 0, grid = true): void {
-  const floor = new THREE.Mesh(new THREE.PlaneGeometry(size, size), new THREE.MeshBasicMaterial({ color: 0x0b0b0b }));
+  const c = document.createElement("canvas");
+  c.width = c.height = 1024;
+  const g = c.getContext("2d")!;
+  if (grid) {
+    const cells = size * 4;
+    g.strokeStyle = "rgba(255,255,255,0.09)";
+    g.lineWidth = 1.5;
+    for (let i = 0; i <= cells; i++) {
+      const t = (i / cells) * 1024;
+      g.beginPath();
+      g.moveTo(t, 0);
+      g.lineTo(t, 1024);
+      g.moveTo(0, t);
+      g.lineTo(1024, t);
+      g.stroke();
+    }
+  }
+  // Fade to nothing well inside the plane's edge.
+  g.globalCompositeOperation = "destination-in";
+  const fade = g.createRadialGradient(512, 512, 0, 512, 512, 512);
+  fade.addColorStop(0, "rgba(0,0,0,1)");
+  fade.addColorStop(0.55, "rgba(0,0,0,0.6)");
+  fade.addColorStop(1, "rgba(0,0,0,0)");
+  g.fillStyle = fade;
+  g.fillRect(0, 0, 1024, 1024);
+  const tex = new THREE.CanvasTexture(c);
+  tex.anisotropy = 8;
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(size, size), new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false, fog: false }));
   floor.rotation.x = -Math.PI / 2;
   floor.position.y = y - 0.002;
+  floor.renderOrder = -1;
   scene.add(floor);
-  if (grid) {
-    const g = new THREE.GridHelper(size, size * 4, 0x1e1e1e, 0x141414);
-    g.position.y = y;
-    scene.add(g);
-  }
 }
 
 /** A 3D point to stage pixels; `z` > 1 means behind the camera. */

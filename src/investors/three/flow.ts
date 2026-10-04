@@ -22,7 +22,7 @@ export function flowScene(stage: HTMLElement): SceneSpec {
 
   const graphite = new THREE.MeshStandardMaterial({ color: 0x1b1b1b, roughness: 0.6, metalness: 0.4 });
   const steel = new THREE.MeshStandardMaterial({ color: 0x3a3a3a, roughness: 0.35, metalness: 0.8 });
-  stageFloor(scene, 30);
+  stageFloor(scene, 12);
 
   // Gates: square frames the plan passes through, glowing once it has.
   const gates = GATES.map((x) => {
@@ -113,7 +113,7 @@ export function flowScene(stage: HTMLElement): SceneSpec {
 
   const names = ["Ask", "Check", "Approve", "Run"].map((n, i) => label(stage, "s3d-label--gate", `<span>0${i + 1}</span>${n}`));
   const status = label(stage, "s3d-label--status", "");
-  const steps = [...stage.querySelectorAll<HTMLElement>("[data-step]")];
+  const steps = [...(stage.closest("section") ?? stage).querySelectorAll<HTMLElement>("[data-step]")];
 
   const at = (x: number, y = 0, z = 0) => new THREE.Vector3(x, y, z);
 
@@ -176,10 +176,9 @@ export function flowScene(stage: HTMLElement): SceneSpec {
       else box.position.set(rest.x, rest.y + 0.06, rest.z);
 
       // Camera: the whole line on wide screens; following the plan on tall ones.
-      const follow = wide ? 0.55 : THREE.MathUtils.clamp(x, -1.8, 2.9);
-      // Look a little above the line so it sits in the band between the copy and the steps.
-      const look = at(follow, 0.78, 0);
-      frame(camera, look, at(0.2, 0.36, 1), wide ? 3.3 : 1.25, wide ? 1.45 : 1.5, 1.0);
+      const follow = wide ? 0.65 : THREE.MathUtils.clamp(x, -1.8, 2.9);
+      const look = at(follow, 0.42, 0);
+      frame(camera, look, at(0.2, 0.36, 1), wide ? 3.2 : 1.3, 0.98, 1.06);
       fog(scene, camera, look, 0.95, 1.7);
 
       names.forEach((el, i) => placeLabel(el, toStage(at(GATES[i], 0, 0.6), camera, w, h), 0.35 + 0.65 * clamp((p - passed[i] + 0.04) / 0.05)));

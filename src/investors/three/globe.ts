@@ -150,7 +150,7 @@ export function globeScene(engine: Engine, stage: HTMLElement): SceneSpec {
 
   const klLabel = label(stage, "s3d-label--city is-key", `<strong>${KL.name}</strong><span>${KL.note}</span>`);
   const cityLabels = routes.map((r) => label(stage, `s3d-label--city${r.c.left ? " is-left" : ""}`, `<strong>${r.c.name}</strong><span>${r.c.note}</span>`));
-  const steps = [...stage.querySelectorAll<HTMLElement>("[data-step]")];
+  const steps = [...(stage.closest("section") ?? stage).querySelectorAll<HTMLElement>("[data-step]")];
 
   const camDir = new THREE.Vector3();
   const world = new THREE.Vector3();
@@ -164,7 +164,6 @@ export function globeScene(engine: Engine, stage: HTMLElement): SceneSpec {
     scene,
     camera,
     update({ p, time, w, h }) {
-      const wide = w / h > 1.05;
       // Centre of view: a slow sway over Southeast Asia, settling on Malaysia as you scroll.
       const settle = ease(span(0, 0.5, p));
       const lat = THREE.MathUtils.lerp(14, 4, settle);
@@ -173,11 +172,11 @@ export function globeScene(engine: Engine, stage: HTMLElement): SceneSpec {
       earth.updateMatrixWorld();
 
       // Wide screens put the globe on the right, behind nothing; tall screens put it low.
-      const dist = THREE.MathUtils.lerp(wide ? 7.4 : 7.8, wide ? 5.6 : 6.2, ease(span(0.05, 0.7, p)));
+      // The globe fills its view box: about 80% of the shorter side, growing as you scroll in.
+      const share = THREE.MathUtils.lerp(0.8, 1.02, ease(span(0.05, 0.7, p)));
+      const dist = 1.06 / (share * Math.tan(rad(camera.fov / 2)) * Math.min(1, camera.aspect));
       camera.position.set(0, 0, dist);
-      // Offset the view so the globe's centre lands right of centre (wide) or low (tall).
-      const half = dist * Math.tan(rad(camera.fov / 2));
-      camera.lookAt(wide ? -0.4 * half * camera.aspect : 0, wide ? 0.04 * half : 0.6 * half, 0);
+      camera.lookAt(0, 0, 0);
       camera.updateMatrixWorld();
 
       const pulse = (time * 0.7) % 1;
