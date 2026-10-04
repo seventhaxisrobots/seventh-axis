@@ -3,6 +3,7 @@ import "../styles/landing.css";
 import "../styles/pages.css";
 import "../styles/investors.css";
 import "../styles/investors-3d.css";
+import "../styles/investors-motion.css";
 
 initSite();
 
@@ -84,3 +85,20 @@ if (!still && "IntersectionObserver" in window) {
     });
   }
 }
+
+// The milestone line draws itself as the section scrolls up the screen; each milestone lights as the line reaches it.
+const timeline = document.querySelector<HTMLElement>("[data-timeline]");
+if (timeline) {
+  const items = [...timeline.children] as HTMLElement[];
+  const update = () => {
+    const r = timeline.getBoundingClientRect();
+    const u = still ? 1 : Math.max(0, Math.min(1, (innerHeight * 0.85 - r.top) / (innerHeight * 0.55)));
+    timeline.style.setProperty("--prog", u.toFixed(3));
+    items.forEach((li, i) => li.classList.toggle("is-on", u >= i / Math.max(1, items.length - 1) - 0.001));
+  };
+  update();
+  if (!still) addEventListener("scroll", update, { passive: true });
+}
+
+// The business-model flow map animates with SMIL, which ignores reduced motion, so pause it there.
+if (still) document.querySelectorAll<SVGSVGElement>(".flowmap svg").forEach((svg) => svg.pauseAnimations());

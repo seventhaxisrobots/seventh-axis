@@ -1,4 +1,4 @@
-// The business plan's numbers, from the five-year model (base case). The /investors
+// The business plan's numbers, from the five-year model (base case). The /about
 // page renders its charts and tables from here at build time, so they always agree.
 // All money in RM million unless a field says otherwise.
 
