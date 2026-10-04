@@ -119,6 +119,7 @@ export const PAGES: { path: string; title: string; about: string }[] = [
   { path: "/about", title: "About", about: "The company and its founder" },
   { path: "/pilot", title: "Pilot programme", about: "Apply for the free founding pilot" },
   { path: "/book", title: "Book a meeting", about: "Intro call, Studio walkthrough or a visit to your line" },
+  { path: "/investors", title: "Investors", about: "The business plan, financial model and seed round, for investors" },
 ];
 
 /** The assistant's briefing: facts it may state, and nothing else about the company. */
