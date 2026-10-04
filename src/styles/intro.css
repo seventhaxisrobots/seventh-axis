@@ -31,40 +31,29 @@
   gap: 22px;
 }
 
-.intro__arm {
+.intro__line {
   stroke-dasharray: 100;
   stroke-dashoffset: 100;
-  animation: intro-draw 0.7s cubic-bezier(0.65, 0, 0.35, 1) 0.2s forwards;
+  animation: intro-draw 0.7s cubic-bezier(0.65, 0, 0.35, 1) 0.1s forwards;
 }
 
-.intro__shoulder,
-.intro__elbow,
-.intro__wrist {
+/* The joint snaps in around the axis once the line is drawn. */
+.intro__disc {
   transform: scale(0);
+  transform-origin: 37px 33px;
+  animation: intro-pop 0.45s cubic-bezier(0.3, 1.7, 0.5, 1) 0.7s forwards;
 }
 
-.intro__shoulder {
-  transform-origin: 13px 17px;
-  animation: intro-pop 0.35s cubic-bezier(0.3, 1.6, 0.5, 1) 0.05s forwards;
+.intro__word {
+  width: clamp(240px, 34vw, 460px);
+  height: auto;
+  overflow: visible;
 }
 
-.intro__elbow {
-  transform-origin: 47px 17px;
-  animation: intro-pop 0.45s cubic-bezier(0.3, 1.9, 0.5, 1) 0.8s forwards;
-}
-
-.intro__wrist {
-  transform-origin: 29px 53px;
-  animation: intro-pop 0.3s ease-out 0.85s forwards;
-}
-
-.intro__name {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(22px, 3vw, 34px);
-  letter-spacing: 0.4em;
-  opacity: 0;
-  animation: intro-settle 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.95s forwards;
+.intro__word path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: intro-draw 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.85s forwards;
 }
 
 /* The page behind the curtain */
