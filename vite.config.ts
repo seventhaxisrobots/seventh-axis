@@ -4,8 +4,9 @@ import { basename, resolve } from "node:path";
 import type { IncomingMessage } from "node:http";
 import { PAGE_SEO, SITE_NAME, SITE_URL } from "./seo.ts";
 import { FAQ, PRICING } from "./src/shared/knowledge.ts";
+import { arrChart, cashChart, fundsBars, marketBars, plTable, roundsTable, sensitivityTable } from "./src/investors/render.ts";
 
-const PAGES = ["index", "product", "industries", "roi", "pricing", "pilot", "studio", "book", "about", "safety", "privacy", "cookies", "terms", "404", "app"];
+const PAGES = ["index", "product", "industries", "roi", "pricing", "pilot", "studio", "book", "about", "safety", "privacy", "cookies", "terms", "404", "app", "investors"];
 
 // Serves the Vercel functions in /api during `npm run dev`, so the whole
 // product runs locally without the Vercel CLI.
@@ -74,6 +75,13 @@ const GENERATED: Record<string, () => string> = {
       .join(""),
   faq: () =>
     FAQ.map((f) => `<details class="faq__item"><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("\n          "),
+  "investor-arr": arrChart,
+  "investor-cash": cashChart,
+  "investor-pl": plTable,
+  "investor-market": marketBars,
+  "investor-funds": fundsBars,
+  "investor-rounds": roundsTable,
+  "investor-sensitivities": sensitivityTable,
 };
 
 function partials(): Plugin {
