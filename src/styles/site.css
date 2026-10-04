@@ -72,7 +72,7 @@ html {
 }
 
 .btn--signal:hover {
-  background: #ff7440;
+  background: #ffd94a;
 }
 
 .btn--outline {
@@ -115,7 +115,7 @@ html {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(243, 241, 236, 0.92);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: saturate(1.4) blur(12px);
   -webkit-backdrop-filter: saturate(1.4) blur(12px);
   color: var(--ink);
@@ -143,7 +143,7 @@ html {
 }
 
 .has-hero .site-header:not(.is-scrolled) .site-nav a:not(.btn) {
-  color: rgba(243, 241, 236, 0.82);
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .has-hero .site-header:not(.is-scrolled) .site-nav a:not(.btn):hover {
@@ -520,7 +520,7 @@ html {
   border-radius: 16px;
   background: var(--paper-2);
   color: var(--ink);
-  box-shadow: 0 20px 60px rgba(14, 17, 22, 0.18);
+  box-shadow: 0 20px 60px rgba(10, 10, 10, 0.18);
 }
 
 .consent h2 {
