@@ -1,0 +1,562 @@
+/* Investors: the 3D scenes, their labels, tilt cards and scroll reveals */
+
+/* The one shared WebGL canvas, fixed over the viewport; scenes draw only inside their stages. */
+.s3d-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.s3d {
+  position: relative;
+  background: radial-gradient(ellipse at 60% 110%, #1d1d1d 0%, var(--ink) 62%);
+  color: var(--paper);
+}
+
+/* Without 3D (no WebGL, reduced motion) a scene section is a plain dark block with its 2D chart. */
+.s3d__sticky {
+  position: relative;
+  padding: clamp(96px, 12vw, 140px) 0 clamp(64px, 8vw, 96px);
+}
+
+.s3d-on .s3d {
+  height: var(--len, 300vh);
+}
+
+.s3d-on .s3d__sticky {
+  position: sticky;
+  /* Sticky makes a stacking context: lift it over the shared canvas so labels and copy sit on top of the 3D. */
+  z-index: 6;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  padding: 0;
+  overflow: hidden;
+}
+
+.s3d__labels {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.s3d__copy,
+.s3d__steps,
+.s3d__fallback,
+.s3d__hint {
+  position: relative;
+  z-index: 6;
+}
+
+.s3d-on .s3d__copy {
+  position: absolute;
+  top: clamp(88px, 12vh, 132px);
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+.s3d-on .s3d__copy a {
+  pointer-events: auto;
+}
+
+.s3d__copy > * {
+  max-width: 440px;
+}
+
+.s3d__title {
+  font-size: clamp(30px, 3.6vw, 52px);
+  line-height: 1.02;
+}
+
+.s3d__lede {
+  margin-top: 14px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #c9c9c9;
+}
+
+.s3d .inv-kicker {
+  color: var(--signal);
+}
+
+.s3d__legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  font-size: 14px;
+  color: #a3a3a3;
+}
+
+.s3d__dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* Steps: a vertical list in the 2D page; a row along the bottom of the stage in 3D. */
+.s3d__steps {
+  display: grid;
+  gap: 12px;
+  margin: 28px auto 0;
+  list-style: none;
+}
+
+.s3d__steps li {
+  padding: 14px 0 0;
+  border-top: 2px solid #343434;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #a3a3a3;
+  transition: border-color 0.35s, color 0.35s, opacity 0.35s;
+}
+
+.s3d__steps strong {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--paper);
+}
+
+.s3d-on .s3d__steps {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(24px, 5vh, 48px);
+  grid-template-columns: repeat(var(--n, 4), minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 28px);
+  margin: 0;
+  pointer-events: none;
+}
+
+.s3d-on .s3d__steps li {
+  opacity: 0.45;
+}
+
+.s3d-on .s3d__steps li.is-on {
+  border-color: var(--signal);
+  color: #e6e6e6;
+  opacity: 1;
+}
+
+.s3d__steps--hero {
+  --n: 3;
+}
+
+.s3d__fallback {
+  margin-top: 40px;
+}
+
+.s3d--ready .s3d__fallback {
+  display: none;
+}
+
+.s3d__hint {
+  display: none;
+}
+
+/* Hero */
+.s3d__poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+}
+
+.s3d-on .s3d__poster {
+  opacity: 0.22;
+  transition: opacity 1.2s;
+}
+
+.s3d-on .s3d--ready .s3d__poster {
+  opacity: 0;
+}
+
+.s3d--hero .s3d__sticky {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.s3d-on .s3d__copy--hero {
+  top: 50%;
+  transform: translateY(-58%);
+}
+
+.inv-hero__title {
+  max-width: 11ch;
+  font-size: clamp(44px, 6.4vw, 96px);
+  line-height: 0.95;
+}
+
+.s3d__copy--hero > * {
+  max-width: 560px;
+}
+
+.inv-hero__sub {
+  margin-top: 22px;
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.55;
+  color: #d9d9d9;
+}
+
+.inv-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.s3d .textlink {
+  color: var(--paper);
+}
+
+.s3d-on .s3d__hint {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  display: block;
+  transform: translateX(-50%);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8a8a8a;
+  animation: s3d-hint 2.4s ease-in-out infinite;
+}
+
+@keyframes s3d-hint {
+  50% {
+    transform: translate(-50%, 6px);
+    opacity: 0.5;
+  }
+}
+
+/* Labels placed by the scenes: left/top is the anchor, and `translate` sets where the label sits around it. */
+.s3d-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  white-space: nowrap;
+  will-change: transform, opacity;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.8);
+}
+
+.s3d-label strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--paper);
+}
+
+.s3d-label span,
+.s3d-label small {
+  display: block;
+  font-size: 13px;
+  color: #b5b5b5;
+}
+
+.s3d-label--city {
+  translate: 14px -50%;
+  padding-left: 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.s3d-label--city.is-left {
+  translate: calc(-100% - 14px) -50%;
+  padding: 0 10px 0 0;
+  border-left: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  text-align: right;
+}
+
+.s3d-label--city strong {
+  font-size: 18px;
+}
+
+.s3d-label--city.is-key {
+  border-color: var(--signal);
+}
+
+.s3d-label--city.is-key strong {
+  color: var(--signal);
+}
+
+.s3d-label--gate {
+  translate: -50% 0;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.s3d-label--gate span {
+  font-size: 12px;
+  color: var(--signal);
+}
+
+.s3d-label--status {
+  translate: -50% -100%;
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 205, 17, 0.6);
+  border-radius: 999px;
+  background: rgba(10, 10, 10, 0.75);
+  font-size: 14px;
+  text-shadow: none;
+}
+
+.s3d-label--slab {
+  translate: 16px -50%;
+  padding-left: 12px;
+  border-left: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.s3d-label--slab strong {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.s3d-label--slab.is-key {
+  border-color: var(--signal);
+}
+
+.s3d-label--slab.is-key strong {
+  color: var(--signal);
+}
+
+.s3d-label--bar {
+  translate: -50% -100%;
+  font-family: var(--font-display);
+  font-size: clamp(15px, 1.5vw, 20px);
+  font-weight: 700;
+}
+
+.s3d-label--bar.is-key {
+  color: var(--signal);
+  font-size: clamp(18px, 2vw, 26px);
+}
+
+.s3d-label--foot {
+  translate: -50% 6px;
+  text-align: center;
+}
+
+.s3d-label--foot strong {
+  font-size: 16px;
+}
+
+.s3d-label--tick {
+  translate: -50% 0;
+  font-size: 14px;
+  color: #8a8a8a;
+}
+
+.s3d-label--round {
+  translate: -50% -100%;
+  text-align: center;
+}
+
+.s3d-label--round strong {
+  font-size: 18px;
+}
+
+.s3d-label--low {
+  translate: -50% 8px;
+  text-align: center;
+}
+
+.s3d-label--low strong {
+  color: var(--signal);
+  font-size: 15px;
+}
+
+.s3d-label--readout {
+  translate: -50% -100%;
+  text-align: center;
+}
+
+.s3d-label--readout strong {
+  font-size: 26px;
+}
+
+.s3d-label--slice {
+  translate: -50% -100%;
+  text-align: center;
+}
+
+.s3d-label--slice strong {
+  font-size: 24px;
+}
+
+.s3d-label--slice.is-key strong {
+  color: var(--signal);
+}
+
+.s3d-label--centre {
+  translate: -50% -50%;
+  text-align: center;
+}
+
+.s3d-label--centre strong {
+  font-size: 22px;
+}
+
+/* 2D fallbacks drawn on the dark stage. */
+.s3d .mkt,
+.s3d .mkt__row,
+.s3d .funds__row {
+  border-color: #2a2a2a;
+}
+
+.s3d .mkt__label span,
+.s3d .mkt__val small,
+.s3d .arr__cells,
+.s3d .arr__marker span {
+  color: #a3a3a3;
+}
+
+.s3d .mkt__bar,
+.s3d .arr__bar {
+  background: #4a4a4a;
+}
+
+.s3d .arr__col.is-key .arr__bar,
+.s3d .funds__track span {
+  background: var(--signal);
+}
+
+.s3d .arr__year {
+  border-color: #5c5c5c;
+}
+
+.s3d .cash .grid {
+  stroke: #2a2a2a;
+}
+
+.s3d .cash .axis,
+.s3d .cash .line {
+  stroke: #e6e6e6;
+}
+
+.s3d .cash .tick,
+.s3d .cash .note {
+  fill: #a3a3a3;
+}
+
+.s3d .cash .low-label {
+  fill: var(--paper);
+}
+
+.s3d .funds__track {
+  background: #262626;
+}
+
+/* A section that continues after a 3D scene. */
+.inv-after {
+  padding-top: clamp(56px, 7vw, 96px);
+}
+
+/* Cards that lean towards the pointer. */
+[data-tilt] {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+[data-tilt].is-tilting {
+  transition: transform 0.08s linear;
+  background-image: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 205, 17, 0.14), transparent 55%);
+}
+
+/* Scroll reveals. */
+.reveal-on .reveal {
+  opacity: 0;
+  translate: 0 28px;
+  transition: opacity 0.8s ease, translate 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal-on .reveal.is-in {
+  opacity: 1;
+  translate: 0 0;
+}
+
+@media (max-width: 760px) {
+  .s3d-on .s3d__copy {
+    top: 76px;
+  }
+
+  .s3d__copy > * {
+    max-width: none;
+  }
+
+  .s3d__lede {
+    font-size: 15px;
+  }
+
+  .s3d-on .s3d__steps {
+    gap: 8px;
+  }
+
+  .s3d-on .s3d__steps li {
+    font-size: 0;
+  }
+
+  .s3d-on .s3d__steps li strong {
+    margin: 0;
+    font-size: 15px;
+  }
+
+  .s3d-on .s3d__copy--hero {
+    top: 84px;
+    transform: none;
+  }
+
+  .s3d-label span,
+  .s3d-label small {
+    font-size: 11px;
+  }
+
+  .s3d-label--slab strong,
+  .s3d-label--slice strong {
+    font-size: 18px;
+  }
+
+  /* Phones: keep the figure and its name; drop the secondary line and the floor ticks. */
+  .s3d-label--slab small,
+  .s3d-label--slice small,
+  .s3d-label--tick {
+    display: none;
+  }
+}
+
+/* The scrolled header over a dark 3D section: dark glass instead of white. */
+.has-hero .site-header.is-scrolled.is-dark {
+  background: rgba(10, 10, 10, 0.55);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  color: var(--paper);
+  --mark-hole: transparent;
+}
+
+.has-hero .site-header.is-scrolled.is-dark .site-nav a:not(.btn) {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.has-hero .site-header.is-scrolled.is-dark .btn--primary {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.has-hero .site-header.is-scrolled.is-dark .menu-toggle {
+  color: var(--paper);
+}
