@@ -20,7 +20,7 @@ export function cashScene(stage: HTMLElement): SceneSpec {
   const Y = (v: number) => v * YS;
   const name = (i: number) => `${MONTHS[(CASH_START.month - 1 + i) % 12]} ${CASH_START.year + Math.floor((CASH_START.month - 1 + i) / 12)}`;
 
-  stageFloor(scene, 30);
+  stageFloor(scene, 14);
 
   // The ribbon's top surface and the translucent curtain under it, one quad per month.
   const top: number[] = [], curtain: number[] = [], colours: number[] = [];
@@ -97,12 +97,12 @@ export function cashScene(stage: HTMLElement): SceneSpec {
 
       const back = ease(span(0.84, 1, p));
       // Wide screens keep the ribbon right of the copy: the camera looks a little left of it.
-      const followTarget = new THREE.Vector3(hx - (wide ? 1.1 : 0.2), Math.max(0.7, hy * 0.6 + 0.5), 0);
-      const wholeTarget = new THREE.Vector3(wide ? -2.3 : 0, wide ? 1.2 : 2.3, 0);
+      const followTarget = new THREE.Vector3(hx - 0.4, Math.max(0.7, hy * 0.6 + 0.5), 0);
+      const wholeTarget = new THREE.Vector3(0, 1.25, 0);
       target.lerpVectors(followTarget, wholeTarget, back);
       const swing = Math.sin(time * 0.25) * 0.05;
       dir.set(0.55 - back * 0.45 + swing, 0.42, 1);
-      frame(camera, target, dir, THREE.MathUtils.lerp(wide ? 2.7 : 1.2, wide ? 6.6 : LEN / 2 + 0.3, back), THREE.MathUtils.lerp(1.6, 1.95, back), wide ? 1.0 : 1.15);
+      frame(camera, target, dir, THREE.MathUtils.lerp(wide ? 2.4 : 1.9, LEN / 2 + 0.4, back), THREE.MathUtils.lerp(wide ? 1.3 : 1.7, 1.6, back), 1.04);
       camera.updateMatrixWorld();
       fog(scene, camera, target, 1.0, 2.0);
 

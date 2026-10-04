@@ -15,7 +15,7 @@ export function marketScene(stage: HTMLElement, light: boolean): SceneSpec {
   const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 60);
   lights(scene);
 
-  stageFloor(scene, 20, -0.06);
+  stageFloor(scene, 7, -0.06);
 
   // Stack order: largest at the bottom. Arrival order: as the story is told (the data's order).
   const bySize = [...MARKET].sort((a, b) => b.value - a.value);
@@ -65,11 +65,10 @@ export function marketScene(stage: HTMLElement, light: boolean): SceneSpec {
       const wide = w / h > 1.05;
       const az = 0.7 + p * 0.9 + time * 0.02;
       dir.set(Math.sin(az), wide ? 0.62 : 0.34, Math.cos(az));
-      frame(camera, target, dir, wide ? 3.1 : 2.0, 1.6, wide ? 1.0 : 1.05);
-      // Wide screens: the stack sits right of the copy. Tall screens: left of centre, so its labels fit on the right.
+      frame(camera, target, dir, 2.05, 1.15, 1.04);
+      // Sit the stack a little left of centre in its box, so its labels fit on the right.
       right.setFromMatrixColumn(camera.matrixWorld, 0);
-      camera.position.addScaledVector(right, wide ? -1.0 : 0.7);
-      if (!wide) camera.position.y += 0.35;
+      camera.position.addScaledVector(right, camera.aspect < 1 ? 0.95 : 0.5);
       camera.updateMatrixWorld();
       fog(scene, camera, target, 1.0, 2.0);
       right.setFromMatrixColumn(camera.matrixWorld, 0).setY(0).normalize();
