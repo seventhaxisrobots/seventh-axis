@@ -129,6 +129,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
   privacy: { path: "/privacy", priority: 0.2 },
   cookies: { path: "/cookies", priority: 0.2 },
   terms: { path: "/terms", priority: 0.2 },
+  investors: { path: "/investors", noindex: true },
   "404": { path: "/404", noindex: true },
   app: { path: "/app", noindex: true },
 };
