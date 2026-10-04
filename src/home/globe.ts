@@ -110,7 +110,8 @@ const easeInOutCubic = (x: number) => (x < 0.5 ? 4 * x ** 3 : 1 - (-2 * x + 2) *
 function camera(t: number) {
   const turn = easeInOutSine(clamp01(t / 5.8));
   const dist = t < 3.4 ? lerp(5.2, 4.4, easeOutSine(t / 3.4)) : lerp(4.4, 1.26, easeInOutCubic(clamp01((t - 3.4) / 4.2)));
-  return { lat: rad(lerp(24, KL.lat, turn)), lon: rad(lerp(-35, KL.lon, turn)), roll: lerp(-0.22, 0, turn), dist };
+  // A full extra turn before easing onto KL, so the Earth visibly spins.
+  return { lat: rad(lerp(24, KL.lat, turn)), lon: rad(lerp(-35 - 360, KL.lon, turn)), roll: lerp(-0.22, 0, turn), dist };
 }
 
 function shader(gl: WebGLRenderingContext, type: number, source: string): WebGLShader {

@@ -7,22 +7,22 @@
 
 :root {
   /* Colour */
-  --ink: #0e1116;
-  --graphite: #1c222b;
-  --graphite-2: #151a21;
-  --line: #1f262f;
-  --line-2: #2e3643;
-  --paper: #f3f1ec;
+  --ink: #0a0a0a;
+  --graphite: #171717;
+  --graphite-2: #111111;
+  --line: #232323;
+  --line-2: #343434;
+  --paper: #ffffff;
   --paper-2: #ffffff;
-  --paper-line: #dcd8ce;
-  --steel: #5b6472;
-  --steel-light: #9aa3af;
-  --mist: #c9c6bf;
-  --mist-2: #d6d3cc;
-  --text-soft: #3f4652;
-  --signal: #ff5a1f;
-  --signal-deep: #c2410c;
-  --twin: #2ec4b6;
+  --paper-line: #e3e3e3;
+  --steel: #5c5c5c;
+  --steel-light: #a3a3a3;
+  --mist: #c9c9c9;
+  --mist-2: #d9d9d9;
+  --text-soft: #3d3d3d;
+  --signal: #ffcd11;
+  --signal-deep: #866600;
+  --twin: #ffcd11;
 
   /* Type */
   --font-sans: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
