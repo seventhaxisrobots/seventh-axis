@@ -22,7 +22,7 @@ export function startScenes(): void {
 
   const start = (section: HTMLElement) => {
     const build = make[section.dataset.scene ?? ""];
-    const stage = section.querySelector<HTMLElement>("[data-stage]");
+    const stage = section.querySelector<HTMLElement>("[data-view]");
     if (!build || !stage || section.dataset.started) return;
     section.dataset.started = "1";
     engine.add(section, build(stage));
