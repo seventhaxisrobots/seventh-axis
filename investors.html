@@ -10,29 +10,46 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta property="og:title" content="Invest in Seventh Axis" />
     <meta property="og:description" content="Robot hardware got cheap. Programming it didn't. Our plan, our numbers and our RM6 million seed round." />
+    <script>
+      // The 3D scenes need WebGL and motion; without either the page shows its 2D charts.
+      try {
+        var c = document.createElement("canvas");
+        if (!matchMedia("(prefers-reduced-motion: reduce)").matches && (c.getContext("webgl2") || c.getContext("webgl"))) document.documentElement.classList.add("s3d-on");
+      } catch (e) {}
+    </script>
   </head>
   <body class="page has-hero">
     <!--#header-->
 
     <main id="main" class="inv">
-      <section class="photo-hero" data-hero aria-labelledby="page-title">
-        <img class="photo-hero__bg" src="/img/line-1920.webp" srcset="/img/line-960.webp 960w, /img/line-1920.webp 1920w" sizes="100vw" width="1920" height="1080" style="--pos: 50% 40%; --pos-sm: 70% 50%" alt="A modern automated production line with robot cells" fetchpriority="high" />
-        <div class="wrap photo-hero__content">
-          <div class="photo-hero__copy">
-            <p class="photo-hero__kicker">Investors</p>
-            <h1 id="page-title" class="photo-hero__title">Robot arms got cheap. Programming them didn't.</h1>
-            <p class="photo-hero__sub">Seventh Axis lets factory teams program the robot arms they already buy by describing the task in English, Bahasa Malaysia or Mandarin. We're raising a RM6 million seed round to take it to Malaysia's factories.</p>
+      <section class="s3d s3d--hero" data-scene="globe" data-hero style="--len: 240vh" aria-labelledby="page-title">
+        <div class="s3d__sticky" data-stage>
+          <img class="s3d__poster" src="/img/line-1920.webp" srcset="/img/line-960.webp 960w, /img/line-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="" fetchpriority="high" />
+          <div class="s3d__labels" data-labels></div>
+          <div class="wrap s3d__copy s3d__copy--hero">
+            <p class="inv-kicker">Investors</p>
+            <h1 id="page-title" class="inv-hero__title">Robot arms got cheap. Programming them didn't.</h1>
+            <p class="inv-hero__sub">Seventh Axis lets factory teams program the robot arms they already buy by describing the task in English, Bahasa Malaysia or Mandarin. We're raising a RM6 million seed round to take it to Malaysia's factories.</p>
+            <div class="inv-hero__actions">
+              <a class="btn btn--signal" href="/book">Book a call</a>
+              <a class="textlink" href="#financials">See the numbers</a>
+            </div>
           </div>
-          <p class="photo-hero__aside photo-hero__list">Seed round<br />RM6M · Q1 2027</p>
+          <ol class="wrap s3d__steps s3d__steps--hero" aria-label="Where we start and where we go next">
+            <li data-step="0" class="is-on"><strong>Seed round</strong>RM6M · Q1 2027</li>
+            <li data-step="1"><strong>Malaysia first</strong>About 21,000 industrial robots: RM302M a year at our price</li>
+            <li data-step="2"><strong>Then ASEAN</strong>Thailand, Vietnam and Indonesia: about RM480M a year by 2030</li>
+          </ol>
+          <p class="s3d__hint" aria-hidden="true">Scroll</p>
         </div>
       </section>
 
       <section class="wrap inv-stats" aria-label="The plan in numbers">
-        <div><strong>RM302M</strong><span>a year: every industrial robot in Malaysia, at our price</span></div>
-        <div><strong>1,800</strong><span>paying robot cells by the end of 2031</span></div>
-        <div><strong>RM23.9M</strong><span>yearly recurring revenue by the end of 2031</span></div>
-        <div><strong>80%</strong><span>gross margin by 2031</span></div>
-        <div><strong>11.5 mo</strong><span>to earn back the cost of winning a cell</span></div>
+        <div data-tilt><strong data-count="302" data-prefix="RM" data-suffix="M">RM302M</strong><span>a year: every industrial robot in Malaysia, at our price</span></div>
+        <div data-tilt><strong data-count="1800">1,800</strong><span>paying robot cells by the end of 2031</span></div>
+        <div data-tilt><strong data-count="23.9" data-decimals="1" data-prefix="RM" data-suffix="M">RM23.9M</strong><span>yearly recurring revenue by the end of 2031</span></div>
+        <div data-tilt><strong data-count="80" data-suffix="%">80%</strong><span>gross margin by 2031</span></div>
+        <div data-tilt><strong data-count="11.5" data-decimals="1" data-suffix=" mo">11.5 mo</strong><span>to earn back the cost of winning a cell</span></div>
       </section>
 
       <nav class="wrap inv-toc" aria-label="On this page">
@@ -47,48 +64,61 @@
       </nav>
 
       <section class="section wrap inv-split" id="problem" aria-labelledby="problem-title">
-        <div>
+        <div class="reveal">
           <p class="inv-kicker">01 · The problem</p>
           <h2 id="problem-title" class="section__title">Malaysian factories must automate faster than they can program robots.</h2>
         </div>
-        <div class="inv-prose">
+        <div class="inv-prose reveal">
           <p>Labour is getting dearer by policy. The minimum wage rose to RM1,700 a month in 2025, manufacturers pay RM1,850 a year in levy for each foreign worker, and a tiered levy is coming. Malaysia has about 74 industrial robots per 10,000 manufacturing workers, against 98 in Thailand and 818 in Singapore.</p>
           <p>The arm itself is no longer the obstacle. A cobot cell costs USD 40,000 to 150,000, and the Smart Automation Grant has matched up to 70% of eligible spending. What stops a mid-sized plant is <strong>programming</strong>: every new task needs a specialist, high-mix lines change every week, and managers fear the first run of a new program.</p>
           <p>So robots get bought for one job and left on it, and plants stay manual because changing a robot costs more than hiring.</p>
         </div>
       </section>
 
-      <section class="section wrap" id="product" aria-labelledby="product-title">
-        <p class="inv-kicker">02 · The product</p>
-        <h2 id="product-title" class="section__title">The AI never moves the robot.</h2>
-        <p class="section__lede">An operator describes the job. A language model turns it into a plan, our own code checks it, a named person approves it, and only that signed program runs. The order is enforced by the server and the bridge, not just the screen.</p>
-        <ol class="flow">
-          <li><h3>Ask</h3><p>Type or say the task in BM, English or Mandarin.</p></li>
-          <li><h3>Check</h3><p>Reach, collisions, payload and speed near people, against the cell's real layout.</p></li>
-          <li><h3>Approve</h3><p>Watch it run in 3D, then a named person signs that exact program.</p></li>
-          <li><h3>Run</h3><p>The bridge beside the cell runs it on the Universal Robots controller, and refuses anything unsigned.</p></li>
-        </ol>
-        <p class="inv-note">Working today and verified on Universal Robots' official simulator. <a class="textlink" href="/studio">Try the live demo</a></p>
+      <section class="s3d" id="product" data-scene="flow" style="--len: 380vh" aria-labelledby="product-title">
+        <div class="s3d__sticky" data-stage>
+          <div class="s3d__labels" data-labels></div>
+          <div class="wrap s3d__copy">
+            <p class="inv-kicker">02 · The product</p>
+            <h2 id="product-title" class="s3d__title">The AI never moves the robot.</h2>
+            <p class="s3d__lede">A language model turns the operator's words into a plan. Our own code checks it, a named person approves it, and only that signed program runs. The server and the bridge enforce the order, not just the screen.</p>
+          </div>
+          <ol class="wrap s3d__steps">
+            <li data-step="0" class="is-on"><strong>Ask</strong>Type or say the task in BM, English or Mandarin.</li>
+            <li data-step="1"><strong>Check</strong>Reach, collisions, payload and speed near people, against the real cell.</li>
+            <li data-step="2"><strong>Approve</strong>Watch it run in 3D, then a named person signs that exact program.</li>
+            <li data-step="3"><strong>Run</strong>The bridge beside the cell runs it, and refuses anything unsigned.</li>
+          </ol>
+        </div>
       </section>
 
-      <section class="section wrap" id="market" aria-labelledby="market-title">
-        <p class="inv-kicker">03 · Market</p>
-        <h2 id="market-title" class="section__title">RM300 million a year in Malaysia. Three times that across ASEAN.</h2>
-        <p class="section__lede">We size the market from robots in use, because we charge per robot cell: about 2.84 million manufacturing workers at 74 robots per 10,000 is about 21,000 robots, each worth RM14,400 a year at our price.</p>
-        <!--#investor-market-->
-        <p class="inv-note">Three forces meet now: labour costs rising by policy, grants paying for hardware, and AI that can turn plain language into a safe, checked robot program. Global robot installations doubled in ten years to 542,000 in 2024, 74% of them in Asia.</p>
+      <section class="s3d" id="market" data-scene="market" style="--len: 320vh" aria-labelledby="market-title">
+        <div class="s3d__sticky" data-stage>
+          <div class="s3d__labels" data-labels></div>
+          <div class="wrap s3d__copy">
+            <p class="inv-kicker">03 · Market</p>
+            <h2 id="market-title" class="s3d__title">RM300 million a year in Malaysia. More across ASEAN.</h2>
+            <p class="s3d__lede">Sized from robots in use, because we charge per robot cell: about 2.84 million manufacturing workers at 74 robots per 10,000 is about 21,000 robots, each worth RM14,400 a year at our price.</p>
+            <p class="s3d__legend"><span class="s3d__dot"></span>Each slab's area is its yearly value. Each dot is 100 robots.</p>
+          </div>
+          <div class="wrap s3d__fallback">
+            <!--#investor-market-->
+          </div>
+        </div>
       </section>
 
       <section class="section wrap" id="model" aria-labelledby="model-title">
-        <p class="inv-kicker">04 · Business model</p>
-        <h2 id="model-title" class="section__title">Software by the cell. Integrators sell it.</h2>
+        <div class="reveal">
+          <p class="inv-kicker">04 · Business model</p>
+          <h2 id="model-title" class="section__title">Software by the cell. Integrators sell it.</h2>
+        </div>
         <div class="inv-cards">
-          <div><h3>RM1,200</h3><p>per robot cell per month, billed yearly, after a free 90-day pilot. Enterprise pricing for groups and integrators.</p></div>
-          <div><h3>RM5,000</h3><p>onboarding per site, once, for mapping the cell, setting up approvals and training operators.</p></div>
-          <div><h3>20%</h3><p>of the subscription goes to the integrator who brings the customer, for as long as they stay. We never sell hardware or install cells.</p></div>
+          <div data-tilt class="reveal"><h3>RM1,200</h3><p>per robot cell per month, billed yearly, after a free 90-day pilot. Enterprise pricing for groups and integrators.</p></div>
+          <div data-tilt class="reveal"><h3>RM5,000</h3><p>onboarding per site, once, for mapping the cell, setting up approvals and training operators.</p></div>
+          <div data-tilt class="reveal"><h3>20%</h3><p>of the subscription goes to the integrator who brings the customer, for as long as they stay. We never sell hardware or install cells.</p></div>
         </div>
         <h3 class="inv-subhead">Unit economics, 2029</h3>
-        <table class="fin fin--text fin--narrow">
+        <table class="fin fin--text fin--narrow reveal">
           <tbody>
             <tr><th scope="row">Price paid per cell, per year</th><td>RM13,248</td><td>92% of list, after discounts</td></tr>
             <tr><th scope="row">Cost to serve</th><td>RM2,500</td><td>AI planning calls, hosting, support</td></tr>
@@ -100,71 +130,108 @@
         </table>
       </section>
 
-      <section class="section wrap" id="financials" aria-labelledby="fin-title">
-        <p class="inv-kicker">05 · Financials</p>
-        <h2 id="fin-title" class="section__title">RM23.9M of recurring revenue by 2031, near break-even.</h2>
-        <p class="section__lede">A bottom-up five-year model from paying cells: how many we add, what customers pay, what they cost to serve, and the team needed to win and support them. Base case, in ringgit.</p>
+      <section class="s3d" id="financials" data-scene="chart" style="--len: 560vh" aria-labelledby="fin-title">
+        <div class="s3d__sticky" data-stage>
+          <div class="s3d__labels" data-labels></div>
+          <div class="wrap s3d__copy">
+            <p class="inv-kicker">05 · Financials</p>
+            <h2 id="fin-title" class="s3d__title">RM23.9M of recurring revenue by 2031.</h2>
+            <p class="s3d__lede">A bottom-up five-year model from paying cells. Each year's column is its recurring revenue at year end; each crate is about RM0.4M.</p>
+          </div>
+          <div class="wrap s3d__fallback">
+            <!--#investor-arr-->
+          </div>
+        </div>
+      </section>
 
-        <figure class="inv-figure">
-          <figcaption><strong>Yearly recurring revenue at year end</strong> Paying cells × price paid, RM million</figcaption>
-          <!--#investor-arr-->
-        </figure>
-
-        <h3 class="inv-subhead">Profit and loss</h3>
-        <div class="fin-scroll">
+      <section class="section wrap inv-after" aria-labelledby="pl-title">
+        <h3 id="pl-title" class="inv-subhead" style="margin-top: 0">Profit and loss</h3>
+        <div class="fin-scroll reveal">
           <!--#investor-pl-->
         </div>
         <p class="inv-small">RM million. Figures may not add exactly because of rounding. The model treats EBITDA as cash flow; customers pay a year ahead, so real cash would be higher. No grants are counted.</p>
+      </section>
 
-        <figure class="inv-figure">
-          <figcaption><strong>Cash never falls below RM1.8M once the seed closes</strong> Month-end cash, RM million</figcaption>
-          <div class="fin-scroll">
-            <!--#investor-cash-->
+      <section class="s3d" id="cash" data-scene="cash" style="--len: 340vh" aria-labelledby="cash-title">
+        <div class="s3d__sticky" data-stage>
+          <div class="s3d__labels" data-labels></div>
+          <div class="wrap s3d__copy">
+            <p class="inv-kicker">Cash</p>
+            <h2 id="cash-title" class="s3d__title">Cash never falls below RM1.8M once the seed closes.</h2>
+            <p class="s3d__lede">Month-end cash, January 2027 to December 2031. The tightest moments are just before each round, so the seed must close by March 2027.</p>
           </div>
-        </figure>
+          <div class="wrap s3d__fallback">
+            <div class="fin-scroll">
+              <!--#investor-cash-->
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <h3 class="inv-subhead">What if we're wrong?</h3>
-        <div class="fin-scroll">
+      <section class="section wrap inv-after" aria-labelledby="whatif-title">
+        <h3 id="whatif-title" class="inv-subhead" style="margin-top: 0">What if we're wrong?</h3>
+        <div class="fin-scroll reveal">
           <!--#investor-sensitivities-->
         </div>
         <p class="inv-note">The plan survives a much slower ramp without new money, provided hiring follows sales. Volume matters more than price: 30% more cells adds about RM3.5M to 2031 EBITDA, while a 13% lower price costs about RM2M.</p>
       </section>
 
       <section class="section wrap" id="round" aria-labelledby="round-title">
-        <p class="inv-kicker">06 · The round</p>
-        <h2 id="round-title" class="section__title">RM6 million to prove it, RM20 million to scale it.</h2>
-        <div class="fin-scroll">
+        <div class="reveal">
+          <p class="inv-kicker">06 · The round</p>
+          <h2 id="round-title" class="section__title">RM6 million to prove it, RM20 million to scale it.</h2>
+        </div>
+        <div class="fin-scroll reveal">
           <!--#investor-rounds-->
         </div>
-        <h3 class="inv-subhead">Where the seed goes</h3>
-        <p class="section__lede" style="margin-top: 0">In 2027 and 2028 we spend RM5.6M and earn RM1.6M from customers. The seed covers the gap and leaves about RM2.4M going into 2029, enough to absorb a Series A that arrives a quarter late.</p>
-        <!--#investor-funds-->
+      </section>
+
+      <section class="s3d" id="funds" data-scene="funds" style="--len: 280vh" aria-labelledby="funds-title">
+        <div class="s3d__sticky" data-stage>
+          <div class="s3d__labels" data-labels></div>
+          <div class="wrap s3d__copy">
+            <p class="inv-kicker">Use of funds</p>
+            <h2 id="funds-title" class="s3d__title">Where the seed goes.</h2>
+            <p class="s3d__lede">In 2027 and 2028 we spend RM5.6M and earn RM1.6M from customers. The seed covers the gap and leaves about RM2.4M going into 2029, enough to absorb a Series A that arrives a quarter late.</p>
+          </div>
+          <div class="wrap s3d__fallback">
+            <!--#investor-funds-->
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap" aria-labelledby="milestones-title">
+        <h3 id="milestones-title" class="inv-subhead" style="margin-top: 0">What the seed buys</h3>
         <div class="inv-milestones">
-          <div><span>Q4 2026</span>A real cell runs a signed program end to end; first pilot letters</div>
-          <div><span>Q1 2027</span>Seed closes; first pilots running</div>
-          <div><span>Q2 2027</span>First paying cell; first integrators signed</div>
-          <div><span>Q4 2027</span>30 paying cells, 5 integrators</div>
-          <div><span>Q4 2028</span>130 paying cells, 15 integrators, about RM1.7M recurring revenue</div>
+          <div class="reveal"><span>Q4 2026</span>A real cell runs a signed program end to end; first pilot letters</div>
+          <div class="reveal"><span>Q1 2027</span>Seed closes; first pilots running</div>
+          <div class="reveal"><span>Q2 2027</span>First paying cell; first integrators signed</div>
+          <div class="reveal"><span>Q4 2027</span>30 paying cells, 5 integrators</div>
+          <div class="reveal"><span>Q4 2028</span>130 paying cells, 15 integrators, about RM1.7M recurring revenue</div>
         </div>
       </section>
 
       <section class="section wrap" id="risks" aria-labelledby="risks-title">
-        <p class="inv-kicker">07 · Risks</p>
-        <h2 id="risks-title" class="section__title">What could go wrong, and what we do about it.</h2>
+        <div class="reveal">
+          <p class="inv-kicker">07 · Risks</p>
+          <h2 id="risks-title" class="section__title">What could go wrong, and what we do about it.</h2>
+        </div>
         <dl class="checks">
-          <div><dt>Pilots don't show a clear payback</dt><dd>We choose sites with frequent changeovers, agree what to measure before we start and publish the payback report. If fewer than half of the first 10 pilots convert, we stop and rethink.</dd></div>
-          <div><dt>A robot maker builds the same thing into its pendant</dt><dd>We work across cells and brands, keep the approval record, speak BM and Mandarin well, and aim to be the integrators' tool before it happens.</dd></div>
-          <div><dt>Someone is hurt at a cell running our program</dt><dd>Checks and simulation before every run, signed approval by a named person, and the controller's own safety system always in charge. Product liability insurance from the first pilot.</dd></div>
-          <div><dt>Integrators see us as a threat</dt><dd>They earn 20% of every subscription they bring, for life, and keep their installation business. We never install or sell hardware.</dd></div>
-          <div><dt>Why READY Robotics failed, and why we won't</dt><dd>It raised over USD 41M for a universal robot OS that needed extra hardware and a new language. We need neither, and we work with robot makers' channels, not against them.</dd></div>
-          <div><dt>One robot brand today</dt><dd>Universal Robots leads SME cobot cells, so we start there. A second brand follows in 2028; the bridge is built so new brands plug in.</dd></div>
+          <div class="reveal"><dt>Pilots don't show a clear payback</dt><dd>We choose sites with frequent changeovers, agree what to measure before we start and publish the payback report. If fewer than half of the first 10 pilots convert, we stop and rethink.</dd></div>
+          <div class="reveal"><dt>A robot maker builds the same thing into its pendant</dt><dd>We work across cells and brands, keep the approval record, speak BM and Mandarin well, and aim to be the integrators' tool before it happens.</dd></div>
+          <div class="reveal"><dt>Someone is hurt at a cell running our program</dt><dd>Checks and simulation before every run, signed approval by a named person, and the controller's own safety system always in charge. Product liability insurance from the first pilot.</dd></div>
+          <div class="reveal"><dt>Integrators see us as a threat</dt><dd>They earn 20% of every subscription they bring, for life, and keep their installation business. We never install or sell hardware.</dd></div>
+          <div class="reveal"><dt>Why READY Robotics failed, and why we won't</dt><dd>It raised over USD 41M for a universal robot OS that needed extra hardware and a new language. We need neither, and we work with robot makers' channels, not against them.</dd></div>
+          <div class="reveal"><dt>One robot brand today</dt><dd>Universal Robots leads SME cobot cells, so we start there. A second brand follows in 2028; the bridge is built so new brands plug in.</dd></div>
         </dl>
       </section>
 
       <section class="section wrap" id="team" aria-labelledby="team-title">
-        <p class="inv-kicker">08 · Team</p>
-        <h2 id="team-title" class="section__title">Built end to end by its founder.</h2>
-        <article class="founder" style="margin-top: 36px">
+        <div class="reveal">
+          <p class="inv-kicker">08 · Team</p>
+          <h2 id="team-title" class="section__title">Built end to end by its founder.</h2>
+        </div>
+        <article class="founder reveal" style="margin-top: 36px" data-tilt>
           <img class="founder__photo" src="/img/founder-480.webp" srcset="/img/founder-480.webp 480w, /img/founder-960.webp 960w" sizes="(max-width: 900px) 200px, 260px" width="480" height="600" loading="lazy" alt="Zishaan Ahmed, founder of Seventh Axis" />
           <div>
             <p class="founder__role">Founder</p>
