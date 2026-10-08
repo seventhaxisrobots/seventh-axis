@@ -9,8 +9,8 @@
 
 import * as THREE from "three";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
-import { solveIK, type Joints } from "../studio/kinematics.ts";
-import { RobotModel } from "../studio/robot.ts";
+import { solveIK, type Joints } from "../robot/kinematics.ts";
+import { RobotModel } from "../robot/robot.ts";
 
 type V3 = { x: number; y: number; z: number };
 
