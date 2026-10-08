@@ -1,11 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
-  "functions": {
-    "api/plan.ts": {
-      "maxDuration": 30
-    }
-  },
   "headers": [
     {
       "source": "/img/(.*)",
@@ -22,6 +17,26 @@
       "source": "/investors",
       "destination": "/about#investors",
       "permanent": true
+    },
+    {
+      "source": "/studio",
+      "destination": "https://seventh-axis-studio.vercel.app/studio",
+      "permanent": false
+    },
+    {
+      "source": "/studio.html",
+      "destination": "https://seventh-axis-studio.vercel.app/studio",
+      "permanent": false
+    },
+    {
+      "source": "/app",
+      "destination": "https://seventh-axis-studio.vercel.app/app",
+      "permanent": false
+    },
+    {
+      "source": "/app.html",
+      "destination": "https://seventh-axis-studio.vercel.app/app",
+      "permanent": false
     }
   ]
 }

@@ -3,8 +3,8 @@
 // controller, and only then does the UR10e run the job.
 
 import * as THREE from "three";
-import { ARM, heldCentreY, solveIK, type Joints } from "../../studio/kinematics.ts";
-import { RobotModel } from "../../studio/robot.ts";
+import { ARM, heldCentreY, solveIK, type Joints } from "../../robot/kinematics.ts";
+import { RobotModel } from "../../robot/robot.ts";
 import { clamp, ease, fog, frame, label, lights, placeLabel, shadowTexture, span, stageFloor, textTexture, toStage, type SceneSpec } from "./engine.ts";
 
 type V3 = { x: number; y: number; z: number };

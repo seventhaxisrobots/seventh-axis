@@ -8,19 +8,21 @@ The robotics company of Kuala Lumpur. Live at [seventh-axis.vercel.app](https://
 
 ## What's here
 
+This repository is the marketing website. The product (the Studio, the app, the planner API and the robot bridge) lives in [seventh-axis-studio](https://github.com/zishaan1911/seventh-axis-studio) and is served at https://seventh-axis-studio.vercel.app. `/studio` and `/app` here redirect there.
+
 | Path | What it is |
 | --- | --- |
-| `index.html` | Home: Kuala Lumpur at dusk, with the intro animation |
-| `partials/film.html`, `src/home/film.ts`, `src/home/globe.ts` | The 64-second launch film, wide and portrait cuts, with a WebGL Earth. Plays once per visit; add `?film` to the URL to replay it |
-| `product.html`, `industries.html`, `pilot.html` | Product, industries and the pilot waitlist |
-| `studio.html` | The Studio: a live 3D cell (palletising, a CNC machine, a 14 kg crate, fragile and damaged boxes) you program by typing or speaking. It sorts, tends the CNC, answers questions and can undo |
-| `book.html` | Book a meeting (intro call, Studio walkthrough, line visit) |
+| `index.html`, `src/home/` | Home: Kuala Lumpur at dusk, the intro animation and the 3D cobot that builds the headline |
+| `partials/film.html`, `src/home/film.ts`, `src/home/globe.ts` | The launch film with a WebGL Earth (paused; add `?film` to the URL to play it) |
+| `product.html`, `industries.html`, `pricing.html`, `pilot.html`, `safety.html` | Product, industries, pricing, the pilot waitlist and safety |
+| `about.html`, `src/investors/` | About and investors: the story, the founder and the business plan, with six scroll-driven 3D scenes |
+| `roi.html`, `src/roi/` | ROI calculator with Malaysian wages, levies and the Smart Automation Grant |
+| `book.html` | Book a meeting |
 | `privacy.html`, `cookies.html`, `terms.html` | Privacy notice (English and BM, PDPA 2010), cookie policy, terms of use |
-| `api/plan.ts` | Turns an instruction and the cell state into a structured plan using Gemini |
-| `api/waitlist.ts`, `api/book.ts` | Store pilot sign-ups and meeting requests in Upstash Redis |
-| `src/studio/` | Kinematics, motion planning with reach and clearance checks, URScript export, offline planner |
-| `src/site/` | Shared header/footer behaviour, cookie consent, form handling |
-| `partials/` | Header and footer markup shared by every page |
+| `api/ask.ts` | Ask Axis, the site's assistant, using Gemini |
+| `api/waitlist.ts`, `api/book.ts` | Pilot sign-ups and meeting requests in Upstash Redis |
+| `src/robot/` | A copy of the Studio's UR10e model and kinematics, for the 3D scenes |
+| `src/site/`, `partials/` | Shared header, footer, cookie consent and form handling |
 
 ## Run it locally
 
@@ -30,10 +32,10 @@ cp .env.example .env.local   # add your GEMINI_API_KEY
 npm run dev
 ```
 
-Without a Gemini key the Studio falls back to its built-in offline planner, which understands the common "move these boxes there" instructions in all three languages. Without Redis, sign-ups and meeting requests are written to `.waitlist-dev.jsonl` and `.bookings-dev.jsonl`.
+Without a Gemini key, Ask Axis answers from its built-in knowledge only. Without Redis, sign-ups and meeting requests are written to `.waitlist-dev.jsonl` and `.bookings-dev.jsonl`.
 
 ```bash
-npm test          # kinematics, planning and motion checks
+npm test          # ROI model checks
 npm run build     # type-check and production build
 ```
 
@@ -57,11 +59,11 @@ npm run waitlist:export
 
 - [ ] Replace the placeholder contact email and company details in `src/site/config.ts`.
 - [ ] Have the privacy notice and terms reviewed by a Malaysian lawyer, and register the company with SSM.
-- [ ] Move the Gemini key to a paid tier if you don't want Google to use Studio prompts to improve its models.
+- [ ] Move the Gemini key to a paid tier if you don't want Google to use Ask Axis prompts to improve its models.
 - [ ] Verify the site in Google Search Console and Bing Webmaster Tools, then submit https://seventh-axis.vercel.app/sitemap.xml.
 - [ ] Check pricing and the FAQ in `src/shared/knowledge.ts`, and the subscription price in `src/roi/model.ts` (placeholders).
 - [ ] Check the Petronas Twin Towers photo (`kl-night`) isn't used in paid advertising without permission from KLCC.
 
 ## Credits
 
-Photography from [Unsplash](https://unsplash.com) by Mathew Schwartz, Meriç Dağlı, Mohd Jon Ramlan, Irfan Syahmi, Job Savelsberg, Simon Kadula, Homa Appliances, ThisisEngineering and Sufyan. Earth imagery from [NASA Earth Observatory](https://earthobservatory.nasa.gov) (Blue Marble, Black Marble). Studio models: UR10e meshes from [Universal Robots](https://github.com/UniversalRobots/Universal_Robots_ROS2_Description) (BSD-3-Clause, see `public/models/LICENSES.txt`), boxes, crate and lighting from [Poly Haven](https://polyhaven.com) (CC0). Physics by [Rapier](https://rapier.rs) (Apache-2.0). Typefaces: Barlow and Barlow Semi Condensed by Jeremy Tribby (SIL Open Font License).
+Photography from [Unsplash](https://unsplash.com) by Mathew Schwartz, Meriç Dağlı, Mohd Jon Ramlan, Irfan Syahmi, Job Savelsberg, Simon Kadula, Homa Appliances, ThisisEngineering and Sufyan. Earth imagery from [NASA Earth Observatory](https://earthobservatory.nasa.gov) (Blue Marble, Black Marble). Robot model: UR10e meshes from [Universal Robots](https://github.com/UniversalRobots/Universal_Robots_ROS2_Description) (BSD-3-Clause, see `public/models/LICENSES.txt`). Typefaces: Barlow and Barlow Semi Condensed by Jeremy Tribby (SIL Open Font License).
