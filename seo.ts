@@ -46,7 +46,7 @@ const software = {
   name: "Seventh Axis Studio",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web browser",
-  url: `${SITE_URL}/studio`,
+  url: "https://seventh-axis-studio.vercel.app/studio",
   description:
     "Describe a robot task in English, Bahasa Malaysia or Chinese. The Studio plans it, checks reach and collisions in a digital twin, and exports URScript for the arm.",
   offers: { "@type": "Offer", price: "0", priceCurrency: "MYR", description: "Free live demo" },
@@ -122,7 +122,6 @@ export const PAGE_SEO: Record<string, PageSeo> = {
   industries: { path: "/industries", image: "/og/industries.jpg", priority: 0.8, jsonLd: [crumbs("Industries", "/industries")] },
   roi: { path: "/roi", image: "/og/roi.jpg", priority: 0.9, jsonLd: [calculator, crumbs("ROI calculator", "/roi")] },
   pilot: { path: "/pilot", image: "/og/pilot.jpg", priority: 0.8, jsonLd: [crumbs("Pilot programme", "/pilot")] },
-  studio: { path: "/studio", image: "/og/studio.jpg", priority: 0.9, jsonLd: [software, crumbs("Studio", "/studio")] },
   about: { path: "/about", image: "/og/about.jpg", priority: 0.8, jsonLd: [about, crumbs("About and investors", "/about")] },
   safety: { path: "/safety", image: "/og/safety.jpg", priority: 0.6, jsonLd: [crumbs("Safety", "/safety")] },
   book: { path: "/book", image: "/og/book.jpg", priority: 0.7, jsonLd: [crumbs("Book a meeting", "/book")] },
@@ -130,5 +129,4 @@ export const PAGE_SEO: Record<string, PageSeo> = {
   cookies: { path: "/cookies", priority: 0.2 },
   terms: { path: "/terms", priority: 0.2 },
   "404": { path: "/404", noindex: true },
-  app: { path: "/app", noindex: true },
 };

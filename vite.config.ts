@@ -6,7 +6,7 @@ import { PAGE_SEO, SITE_NAME, SITE_URL } from "./seo.ts";
 import { FAQ, PRICING } from "./src/shared/knowledge.ts";
 import { arrChart, cashChart, fundsBars, marketBars, plTable, roundsCards, sensitivityTable } from "./src/investors/render.ts";
 
-const PAGES = ["index", "product", "industries", "roi", "pricing", "pilot", "studio", "book", "about", "safety", "privacy", "cookies", "terms", "404", "app"];
+const PAGES = ["index", "product", "industries", "roi", "pricing", "pilot", "book", "about", "safety", "privacy", "cookies", "terms", "404"];
 
 // Serves the Vercel functions in /api during `npm run dev`, so the whole
 // product runs locally without the Vercel CLI.
