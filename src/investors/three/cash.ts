@@ -34,7 +34,7 @@ export function cashScene(stage: HTMLElement): SceneSpec {
   const topGeo = new THREE.BufferGeometry();
   topGeo.setAttribute("position", new THREE.Float32BufferAttribute(top, 3));
   topGeo.computeVertexNormals();
-  const ribbon = new THREE.Mesh(topGeo, new THREE.MeshStandardMaterial({ color: 0xffcd11, emissive: 0xffcd11, emissiveIntensity: 0.35, roughness: 0.4, side: THREE.DoubleSide }));
+  const ribbon = new THREE.Mesh(topGeo, new THREE.MeshStandardMaterial({ color: 0xa5b4ff, emissive: 0xa5b4ff, emissiveIntensity: 0.35, roughness: 0.4, side: THREE.DoubleSide }));
   scene.add(ribbon);
   const curtainGeo = new THREE.BufferGeometry();
   curtainGeo.setAttribute("position", new THREE.Float32BufferAttribute(curtain, 3));
@@ -67,7 +67,7 @@ export function cashScene(stage: HTMLElement): SceneSpec {
   const lows = CASH_MONTHLY.map((v, i) => ({ v, i }))
     .filter(({ v, i }) => i < n - 1 && CASH_MONTHLY[i + 1] - v > 1)
     .map(({ v, i }) => {
-      const s = new THREE.Mesh(new THREE.SphereGeometry(0.05, 24, 16), new THREE.MeshStandardMaterial({ color: 0xffcd11, emissive: 0xffcd11, emissiveIntensity: 0.6 }));
+      const s = new THREE.Mesh(new THREE.SphereGeometry(0.05, 24, 16), new THREE.MeshStandardMaterial({ color: 0xa5b4ff, emissive: 0xa5b4ff, emissiveIntensity: 0.6 }));
       s.position.set(X(i), Y(v) + 0.05, DEPTH / 2);
       scene.add(s);
       return { i, v, s, el: label(stage, "s3d-label--low", `<strong>Low RM${v.toFixed(2)}M</strong><span>${name(i)}</span>`) };

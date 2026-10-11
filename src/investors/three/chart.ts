@@ -86,10 +86,10 @@ export function chartScene(stage: HTMLElement): SceneSpec {
     scene.add(plinth);
 
     const face = new THREE.MeshStandardMaterial({
-      map: textTexture([{ text: String(y.year), font: "700 92px 'Barlow Semi Condensed', sans-serif", color: "#0a0a0a", y: 70 }], 256, 140, "#ffcd11"),
+      map: textTexture([{ text: String(y.year), font: "700 92px 'Inter Variable', sans-serif", color: "#0a0a0a", y: 70 }], 256, 140, "#a5b4ff"),
       roughness: 0.45,
     });
-    const plain = new THREE.MeshStandardMaterial({ color: 0xffcd11, roughness: 0.45 });
+    const plain = new THREE.MeshStandardMaterial({ color: 0xa5b4ff, roughness: 0.45 });
     const block = new THREE.Mesh(new THREE.BoxGeometry(BLOCK.w, BLOCK.h, BLOCK.w), [face, face, plain, plain, face, face]);
     scene.add(block);
 
