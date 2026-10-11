@@ -46,7 +46,7 @@ const software = {
   name: "Seventh Axis Studio",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web browser",
-  url: "https://seventh-axis-studio.vercel.app/studio",
+  url: "https://kata-seventh-axis.vercel.app/studio",
   description:
     "Describe a robot task in English, Bahasa Malaysia or Chinese. The Studio plans it, checks reach and collisions in a digital twin, and exports URScript for the arm.",
   offers: { "@type": "Offer", price: "0", priceCurrency: "MYR", description: "Free live demo" },
