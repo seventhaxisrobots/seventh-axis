@@ -62,7 +62,7 @@ export function startCobot(section: HTMLElement, stage: HTMLElement, words: HTML
   const key = new THREE.DirectionalLight(0xffffff, 2.2);
   key.position.set(2, 4, 3);
   scene.add(key);
-  const rim = new THREE.DirectionalLight(0xffcd11, 0.6);
+  const rim = new THREE.DirectionalLight(0xa5b4ff, 0.6);
   rim.position.set(-3, 2, -2);
   scene.add(rim);
 
@@ -149,7 +149,7 @@ export function startCobot(section: HTMLElement, stage: HTMLElement, words: HTML
 
   const measure = (font: number) => {
     const c = document.createElement("canvas").getContext("2d")!;
-    c.font = `600 ${font}px 'Barlow Semi Condensed', sans-serif`;
+    c.font = `600 ${font}px 'Inter Variable', sans-serif`;
     return WORDS.map((w) => c.measureText(w).width + font * 0.34);
   };
 
@@ -296,7 +296,7 @@ export function startCobot(section: HTMLElement, stage: HTMLElement, words: HTML
     draw(shown);
   };
   refit();
-  document.fonts?.load(`600 64px 'Barlow Semi Condensed'`).then(refit).catch(() => undefined);
+  document.fonts?.load(`600 64px 'Inter Variable'`).then(refit).catch(() => undefined);
   void robot.ready.then(() => draw(shown));
   new ResizeObserver(refit).observe(stage);
   window.addEventListener("scroll", onScroll, { passive: true });
