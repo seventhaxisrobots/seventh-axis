@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content" />
+    <title>Documentation · Kata by Seventh Axis</title>
+    <meta name="description" content="Kata documentation: quick start, how plans, checks and signed approvals work, running on URSim, pairing the bridge with a Universal Robots controller, and the bridge command reference." />
+    <meta name="theme-color" content="#FFFFFF" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:title" content="Kata documentation" />
+  </head>
+  <body class="page docs-page">
+    <!--#header-->
+
+    <main id="main" class="wrap docs">
+      <header class="docs__head">
+        <p class="eyebrow">Docs</p>
+        <h1 class="docs__title">Documentation</h1>
+        <p class="docs__lede">Everything you need to get started, build and run with Kata.</p>
+        <label class="docs__search">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.5" fill="none" stroke="currentColor" stroke-width="1.6" /><path d="M13 13l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+          <span class="visually-hidden">Search the documentation</span>
+          <input type="search" placeholder="Search documentation…" autocomplete="off" data-docs-search />
+          <kbd>/</kbd>
+        </label>
+      </header>
+
+      <div class="docs__body">
+        <nav class="docs__nav" aria-label="Documentation" data-docs-nav>
+          <p>Get started</p>
+          <a href="#quick-start">Quick start</a>
+          <a href="#first-task">Your first task</a>
+          <a href="#installation">Installing the bridge</a>
+          <p>Concepts</p>
+          <a href="#natural-language">Natural-language programming</a>
+          <a href="#cells">Cells</a>
+          <a href="#checks">Plans and checks</a>
+          <a href="#approvals">Signed approvals</a>
+          <p>Guides</p>
+          <a href="#ursim">Run on URSim</a>
+          <a href="#pairing">Pair a real robot</a>
+          <a href="#urscript">Export URScript</a>
+          <p>Reference</p>
+          <a href="#cli">Bridge commands</a>
+          <a href="#limits">Safety limits</a>
+          <a href="#robots">Supported robots</a>
+          <a href="#support">Support</a>
+        </nav>
+
+        <article class="docs__content" data-docs-content>
+          <section class="quick" id="quick-start" data-doc>
+            <div class="quick__text">
+              <h2>Quick start</h2>
+              <p>Plan, check and run your first task in about ten minutes. No robot needed: Kata's Studio runs a digital twin of a palletising cell in your browser.</p>
+              <a class="btn btn--primary btn--small" href="/studio">Open Kata <svg class="btn__icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 11L11 5M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
+            </div>
+            <img class="quick__img" src="/img/hero-arm-960.webp" width="960" height="536" alt="" loading="lazy" />
+          </section>
+
+          <section id="first-task" data-doc>
+            <h2>Your first task</h2>
+            <h3><span class="docs__n">1</span>Open the Studio</h3>
+            <p>Go to <a href="/studio">Kata's Studio</a>. You'll see a UR10e in a demo cell with a conveyor, two pallets, a reject bin and a CNC machine.</p>
+            <h3><span class="docs__n">2</span>Describe your task</h3>
+            <p>Type or say what you want, in English, Bahasa Malaysia, <span lang="zh">中文</span> or Manglish.</p>
+            <div class="code" data-code><pre><code>Susun kotak merah atas palet A, tiga tingkat.</code></pre><button type="button" class="code__copy" data-copy>Copy</button></div>
+            <h3><span class="docs__n">3</span>Check the plan</h3>
+            <p>Kata writes a step-by-step plan and plays it in the digital twin. Every move is checked for reach, collisions, payload and fit. Anything it can't do safely is flagged with the reason, before the arm moves.</p>
+            <h3><span class="docs__n">4</span>Approve and run</h3>
+            <p>Signed in to the app, a supervisor approves the exact program. A paired bridge then runs it on the robot (URSim or a real arm) and streams the joints back live.</p>
+          </section>
+
+          <section id="installation" data-doc>
+            <h2>Installing the bridge</h2>
+            <p>Browsers can't talk to a robot controller directly, so Kata uses a small <strong>bridge</strong> program on a PC on the same network as the robot. It needs Node.js 20 or newer. Pilot customers get the bridge package from us; then:</p>
+            <div class="code" data-code><pre><code>npm install
+npm run bridge -- status 192.168.1.20</code></pre><button type="button" class="code__copy" data-copy>Copy</button></div>
+            <p><code>status</code> connects to the controller and prints its mode, safety state, joint angles and tool position. It moves nothing.</p>
+          </section>
+
+          <section id="natural-language" data-doc>
+            <h2>Natural-language programming</h2>
+            <p>The planner reads your instruction together with the current state of the cell: where every part, pallet and fixture is, what the gripper holds and what the robot can reach. It answers with a structured plan, not free text: a list of picks, places, waits and checks that Kata can verify step by step. If the planner is unavailable, the Studio falls back to an offline planner for common tasks.</p>
+          </section>
+
+          <section id="cells" data-doc>
+            <h2>Cells</h2>
+            <p>A cell is your robot's workspace, described as data: the arm, conveyors, pallets, bins, machines and keep-out zones, with their positions and sizes. Kata plans against your cell, so a plan that works in the twin works on your floor. Teach a cell once in the app and every operator plans against it.</p>
+          </section>
+
+          <section id="checks" data-doc>
+            <h2>Plans and checks</h2>
+            <p>Every step is solved with the arm's inverse kinematics and simulated before it can be approved. Kata checks:</p>
+            <ul>
+              <li><strong>Reach</strong>: every target is inside the arm's working envelope, with a valid joint solution.</li>
+              <li><strong>Collisions</strong>: the arm, gripper and load stay clear of fixtures and each other.</li>
+              <li><strong>Payload</strong>: nothing heavier than the arm and gripper can carry.</li>
+              <li><strong>Fit and fragile items</strong>: parts fit where they're placed; fragile loads move slower.</li>
+            </ul>
+          </section>
+
+          <section id="approvals" data-doc>
+            <h2>Signed approvals</h2>
+            <p>Nothing runs until a named person approves it. The approval is a digital signature over one run of one program on one robot, and it expires after five minutes. The bridge checks the signature and refuses any program that was changed, reused or approved too long ago, so the rule is enforced next to the robot, not only in the browser.</p>
+          </section>
+
+          <section id="ursim" data-doc>
+            <h2>Run on URSim</h2>
+            <p>URSim is Universal Robots' official simulator. It runs the same controller software as a real arm, so it's the safest place to try the bridge. With Docker installed:</p>
+            <div class="code" data-code><pre><code>npm run ursim
+npm run bridge -- ready
+npm run bridge -- verify "Stack the red boxes on pallet A, three high."</code></pre><button type="button" class="code__copy" data-copy>Copy</button></div>
+            <p><code>ready</code> powers the simulated arm on and releases the brakes. <code>verify</code> plans the instruction, runs it on URSim and reports whether the controller followed the plan.</p>
+          </section>
+
+          <section id="pairing" data-doc>
+            <h2>Pair a real robot</h2>
+            <p>In the app, add a robot to your workspace and copy its 8-character pairing code. On the bridge PC:</p>
+            <div class="code" data-code><pre><code>npm run bridge -- pair ABCD1234
+npm run bridge -- serve</code></pre><button type="button" class="code__copy" data-copy>Copy</button></div>
+            <p>Pairing saves the robot's details and Kata's public key on the bridge PC. <code>serve</code> brings the robot online in the app and runs approved programs as they arrive. Stop it with Ctrl+C.</p>
+          </section>
+
+          <section id="urscript" data-doc>
+            <h2>Export URScript</h2>
+            <p>Every plan can be exported as URScript, Universal Robots' own language, with speed and zone limits written in. Review it, keep it with your process documents, or load it on the teach pendant yourself.</p>
+          </section>
+
+          <section id="cli" data-doc>
+            <h2>Bridge commands</h2>
+            <p>The host defaults to <code>$ROBOT_HOST</code>, then the robot's saved address, then <code>127.0.0.1</code> (URSim).</p>
+            <div class="table">
+              <table>
+                <thead><tr><th scope="col">Command</th><th scope="col">What it does</th></tr></thead>
+                <tbody>
+                  <tr><td><code>status [host]</code></td><td>Robot mode, safety state, joints and tool position</td></tr>
+                  <tr><td><code>ready [host]</code></td><td>Power on and release the brakes</td></tr>
+                  <tr><td><code>run &lt;file.script&gt; [host]</code></td><td>Run a URScript file and report the time taken</td></tr>
+                  <tr><td><code>stop [host]</code></td><td>Stop the running program</td></tr>
+                  <tr><td><code>verify "&lt;instruction&gt;" [host]</code></td><td>Plan an instruction, run it and check the result</td></tr>
+                  <tr><td><code>pair &lt;CODE&gt; [server]</code></td><td>Link this bridge to a robot in your workspace</td></tr>
+                  <tr><td><code>serve [host]</code></td><td>Go online and run approved programs</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="limits" data-doc>
+            <h2>Safety limits</h2>
+            <p>Kata caps speeds in every program: the last few centimetres of each approach run at 0.15 m/s, and fragile loads never move faster than 0.25 m/s. Your controller's own safety configuration always applies on top. Kata's checks are not a substitute for a risk assessment of the cell; see <a href="/safety">Safety</a>.</p>
+          </section>
+
+          <section id="robots" data-doc>
+            <h2>Supported robots</h2>
+            <p>Universal Robots e-Series arms today (developed on the UR10e), through RTDE, the Dashboard Server and URScript. The planner itself is independent of the arm brand, and the bridge is built so other controllers can plug in.</p>
+          </section>
+
+          <section id="support" data-doc>
+            <h2>Support</h2>
+            <p>Stuck, or want a walkthrough on your own cell? <a href="/book">Book a session</a> or <a href="mailto:" data-contact-email>email us</a>.</p>
+          </section>
+
+          <p class="docs__empty" data-docs-empty hidden>Nothing matches that search. Try "bridge", "approval" or "URSim".</p>
+        </article>
+      </div>
+    </main>
+
+    <!--#footer-->
+
+    <script type="module" src="/src/docs/main.ts"></script>
+  </body>
+</html>

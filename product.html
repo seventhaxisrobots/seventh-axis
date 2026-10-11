@@ -3,81 +3,99 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content" />
-    <title>Product · Seventh Axis</title>
-    <meta name="description" content="Program a robot arm by describing the task in English, Bahasa Malaysia or Mandarin. Every move is checked in simulation first." />
+    <title>Kata · From natural language to real-world motion</title>
+    <meta name="description" content="Kata turns a sentence in English, Bahasa Malaysia or Mandarin into a checked, approved program for your robot arm. Planning, digital-twin checks, signed approvals and a bridge to Universal Robots." />
     <meta name="theme-color" content="#FFFFFF" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta property="og:title" content="Seventh Axis: the missing axis is understanding" />
+    <meta property="og:title" content="Kata: from natural language to real-world motion" />
     <meta property="og:image" content="/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
-  <body class="page has-hero">
+  <body class="page">
     <!--#header-->
 
     <main id="main">
-      <section class="photo-hero" data-hero aria-labelledby="hero-title">
-        <video class="photo-hero__bg" data-clip="/video/production.mp4" data-bg poster="/video/production.webp" width="1280" height="720" muted loop playsinline preload="none" aria-hidden="true"></video>
-        <div class="wrap photo-hero__content">
-          <div class="photo-hero__copy">
-            <p class="photo-hero__kicker">Product</p>
-            <h1 id="hero-title" class="photo-hero__title">The missing axis is understanding.</h1>
-            <p class="photo-hero__sub">Program a robot arm by describing the task in English, Bahasa Malaysia or <span lang="zh">中文</span>. Every move is checked in simulation before the arm does anything.</p>
-            <div class="photo-hero__actions"><a class="btn btn--light" href="/studio">Try the live demo</a><a class="textlink" href="/book">Book a meeting</a></div>
+      <section class="wrap intro" aria-labelledby="page-title">
+        <p class="eyebrow rise">Product</p>
+        <h1 id="page-title" class="intro__title rise" style="--d: 0.08s">From natural language<br />to real-world motion.</h1>
+        <p class="intro__lede rise" style="--d: 0.16s">Kata combines a language model with robotics you can check: kinematics, motion planning and a digital twin turn what you mean into reliable, coordinated action on the arm you already own.</p>
+        <div class="intro__actions rise" style="--d: 0.24s">
+          <a class="btn btn--primary" href="/studio">Open Kata</a>
+          <a class="btn btn--outline" href="/docs">Read the docs</a>
+        </div>
+      </section>
+
+      <section class="wrap" aria-label="Kata planning a task">
+        <div class="demo rise" style="--d: 0.3s">
+          <div class="demo__chat">
+            <div class="msg msg--you">
+              <span class="msg__who">You</span>
+              <p>Pick up the box, rotate it 90 degrees, and place it on the shelf.</p>
+            </div>
+            <div class="msg msg--kata">
+              <span class="msg__who"><svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M11.1 8H52.9L22.2 56H16L43.1 13.7H11.1ZM17.7 34.2a14.4 14.4 0 1 0 28.8 0a14.4 14.4 0 1 0-28.8 0Z" /></svg> Kata</span>
+              <ol class="plan-list">
+                <li>Locate the box on the conveyor</li>
+                <li>Compute a grasp from the top</li>
+                <li>Move clear of the conveyor guard</li>
+                <li>Rotate 90° about the tool axis</li>
+                <li>Place on shelf 2, slot 3</li>
+                <li>Verify: reach, clearance, payload <span class="ok" aria-label="passed">✓</span></li>
+              </ol>
+              <p class="msg__foot">Waiting for a supervisor to approve · simulated cycle 11.4 s</p>
+            </div>
           </div>
-          <p class="photo-hero__aside"><span class="photo-hero__chip">Live from the Studio</span></p>
+          <figure class="demo__photo">
+            <img src="/img/kata-shelf-1200.webp" srcset="/img/kata-shelf-800.webp 800w, /img/kata-shelf-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 680px" width="1200" height="896" alt="A robot arm with the Seventh Axis mark placing a box on a warehouse shelf" />
+          </figure>
         </div>
       </section>
 
-      <section class="values wrap" aria-label="What Seventh Axis does">
-        <div>
-          <h2>Speaks your line's language</h2>
-          <p>English, Bahasa Malaysia, <span lang="zh">中文</span> and Manglish, typed or spoken.</p>
-        </div>
-        <div>
-          <h2>Simulates every move first</h2>
-          <p>Reach, clearance and cycle time, checked in a digital twin.</p>
-        </div>
-        <div>
-          <h2>Ships real controller code</h2>
-          <p>URScript today. More controllers on the roadmap.</p>
-        </div>
-      </section>
-
-      <section class="showcase" aria-labelledby="how-title">
+      <section class="band" aria-labelledby="caps-title">
         <div class="wrap">
-          <h2 id="how-title"><span class="nowrap">Say it.</span> <span class="nowrap">Watch it.</span> <span class="nowrap">Approve it.</span></h2>
-          <p>The Studio turns one sentence into a checked, animated robot program. Nothing moves until you approve it.</p>
-          <figure>
-            <video data-clip="/video/ui.mp4" poster="/video/ui.webp" width="1440" height="900" muted loop playsinline preload="none" aria-label="The Studio turning a Bahasa Malaysia instruction into a plan and a simulated robot stacking boxes"></video>
-            <figcaption>The Studio planning a three-high stack from a Bahasa Malaysia instruction. <a class="textlink" href="/studio">Open it in your browser</a></figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section class="wrap media-section" aria-labelledby="skills-title">
-        <div class="media-section__head">
-          <h2 id="skills-title">More than pick and place.</h2>
-          <p>Vision, machine tending and any stacking pattern you can describe, from the same sentence-to-program workflow.</p>
-        </div>
-        <div class="clips">
-          <figure class="clip">
-            <video data-clip="/video/vision.mp4" poster="/video/vision.webp" width="1280" height="720" muted loop playsinline preload="none"></video>
-            <figcaption><strong>Sees what's coming</strong>The infeed camera spots colours and damaged boxes before the arm reaches them.</figcaption>
-          </figure>
-          <figure class="clip">
-            <video data-clip="/video/cnc.mp4" poster="/video/cnc.webp" width="1280" height="720" muted loop playsinline preload="none"></video>
-            <figcaption><strong>Tends machines</strong>Loads billets into the CNC, waits for the cycle and clears the part.</figcaption>
-          </figure>
-          <figure class="clip">
-            <video data-clip="/video/tower.mp4" poster="/video/tower.webp" width="1280" height="720" muted loop playsinline preload="none"></video>
-            <figcaption><strong>Stacks any pattern</strong>Columns, interlocks or towers, checked for reach and stability first.</figcaption>
-          </figure>
+          <div class="band__head reveal">
+            <p class="eyebrow">Capabilities</p>
+            <h2 id="caps-title" class="band__title">Everything between a sentence and a safe move.</h2>
+          </div>
+          <div class="cards">
+            <article class="card reveal" style="--i: 0">
+              <span class="card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 016.5 4h11A2.5 2.5 0 0120 6.5v7a2.5 2.5 0 01-2.5 2.5H10l-4 4v-4A2 2 0 014 14z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg></span>
+              <h3>Natural-language interface</h3>
+              <p>English, Bahasa Malaysia, <span lang="zh">中文</span> and Manglish, typed or spoken. Describe tasks, goals or whole workflows.</p>
+            </article>
+            <article class="card reveal" style="--i: 1">
+              <span class="card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z M4 7.5l8 4.5 8-4.5M12 12v9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg></span>
+              <h3>Digital twin</h3>
+              <p>A live 3D model of your cell. Every plan runs here first, with real kinematics, physics and cycle times.</p>
+            </article>
+            <article class="card reveal" style="--i: 2">
+              <span class="card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="18" r="2" fill="none" stroke="currentColor" stroke-width="1.5" /><path d="M7.4 16.6L11 12l3 2 4.5-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /><circle cx="19" cy="6" r="1.6" fill="currentColor" /></svg></span>
+              <h3>Motion planning and checks</h3>
+              <p>Inverse kinematics, reach, clearance, payload and fragile-item rules, with speed limits written into the program.</p>
+            </article>
+            <article class="card reveal" style="--i: 3">
+              <span class="card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              <h3>Signed approvals</h3>
+              <p>A named person approves the exact program. The signature covers one run on one robot, and expires.</p>
+            </article>
+            <article class="card reveal" style="--i: 4">
+              <span class="card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5" /><rect x="13.5" y="3.5" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5" /><rect x="3.5" y="13.5" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5" /><path d="M17 14v6M14 17h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg></span>
+              <h3>Teach your own cell</h3>
+              <p>Describe your conveyors, pallets, fixtures and bins once. Kata plans against your layout, not a demo.</p>
+            </article>
+            <article class="card reveal" style="--i: 5">
+              <span class="card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 5l-3 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              <h3>Integrations</h3>
+              <p>A bridge for Universal Robots controllers over RTDE and the Dashboard Server, plus URScript you can review.</p>
+            </article>
+          </div>
         </div>
       </section>
 
       <section class="languages" aria-labelledby="lang-title">
         <div class="wrap">
+          <p class="eyebrow eyebrow--dark">Kata means "word" in Malay</p>
           <h2 id="lang-title">One arm. Every language on your floor.</h2>
           <dl>
             <div>
@@ -100,34 +118,66 @@
         </div>
       </section>
 
-      <section class="safety" aria-labelledby="safety-title">
-        <div class="wrap safety__inner">
-          <img src="/img/team-cobot-960.webp" srcset="/img/team-cobot-960.webp 960w, /img/team-cobot-1920.webp 1920w" sizes="(max-width: 900px) 100vw, 480px" width="960" height="640" loading="lazy" alt="Two engineers watching a collaborative robot at work" />
-          <div>
-            <h2 id="safety-title">Nothing moves until a human says so.</h2>
-            <p>
-              Every program runs in the digital twin first. Speed and zone limits are written into the exported code, and an operator
-              approves each change.
-            </p>
-            <p><a class="textlink" href="/safety">How we keep it safe</a></p>
+      <section class="band band--tint" aria-labelledby="how-title">
+        <div class="wrap">
+          <div class="band__head band__head--center reveal">
+            <p class="eyebrow">The Studio</p>
+            <h2 id="how-title" class="band__title"><span class="nowrap">Say it.</span> <span class="nowrap">Watch it.</span> <span class="nowrap">Approve it.</span></h2>
+            <p class="band__lede" style="margin-inline: auto">Kata's Studio turns one sentence into a checked, animated robot program. Nothing moves until you approve it.</p>
+          </div>
+          <figure class="screen reveal">
+            <video data-clip="/video/ui.mp4" poster="/video/ui.webp" width="1440" height="900" muted loop playsinline preload="none" aria-label="Kata's Studio turning a Bahasa Malaysia instruction into a plan and a simulated robot stacking boxes"></video>
+            <figcaption>Planning a three-high stack from a Bahasa Malaysia instruction. <a class="textlink" href="/studio">Open it in your browser</a></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="band" aria-labelledby="skills-title">
+        <div class="wrap">
+          <div class="band__head band__head--split reveal">
+            <div>
+              <p class="eyebrow">Jobs</p>
+              <h2 id="skills-title" class="band__title">More than pick and place.</h2>
+            </div>
+            <p class="band__lede">Vision, machine tending and any stacking pattern you can describe, from the same sentence-to-program workflow.</p>
+          </div>
+          <div class="clips">
+            <figure class="clip">
+              <video data-clip="/video/vision.mp4" poster="/video/vision.webp" width="1280" height="720" muted loop playsinline preload="none"></video>
+              <figcaption><strong>Sees what's coming</strong>The infeed camera spots colours and damaged boxes before the arm reaches them.</figcaption>
+            </figure>
+            <figure class="clip">
+              <video data-clip="/video/cnc.mp4" poster="/video/cnc.webp" width="1280" height="720" muted loop playsinline preload="none"></video>
+              <figcaption><strong>Tends machines</strong>Loads billets into the CNC, waits for the cycle and clears the part.</figcaption>
+            </figure>
+            <figure class="clip">
+              <video data-clip="/video/tower.mp4" poster="/video/tower.webp" width="1280" height="720" muted loop playsinline preload="none"></video>
+              <figcaption><strong>Stacks any pattern</strong>Columns, interlocks or towers, checked for reach and stability first.</figcaption>
+            </figure>
           </div>
         </div>
       </section>
 
-      <section class="section wrap faq" aria-labelledby="faq-title">
-        <h2 id="faq-title" class="section__title">Questions</h2>
-        <div class="faq__list">
-          <!--#faq-->
+      <section class="band band--tint" aria-labelledby="safety-title">
+        <div class="wrap split">
+          <img class="split__img reveal" src="/img/team-cobot-960.webp" srcset="/img/team-cobot-960.webp 960w, /img/team-cobot-1920.webp 1920w" sizes="(max-width: 900px) 100vw, 560px" width="960" height="640" loading="lazy" alt="Two engineers watching a collaborative robot at work" />
+          <div class="reveal" style="--i: 1">
+            <p class="eyebrow">Safety</p>
+            <h2 id="safety-title" class="band__title">Nothing moves until a human says so.</h2>
+            <p class="band__lede" style="margin-top: 16px">Every program runs in the digital twin first. Speed and zone limits are written into the code, a supervisor signs each run, and the bridge refuses anything changed, reused or expired.</p>
+            <p style="margin-top: 24px"><a class="btn btn--outline" href="/safety">How we keep it safe</a></p>
+          </div>
         </div>
       </section>
-      <section class="pilot pilot--photo" aria-labelledby="join-title">
-        <img class="pilot__bg" src="/img/red-cobot-1920.webp" srcset="/img/red-cobot-960.webp 960w, /img/red-cobot-1920.webp 1920w" sizes="100vw" width="1920" height="1080" style="--pos: 50% 50%" loading="lazy" alt="" />
-        <div class="wrap pilot__inner">
-          <h2 id="join-title">Build it with us.</h2>
-          <p class="pilot__sub">We're choosing a small group of founding pilot factories.</p>
-          <div class="hero__actions" style="justify-content: center; margin-top: 32px">
-            <a class="btn btn--signal" href="/pilot">Apply for the pilot</a>
-            <a class="textlink" href="/book" style="color: var(--paper)">Book a meeting</a>
+
+      <section class="band faq" aria-labelledby="faq-title">
+        <div class="wrap faq__grid">
+          <div>
+            <p class="eyebrow">FAQ</p>
+            <h2 id="faq-title" class="band__title">Questions</h2>
+          </div>
+          <div class="faq__list">
+            <!--#faq-->
           </div>
         </div>
       </section>
