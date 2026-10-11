@@ -18,88 +18,94 @@
   color: var(--text-soft);
 }
 
-/* Pricing */
+/* Pricing: three cards, the featured one lifted with a badge */
 .plans {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: 16px;
   align-items: stretch;
 }
 
 .plan {
+  position: relative;
   display: flex;
   flex-direction: column;
-  padding: 32px 28px;
+  padding: 30px 26px 26px;
   border: 1px solid var(--paper-line);
-  border-radius: 18px;
-  background: var(--paper-2);
+  border-radius: var(--radius-l);
+  background: var(--paper);
+  box-shadow: var(--shadow-card);
 }
 
 .plan--featured {
-  border-color: var(--ink);
-  background: var(--ink);
+  border-color: #b9c3ff;
+  box-shadow: 0 0 0 4px rgba(165, 180, 255, 0.18), var(--shadow-lift);
+}
+
+.plan__badge {
+  position: absolute;
+  top: -11px;
+  right: 22px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--signal-deep);
   color: var(--paper);
-  box-shadow: 0 30px 70px rgba(10, 10, 10, 0.2);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .plan__name {
-  font-family: var(--font-sans);
-  font-size: 17px;
-  font-weight: 600;
-}
-
-.plan__price {
-  margin-top: 18px;
-  font-family: var(--font-display);
-  font-size: 56px;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.plan__cadence {
-  margin-top: 6px;
   font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--steel);
 }
 
-.plan--featured .plan__cadence,
-.plan--featured .plan__summary {
-  color: var(--steel-light);
+.plan__price {
+  margin-top: 14px;
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.plan__cadence {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--steel);
 }
 
 .plan__summary {
-  margin-top: 18px;
-  font-size: 16px;
-  line-height: 1.55;
+  margin-top: 16px;
+  font-size: 15px;
+  line-height: 1.6;
   color: var(--text-soft);
 }
 
 .plan__features {
-  margin: 22px 0 28px;
-  padding: 0;
+  margin: 20px 0 26px;
+  padding: 20px 0 0;
+  border-top: 1px solid var(--paper-line);
   list-style: none;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .plan__features li {
   position: relative;
-  padding: 8px 0 8px 26px;
-  border-top: 1px solid var(--paper-line);
-}
-
-.plan--featured .plan__features li {
-  border-color: var(--line-2);
+  padding: 6px 0 6px 26px;
+  color: var(--text-soft);
 }
 
 .plan__features li::before {
   content: "";
   position: absolute;
-  left: 2px;
-  top: 15px;
-  width: 12px;
-  height: 7px;
-  border-left: 2px solid var(--signal);
-  border-bottom: 2px solid var(--signal);
+  left: 3px;
+  top: 12px;
+  width: 10px;
+  height: 5px;
+  border-left: 1.8px solid var(--signal-deep);
+  border-bottom: 1.8px solid var(--signal-deep);
   transform: rotate(-45deg);
 }
 
@@ -107,6 +113,98 @@
   margin-top: auto;
   align-self: stretch;
   justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .plans {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+/* Custom plan bar under the cards */
+.custom {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 32px;
+  padding: 22px 26px;
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius-m);
+  background: var(--surface);
+}
+
+.custom__icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--paper-line);
+  border-radius: 12px;
+  background: var(--paper);
+}
+
+.custom__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.custom h2 {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.custom p {
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--steel);
+}
+
+.custom .btn {
+  margin-left: auto;
+}
+
+@media (max-width: 700px) {
+  .custom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .custom .btn {
+    margin-left: 0;
+  }
+}
+
+.compare-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-card);
+}
+
+.compare-wrap .compare {
+  margin: 0;
+}
+
+.compare-wrap .compare th,
+.compare-wrap .compare td {
+  padding: 16px 20px;
+}
+
+.compare-wrap .compare tr:last-child > * {
+  border-bottom: 0;
+}
+
+.compare-wrap .compare thead th {
+  background: var(--surface);
+  font-size: 13px;
+}
+
+.compare-wrap .compare td:last-child {
+  color: var(--signal-deep);
 }
 
 .plans__note {

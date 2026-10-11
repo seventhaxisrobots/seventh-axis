@@ -246,9 +246,10 @@
 }
 
 .inv-hero__title {
-  max-width: 11ch;
-  font-size: clamp(40px, min(6.4vw, 9vh), 96px);
-  line-height: 0.95;
+  max-width: 14ch;
+  font-size: clamp(36px, min(4.6vw, 7vh), 66px);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
 }
 
 .s3d__copy--hero > * {
@@ -361,7 +362,7 @@
 .s3d-label--status {
   translate: -50% -100%;
   padding: 7px 12px;
-  border: 1px solid rgba(255, 205, 17, 0.6);
+  border: 1px solid rgba(165, 180, 255, 0.6);
   border-radius: 999px;
   background: rgba(10, 10, 10, 0.75);
   font-size: 14px;
@@ -535,7 +536,7 @@
 
 [data-tilt].is-tilting {
   transition: transform 0.08s linear;
-  background-image: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 205, 17, 0.14), transparent 55%);
+  background-image: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(165, 180, 255, 0.14), transparent 55%);
 }
 
 /* Scroll reveals. */
@@ -580,7 +581,7 @@
   }
 
   .s3d-on .inv-hero__title {
-    font-size: clamp(36px, 10vw, 48px);
+    font-size: clamp(32px, 8.6vw, 44px);
   }
 
   .s3d-on .inv-hero__sub {

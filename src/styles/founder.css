@@ -1,0 +1,96 @@
+/* The founder's page: the portrait is the page. Full bleed, no frame. */
+
+.portrait {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  min-height: 560px;
+  overflow: hidden;
+  background: #e9e5dc;
+  color: var(--ink);
+}
+
+.portrait__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+
+/* The words sit in the open wall to the right of his face. */
+.portrait__copy {
+  position: absolute;
+  right: var(--gutter);
+  bottom: clamp(40px, 10vh, 112px);
+  z-index: 1;
+  width: min(380px, 30vw);
+}
+
+.portrait__copy .eyebrow {
+  color: #5a5750;
+}
+
+.portrait__name {
+  margin-top: 12px;
+  font-size: clamp(44px, 5.4vw, 84px);
+  font-weight: 600;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  color: #16171a;
+}
+
+.portrait__line {
+  margin-top: 18px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #4a4842;
+}
+
+/* Phones: the face stays in frame and the words move below it on a wash. */
+@media (max-width: 760px) {
+  .portrait__img {
+    object-position: 60% 30%;
+  }
+
+  .portrait__copy {
+    left: var(--gutter);
+    right: var(--gutter);
+    width: auto;
+    padding: 18px 18px 20px;
+    border-radius: var(--radius-m);
+    background: rgba(233, 229, 220, 0.86);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+}
+
+.founder-story {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 32px clamp(32px, 6vw, 96px);
+}
+
+.founder-story__text p {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text-soft);
+}
+
+.founder-story__text p + p {
+  margin-top: 16px;
+}
+
+.founder-story__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+@media (max-width: 860px) {
+  .founder-story {
+    grid-template-columns: 1fr;
+  }
+}

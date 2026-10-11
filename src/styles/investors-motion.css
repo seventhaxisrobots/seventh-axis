@@ -238,7 +238,7 @@
 }
 
 .flowmap__path.is-money {
-  stroke: rgba(255, 205, 17, 0.55);
+  stroke: rgba(165, 180, 255, 0.55);
 }
 
 @keyframes flow-dash {
@@ -648,39 +648,103 @@
 /* ---------- 08 · Team ---------- */
 .team {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  grid-template-columns: 1fr;
   gap: 16px;
   margin-top: clamp(24px, 3vw, 36px);
-  align-items: stretch;
 }
 
+/* The founder: the reeded-glass portrait, wide, with the bio beside it */
 .team .founder {
-  grid-template-columns: 200px minmax(0, 1fr);
-  gap: 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 0;
   margin: 0;
-  padding: 24px;
+  padding: 0;
+  overflow: hidden;
   border: 1px solid var(--paper-line);
+  border-radius: var(--radius-l);
+  background: var(--paper);
+  box-shadow: var(--shadow-lift);
 }
 
-.team .founder__photo {
-  width: 200px;
+.founder__portrait {
+  margin: 0;
+  background: #222326;
+}
+
+.founder__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.founder__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(24px, 4vw, 48px);
+}
+
+.team .founder__role {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--signal-deep);
 }
 
 .team .founder__name {
-  font-size: clamp(28px, 2.8vw, 38px);
+  margin-top: 10px;
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
 }
 
 .team .founder__bio {
-  margin-top: 10px;
+  margin-top: 14px;
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.65;
+  color: var(--steel);
+}
+
+.team .founder__links {
+  gap: 8px;
+  margin-top: 24px;
+}
+
+@media (max-width: 900px) {
+  .team .founder {
+    grid-template-columns: 1fr;
+  }
+
+  .founder__portrait {
+    aspect-ratio: 3 / 2;
+  }
 }
 
 .hires {
-  padding: 24px;
-  border-radius: 20px;
+  padding: clamp(22px, 3vw, 32px);
+  border-radius: var(--radius-l);
   background: var(--ink);
   color: var(--paper);
+}
+
+@media (min-width: 901px) {
+  .hires ol {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0 20px;
+  }
+
+  .hires li {
+    padding: 52px 0 4px;
+    border-top: 0;
+  }
+
+  .hires li::before {
+    top: 12px;
+  }
 }
 
 .hires__title {
@@ -697,10 +761,10 @@
 .hires li {
   position: relative;
   padding: 10px 0 10px 40px;
-  border-top: 1px solid #2a2a2a;
+  border-top: 1px solid var(--line);
   font-size: 14px;
   line-height: 1.45;
-  color: #a3a3a3;
+  color: var(--steel-light);
   counter-increment: hire;
 }
 
@@ -781,14 +845,6 @@
     grid-template-columns: 84px minmax(0, 1fr) 40px;
     gap: 10px;
     font-size: 13px;
-  }
-
-  .team .founder {
-    grid-template-columns: 1fr;
-  }
-
-  .team .founder__photo {
-    width: 160px;
   }
 
   .fall__chart {
@@ -899,5 +955,81 @@
   .flowmap__path,
   .flowmap__list li.is-link::before {
     animation: none;
+  }
+}
+
+/* A link out to the founder's own page */
+.founder-link {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  min-height: 300px;
+  border-radius: var(--radius-l);
+  background: #222326;
+  color: var(--paper);
+  text-decoration: none;
+  box-shadow: var(--shadow-lift);
+}
+
+.founder-link img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: scale 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.founder-link:hover img {
+  scale: 1.03;
+}
+
+.founder-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(11, 13, 18, 0.1) 40%, rgba(11, 13, 18, 0.75) 100%);
+}
+
+.founder-link__text {
+  position: absolute;
+  right: clamp(20px, 4vw, 48px);
+  bottom: clamp(20px, 4vw, 40px);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  text-align: right;
+}
+
+.founder-link__role {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--signal-2);
+}
+
+.founder-link__name {
+  font-size: clamp(28px, 3.4vw, 44px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.founder-link__more {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #d5d9e4;
+}
+
+@media (max-width: 700px) {
+  .founder-link {
+    min-height: 240px;
+  }
+
+  .founder-link::after {
+    background: linear-gradient(180deg, transparent 30%, rgba(11, 13, 18, 0.85) 100%);
   }
 }

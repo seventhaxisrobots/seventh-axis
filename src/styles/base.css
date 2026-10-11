@@ -14,12 +14,14 @@ html {
 body {
   margin: 0;
   font-family: var(--font-sans);
-  font-size: 17px;
-  line-height: 1.55;
+  font-size: 16px;
+  line-height: 1.6;
   background: var(--ink);
   color: var(--paper);
   -webkit-font-smoothing: antialiased;
-  font-variant-numeric: tabular-nums;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv11", "ss01";
+  text-rendering: optimizeLegibility;
 }
 
 img,
@@ -45,9 +47,9 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -0.005em;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
   margin: 0;
 }
 

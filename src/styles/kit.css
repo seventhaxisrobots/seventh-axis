@@ -1,0 +1,696 @@
+/* Shared building blocks for every page: sections, eyebrows, cards, tiles, steps, reveals. */
+
+.page {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.page h1,
+.page h2,
+.page h3 {
+  text-wrap: balance;
+}
+
+.eyebrow--dark {
+  color: var(--signal);
+}
+
+/* Lavender-to-white headline accent, as in the hero */
+.grad {
+  color: var(--signal);
+}
+
+.grad--ink {
+  color: var(--signal-deep);
+}
+
+/* Sections */
+.band {
+  padding: clamp(80px, 10vw, 136px) 0;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.band--tint {
+  background: var(--surface);
+}
+
+.band--dark {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.band__head {
+  max-width: 760px;
+  margin-bottom: clamp(36px, 5vw, 56px);
+}
+
+.band__head--split {
+  max-width: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px 64px;
+}
+
+.band__head--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.band__title {
+  margin-top: 14px;
+  font-size: clamp(32px, 4.2vw, 52px);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+}
+
+.band__lede {
+  max-width: 460px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--steel);
+}
+
+.band--dark .band__lede {
+  color: var(--steel-light);
+}
+
+.band__head > .band__lede {
+  margin-top: 16px;
+}
+
+@media (max-width: 760px) {
+  .band__head--split {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.card {
+  position: relative;
+  padding: 28px;
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius-m);
+  background: var(--paper);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.3s, translate 0.3s, border-color 0.3s;
+}
+
+.card:hover {
+  translate: 0 -2px;
+  border-color: var(--mist-2);
+  box-shadow: var(--shadow-lift);
+}
+
+.card__icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--paper-line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.card__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.card h3 {
+  margin-top: 22px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.card p {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--steel);
+}
+
+@media (max-width: 960px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Steps */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  padding: 26px;
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius-m);
+  background: var(--paper);
+  box-shadow: var(--shadow-card);
+}
+
+.step__n {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--signal-deep);
+}
+
+.step h3 {
+  margin-top: 18px;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+.step p {
+  margin-top: 10px;
+  margin-bottom: 22px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--steel);
+}
+
+.step__code {
+  margin-top: auto;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--ink);
+  color: #d7dcff;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 1000px) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tiles: big linked cards */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 240px;
+  padding: 28px;
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius-l);
+  background: var(--surface);
+  color: var(--ink);
+  text-decoration: none;
+  overflow: hidden;
+  transition: background-color 0.3s, border-color 0.3s, translate 0.3s;
+}
+
+.tile:hover {
+  translate: 0 -2px;
+  border-color: var(--mist-2);
+  background: var(--paper);
+}
+
+.tile__label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.tile__title {
+  margin-top: 40px;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.tile__text {
+  margin-top: 10px;
+  max-width: 34ch;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--steel);
+}
+
+.tile__arrow {
+  position: absolute;
+  top: 24px;
+  right: 26px;
+  font-size: 20px;
+  transition: translate 0.3s;
+}
+
+.tile:hover .tile__arrow {
+  translate: 4px 0;
+}
+
+@media (max-width: 900px) {
+  .tiles {
+    grid-template-columns: 1fr;
+  }
+
+  .tile {
+    min-height: 0;
+  }
+}
+
+/* Glass panel, used over dark imagery */
+.glass {
+  border: 1px solid var(--glass-line);
+  border-radius: var(--radius-l);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03)), var(--glass);
+  -webkit-backdrop-filter: blur(22px) saturate(1.4);
+  backdrop-filter: blur(22px) saturate(1.4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+/* A dark call-to-action card, as on the About mockup */
+.cta-card {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px 48px;
+  padding: clamp(28px, 4vw, 48px);
+  border-radius: var(--radius-l);
+  background: var(--ink);
+  color: var(--paper);
+  overflow: hidden;
+}
+
+.cta-card > * {
+  position: relative;
+}
+
+.cta-card h2 {
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.cta-card p {
+  margin-top: 8px;
+  color: var(--steel-light);
+}
+
+.cta-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 760px) {
+  .cta-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Entrances */
+.rise {
+  animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: var(--d, 0s);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.reveal-on .reveal {
+  opacity: 0;
+  translate: 0 24px;
+  transition: opacity 0.8s ease, translate 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+
+.reveal-on .reveal.is-in {
+  opacity: 1;
+  translate: 0 0;
+}
+
+/* Page intro on light pages, as in the mockup: eyebrow, big title, lede */
+.intro {
+  padding-top: clamp(64px, 9vw, 120px);
+  padding-bottom: clamp(36px, 5vw, 56px);
+}
+
+.intro__title {
+  margin-top: 16px;
+  max-width: 16ch;
+  font-size: clamp(40px, 5.4vw, 68px);
+  font-weight: 600;
+  line-height: 1.03;
+  letter-spacing: -0.045em;
+}
+
+.intro__lede {
+  margin-top: 20px;
+  max-width: 600px;
+  font-size: clamp(16px, 1.3vw, 18px);
+  line-height: 1.65;
+  color: var(--steel);
+}
+
+.intro__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+/* Product demo panel: chat on the left, photo on the right */
+.demo {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  overflow: hidden;
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius-l);
+  background: var(--surface);
+  box-shadow: var(--shadow-lift);
+}
+
+.demo__chat {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: clamp(20px, 3vw, 36px);
+}
+
+.demo__photo {
+  margin: 0;
+  min-height: 100%;
+}
+
+.demo__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.msg {
+  padding: 16px 18px;
+  border: 1px solid var(--paper-line);
+  border-radius: 14px;
+  background: var(--paper);
+  font-size: 14px;
+  line-height: 1.55;
+  box-shadow: var(--shadow-card);
+}
+
+.msg__who {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--steel);
+}
+
+.msg__who svg {
+  width: 14px;
+  height: 14px;
+  color: var(--ink);
+}
+
+.msg--you p {
+  color: var(--ink);
+}
+
+.plan-list {
+  margin: 4px 0 0;
+  padding-left: 20px;
+  color: var(--text-soft);
+}
+
+.plan-list li {
+  padding: 3px 0;
+}
+
+.plan-list .ok {
+  color: #1f9d55;
+  font-weight: 700;
+}
+
+.msg__foot {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--paper-line);
+  font-size: 12px;
+  color: var(--steel);
+}
+
+@media (max-width: 900px) {
+  .demo {
+    grid-template-columns: 1fr;
+  }
+
+  .demo__photo {
+    order: -1;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* A product screen recording in a soft frame */
+.screen {
+  margin: 0;
+  padding: 10px;
+  border: 1px solid var(--paper-line);
+  border-radius: 22px;
+  background: var(--paper);
+  box-shadow: var(--shadow-lift);
+}
+
+.screen video,
+.screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+
+.screen figcaption {
+  padding: 14px 6px 4px;
+  font-size: 14px;
+  color: var(--steel);
+  text-align: center;
+}
+
+/* Image and text side by side */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 6vw, 88px);
+}
+
+.split__img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-lift);
+}
+
+@media (max-width: 860px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* FAQ: title on the left, questions on the right */
+.faq__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: 32px clamp(32px, 6vw, 96px);
+}
+
+@media (max-width: 860px) {
+  .faq__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.page .faq__list {
+  margin-top: 0;
+  border-top: 1px solid var(--paper-line);
+}
+
+.page .faq__item {
+  border-bottom: 1px solid var(--paper-line);
+}
+
+.page .faq__item summary {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.page .faq__item p {
+  color: var(--steel);
+}
+
+/* Languages: a dark band of big quotes */
+.page .languages {
+  padding: clamp(88px, 10vw, 136px) 0;
+}
+
+.page .languages h2 {
+  margin-top: 14px;
+  font-family: var(--font-sans);
+  font-size: clamp(30px, 3.6vw, 44px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  color: var(--paper);
+}
+
+.page .languages dd {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(22px, 2.6vw, 36px);
+  letter-spacing: -0.03em;
+}
+
+.page .languages dl div {
+  transition: padding-left 0.3s;
+}
+
+.page .languages dl div:hover {
+  padding-left: 12px;
+}
+
+/* Studio clips on light sections */
+.band .clip figcaption strong {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+.band.faq {
+  max-width: none;
+}
+
+.intro--center {
+  text-align: center;
+}
+
+.intro--center .intro__title,
+.intro--center .intro__lede {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro--center .intro__actions {
+  justify-content: center;
+}
+
+/* Reeded glass over part of a picture (see src/site/reeded.ts). The host is the
+   positioned box the image fills. */
+.reeded {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  --edge: var(--reed-w, 42%);
+  -webkit-mask-image: linear-gradient(90deg, #000 var(--edge), transparent var(--edge));
+  mask-image: linear-gradient(90deg, #000 var(--edge), transparent var(--edge));
+}
+
+.reeded--right {
+  -webkit-mask-image: linear-gradient(270deg, #000 var(--edge), transparent var(--edge));
+  mask-image: linear-gradient(270deg, #000 var(--edge), transparent var(--edge));
+}
+
+.reeded img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: url(#reeded-glass) brightness(1.06) saturate(0.85);
+}
+
+/* The ribs catch light on one edge and shade on the other. */
+.reeded::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.07) 0 1px, transparent 1px 8px, rgba(0, 0, 0, 0.1) 16px 18px);
+}
+
+/* The pane's own edge: a thin bright line where the glass ends. */
+.reeded::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--edge) - 1px);
+  width: 1px;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.reeded--right::before {
+  left: auto;
+  right: calc(var(--edge) - 1px);
+}
+
+@media (max-width: 760px) {
+  .reeded {
+    --edge: var(--reed-w-sm, 30%);
+  }
+
+  .reeded::before {
+    display: none;
+  }
+}
+
+/* Toned photos keep their toning behind the glass. */
+.photo-hero .reeded img,
+.pilot--photo .reeded img {
+  filter: url(#reeded-glass) saturate(0.45) contrast(1.05) brightness(0.95);
+}

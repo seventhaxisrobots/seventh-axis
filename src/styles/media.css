@@ -125,7 +125,7 @@
 /* Full-bleed photo heroes, like Kuala Lumpur on the home page */
 .photo-hero {
   position: relative;
-  min-height: 100svh;
+  min-height: min(100svh, 860px);
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -144,13 +144,18 @@
   height: 100%;
   object-fit: cover;
   object-position: var(--pos, 50% 50%);
+  /* Cooled toward the site's navy so every photo sits in one palette. */
+  filter: saturate(0.45) contrast(1.05) brightness(0.9);
 }
 
 .photo-hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(10, 10, 10, 0.5) 0%, rgba(10, 10, 10, 0.08) 26%, rgba(10, 10, 10, 0.36) 52%, rgba(10, 10, 10, 0.88) 100%);
+  background:
+    linear-gradient(90deg, rgba(11, 13, 18, 0.72) 0%, rgba(11, 13, 18, 0.2) 60%, rgba(11, 13, 18, 0.05) 100%),
+    linear-gradient(180deg, rgba(11, 13, 18, 0.55) 0%, rgba(11, 13, 18, 0.05) 28%, rgba(11, 13, 18, 0.3) 55%, rgba(11, 13, 18, 0.92) 100%),
+    linear-gradient(0deg, rgba(40, 52, 110, 0.28), rgba(40, 52, 110, 0.28));
 }
 
 .photo-hero__content {
@@ -170,28 +175,28 @@
 }
 
 .photo-hero__kicker {
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #FFCD11;
+  color: #A5B4FF;
 }
 
 .photo-hero__title {
   margin-top: 20px;
-  font-size: clamp(min(50px, 13vw), 7vw, 108px);
+  font-size: clamp(min(44px, 12vw), 5.6vw, 76px);
   font-weight: 600;
-  line-height: 0.93;
-  letter-spacing: -0.015em;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
   text-wrap: balance;
 }
 
 .photo-hero__sub {
   margin-top: 28px;
   max-width: 640px;
-  font-size: clamp(17px, 1.5vw, 21px);
-  line-height: 1.5;
-  color: #e6e6e6;
+  font-size: clamp(16px, 1.3vw, 18px);
+  line-height: 1.6;
+  color: #c3c9d6;
 }
 
 .photo-hero__actions {
@@ -226,7 +231,7 @@
 .photo-hero__steps span {
   font-family: var(--font-display);
   font-weight: 700;
-  color: #FFCD11;
+  color: #A5B4FF;
 }
 
 .photo-hero__prices {
@@ -279,13 +284,14 @@
   height: 100%;
   object-fit: cover;
   object-position: var(--pos, 50% 60%);
+  filter: saturate(0.4) brightness(0.85);
 }
 
 .pilot--photo::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(10, 10, 10, 0.7);
+  background: linear-gradient(180deg, rgba(11, 13, 18, 0.82), rgba(20, 26, 52, 0.7));
 }
 
 .pilot--photo .pilot__inner {
