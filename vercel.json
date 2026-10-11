@@ -20,22 +20,22 @@
     },
     {
       "source": "/studio",
-      "destination": "https://seventh-axis-studio.vercel.app/studio",
+      "destination": "https://kata-seventh-axis.vercel.app/studio",
       "permanent": false
     },
     {
       "source": "/studio.html",
-      "destination": "https://seventh-axis-studio.vercel.app/studio",
+      "destination": "https://kata-seventh-axis.vercel.app/studio",
       "permanent": false
     },
     {
       "source": "/app",
-      "destination": "https://seventh-axis-studio.vercel.app/app",
+      "destination": "https://kata-seventh-axis.vercel.app/app",
       "permanent": false
     },
     {
       "source": "/app.html",
-      "destination": "https://seventh-axis-studio.vercel.app/app",
+      "destination": "https://kata-seventh-axis.vercel.app/app",
       "permanent": false
     }
   ]
