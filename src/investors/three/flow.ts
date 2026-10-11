@@ -26,7 +26,7 @@ export function flowScene(stage: HTMLElement): SceneSpec {
 
   // Gates: square frames the plan passes through, glowing once it has.
   const gates = GATES.map((x) => {
-    const glow = new THREE.MeshStandardMaterial({ color: 0x2b2b2b, emissive: 0xffcd11, emissiveIntensity: 0, roughness: 0.4, metalness: 0.5 });
+    const glow = new THREE.MeshStandardMaterial({ color: 0x2b2b2b, emissive: 0xa5b4ff, emissiveIntensity: 0, roughness: 0.4, metalness: 0.5 });
     const g = new THREE.Group();
     const t = 0.05;
     const bar = (w: number, h: number, y: number, z: number) => {
@@ -48,9 +48,9 @@ export function flowScene(stage: HTMLElement): SceneSpec {
   // The plan card, with the operator's words on its face.
   const face = textTexture(
     [
-      { text: "Susun 12 kotak", font: "600 64px 'Barlow Semi Condensed', sans-serif", color: "#0a0a0a", y: 86 },
-      { text: "di palet 2", font: "600 64px 'Barlow Semi Condensed', sans-serif", color: "#0a0a0a", y: 156 },
-      { text: "Stack 12 boxes on pallet 2", font: "400 30px Barlow, sans-serif", color: "#5c5c5c", y: 228 },
+      { text: "Susun 12 kotak", font: "600 64px 'Inter Variable', sans-serif", color: "#0a0a0a", y: 86 },
+      { text: "di palet 2", font: "600 64px 'Inter Variable', sans-serif", color: "#0a0a0a", y: 156 },
+      { text: "Stack 12 boxes on pallet 2", font: "400 30px 'Inter Variable', sans-serif", color: "#5c5c5c", y: 228 },
     ],
     512,
     320,
@@ -63,14 +63,14 @@ export function flowScene(stage: HTMLElement): SceneSpec {
   // Check: a translucent yellow plane that sweeps the plan.
   const scan = new THREE.Mesh(
     new THREE.BoxGeometry(0.012, 0.5, 0.5),
-    new THREE.MeshBasicMaterial({ color: 0xffcd11, transparent: true, opacity: 0.45, depthWrite: false }),
+    new THREE.MeshBasicMaterial({ color: 0xa5b4ff, transparent: true, opacity: 0.45, depthWrite: false }),
   );
   scene.add(scan);
 
   // Approve: a seal that drops onto the plan and stays.
   const seal = new THREE.Mesh(
     new THREE.CylinderGeometry(0.06, 0.06, 0.016, 40),
-    new THREE.MeshStandardMaterial({ color: 0xffcd11, roughness: 0.3, metalness: 0.4, emissive: 0xffcd11, emissiveIntensity: 0.15 }),
+    new THREE.MeshStandardMaterial({ color: 0xa5b4ff, roughness: 0.3, metalness: 0.4, emissive: 0xa5b4ff, emissiveIntensity: 0.15 }),
   );
   seal.rotation.x = Math.PI / 2;
   scene.add(seal);

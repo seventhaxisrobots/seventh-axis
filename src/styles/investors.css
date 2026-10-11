@@ -57,10 +57,10 @@
 
 .inv-kicker {
   margin-bottom: 14px;
-  font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--signal-deep);
 }
@@ -239,7 +239,7 @@
 
 .fin tr.is-key th,
 .fin tr.is-key td {
-  background: rgba(255, 205, 17, 0.18);
+  background: rgba(165, 180, 255, 0.18);
 }
 
 .fin--text th,

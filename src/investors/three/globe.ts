@@ -119,12 +119,12 @@ export function globeScene(engine: Engine, stage: HTMLElement): SceneSpec {
   scene.add(new THREE.Points(stars, new THREE.PointsMaterial({ color: 0xffffff, size: 0.04, transparent: true, opacity: 0.55, depthWrite: false })));
 
   // Kuala Lumpur: a yellow pin with a pulsing ring.
-  const yellow = new THREE.MeshBasicMaterial({ color: 0xffcd11 });
+  const yellow = new THREE.MeshBasicMaterial({ color: 0xa5b4ff });
   const klPos = onSphere(KL.lat, KL.lon, 1.002);
   const pin = new THREE.Mesh(new THREE.SphereGeometry(0.014, 16, 12), yellow);
   pin.position.copy(klPos);
   earth.add(pin);
-  const ringMat = new THREE.MeshBasicMaterial({ color: 0xffcd11, transparent: true, side: THREE.DoubleSide, depthWrite: false });
+  const ringMat = new THREE.MeshBasicMaterial({ color: 0xa5b4ff, transparent: true, side: THREE.DoubleSide, depthWrite: false });
   const ring = new THREE.Mesh(new THREE.RingGeometry(0.02, 0.026, 48), ringMat);
   ring.position.copy(klPos);
   ring.lookAt(klPos.clone().multiplyScalar(2));
