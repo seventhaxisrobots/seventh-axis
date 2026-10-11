@@ -1,9 +1,11 @@
 import "../styles/base.css";
 import "../styles/site.css";
+import "../styles/kit.css";
 import { SITE } from "./config.ts";
 import { initAskAxis } from "./ask.ts";
 import { initMedia } from "./media.ts";
 import { initConsent } from "./consent.ts";
+import { initReeded } from "./reeded.ts";
 
 function initHeader(): void {
   const header = document.querySelector<HTMLElement>("[data-header]");
@@ -14,7 +16,11 @@ function initHeader(): void {
   // Over a full-bleed hero the header stays transparent until the hero scrolls away.
   const hero = document.querySelector<HTMLElement>("[data-hero]");
   const limit = () => (hero ? hero.offsetHeight - header.offsetHeight : 8);
-  const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > limit() || (menu !== null && !menu.hidden));
+  const onScroll = () => {
+    header.classList.toggle("is-scrolled", window.scrollY > limit() || (menu !== null && !menu.hidden));
+    // Still over the dark hero, but scrolled: a dark glass bar keeps the links readable.
+    header.classList.toggle("is-floating", window.scrollY > 24);
+  };
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll);
@@ -54,8 +60,28 @@ function markCurrentPage(): void {
   });
 }
 
+// Sections fade up as they scroll into view; reduced motion shows them at once.
+function initReveal(): void {
+  const els = [...document.querySelectorAll<HTMLElement>(".reveal")];
+  if (!els.length || matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+  const seen = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        e.target.classList.add("is-in");
+        seen.unobserve(e.target);
+      }
+    },
+    { rootMargin: "0px 0px -8% 0px" },
+  );
+  document.documentElement.classList.add("reveal-on");
+  els.forEach((el) => seen.observe(el));
+}
+
 export function initSite(): void {
   initHeader();
+  initReeded();
+  initReveal();
   markCurrentPage();
   fillContactDetails();
   initConsent();
