@@ -26,7 +26,7 @@ export function marketScene(stage: HTMLElement, light: boolean): SceneSpec {
     const key = m === ours;
     const g = new THREE.Group();
     const mat = key
-      ? new THREE.MeshStandardMaterial({ color: 0xffcd11, roughness: 0.35, metalness: 0.1, emissive: 0xffcd11, emissiveIntensity: 0.12, transparent: true })
+      ? new THREE.MeshStandardMaterial({ color: 0xa5b4ff, roughness: 0.35, metalness: 0.1, emissive: 0xa5b4ff, emissiveIntensity: 0.12, transparent: true })
       : new THREE.MeshStandardMaterial({ color: 0xdfe6ee, roughness: 0.1, metalness: 0.2, transparent: true, opacity: 0.16, depthWrite: false });
     const slab = new THREE.Mesh(new THREE.BoxGeometry(side, THICK, side), mat);
     g.add(slab);
