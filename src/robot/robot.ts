@@ -3,7 +3,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { ARM, BASE_YAW, TOOL0_RPY, UR10E_JOINTS, type Joints } from "./kinematics.ts";
 
 // The website's copy of the Studio's robot model, for the homepage and About scenes.
-// The product (zishaan1911/seventh-axis-studio) owns the original.
+// The product (seventhaxisrobots/kata) owns the original.
 //
 // A Universal Robots UR10e (meshes from UR's ROS 2 description, BSD-3-Clause)
 // on the exact joint chain in kinematics.ts, with a two-finger gripper. The
