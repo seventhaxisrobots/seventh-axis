@@ -6,7 +6,7 @@ import { PAGE_SEO, SITE_NAME, SITE_URL } from "./seo.ts";
 import { FAQ, PRICING } from "./src/shared/knowledge.ts";
 import { arrChart, cashChart, fundsBars, marketBars, plTable, roundsCards, sensitivityTable } from "./src/investors/render.ts";
 
-const PAGES = ["index", "product", "industries", "roi", "pricing", "pilot", "book", "about", "safety", "privacy", "cookies", "terms", "404"];
+const PAGES = ["index", "product", "industries", "roi", "pricing", "docs", "pilot", "book", "about", "founder", "safety", "privacy", "cookies", "terms", "404"];
 
 // Serves the Vercel functions in /api during `npm run dev`, so the whole
 // product runs locally without the Vercel CLI.
@@ -61,12 +61,13 @@ const GENERATED: Record<string, () => string> = {
   "pricing-cards": () =>
     PRICING.map(
       (p) => `<article class="plan${p.featured ? " plan--featured" : ""}">
+          ${p.featured ? `<span class="plan__badge">Most popular</span>` : ""}
           <h2 class="plan__name">${esc(p.name)}</h2>
           <p class="plan__price">${esc(p.price)}</p>
           <p class="plan__cadence">${esc(p.cadence)}</p>
           <p class="plan__summary">${esc(p.summary)}</p>
           <ul class="plan__features">${p.features.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>
-          <a class="btn ${p.featured ? "btn--signal" : "btn--primary"} plan__cta" href="${p.cta.href}">${esc(p.cta.label)}</a>
+          <a class="btn ${p.featured ? "btn--primary" : "btn--outline"} plan__cta" href="${p.cta.href}">${esc(p.cta.label)}</a>
         </article>`,
     ).join("\n        "),
   "hero-prices": () =>
