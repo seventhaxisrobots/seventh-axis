@@ -8,7 +8,7 @@ The robotics company of Kuala Lumpur. Live at [seventh-axis.vercel.app](https://
 
 ## What's here
 
-This repository is the marketing website. The product (the Studio, the app, the planner API and the robot bridge) lives in [seventh-axis-studio](https://github.com/zishaan1911/seventh-axis-studio) and is served at https://seventh-axis-studio.vercel.app. `/studio` and `/app` here redirect there.
+This repository is the marketing website. The product, Kata (the Studio, the app, the planner API and the robot bridge), lives in [seventhaxisrobots/kata](https://github.com/seventhaxisrobots/kata) and is served at https://kata-seventh-axis.vercel.app. `/studio` and `/app` here redirect there.
 
 | Path | What it is |
 | --- | --- |
