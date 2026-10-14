@@ -12,70 +12,68 @@
     <meta property="og:image" content="/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
-  <body class="page has-hero">
+  <body class="page">
     <!--#header-->
 
     <main id="main">
-      <section class="photo-hero" data-hero aria-labelledby="page-title">
-        <img class="photo-hero__bg" src="/img/factory-orange-1920.webp" srcset="/img/factory-orange-960.webp 960w, /img/factory-orange-1920.webp 1920w" sizes="100vw" width="1920" height="1080" style="--pos: 50% 45%; --pos-sm: 30% 50%" alt="Rows of orange industrial robot arms on a factory floor" fetchpriority="high" />
-        <div class="wrap photo-hero__content">
-          <div class="photo-hero__copy">
-            <p class="photo-hero__kicker">Industries</p>
-            <h1 id="page-title" class="photo-hero__title">Built for Malaysian lines.</h1>
-            <p class="photo-hero__sub">High mix, short runs, tasks that change every week: the work robots were always too hard to reprogram for.</p>
+      <section class="hero-b" aria-labelledby="page-title">
+        <div class="wrap hero-b__grid hero-b__grid--solo">
+          <div>
+            <h1 id="page-title" class="t-h1 rise">Built for Malaysian lines</h1>
+            <p class="t-sub rise" style="--d: 0.08s">High mix, short runs, tasks that change every week: the work robots were always too hard to reprogram for. These are the jobs Kata plans today, each shown in its own digital twin.</p>
           </div>
-          <ul class="photo-hero__aside photo-hero__list"><li>E&amp;E and appliances</li><li>Palletising</li><li>Small batches and labs</li><li>Machine tending</li></ul>
         </div>
       </section>
 
-      <section class="uses wrap" aria-label="Use cases">
-        <div class="uses__grid">
-          <figure>
-            <img src="/img/line-960.webp" srcset="/img/line-960.webp 960w, /img/line-1920.webp 1920w" sizes="(max-width: 700px) 100vw, 50vw" width="960" height="640" alt="An automated production line" />
-            <figcaption><strong>E&amp;E and appliances</strong><span>Tray loading, screwdriving, test tending</span></figcaption>
-          </figure>
-          <figure>
-            <img src="/img/factory-orange-960.webp" srcset="/img/factory-orange-960.webp 960w, /img/factory-orange-1920.webp 1920w" sizes="(max-width: 700px) 100vw, 50vw" width="960" height="640" alt="Rows of orange industrial robot arms on a factory floor" />
-            <figcaption><strong>Palletising</strong><span>Mixed pallets from a sentence</span></figcaption>
-          </figure>
-          <figure>
-            <img src="/img/red-cobot-960.webp" srcset="/img/red-cobot-960.webp 960w, /img/red-cobot-1920.webp 1920w" sizes="(max-width: 700px) 100vw, 50vw" width="960" height="640" loading="lazy" alt="A red collaborative robot arm" />
-            <figcaption><strong>Small batches and labs</strong><span>A new task before lunch</span></figcaption>
-          </figure>
-          <figure>
-            <img src="/img/workshop-960.webp" srcset="/img/workshop-960.webp 960w, /img/workshop-1920.webp 1920w" sizes="(max-width: 700px) 100vw, 50vw" width="960" height="640" loading="lazy" alt="A machinist at work in a factory workshop" />
-            <figcaption><strong>Machine tending</strong><span>CNC, moulding and presses</span></figcaption>
-          </figure>
+      <section class="section" aria-label="Jobs">
+        <div class="wrap jobs">
+          <article class="split job" id="palletising">
+            <figure class="media"><img src="/img/twin/pallet-750.webp" srcset="/img/twin/pallet-750.webp 750w, /img/twin/pallet-1500.webp 1500w" sizes="(max-width: 900px) 100vw, 50vw" width="1500" height="1000" alt="The arm stacking boxes on pallet A, two layers high" /></figure>
+            <div>
+              <h2 class="t-h2">Palletising</h2>
+              <p class="t-sub">Mixed pallets from a sentence. Change the pattern, the layer count or the pallet in your own words; Kata checks reach and stability before the first box moves.</p>
+              <div class="status-list"><div class="status"><span class="status__dot"><svg><use href="#i-check" /></svg></span><span class="status__what">Columns, interlocks and towers</span><span></span></div><div class="status"><span class="status__dot"><svg><use href="#i-check" /></svg></span><span class="status__what">Fragile boxes slowed automatically</span><span></span></div></div>
+            </div>
+          </article>
+          <article class="split job job--flip" id="machine-tending">
+            <figure class="media"><img src="/img/twin/cnc-750.webp" srcset="/img/twin/cnc-750.webp 750w, /img/twin/cnc-1500.webp 1500w" sizes="(max-width: 900px) 100vw, 50vw" width="1500" height="1000" loading="lazy" alt="The arm reaching into the CNC machine" /></figure>
+            <div>
+              <h2 class="t-h2">Machine tending</h2>
+              <p class="t-sub">Load the CNC, wait for the cycle, clear the part, repeat. Kata knows the door, the chuck and the parts table, and won't reach in while the spindle runs.</p>
+              <div class="status-list"><div class="status"><span class="status__dot"><svg><use href="#i-check" /></svg></span><span class="status__what">CNC, moulding and presses</span><span></span></div><div class="status"><span class="status__dot"><svg><use href="#i-check" /></svg></span><span class="status__what">Waits on the machine's own cycle</span><span></span></div></div>
+            </div>
+          </article>
+          <article class="split job" id="inspection">
+            <figure class="media"><img src="/img/twin/vision-750.webp" srcset="/img/twin/vision-750.webp 750w, /img/twin/vision-1500.webp 1500w" sizes="(max-width: 900px) 100vw, 50vw" width="1500" height="1000" loading="lazy" alt="The arm over the conveyor, under the infeed camera" /></figure>
+            <div>
+              <h2 class="t-h2">Sorting and inspection</h2>
+              <p class="t-sub">For E&amp;E and appliance lines: the infeed camera flags colours and damaged boxes before the arm reaches them, and rejects go to the bin.</p>
+              <div class="status-list"><div class="status"><span class="status__dot"><svg><use href="#i-check" /></svg></span><span class="status__what">Tray loading and test tending</span><span></span></div><div class="status"><span class="status__dot"><svg><use href="#i-check" /></svg></span><span class="status__what">Damaged parts to the reject bin</span><span></span></div></div>
+            </div>
+          </article>
+          <article class="split job job--flip" id="small-batches">
+            <figure class="media"><img src="/img/twin/parts-750.webp" srcset="/img/twin/parts-750.webp 750w, /img/twin/parts-1500.webp 1500w" sizes="(max-width: 900px) 100vw, 50vw" width="1500" height="1000" loading="lazy" alt="The arm picking a billet from the parts table" /></figure>
+            <div>
+              <h2 class="t-h2">Small batches and labs</h2>
+              <p class="t-sub">A new task before lunch. When a job runs for a day instead of a year, describing it beats programming it.</p>
+              <div class="status-list"><div class="status"><span class="status__dot"><svg><use href="#i-check" /></svg></span><span class="status__what">Pick and place between fixtures</span><span></span></div><div class="status"><span class="status__dot"><svg><use href="#i-check" /></svg></span><span class="status__what">Saved programs to rerun later</span><span></span></div></div>
+            </div>
+          </article>
         </div>
       </section>
 
-      <section class="why wrap" aria-labelledby="why-title">
-        <h2 id="why-title">Robots got cheaper. Programming them didn't.</h2>
-        <div class="why__figures">
-          <div>
-            <p class="why__n">RM1,700</p>
-            <p>Minimum wage for every employer since August 2025.</p>
-            <a
-              href="https://www.humanresourcesonline.net/all-employers-in-malaysia-must-comply-with-rm1-700-minimum-wage-from-1-august-2025"
-              target="_blank"
-              rel="noopener"
-              >Human Resources Online</a
-            >
+      <section class="section section--paper" aria-labelledby="why-title">
+        <div class="wrap">
+          <div class="section__head section__head--row">
+            <h2 id="why-title" class="t-h2">Robots got cheaper. Programming them didn't.</h2>
+            <a class="btn btn--primary" href="/roi">Work out your payback</a>
           </div>
-          <div>
-            <p class="why__n">RM1,850</p>
-            <p>Yearly levy per foreign manufacturing worker, with a multi-tier levy coming.</p>
-            <a href="https://www.freemalaysiatoday.com/category/nation/2025/07/31/multi-tier-levy-for-foreign-workers-delayed-to-2026" target="_blank" rel="noopener"
-              >Free Malaysia Today</a
-            >
-          </div>
-          <div>
-            <p class="why__n">70%</p>
-            <p>Of automation costs the Smart Automation Grant can match.</p>
-            <a href="https://www.crowe.com/my/insights/the-madani-smart-automation-grant" target="_blank" rel="noopener">Crowe Malaysia</a>
+          <div class="grid grid--3">
+            <div class="card stat"><strong>RM1,700</strong><p>Minimum wage for every employer since August 2025.</p><a href="https://www.humanresourcesonline.net/all-employers-in-malaysia-must-comply-with-rm1-700-minimum-wage-from-1-august-2025" target="_blank" rel="noopener">Human Resources Online</a></div>
+            <div class="card stat"><strong>RM1,850</strong><p>Yearly levy per foreign manufacturing worker, with a multi-tier levy coming.</p><a href="https://www.freemalaysiatoday.com/category/nation/2025/07/31/multi-tier-levy-for-foreign-workers-delayed-to-2026" target="_blank" rel="noopener">Free Malaysia Today</a></div>
+            <div class="card stat"><strong>70%</strong><p>Of automation costs the Smart Automation Grant can match.</p><a href="https://www.crowe.com/my/insights/the-madani-smart-automation-grant" target="_blank" rel="noopener">Crowe Malaysia</a></div>
           </div>
         </div>
-        <p class="why__cta"><a class="btn btn--primary" href="/roi">Work out your payback</a></p>
       </section>
     </main>
 
