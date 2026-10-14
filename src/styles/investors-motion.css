@@ -238,7 +238,7 @@
 }
 
 .flowmap__path.is-money {
-  stroke: rgba(165, 180, 255, 0.55);
+  stroke: rgba(242, 106, 27, 0.55);
 }
 
 @keyframes flow-dash {

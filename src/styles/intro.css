@@ -242,6 +242,6 @@ html:not(.intro-seen) body.home {
 }
 
 /* The hero's entrance waits for the curtain. */
-html:not(.intro-seen) .lead .rise {
+html:not(.intro-seen) .hero-a .rise {
   animation-play-state: paused;
 }
