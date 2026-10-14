@@ -72,38 +72,58 @@ export const PRICING: Plan[] = [
   },
 ];
 
-export const FAQ: { q: string; a: string }[] = [
+export type Asker = "operators" | "engineers" | "finance";
+
+export const FAQ: { q: string; a: string; who: Asker }[] = [
   {
     q: "Does Seventh Axis sell robots?",
     a: "No. Seventh Axis makes software. You buy the robot arm from your usual supplier or integrator, and Kata, our product, lets your team program it in plain language, with every move checked in simulation first.",
+    who: "finance",
   },
   {
     q: "Can I program a robot arm in Bahasa Malaysia?",
     a: "Yes. Kata understands English, Bahasa Malaysia, Chinese and Manglish, typed or spoken, and turns the instruction into a robot program you can check in simulation before it runs.",
+    who: "operators",
   },
   {
     q: "Which robot arms does Kata work with?",
     a: "Programs export as URScript for Universal Robots arms today. More controllers are on the roadmap, and the planner itself is independent of the arm brand.",
+    who: "engineers",
   },
   {
     q: "How much does it cost?",
     a: "The founding pilot is free for 90 days on one cell. After that, Kata is RM1,200 per robot cell per month, billed yearly. Groups with several sites and integrators get custom pricing.",
+    who: "finance",
   },
   {
     q: "How much does a robot cell cost in Malaysia?",
     a: "A collaborative palletising or machine-tending cell with arm, gripper, guarding and installation typically costs RM120,000 to RM250,000 from an integrator. The Smart Automation Grant can match part of eligible costs, and our ROI calculator shows the payback with Malaysian wages and levies.",
+    who: "finance",
   },
   {
     q: "Does the Smart Automation Grant cover robots?",
     a: "The Smart Automation Grant is a matching grant for Malaysian manufacturers and service companies that automate. Robot cells and their integration are typical eligible costs; coverage depends on approval.",
+    who: "finance",
   },
   {
     q: "Is it safe to let an AI program a robot?",
     a: "The AI only decides what moves where. Every move is checked for reach, collisions, payload and fragile items in a digital twin, speeds are capped, and nothing runs until an operator approves the program.",
+    who: "engineers",
   },
   {
     q: "Do we need a robot programmer on staff?",
     a: "No. Line staff describe the task in their own words. An engineer reviews and approves the simulated program, then loads it on the teach pendant.",
+    who: "operators",
+  },
+  {
+    q: "What if I describe the job wrong?",
+    a: "Kata shows the plan step by step and plays it in the digital twin before anything runs. If it isn't what you meant, say it differently. Nothing moves until a supervisor approves the exact program.",
+    who: "operators",
+  },
+  {
+    q: "What does the bridge need on our side?",
+    a: "A PC on the same network as the robot controller, with Node.js 20 or newer. The bridge talks to Universal Robots controllers over RTDE and the Dashboard Server, and refuses any program that isn't signed, or was changed, reused or approved too long ago.",
+    who: "engineers",
   },
 ];
 
