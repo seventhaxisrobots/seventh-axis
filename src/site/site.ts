@@ -5,7 +5,7 @@ import { SITE } from "./config.ts";
 import { initAskAxis } from "./ask.ts";
 import { initMedia } from "./media.ts";
 import { initConsent } from "./consent.ts";
-import { initReeded } from "./reeded.ts";
+import { initGlass } from "./glass.ts";
 
 function initHeader(): void {
   const header = document.querySelector<HTMLElement>("[data-header]");
@@ -80,7 +80,7 @@ function initReveal(): void {
 
 export function initSite(): void {
   initHeader();
-  initReeded();
+  initGlass();
   initReveal();
   markCurrentPage();
   fillContactDetails();
