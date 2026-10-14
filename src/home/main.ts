@@ -4,12 +4,10 @@ import "../styles/intro.css";
 import "../styles/cobot.css";
 import { initCobot } from "./cobot.ts";
 import { initFilm } from "./film.ts";
-import { initConsole } from "./console.ts";
 
 initSite();
 initFilm();
 initCobot();
-initConsole();
 
 // The opening (logo, then Kuala Lumpur): click, Escape or Skip ends it early.
 const intro = document.querySelector<HTMLElement>("[data-intro]");
