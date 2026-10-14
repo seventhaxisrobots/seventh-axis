@@ -126,7 +126,7 @@ export class Engine {
 }
 
 /** Standard studio lighting for the dark stages. */
-export function lights(scene: THREE.Scene, rim = 0xa5b4ff): void {
+export function lights(scene: THREE.Scene, rim = 0xf26a1b): void {
   scene.add(new THREE.HemisphereLight(0xeeeeee, 0x0a0a0a, 0.6));
   const key = new THREE.DirectionalLight(0xffffff, 2.2);
   key.position.set(2, 4, 3);

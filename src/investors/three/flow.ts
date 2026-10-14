@@ -26,7 +26,7 @@ export function flowScene(stage: HTMLElement): SceneSpec {
 
   // Gates: square frames the plan passes through, glowing once it has.
   const gates = GATES.map((x) => {
-    const glow = new THREE.MeshStandardMaterial({ color: 0x2b2b2b, emissive: 0xa5b4ff, emissiveIntensity: 0, roughness: 0.4, metalness: 0.5 });
+    const glow = new THREE.MeshStandardMaterial({ color: 0x2b2b2b, emissive: 0xf26a1b, emissiveIntensity: 0, roughness: 0.4, metalness: 0.5 });
     const g = new THREE.Group();
     const t = 0.05;
     const bar = (w: number, h: number, y: number, z: number) => {
@@ -63,14 +63,14 @@ export function flowScene(stage: HTMLElement): SceneSpec {
   // Check: a translucent yellow plane that sweeps the plan.
   const scan = new THREE.Mesh(
     new THREE.BoxGeometry(0.012, 0.5, 0.5),
-    new THREE.MeshBasicMaterial({ color: 0xa5b4ff, transparent: true, opacity: 0.45, depthWrite: false }),
+    new THREE.MeshBasicMaterial({ color: 0xf26a1b, transparent: true, opacity: 0.45, depthWrite: false }),
   );
   scene.add(scan);
 
   // Approve: a seal that drops onto the plan and stays.
   const seal = new THREE.Mesh(
     new THREE.CylinderGeometry(0.06, 0.06, 0.016, 40),
-    new THREE.MeshStandardMaterial({ color: 0xa5b4ff, roughness: 0.3, metalness: 0.4, emissive: 0xa5b4ff, emissiveIntensity: 0.15 }),
+    new THREE.MeshStandardMaterial({ color: 0xf26a1b, roughness: 0.3, metalness: 0.4, emissive: 0xf26a1b, emissiveIntensity: 0.15 }),
   );
   seal.rotation.x = Math.PI / 2;
   scene.add(seal);

@@ -35,7 +35,7 @@ export function fundsScene(stage: HTMLElement): SceneSpec {
     const geo = new THREE.ExtrudeGeometry(shape, { depth: 1, bevelEnabled: true, bevelThickness: 0.01, bevelSize: 0.01, bevelSegments: 2, curveSegments: 48 });
     geo.rotateX(-Math.PI / 2);
     const key = i === 0;
-    const mat = new THREE.MeshStandardMaterial({ color: key ? 0xa5b4ff : greys[(i - 1) % greys.length], roughness: 0.4, metalness: 0.15 });
+    const mat = new THREE.MeshStandardMaterial({ color: key ? 0xf26a1b : greys[(i - 1) % greys.length], roughness: 0.4, metalness: 0.15 });
     const mesh = new THREE.Mesh(geo, mat);
     group.add(mesh);
     const mid = (a0 + a1) / 2;
