@@ -36,3 +36,34 @@ if (form) {
     },
   });
 }
+
+// Product: each checklist row shows its moment in the twin.
+const plan = document.querySelector<HTMLElement>("[data-plan]");
+if (plan) {
+  const img = plan.querySelector<HTMLImageElement>("[data-frame-img]")!;
+  const caption = plan.querySelector<HTMLElement>("[data-frame-caption]")!;
+  const FRAMES: Record<string, { alt: string; caption: string }> = {
+    locate: { alt: "The digital twin: the arm above the red box on the conveyor", caption: "Locating the red box on the conveyor." },
+    grasp: { alt: "The digital twin: the gripper closing on the red box", caption: "Grasping from the top, clear of the conveyor guard." },
+    place: { alt: "The digital twin: the red box placed on pallet A", caption: "Rotated 90° and placed on pallet A, slot 1." },
+    checks: { alt: "The digital twin from above, with the arm's reach envelope drawn on the floor", caption: "Every target sits inside the reach envelope, with no collisions on the way." },
+  };
+  const rows = [...plan.querySelectorAll<HTMLElement>("[data-frame]")];
+  const show = (row: HTMLElement) => {
+    const name = row.dataset.frame!;
+    const f = FRAMES[name];
+    if (!f) return;
+    rows.forEach((r) => r.classList.toggle("is-shown", r === row));
+    img.srcset = `/img/twin/${name}-800.webp 800w, /img/twin/${name}-1600.webp 1600w`;
+    img.src = `/img/twin/${name}-1600.webp`;
+    img.alt = f.alt;
+    caption.textContent = f.caption;
+  };
+  for (const row of rows) {
+    row.addEventListener("mouseenter", () => show(row));
+    row.addEventListener("focus", () => show(row));
+    row.addEventListener("click", () => show(row));
+  }
+  // Warm the cache so switching is instant.
+  for (const name of Object.keys(FRAMES)) new Image().src = `/img/twin/${name}-800.webp`;
+}
