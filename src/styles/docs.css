@@ -49,9 +49,9 @@
 
 .docs__search input:focus {
   outline: none;
-  border-color: #b9c3ff;
+  border-color: #f2a06b;
   background: var(--paper);
-  box-shadow: 0 0 0 4px rgba(165, 180, 255, 0.2);
+  box-shadow: 0 0 0 4px rgba(242, 106, 27, 0.2);
 }
 
 .docs__search kbd {
@@ -111,7 +111,7 @@
 }
 
 .docs__nav a.is-current {
-  background: #eef0ff;
+  background: #fde9dc;
   color: var(--signal-deep);
   font-weight: 500;
 }
@@ -180,7 +180,7 @@
 .docs__content a:not(.btn) {
   color: var(--signal-deep);
   text-decoration: none;
-  border-bottom: 1px solid rgba(68, 83, 201, 0.3);
+  border-bottom: 1px solid rgba(180, 71, 11, 0.35);
 }
 
 .docs__content strong {
@@ -261,7 +261,7 @@
   overflow-x: auto;
   font-size: 13.5px;
   line-height: 1.7;
-  color: #d7dcff;
+  color: #e6e7e9;
 }
 
 .code__copy {

@@ -1,42 +1,12 @@
 /* Ask Axis: floating assistant */
 
-.ask-launcher {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 70;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  height: 52px;
-  padding: 0 20px 0 14px;
-  border: 0;
-  border-radius: 999px;
-  background: var(--ink);
-  color: var(--paper);
-  font-size: 16px;
-  font-weight: 500;
-  box-shadow: 0 14px 36px rgba(10, 10, 10, 0.28);
-  cursor: pointer;
-  transition: transform 0.15s ease;
-  --ask-hole: var(--ink);
-}
-
-.ask-launcher:hover {
-  transform: translateY(-2px);
-}
-
-.ask-open .ask-launcher {
-  display: none;
-}
-
 .ask {
   position: fixed;
   right: 20px;
-  bottom: 20px;
+  top: 84px;
   z-index: 90;
   width: min(390px, calc(100vw - 40px));
-  height: min(620px, calc(100dvh - 40px));
+  height: min(600px, calc(100dvh - 104px));
   display: flex;
   flex-direction: column;
   border-radius: 18px;
@@ -255,12 +225,6 @@
 }
 
 @media (max-width: 560px) {
-  .ask-launcher {
-    right: 14px;
-    bottom: 14px;
-    height: 48px;
-  }
-
   /* Full-screen sheet on phones */
   .ask {
     inset: 0;
@@ -275,7 +239,6 @@
 }
 
 @media print {
-  .ask-launcher,
   .ask {
     display: none;
   }

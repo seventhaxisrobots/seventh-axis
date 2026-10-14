@@ -263,7 +263,7 @@
 }
 
 .film .f-sweep {
-  background: linear-gradient(100deg, #5b6472 0%, #5b6472 30%, #FFFFFF 42%, #A5B4FF 50%, #FFFFFF 58%, #FFFFFF 100%);
+  background: linear-gradient(100deg, #5b6472 0%, #5b6472 30%, #FFFFFF 42%, #F26A1B 50%, #FFFFFF 58%, #FFFFFF 100%);
   background-size: 260% 100%;
   background-position: 100% 0;
   -webkit-background-clip: text;
@@ -292,8 +292,8 @@
 }
 
 .film .f-card--signal {
-  border-color: rgba(165, 180, 255, 0.5);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 40px rgba(165, 180, 255, 0.2);
+  border-color: rgba(242, 106, 27, 0.5);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6), 0 0 40px rgba(242, 106, 27, 0.2);
 }
 
 .film .f-card__lang {
@@ -313,7 +313,7 @@
   display: flex;
   gap: 18px;
   padding: 18px 26px;
-  border: 1px solid rgba(165, 180, 255, 0.5);
+  border: 1px solid rgba(242, 106, 27, 0.5);
   border-radius: 999px;
   background: rgba(10, 10, 10, 0.92);
   font-size: 28px;
