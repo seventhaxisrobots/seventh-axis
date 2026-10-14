@@ -4,6 +4,7 @@ import { basename, resolve } from "node:path";
 import type { IncomingMessage } from "node:http";
 import { PAGE_SEO, SITE_NAME, SITE_URL } from "./seo.ts";
 import { FAQ, PRICING } from "./src/shared/knowledge.ts";
+import { DEFAULTS, rm, roi } from "./src/roi/model.ts";
 import { arrChart, cashChart, fundsBars, marketBars, plTable, roundsCards, sensitivityTable } from "./src/investors/render.ts";
 
 const PAGES = ["index", "product", "industries", "roi", "pricing", "docs", "pilot", "book", "about", "founder", "safety", "privacy", "cookies", "terms", "404"];
@@ -76,6 +77,34 @@ const GENERATED: Record<string, () => string> = {
       .join(""),
   faq: () =>
     FAQ.map((f) => `<details class="faq__item"><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("\n          "),
+  // Pricing: what the Cell plan includes, as status rows.
+  "cell-features": () =>
+    PRICING.find((p) => p.id === "cell")!
+      .features.map((f) => `<div class="status"><span class="status__dot"><svg><use href="#i-check" /></svg></span><span class="status__what">${esc(f)}</span><span></span></div>`)
+      .join(""),
+  // Pricing: payback for a typical cell, from the same model as the ROI calculator.
+  "pricing-payback": () => {
+    const r = roi(DEFAULTS);
+    const rows: [string, string][] = [
+      [rm(DEFAULTS.cellPrice), "a typical palletising cell from your integrator"],
+      [rm(r.upfront), `upfront after a ${Math.round(DEFAULTS.grantShare * 100)}% Smart Automation Grant match`],
+      [`${rm(r.netYearly)} a year`, `saved after Kata and maintenance, with ${r.operators} operators across ${DEFAULTS.shifts} shifts`],
+      [`${Math.ceil(r.paybackMonths ?? 0)} months`, "to pay back"],
+    ];
+    return rows.map(([n, t]) => `<div class="payback__item"><strong>${esc(n)}</strong><span>${esc(t)}</span></div>`).join("");
+  },
+  // Open answers, grouped by who's asking.
+  answers: () =>
+    (["operators", "engineers", "finance"] as const)
+      .map(
+        (who) => `<div class="answers__group">
+            <h3>For ${who}</h3>
+            ${FAQ.filter((f) => f.who === who)
+              .map((f) => `<div class="answer"><h4>${esc(f.q)}</h4><p>${esc(f.a)}</p></div>`)
+              .join("\n            ")}
+          </div>`,
+      )
+      .join("\n          "),
   "investor-arr": arrChart,
   "investor-cash": cashChart,
   "investor-pl": plTable,
@@ -90,10 +119,14 @@ function partials(): Plugin {
     name: "html-partials",
     transformIndexHtml: {
       order: "pre",
-      handler: (html) =>
-        html.replace(/<!--#([a-z-]+)-->/g, (_, name: string) =>
-          GENERATED[name]?.() ?? readFileSync(resolve(process.cwd(), "partials", `${name}.html`), "utf8"),
-        ),
+      handler: (html) => {
+        // Partials can include partials (the header carries the icon set).
+        const fill = (s: string, depth = 0): string =>
+          s.replace(/<!--#([a-z-]+)-->/g, (_, name: string) =>
+            depth > 3 ? "" : fill(GENERATED[name]?.() ?? readFileSync(resolve(process.cwd(), "partials", `${name}.html`), "utf8"), depth + 1),
+          );
+        return fill(html);
+      },
     },
   };
 }
