@@ -34,9 +34,6 @@ const ease = (u: number) => (u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 
 const span = (a: number, b: number, x: number) => clamp((x - a) / (b - a));
 const lerp = (a: V3, b: V3, u: number): V3 => ({ x: a.x + (b.x - a.x) * u, y: a.y + (b.y - a.y) * u, z: a.z + (b.z - a.z) * u });
 const arc = (a: V3, b: V3, u: number, h: number): V3 => ({ ...lerp(a, b, u), y: a.y + (b.y - a.y) * u + Math.sin(Math.PI * u) * h });
-const mix = (a: number[], b: number[], u: number) => `rgb(${a.map((v, i) => Math.round(v + (b[i] - v) * u)).join(",")})`;
-const INK_BROWN = [59, 42, 23];
-const PAPER = [255, 255, 255];
 
 interface Layout {
   font: number;
@@ -62,7 +59,7 @@ export function startCobot(section: HTMLElement, stage: HTMLElement, words: HTML
   const key = new THREE.DirectionalLight(0xffffff, 2.2);
   key.position.set(2, 4, 3);
   scene.add(key);
-  const rim = new THREE.DirectionalLight(0xa5b4ff, 0.6);
+  const rim = new THREE.DirectionalLight(0xf26a1b, 0.6);
   rim.position.set(-3, 2, -2);
   scene.add(rim);
 
@@ -149,7 +146,7 @@ export function startCobot(section: HTMLElement, stage: HTMLElement, words: HTML
 
   const measure = (font: number) => {
     const c = document.createElement("canvas").getContext("2d")!;
-    c.font = `600 ${font}px 'Inter Variable', sans-serif`;
+    c.font = `600 ${font}px 'Archivo Variable', sans-serif`;
     return WORDS.map((w) => c.measureText(w).width + font * 0.34);
   };
 
@@ -203,6 +200,7 @@ export function startCobot(section: HTMLElement, stage: HTMLElement, words: HTML
   }
 
   let lastJoints: Joints = solveIK({ ...HOME, yaw: 0 })!;
+  const progressBar = section.querySelector<HTMLElement>("[data-cobot-progress]");
 
   function draw(P: number): void {
     if (!layout) return;
@@ -257,11 +255,16 @@ export function startCobot(section: HTMLElement, stage: HTMLElement, words: HTML
         card = 1;
         at = toScreen({ x: PICK_X + (i - queue) * SPACING, y: BELT.y + small / 2, z: BELT.z });
       }
+      // On the belt a word is a frosted tile you can't read; it clears as the arm lifts it.
+      const hide = i < k || (i === k && t >= 0.62) ? 0 : i === k && t >= 0.42 ? 1 - span(0.42, 0.62, t) : 1;
       el.style.transform = `translate(${at.x.toFixed(1)}px, ${at.y.toFixed(1)}px) translate(-50%, -50%) scale(${sc.toFixed(3)})`;
-      el.style.background = `rgba(201, 164, 110, ${card.toFixed(3)})`;
-      el.style.color = mix(INK_BROWN, PAPER, 1 - card);
-      el.style.boxShadow = `0 ${(10 * card).toFixed(1)}px ${(20 * card).toFixed(1)}px rgba(0, 0, 0, ${(0.4 * card).toFixed(3)})`;
+      el.style.background = `rgba(255, 255, 255, ${(0.1 * card).toFixed(3)})`;
+      el.style.boxShadow = `inset 0 0 0 1px rgba(255, 255, 255, ${(0.32 * card).toFixed(3)}), inset 0 1px 0 rgba(255, 255, 255, ${(0.4 * card).toFixed(3)}), 0 ${(10 * card).toFixed(1)}px ${(22 * card).toFixed(1)}px rgba(0, 0, 0, ${(0.35 * card).toFixed(3)})`;
+      el.style.backdropFilter = card > 0.01 ? `blur(${(10 * card).toFixed(1)}px)` : "none";
+      el.style.color = `rgba(255, 255, 255, ${(1 - 0.9 * hide).toFixed(3)})`;
+      el.style.textShadow = hide > 0.01 ? `0 0 ${(12 * hide).toFixed(1)}px rgba(255, 255, 255, ${(0.75 * hide).toFixed(3)})` : "";
     });
+    progressBar?.style.setProperty("--p", (P / BUILD).toFixed(3));
     beltTex.offset.x = (queue * SPACING) / 0.25;
     renderer.render(scene, camera);
   }
@@ -296,7 +299,7 @@ export function startCobot(section: HTMLElement, stage: HTMLElement, words: HTML
     draw(shown);
   };
   refit();
-  document.fonts?.load(`600 64px 'Inter Variable'`).then(refit).catch(() => undefined);
+  document.fonts?.load(`600 64px 'Archivo Variable'`).then(refit).catch(() => undefined);
   void robot.ready.then(() => draw(shown));
   new ResizeObserver(refit).observe(stage);
   window.addEventListener("scroll", onScroll, { passive: true });

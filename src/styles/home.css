@@ -1,257 +1,44 @@
-/* Home: a dark hero with a live Kata console, then light sections. */
+/* Home: hero A, then the conveyor scene, then one long warm-grey band. Layout
+   comes from the shared components in kit.css. */
 
-.lead {
-  position: relative;
-  overflow: hidden;
-  padding: calc(72px + clamp(48px, 8vh, 96px)) 0 clamp(40px, 6vw, 72px);
-  background: var(--ink);
+.hero-a__second {
+  color: #9da2aa;
+}
+
+.hero-a .features {
+  margin-top: 0;
+}
+
+.hero-a .feature h3 {
   color: var(--paper);
-  isolation: isolate;
 }
 
-.lead__photo {
+/* The conveyor scene sits on the same graphite as the hero */
+.home .cobot {
+  background: var(--ink);
+}
+
+.cobot__progress {
   position: absolute;
-  inset: 0;
-  z-index: -2;
+  left: 50%;
+  bottom: 32px;
+  width: min(240px, 50vw);
+  height: 3px;
+  translate: -50% 0;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
 }
 
-.lead__photo img {
+.cobot__progress i {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: 70% 50%;
-}
-
-.lead::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background:
-    linear-gradient(90deg, rgba(11, 13, 18, 0.92) 0%, rgba(11, 13, 18, 0.62) 38%, rgba(11, 13, 18, 0.08) 70%),
-    linear-gradient(180deg, rgba(11, 13, 18, 0.35) 0%, transparent 30%, transparent 62%, var(--ink) 100%);
-}
-
-.lead__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  align-items: center;
-  gap: clamp(32px, 5vw, 80px);
-  min-height: min(560px, calc(100svh - 300px));
-}
-
-.lead__title {
-  margin-top: 22px;
-  font-size: clamp(40px, 4.8vw, 66px);
-  font-weight: 600;
-  line-height: 1.02;
-  letter-spacing: -0.045em;
-}
-
-.lead__title .grad {
-  display: inline;
-}
-
-.lead__sub {
-  margin-top: 24px;
-  max-width: 520px;
-  font-size: clamp(16px, 1.3vw, 18px);
-  line-height: 1.65;
-  color: #b9c0cf;
-}
-
-.lead__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 34px;
-}
-
-/* The console: a glass card that types a task and ticks through Kata's steps */
-.console {
-  justify-self: end;
-  width: min(100%, 400px);
-  padding: 18px;
-  border: 1px solid var(--glass-line);
-  border-radius: var(--radius-l);
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.025)), rgba(16, 19, 28, 0.5);
-  -webkit-backdrop-filter: blur(24px) saturate(1.4);
-  backdrop-filter: blur(24px) saturate(1.4);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 40px 90px rgba(0, 0, 0, 0.5);
-}
-
-.console__prompt {
-  display: flex;
-  gap: 12px;
-  padding: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  font-size: 14px;
-  line-height: 1.55;
-  color: #e4e7f0;
-}
-
-.console__prompt p {
-  min-height: 3.1em;
-}
-
-.console__avatar {
-  flex-shrink: 0;
-  width: 26px;
-  height: 26px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: rgba(165, 180, 255, 0.18);
-  color: var(--signal-2);
-}
-
-.console__avatar svg {
-  width: 15px;
-  height: 15px;
-}
-
-.console__steps {
-  margin: 12px 0 0;
-  padding: 12px 14px;
-  list-style: none;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  background: rgba(0, 0, 0, 0.18);
-  font-size: 13px;
-}
-
-.console__steps li {
-  position: relative;
-  padding: 6px 0 6px 26px;
-  color: rgba(255, 255, 255, 0.32);
-  transition: color 0.4s;
-}
-
-.console__steps li::before {
-  content: "";
-  position: absolute;
-  left: 2px;
-  top: 50%;
-  width: 12px;
-  height: 12px;
-  margin-top: -6px;
-  border: 1.4px solid currentColor;
-  border-radius: 50%;
-  box-sizing: border-box;
-}
-
-.console__steps li.is-active {
-  color: #e4e7f0;
-}
-
-.console__steps li.is-active::before {
-  border-color: var(--signal);
-  border-right-color: transparent;
-  animation: spin 0.8s linear infinite;
-}
-
-.console__steps li.is-done {
-  color: #c4cad8;
-}
-
-.console__steps li.is-done::before {
-  border: 0;
   background: var(--signal);
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Ccircle cx='6' cy='6' r='6'/%3E%3C/svg%3E") center / contain no-repeat;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Ccircle cx='6' cy='6' r='6'/%3E%3C/svg%3E") center / contain no-repeat;
+  transform-origin: left;
+  transform: scaleX(var(--p, 0));
 }
 
-.console__steps li.is-done::after {
-  content: "";
-  position: absolute;
-  left: 5.5px;
-  top: 50%;
-  width: 5px;
-  height: 3px;
-  margin-top: -2.5px;
-  border-left: 1.4px solid var(--ink);
-  border-bottom: 1.4px solid var(--ink);
-  transform: rotate(-45deg);
-}
-
-.console__steps li:last-child.is-done {
-  color: #9fe3b9;
-}
-
-.console__steps li:last-child.is-done::before {
-  background: #5fd38d;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Capabilities row along the bottom of the hero */
-.lead__caps {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 32px;
-  margin-top: clamp(48px, 7vw, 96px);
-  padding-top: 32px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.cap__icon {
-  width: 24px;
-  height: 24px;
-  color: var(--signal);
-}
-
-.cap h2 {
-  margin-top: 16px;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-}
-
-.cap p {
-  margin-top: 6px;
-  font-size: 14px;
-  line-height: 1.55;
-  color: var(--steel-light);
-}
-
-@media (max-width: 960px) {
-  .lead__grid {
-    grid-template-columns: 1fr;
-    min-height: 0;
-  }
-
-  .console {
-    justify-self: start;
-  }
-
-  .lead__caps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .lead::before {
-    background: linear-gradient(180deg, rgba(11, 13, 18, 0.86) 0%, rgba(11, 13, 18, 0.78) 50%, rgba(11, 13, 18, 0.9) 75%, var(--ink) 100%);
-  }
-
-  .lead__photo img {
-    object-position: 80% 30%;
-  }
-}
-
-@media (max-width: 520px) {
-  .lead__caps {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-}
-
-/* The scroll-built headline after the hero sits on the same ink */
-.home .cobot {
-  background: radial-gradient(ellipse at 50% 100%, #1a1f2e 0%, var(--ink) 65%);
+.cobot--still .cobot__progress {
+  display: none;
 }

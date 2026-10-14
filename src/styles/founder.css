@@ -94,3 +94,10 @@
     grid-template-columns: 1fr;
   }
 }
+
+.portrait__role {
+  margin-top: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #3c3a35;
+}

@@ -11,24 +11,23 @@
     <meta property="og:title" content="Zishaan Ahmed, founder of Seventh Axis" />
     <meta property="og:image" content="/img/founder-full-1920.webp" />
   </head>
-  <body class="page page--founder has-hero hero-light">
+  <body class="page page--founder">
     <!--#header-->
 
     <main id="main">
       <section class="portrait" data-hero aria-labelledby="founder-name">
         <img class="portrait__img" src="/img/founder-full-1920.webp" srcset="/img/founder-full-960.webp 960w, /img/founder-full-1920.webp 1920w" sizes="100vw" width="1920" height="1072" alt="Zishaan Ahmed in profile, seen through reeded glass" fetchpriority="high" />
         <div class="portrait__copy">
-          <p class="eyebrow rise" style="--d: 0.2s">Founder, Seventh Axis</p>
           <h1 id="founder-name" class="portrait__name rise" style="--d: 0.3s">Zishaan<br />Ahmed</h1>
+          <p class="portrait__role rise" style="--d: 0.36s">Founder of Seventh Axis</p>
           <p class="portrait__line rise" style="--d: 0.42s">Building the seventh axis: software that lets anyone on the line program a robot arm in their own language.</p>
         </div>
       </section>
 
-      <section class="band" id="story" aria-labelledby="story-title">
+      <section class="section" id="story" aria-labelledby="story-title">
         <div class="wrap founder-story">
           <div class="reveal">
-            <p class="eyebrow">The founder</p>
-            <h2 id="story-title" class="band__title">Built end to end, tested before it touches hardware.</h2>
+            <h2 id="story-title" class="t-h2">Built end to end, tested before it touches hardware.</h2>
           </div>
           <div class="founder-story__text reveal" style="--i: 1">
             <p>Zishaan is a software and systems engineer in Kuala Lumpur. He started Seventh Axis because Malaysian factories keep buying robot arms that end up stuck on one job: changing what a robot does still takes a specialist, a teach pendant and days of downtime.</p>
@@ -43,13 +42,12 @@
         </div>
       </section>
 
-      <section class="band band--tint" aria-labelledby="built-title">
+      <section class="section" aria-labelledby="built-title">
         <div class="wrap">
-          <div class="band__head reveal">
-            <p class="eyebrow">What he built</p>
-            <h2 id="built-title" class="band__title">Kata, from the sentence to the robot.</h2>
+          <div class="section__head reveal">
+            <h2 id="built-title" class="t-h2">Kata, from the sentence to the robot.</h2>
           </div>
-          <div class="cards">
+          <div class="grid grid--3">
             <article class="card reveal" style="--i: 0"><h3>The planner</h3><p>Turns an instruction in English, Bahasa Malaysia or <span lang="zh">中文</span> into a structured plan, with an offline fallback.</p></article>
             <article class="card reveal" style="--i: 1"><h3>The digital twin</h3><p>UR10e kinematics, inverse kinematics, physics and motion planning, with reach, collision and payload checks.</p></article>
             <article class="card reveal" style="--i: 2"><h3>Signed approvals</h3><p>Ed25519 signatures that cover one run of one program on one robot, and expire after five minutes.</p></article>
@@ -60,14 +58,14 @@
         </div>
       </section>
 
-      <section class="band" aria-label="Get in touch">
+      <section class="section" aria-label="Get in touch">
         <div class="wrap">
-          <div class="cta-card reveal">
+          <div class="card card--dark cta reveal">
             <div>
               <h2>Talk to Zishaan.</h2>
               <p>Pilots, partnerships, the seed round, or a walkthrough of Kata on your own cell.</p>
             </div>
-            <div class="cta-card__actions">
+            <div class="cta__actions">
               <a class="btn btn--light" href="/book">Book a call</a>
               <a class="btn btn--ghost" href="/about#investors">See the plan</a>
             </div>

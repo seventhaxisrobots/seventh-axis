@@ -88,20 +88,6 @@
   color: var(--text-soft);
 }
 
-.split {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-  gap: clamp(24px, 4vw, 56px);
-  align-items: center;
-}
-
-.split p {
-  margin-top: 14px;
-  font-size: 17px;
-  line-height: 1.65;
-  color: var(--text-soft);
-}
-
 @media (max-width: 900px) {
   .clips {
     grid-template-columns: 1fr;
@@ -109,10 +95,6 @@
 
   .clips .clip video {
     aspect-ratio: 16 / 9;
-  }
-
-  .split {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -179,7 +161,7 @@
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #A5B4FF;
+  color: #F26A1B;
 }
 
 .photo-hero__title {
@@ -231,7 +213,7 @@
 .photo-hero__steps span {
   font-family: var(--font-display);
   font-weight: 700;
-  color: #A5B4FF;
+  color: #F26A1B;
 }
 
 .photo-hero__prices {

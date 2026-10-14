@@ -4,70 +4,85 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content" />
     <title>Pricing · Kata by Seventh Axis</title>
-    <meta name="description" content="Kata pricing: a free 90-day founding pilot, then RM1,200 per robot cell per month. Software only; your robot arm comes from your integrator." />
-    <meta name="theme-color" content="#FFFFFF" />
+    <meta name="description" content="Kata costs RM1,200 per robot cell per month, billed yearly, after a free 90-day pilot on one cell. Software only; your robot arm comes from your integrator." />
+    <meta name="theme-color" content="#15171A" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta property="og:title" content="Kata pricing: pay for the software, not a programmer" />
+    <meta property="og:title" content="Kata pricing: RM1,200 per robot cell, per month" />
   </head>
   <body class="page">
     <!--#header-->
 
     <main id="main">
-      <section class="wrap intro intro--center" aria-labelledby="page-title">
-        <p class="eyebrow rise">Pricing</p>
-        <h1 id="page-title" class="intro__title rise" style="--d: 0.08s">Simple, transparent pricing.</h1>
-        <p class="intro__lede rise" style="--d: 0.16s">Start free on one cell. Pay per robot cell when Kata earns its place on your line. No hidden fees, no surprises.</p>
-      </section>
-
-      <section class="wrap" id="plans" aria-label="Plans">
-        <div class="plans rise" style="--d: 0.24s">
-          <!--#pricing-cards-->
-        </div>
-        <p class="plans__note">Prices exclude SST. Kata is software: the robot arm, gripper and installation come from your integrator. The Smart Automation Grant can match part of eligible automation costs.</p>
-
-        <div class="custom reveal">
-          <span class="custom__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h10M4 12h16M4 17h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /><circle cx="17" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="1.6" /><circle cx="14" cy="17" r="2" fill="none" stroke="currentColor" stroke-width="1.6" /></svg></span>
+      <section class="hero-b" aria-labelledby="page-title">
+        <div class="wrap hero-b__grid">
           <div>
-            <h2>Need a custom solution?</h2>
-            <p>Several plants, an integrator partnership or a private planner with data kept in Malaysia. We'll shape the plan around your workflow.</p>
+            <p class="pill pill--signal rise">Per robot cell</p>
+            <h1 id="page-title" class="t-h1 price-title rise" style="--d: 0.06s">RM1,200 <span>a month for each cell Kata runs</span></h1>
+            <p class="t-sub rise" style="--d: 0.12s">Billed yearly, excluding SST. Kata is software: the arm, gripper and installation come from your integrator. Start with a free 90-day pilot on one cell.</p>
+            <div class="hero-b__actions rise" style="--d: 0.18s">
+              <a class="btn btn--signal" href="/book">Book a demo</a>
+              <a class="btn btn--outline" href="/pilot">Apply for the pilot</a>
+            </div>
           </div>
-          <a class="btn btn--outline" href="/book">Contact us</a>
+          <figure class="hero-b__media rise" style="--d: 0.2s">
+            <img src="/img/twin/cell-800.webp" srcset="/img/twin/cell-800.webp 800w, /img/twin/cell-1600.webp 1600w" sizes="(max-width: 900px) 100vw, 42vw" width="1600" height="1000" alt="One robot cell in Kata's digital twin: arm, conveyor, pallets, CNC machine, parts table and reject bin" />
+          </figure>
         </div>
       </section>
 
-      <section class="band" aria-labelledby="compare-title">
+      <section class="section" aria-labelledby="included-title">
+        <div class="wrap split split--top">
+          <div class="card">
+            <h2 id="included-title" class="t-h3">Every cell includes</h2>
+            <div class="status-list">
+              <!--#cell-features-->
+            </div>
+          </div>
+          <div class="card payback" aria-labelledby="payback-title">
+            <h2 id="payback-title" class="t-h3">What a cell earns back</h2>
+            <div class="payback__grid">
+              <!--#pricing-payback-->
+            </div>
+            <p class="payback__note">Malaysian wages, EPF, SOCSO and the foreign-worker levy, from the same model as the calculator. <a class="textlink" href="/roi">Work out your own payback</a></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="other-title">
         <div class="wrap">
-          <div class="band__head reveal">
-            <p class="eyebrow">Why it pays</p>
-            <h2 id="compare-title" class="band__title">What changes on the line.</h2>
-            <p class="band__lede">A robot cell earns its keep when it can change jobs. Here's a changeover with and without Kata.</p>
+          <h2 id="other-title" class="visually-hidden">Other ways to start</h2>
+          <div class="grid grid--2">
+            <div class="card option">
+              <div>
+                <h3 class="t-h3">Founding pilot</h3>
+                <p class="t-body">Free for 90 days on one cell. We set it up with you on site and measure the payback on your own line.</p>
+              </div>
+              <a class="btn btn--outline btn--small" href="/pilot">Apply</a>
+            </div>
+            <div class="card option">
+              <div>
+                <h3 class="t-h3">Several sites or an integrator</h3>
+                <p class="t-body">Single sign-on, audit logs, a private planner with data kept in Malaysia, and a partner programme for integrators.</p>
+              </div>
+              <a class="btn btn--outline btn--small" href="/book">Talk to us</a>
+            </div>
           </div>
-          <div class="compare-wrap reveal">
-            <table class="compare">
-              <thead>
-                <tr><th scope="col"></th><th scope="col">Teach pendant or integrator</th><th scope="col">With Kata</th></tr>
-              </thead>
-              <tbody>
-                <tr><th scope="row">Who programs a new task</th><td>A trained robot programmer</td><td>Anyone on the line, in their language</td></tr>
-                <tr><th scope="row">Time to change a pallet pattern</th><td>Hours to days</td><td>Minutes, checked in simulation</td></tr>
-                <tr><th scope="row">How you know it's safe</th><td>Test runs on the real arm</td><td>Reach, collision and payload checks before it moves</td></tr>
-                <tr><th scope="row">What you get</th><td>A program only its author understands</td><td>A plain-language plan plus URScript you can review</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="plans__note">Not sure it pays? <a class="textlink" href="/roi">Work out your payback</a> with Malaysian wages, levies and the grant.</p>
         </div>
       </section>
 
-      <section class="band band--tint faq" aria-labelledby="faq-title">
-        <div class="wrap faq__grid">
-          <div>
-            <p class="eyebrow">FAQ</p>
-            <h2 id="faq-title" class="band__title">Questions</h2>
-          </div>
-          <div class="faq__list">
-            <!--#faq-->
+      <section class="section" aria-labelledby="questions-title">
+        <div class="wrap">
+          <h2 id="questions-title" class="visually-hidden">Cost questions</h2>
+          <div class="grid grid--2">
+            <div class="aside-answer">
+              <h3>What does the robot cell itself cost?</h3>
+              <p>A collaborative palletising or machine-tending cell with arm, gripper, guarding and installation typically costs RM120,000 to RM250,000 from an integrator. Kata doesn't sell or mark up hardware.</p>
+            </div>
+            <div class="aside-answer">
+              <h3>Does the Smart Automation Grant help?</h3>
+              <p>It's a matching grant for Malaysian manufacturers that automate. Robot cells and their integration are typical eligible costs; how much it covers depends on approval.</p>
+            </div>
           </div>
         </div>
       </section>

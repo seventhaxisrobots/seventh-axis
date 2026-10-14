@@ -3,7 +3,7 @@ import { FAQ } from "../shared/knowledge.ts";
 import { makeOrb, orbDots } from "../shared/orb.ts";
 import { EMAIL_RE } from "./forms.ts";
 
-// Ask Axis: a floating assistant on every page except the Studio. It answers
+// Ask Axis: an assistant that opens from the header on every page. It answers
 // from the company briefing (via /api/ask), can take a visitor's details for
 // the pilot, and can open the Studio with a demo already running.
 
@@ -22,8 +22,6 @@ interface Answer extends Turn {
 
 const STORE = "sa_ask";
 const STARTERS = ["What does Seventh Axis do?", "How much does it cost?", "Show me palletising", "Do you sell robots?"];
-const MARK =
-  '<svg width="22" height="22" viewBox="0 0 64 64" aria-hidden="true"><path d="M12 10H50L44.382 19.941M29.618 46.059L24 56" fill="none" stroke="currentColor" stroke-width="5.2" stroke-linejoin="miter"/><path d="M46.534 21.418A15 15 0 0 1 31.994 47.140ZM27.466 44.582A15 15 0 0 1 42.006 18.860Z" fill="currentColor"/></svg>';
 
 let turns: Turn[] = [];
 let panel: HTMLElement | null = null;
@@ -49,15 +47,20 @@ function save(): void {
   }
 }
 
+let opener: HTMLElement | null = null;
+
+/** Ask Axis opens from any [data-ask] control: the header button and the footer link. */
 export function initAskAxis(): void {
   load();
-  const launcher = document.createElement("button");
-  launcher.type = "button";
-  launcher.className = "ask-launcher";
-  launcher.setAttribute("aria-haspopup", "dialog");
-  launcher.innerHTML = `${MARK}<span>Ask Axis</span>`;
-  launcher.addEventListener("click", () => (panel && !panel.hidden ? close() : open()));
-  document.body.append(launcher);
+  for (const trigger of document.querySelectorAll<HTMLElement>("[data-ask]")) {
+    trigger.setAttribute("aria-haspopup", "dialog");
+    trigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      opener = trigger;
+      if (panel && !panel.hidden) close();
+      else open();
+    });
+  }
 }
 
 function open(): void {
@@ -72,7 +75,7 @@ function close(): void {
   if (!panel) return;
   panel.hidden = true;
   document.body.classList.remove("ask-open");
-  document.querySelector<HTMLElement>(".ask-launcher")?.focus();
+  opener?.focus();
 }
 
 function build(): void {

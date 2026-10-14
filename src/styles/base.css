@@ -20,7 +20,6 @@ body {
   color: var(--paper);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: "cv11", "ss01";
   text-rendering: optimizeLegibility;
 }
 
@@ -47,9 +46,10 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  font-stretch: var(--narrow);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
   margin: 0;
 }
 

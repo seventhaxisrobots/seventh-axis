@@ -2,7 +2,7 @@
 
 .cobot {
   position: relative;
-  height: 320vh;
+  height: 250vh;
   background: radial-gradient(ellipse at 50% 100%, #1c1c1c 0%, var(--ink) 65%);
   color: var(--paper);
 }

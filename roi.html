@@ -5,27 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content" />
     <title>ROI calculator · Seventh Axis</title>
     <meta name="description" content="How fast would a robot cell pay for itself on your line? Malaysian wages, levies and the Smart Automation Grant, worked out in the open." />
-    <meta name="theme-color" content="#0A0A0A" />
+    <meta name="theme-color" content="#15171A" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta property="og:title" content="How fast would a robot pay for itself on your line?" />
     <meta property="og:image" content="/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
-  <body class="page has-hero">
+  <body class="page">
     <!--#header-->
 
     <main id="main">
-      <section class="photo-hero" data-hero aria-labelledby="page-title">
-        <img class="photo-hero__bg" src="/img/line-1920.webp" srcset="/img/line-960.webp 960w, /img/line-1920.webp 1920w" sizes="100vw" width="1920" height="1080" style="--pos: 50% 40%; --pos-sm: 70% 50%" alt="A modern automated production line with robot cells" fetchpriority="high" />
-        <div class="wrap photo-hero__content">
-          <div class="photo-hero__copy">
-            <p class="photo-hero__kicker">ROI calculator</p>
-            <h1 id="page-title" class="photo-hero__title">What would a robot save your line?</h1>
-            <p class="photo-hero__sub">Malaysian wages, levies and the Smart Automation Grant, worked out in the open. Every assumption is listed below the numbers.</p>
-            <div class="photo-hero__actions"><a class="btn btn--light" href="#calculator">Work out my payback</a></div>
+      <section class="hero-b" aria-labelledby="page-title">
+        <div class="wrap hero-b__grid hero-b__grid--solo">
+          <div>
+            <h1 id="page-title" class="t-h1 rise">What would a robot save your line?</h1>
+            <p class="t-sub rise" style="--d: 0.08s">Malaysian wages, EPF, SOCSO, the foreign-worker levy and the Smart Automation Grant, worked out in the open. Every assumption is listed below the numbers.</p>
           </div>
-          <p class="photo-hero__aside photo-hero__list">Wages · EPF · SOCSO<br />Levy · Grant</p>
         </div>
       </section>
 
@@ -123,43 +119,6 @@
         </ul>
       </section>
 
-      <section class="pilot pilot--photo" aria-labelledby="pilot-title">
-        <img class="pilot__bg" src="/img/workshop-1920.webp" srcset="/img/workshop-960.webp 960w, /img/workshop-1920.webp 1920w" sizes="100vw" width="1920" height="1080" style="--pos: 50% 40%" loading="lazy" alt="" />
-        <div class="wrap pilot__inner">
-          <h2 id="pilot-title">Check these numbers on your line.</h2>
-          <p class="pilot__sub">Join the founding pilot. We'll send your estimate with our reply.</p>
-          <form class="pilot__form" novalidate data-waitlist>
-            <div class="pilot__fields">
-              <div class="pill-field">
-                <label for="f-name" class="visually-hidden">Full name</label>
-                <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Full name" required maxlength="100" />
-              </div>
-              <div class="pill-field">
-                <label for="f-email" class="visually-hidden">Work email</label>
-                <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="Work email" required maxlength="254" />
-              </div>
-              <div class="pill-field">
-                <label for="f-company" class="visually-hidden">Company (optional)</label>
-                <input id="f-company" name="company" type="text" autocomplete="organization" placeholder="Company" maxlength="120" />
-              </div>
-              <button class="btn btn--signal" type="submit">Request a slot</button>
-            </div>
-            <label class="check pilot__consent" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required />
-              <span>I agree to Seventh Axis contacting me about the pilot, as described in the <a class="textlink" href="/privacy">privacy notice</a>.</span>
-            </label>
-            <input type="hidden" name="task" data-roi-summary />
-            <div class="hp" aria-hidden="true">
-              <label for="f-website">Website</label>
-              <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" />
-            </div>
-            <p class="pilot__errors" id="f-name-error" hidden></p>
-            <p class="pilot__errors" id="f-email-error" hidden></p>
-            <p class="pilot__errors" id="f-consent-error" hidden></p>
-            <p class="form__status pilot__errors" role="status" aria-live="polite" data-status></p>
-          </form>
-        </div>
-      </section>
     </main>
 
     <!--#footer-->

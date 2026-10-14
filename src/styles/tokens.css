@@ -1,41 +1,74 @@
-@import "@fontsource-variable/inter/opsz.css";
+@import "@fontsource-variable/archivo/wdth.css";
 
+/* Seventh Axis: safe and in control. Graphite, warm grey, one safety-orange accent
+   kept for the main action. See design/layout-plan.md. */
 :root {
-  /* Colour: deep navy ink, cool paper, one lavender-blue accent */
-  --ink: #0b0d12;
-  --graphite: #12151c;
-  --graphite-2: #0e1117;
-  --line: #222632;
-  --line-2: #2f3442;
+  /* Colour */
+  --ink: #15171a;
+  --graphite: #1e2125;
+  --graphite-2: #191b1e;
+  --line: #2c3036;
+  --line-2: #3a3f46;
   --paper: #ffffff;
   --paper-2: #ffffff;
-  --surface: #f4f2ed;
-  --paper-line: #e6e8ee;
-  --steel: #5d6472;
-  --steel-light: #9aa1b0;
-  --mist: #c6cbd6;
-  --mist-2: #d9dde5;
-  --text-soft: #434a58;
-  --signal: #a5b4ff;
-  --signal-2: #c9d1ff;
-  --signal-deep: #4453c9;
-  --twin: #a5b4ff;
-  --glass: rgba(20, 24, 34, 0.55);
-  --glass-line: rgba(255, 255, 255, 0.12);
-  --shadow-card: 0 1px 2px rgba(11, 13, 18, 0.04), 0 8px 24px rgba(11, 13, 18, 0.06);
-  --shadow-lift: 0 2px 4px rgba(11, 13, 18, 0.04), 0 24px 60px rgba(11, 13, 18, 0.12);
+  --surface: #f2f1ee;
+  --surface-2: #e8e6e1;
+  --paper-line: #dedbd4;
+  --text: #1b1d21;
+  --steel: #5c6168;
+  --steel-light: #a6abb2;
+  --mist: #c9ccd1;
+  --mist-2: #dcdee2;
+  --text-soft: #3e434a;
+  --signal: #f26a1b;
+  --signal-hover: #ff7d33;
+  --signal-deep: #b4470b;
+  --signal-2: #ffb78a;
+  --twin: #f26a1b;
+  --ok: #2f8f5b;
+  --ok-dark: #6fd39b;
+  --shadow-card: 0 1px 2px rgba(21, 23, 26, 0.05), 0 6px 18px rgba(21, 23, 26, 0.06);
+  --shadow-lift: 0 2px 4px rgba(21, 23, 26, 0.05), 0 18px 48px rgba(21, 23, 26, 0.12);
 
   /* Type */
-  --font-sans: "Inter Variable", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Inter Variable", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "Archivo Variable", "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Archivo Variable", "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Menlo, Consolas, monospace;
+  --narrow: 80%;
 
-  /* Shape */
-  --radius: 8px;
-  --radius-m: 14px;
-  --radius-l: 20px;
+  /* Shape: three radii only */
+  --r-s: 6px;
+  --r-card: 14px;
+  --r-pill: 999px;
+  --radius: var(--r-s);
+  --radius-m: var(--r-card);
+  --radius-l: var(--r-card);
+
+  /* Space */
+  --pad-card: 24px;
+  --gap: 16px;
+  --section: 96px;
 
   /* Layout */
-  --gutter: clamp(16px, 5vw, 72px);
-  --max: 1200px;
+  --gutter: clamp(20px, 4.5vw, 64px);
+  --max: 1240px;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --section: 80px;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --section: 72px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section: 56px;
+    --pad-card: 20px;
+  }
 }
