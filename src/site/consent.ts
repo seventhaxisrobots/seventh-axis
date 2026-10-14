@@ -48,14 +48,11 @@ function showBanner(): void {
   banner.className = "consent";
   banner.setAttribute("aria-label", "Cookie preferences");
   banner.innerHTML = `
-    <h2>Cookies</h2>
-    <p>We only store what the site needs to work. With your permission we'd also count page visits, anonymously.
-    No ads, no tracking.</p>
+    <p><strong>Cookies.</strong> We store only what the site needs. With your permission we'd also count visits, anonymously. No ads. <a class="consent__link" href="/cookies">Cookie policy</a></p>
     <div class="consent__actions">
-      <button type="button" class="btn btn--outline" data-choice="essential">Essential only</button>
-      <button type="button" class="btn btn--primary" data-choice="all">Accept all</button>
-    </div>
-    <a class="consent__link" href="/cookies">Read the cookie policy</a>`;
+      <button type="button" class="btn btn--outline btn--small" data-choice="essential">Essential only</button>
+      <button type="button" class="btn btn--primary btn--small" data-choice="all">Accept all</button>
+    </div>`;
   if (current) {
     const note = document.createElement("p");
     note.textContent = `Your current choice: ${current.analytics ? "all cookies accepted" : "essential only"}.`;
@@ -74,13 +71,20 @@ function showBanner(): void {
     else applyConsent(analytics);
   });
   document.body.append(banner);
-  banner.querySelector<HTMLButtonElement>("[data-choice=essential]")?.focus({ preventScroll: true });
 }
 
 export function initConsent(): void {
   const consent = readConsent();
   if (consent) applyConsent(consent.analytics);
-  else showBanner();
+  // On the home page the banner waits for the opening to finish, so the first screen isn't crowded.
+  else if (document.querySelector("[data-intro]") && !document.documentElement.classList.contains("intro-seen")) {
+    const wait = new MutationObserver(() => {
+      if (!document.documentElement.classList.contains("intro-seen")) return;
+      wait.disconnect();
+      setTimeout(showBanner, 1500);
+    });
+    wait.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+  } else setTimeout(showBanner, 1200);
 
   document.addEventListener("click", (e) => {
     if ((e.target as HTMLElement).closest("[data-cookie-settings]")) {
