@@ -128,10 +128,10 @@ export const FAQ: { q: string; a: string; who: Asker }[] = [
 ];
 
 export const PAGES: { path: string; title: string; about: string }[] = [
-  { path: "/", title: "Home", about: "Seventh Axis and Kata, its natural-language robot programming tool" },
+  { path: "/", title: "Home", about: "Seventh Axis, an AI company, and its two products: Kata and Heimdall" },
   { path: "/product", title: "Kata", about: "How Kata works: planning, checks, approvals, the bridge; and the FAQ" },
   { path: "/docs", title: "Documentation", about: "Quick start, concepts, URSim, pairing the bridge, bridge commands" },
-  { path: "/studio", title: "Kata Studio (live demo)", about: "A live 3D robot cell you program by typing or speaking" },
+  { path: "/heimdall", title: "Heimdall", about: "Maritime awareness for Malaysian waters: live ships, satellite radar, dark-vessel alerts; briefings by request" },
   { path: "/industries", title: "Industries", about: "E&E, palletising, small batches, machine tending; Malaysian labour costs" },
   { path: "/roi", title: "ROI calculator", about: "Payback with Malaysian wages, EPF, SOCSO, levy and the Smart Automation Grant" },
   { path: "/pricing", title: "Pricing", about: "Founding pilot, Cell and Enterprise plans" },
@@ -139,13 +139,15 @@ export const PAGES: { path: string; title: string; about: string }[] = [
   { path: "/about", title: "About and investors", about: "The company, its founder, the business plan, financial model and seed round" },
   { path: "/founder", title: "Founder", about: "Zishaan Ahmed, who founded Seventh Axis and built Kata" },
   { path: "/pilot", title: "Pilot programme", about: "Apply for the free founding pilot" },
-  { path: "/book", title: "Book a meeting", about: "Intro call, Studio walkthrough or a visit to your line" },
+  { path: "/book", title: "Book a meeting", about: "Intro call, Kata walkthrough, line visit or Heimdall briefing" },
 ];
 
 /** The assistant's briefing: facts it may state, and nothing else about the company. */
 export function knowledgeText(): string {
   return [
-    "Seventh Axis is a Kuala Lumpur robotics software company. Its product, Kata (Malay for 'word'), lets factory staff program industrial and collaborative robot arms by describing the task in English, Bahasa Malaysia, Chinese or Manglish, typed or spoken.",
+    "Seventh Axis is an AI company in Kuala Lumpur with two products, Kata and Heimdall. Both keep a named person in charge: the AI plans or flags, a person approves.",
+    "Kata (Malay for 'word') lets factory staff program industrial and collaborative robot arms by describing the task in English, Bahasa Malaysia, Chinese or Manglish, typed or spoken. Kata is invite-only for now: approved emails sign in at /app; others can apply for the pilot or book a walkthrough.",
+    "Heimdall is maritime awareness for Malaysian waters: live ship positions (AIS), satellite radar detections (Copernicus Sentinel-1, through Global Fishing Watch) and alerts for vessels that go dark, across the whole Malaysian EEZ. A named analyst approves or dismisses every alert. It tracks vessels and patterns, not individuals, and doesn't target anything. It's built for agencies and operators such as maritime enforcement, the navy, fisheries and port authorities. There is no public demo; access is limited to approved accounts, and briefings are booked at /book (Heimdall briefing). Don't state customers, prices or deployments for Heimdall.",
     "Every plan is simulated in a digital twin first: reach, collisions, payload, fragile items and cycle time are checked, speeds are capped, and a person approves before the program is exported (URScript for Universal Robots arms today; other controllers on the roadmap).",
     "The Studio demo cell has a conveyor, two pallets, a reject bin, a CNC machine with billets, a 14 kg crate (over the 10 kg payload), a fragile box and a camera-flagged damaged box. It can palletise, sort by colour, tend the CNC, run continuous production, slow down when a person comes near, and has a simulation-only playground (throws, juggling, towers).",
     "Seventh Axis does not sell robots or hardware. Customers buy arms from their usual supplier or integrator.",

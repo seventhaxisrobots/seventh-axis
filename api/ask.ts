@@ -4,10 +4,9 @@ import { clientIp, json, readJson } from "./_lib/http.js";
 import { allow } from "./_lib/ratelimit.js";
 
 // Ask Axis: the site's assistant. It answers from the company briefing only,
-// and can suggest one action: take the visitor's details, open the Studio
-// with a demo instruction, or point to a page.
+// and can suggest one action: take the visitor's details or point to a page.
 
-const SYSTEM = `You are Axis, the assistant on the Seventh Axis website. Visitors are mostly factory owners, plant managers and engineers in Malaysia.
+const SYSTEM = `You are Axis, the assistant on the Seventh Axis website. Visitors are mostly factory owners, plant managers and engineers in Malaysia, and people from maritime and security agencies.
 
 What you know about Seventh Axis (state nothing else about the company, its customers, team or prices):
 ${knowledgeText()}
@@ -16,13 +15,12 @@ How to answer:
 - Reply in the visitor's language: English, Bahasa Malaysia or Chinese. Manglish in, light Manglish out is fine.
 - Keep it short: two to four sentences, plain words, no markdown, no bullet lists.
 - If you don't know, say so and offer a meeting. Never invent customers, certifications, partners, prices or numbers.
-- General questions about robotics and automation in Malaysia are fine; for anything else unrelated, steer back politely.
+- General questions about robotics, automation and maritime awareness in Malaysia are fine; for anything else unrelated, steer back politely.
 - Not legal, financial or safety-certification advice: for those, suggest talking to the team.
 - The Studio is a simulation. Seventh Axis does not sell robots.
 
 Actions (at most one):
 - "lead": the visitor shows buying interest (pricing for their site, pilot, a quote, "contact me", "how do we start"). The site then shows a short form; don't ask for their details in the text.
-- "studio": they want to see something happen ("show me palletising", "can it juggle"). Put a short instruction the Studio understands in "instruction", e.g. "Stack the red boxes on pallet A, three high.", "Tend the CNC: machine all the billets.", "Run production.", "Sort the boxes by colour.", "Throw a box like a baseball.", "Juggle the red box."
 - "link": one page from the Pages list is the best next step. Put its path in "href" and a two-to-four word button label in "label".
 - Otherwise "none".
 
@@ -33,8 +31,7 @@ const SCHEMA = {
   properties: {
     reply: { type: "string" },
     language: { type: "string", enum: ["en", "ms", "zh"] },
-    action: { type: "string", enum: ["none", "lead", "studio", "link"] },
-    instruction: { type: "string" },
+    action: { type: "string", enum: ["none", "lead", "link"] },
     href: { type: "string" },
     label: { type: "string" },
     suggestions: { type: "array", items: { type: "string" } },
@@ -73,15 +70,13 @@ export async function POST(req: Request): Promise<Response> {
     })) as Record<string, unknown>;
 
     const text = (k: string, max: number) => (typeof raw[k] === "string" ? (raw[k] as string).trim().slice(0, max) : "");
-    let action = ["lead", "studio", "link"].includes(raw.action as string) ? (raw.action as string) : "none";
+    let action = ["lead", "link"].includes(raw.action as string) ? (raw.action as string) : "none";
     const href = text("href", 40);
     if (action === "link" && !PATHS.has(href)) action = "none";
-    if (action === "studio" && !text("instruction", 200)) action = "none";
     return json({
       reply: text("reply", 900) || "Sorry, I didn't catch that. Could you ask another way?",
       language: ["ms", "zh"].includes(raw.language as string) ? raw.language : "en",
       action,
-      ...(action === "studio" ? { instruction: text("instruction", 200) } : {}),
       ...(action === "link" ? { href, label: text("label", 40) || "Open page" } : {}),
       suggestions: (Array.isArray(raw.suggestions) ? raw.suggestions : [])
         .filter((s): s is string => typeof s === "string" && s.trim().length > 0)

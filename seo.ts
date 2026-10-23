@@ -23,8 +23,8 @@ const organization = {
   name: SITE_NAME,
   url: SITE_URL,
   logo: `${SITE_URL}/apple-touch-icon.png`,
-  slogan: "The missing axis is understanding.",
-  description: "Seventh Axis makes software that lets factory staff program robot arms in plain English, Bahasa Malaysia or Chinese, with every move checked in simulation first.",
+  slogan: "AI for the physical world, with a person in charge.",
+  description: "Seventh Axis is an AI company in Kuala Lumpur. Kata lets factory staff program robot arms in plain English, Bahasa Malaysia or Chinese; Heimdall gives maritime agencies one picture of Malaysian waters and flags vessels that go dark.",
   address: { "@type": "PostalAddress", addressLocality: "Kuala Lumpur", addressCountry: "MY" },
   areaServed: { "@type": "Country", name: "Malaysia" },
   knowsLanguage: ["en", "ms", "zh"],
@@ -49,7 +49,7 @@ const software = {
   url: "https://kata-seventh-axis.vercel.app/studio",
   description:
     "Describe a robot task in English, Bahasa Malaysia or Chinese. The Studio plans it, checks reach and collisions in a digital twin, and exports URScript for the arm.",
-  offers: { "@type": "Offer", price: "0", priceCurrency: "MYR", description: "Free live demo" },
+  offers: { "@type": "Offer", price: "0", priceCurrency: "MYR", description: "Free 90-day pilot on one cell" },
   publisher: { "@id": `${SITE_URL}/#organization` },
 };
 
@@ -125,6 +125,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
   pilot: { path: "/pilot", image: "/og/pilot.jpg", priority: 0.8, jsonLd: [crumbs("Pilot programme", "/pilot")] },
   about: { path: "/about", image: "/og/about.jpg", priority: 0.8, jsonLd: [about, crumbs("About and investors", "/about")] },
   founder: { path: "/founder", image: "/img/founder-full-1920.webp", priority: 0.6, jsonLd: [crumbs("Founder", "/founder")] },
+  heimdall: { path: "/heimdall", image: "/img/heimdall/overview-1280.webp", priority: 0.9, jsonLd: [crumbs("Heimdall", "/heimdall")] },
   safety: { path: "/safety", image: "/og/safety.jpg", priority: 0.6, jsonLd: [crumbs("Safety", "/safety")] },
   book: { path: "/book", image: "/og/book.jpg", priority: 0.7, jsonLd: [crumbs("Book a meeting", "/book")] },
   privacy: { path: "/privacy", priority: 0.2 },

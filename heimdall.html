@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content" />
+    <title>Heimdall · Maritime awareness for Malaysian waters</title>
+    <meta name="description" content="Heimdall by Seventh Axis: live ship positions, satellite radar and alerts for vessels that go dark, across the whole Malaysian EEZ. A named analyst approves every alert. Briefings by request." />
+    <meta name="theme-color" content="#15171A" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:title" content="Heimdall: one picture of Malaysian waters" />
+    <meta property="og:description" content="Live ships, satellite radar and dark-vessel alerts across the Malaysian EEZ, with a named analyst approving every alert." />
+    <meta property="og:image" content="/img/heimdall/overview-1280.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class="page">
+    <!--#header-->
+
+    <main id="main">
+      <section class="hero-b" aria-labelledby="page-title">
+        <div class="wrap hero-b__grid">
+          <div>
+            <h1 id="page-title" class="t-h1 rise">One picture of Malaysian waters</h1>
+            <p class="t-sub rise" style="--d: 0.08s">Heimdall puts live ship positions, satellite radar and alerts for vessels that go dark on one map of the whole Malaysian EEZ, from the Strait of Malacca to east of Sabah. A named analyst approves every alert before it goes anywhere.</p>
+            <div class="hero-b__actions rise" style="--d: 0.16s">
+              <a class="btn btn--signal" href="/book?type=heimdall">Request a briefing</a>
+            </div>
+            <p class="t-body hero-b__note rise" style="--d: 0.2s">There's no public demo. Heimdall is open only to approved accounts.</p>
+          </div>
+          <figure class="hero-b__media rise" style="--d: 0.2s">
+            <img src="/img/heimdall/overview-1280.webp" srcset="/img/heimdall/overview-640.webp 640w, /img/heimdall/overview-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 42vw" width="1280" height="948" alt="Heimdall's map of the Malaysian EEZ on satellite imagery, with radar contacts and alert rings off the peninsula, Sarawak and Sabah" fetchpriority="high" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="what-title">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <h2 id="what-title" class="t-h2">What it watches</h2>
+            <p class="t-sub">Built on public and open data, so it works from day one without new sensors.</p>
+          </div>
+          <div class="features grid grid--4">
+            <div class="feature reveal" style="--i: 0"><svg class="feature__icon" aria-hidden="true"><use href="#i-bridge" /></svg><h3>Live ships</h3><p>Every vessel broadcasting AIS in Malaysian waters, updated by the minute, with its track.</p></div>
+            <div class="feature reveal" style="--i: 1"><svg class="feature__icon" aria-hidden="true"><use href="#i-twin" /></svg><h3>Satellite radar</h3><p>Sentinel-1 radar sees ships through cloud and at night, whether or not they broadcast.</p></div>
+            <div class="feature reveal" style="--i: 2"><svg class="feature__icon" aria-hidden="true"><use href="#i-wait" /></svg><h3>Dark-vessel alerts</h3><p>Groups of radar contacts with no broadcast, and ships that switch their AIS off.</p></div>
+            <div class="feature reveal" style="--i: 3"><svg class="feature__icon" aria-hidden="true"><use href="#i-signature" /></svg><h3>Analyst approval</h3><p>Every alert is approved or dismissed by a named person, and the decision is kept.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="dark-title">
+        <div class="wrap split">
+          <figure class="media reveal">
+            <img src="/img/heimdall/alert-1280.webp" srcset="/img/heimdall/alert-640.webp 640w, /img/heimdall/alert-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 50vw" width="1280" height="948" loading="lazy" alt="A dark-vessel alert about 100 km south-east of Mersing: eight radar contacts with no matching broadcast, highlighted in orange" />
+          </figure>
+          <div class="reveal" style="--i: 1">
+            <h2 id="dark-title" class="t-h2">See what isn't broadcasting</h2>
+            <p class="t-sub">Most vessels announce themselves over AIS. Heimdall compares that with what the satellites actually see. When radar finds a group of vessels that nothing accounts for, it raises an alert with the evidence: where, when, how many, and how many look like fishing boats.</p>
+            <p class="t-sub">Likely fishing boats can be filtered out, so an analyst's queue holds the contacts that matter to them.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="how-title">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <h2 id="how-title" class="t-h2">From a satellite pass to a decision</h2>
+            <p class="t-sub">Heimdall suggests. A person decides.</p>
+          </div>
+          <ol class="steps">
+            <li class="step reveal" style="--i: 0"><span class="step__n">1</span><h3>Seen</h3><p>Radar satellites pass over Malaysian waters and detect vessels, day or night.</p></li>
+            <li class="step reveal" style="--i: 1"><span class="step__n">2</span><h3>Matched</h3><p>Each contact is checked against the ships broadcasting AIS at the time.</p></li>
+            <li class="step reveal" style="--i: 2"><span class="step__n">3</span><h3>Raised</h3><p>Dense groups of unmatched contacts, and ships that go quiet, become alerts with their evidence.</p></li>
+            <li class="step reveal" style="--i: 3"><span class="step__n">4</span><h3>Decided</h3><p>A named analyst approves or dismisses each one. Every decision is recorded with who and when.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="scope-title">
+        <div class="wrap split">
+          <div class="reveal">
+            <h2 id="scope-title" class="t-h2">Vessels and patterns, not people</h2>
+            <p class="t-sub">Heimdall watches ships and what they do at sea. It doesn't track individuals and it doesn't target anything. It's built for the agencies and operators responsible for Malaysian waters: maritime enforcement, the navy, fisheries and port authorities.</p>
+          </div>
+          <div class="reveal" style="--i: 1">
+            <h2 class="t-h2">Built on open data</h2>
+            <p class="t-sub">Live AIS, Copernicus Sentinel-1 radar through Global Fishing Watch, and Marine Regions boundaries. Briefings show Heimdall on the live picture of Malaysian waters.</p>
+            <div class="hero-b__actions">
+              <a class="btn btn--primary" href="/book?type=heimdall">Request a briefing</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--#footer-->
+
+    <script type="module" src="/src/landing/main.ts"></script>
+  </body>
+</html>
