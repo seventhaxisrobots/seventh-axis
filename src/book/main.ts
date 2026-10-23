@@ -24,7 +24,7 @@ const DESCRIPTIONS: Record<MeetingType, string> = {
   intro: "A conversation about your line and whether a pilot makes sense.",
   demo: "We plan one of your own tasks in the Studio, live.",
   visit: "We come to your factory and look at the cell with you.",
-  heimdall: "A private walkthrough of Heimdall on the live picture of Malaysian waters. There's no public demo.",
+  heimdall: "A private briefing on Heimdall for agencies and partners working on illegal fishing or drug smuggling, on the live picture of Malaysian waters. There's no public demo.",
 };
 
 const dayFormat = new Intl.DateTimeFormat("en-MY", { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" });
