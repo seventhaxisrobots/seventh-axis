@@ -1146,3 +1146,8 @@ button.status {
     align-items: flex-start;
   }
 }
+
+.hero-b__note {
+  margin-top: 16px;
+  color: var(--steel);
+}
