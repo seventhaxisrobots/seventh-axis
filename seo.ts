@@ -24,7 +24,7 @@ const organization = {
   url: SITE_URL,
   logo: `${SITE_URL}/apple-touch-icon.png`,
   slogan: "AI for the physical world, with a person in charge.",
-  description: "Seventh Axis is an AI company in Kuala Lumpur. Kata lets factory staff program robot arms in plain English, Bahasa Malaysia or Chinese; Heimdall gives maritime agencies one picture of Malaysian waters and flags vessels that go dark.",
+  description: "Seventh Axis is an AI company in Kuala Lumpur. Kata lets factory staff program robot arms in plain English, Bahasa Malaysia or Chinese; Heimdall is maritime surveillance that helps agencies find illegal fishing and drug smuggling in Malaysian waters.",
   address: { "@type": "PostalAddress", addressLocality: "Kuala Lumpur", addressCountry: "MY" },
   areaServed: { "@type": "Country", name: "Malaysia" },
   knowsLanguage: ["en", "ms", "zh"],
