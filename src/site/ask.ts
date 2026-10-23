@@ -11,8 +11,7 @@ type Role = "user" | "assistant";
 interface Turn {
   role: Role;
   text: string;
-  action?: "none" | "lead" | "studio" | "link";
-  instruction?: string;
+  action?: "none" | "lead" | "link";
   href?: string;
   label?: string;
 }
@@ -139,13 +138,7 @@ function render(turn: Turn): HTMLElement {
   const p = document.createElement("p");
   p.textContent = turn.text;
   el.append(p);
-  if (turn.role === "assistant" && turn.action === "studio" && turn.instruction) {
-    const a = document.createElement("a");
-    a.className = "ask__action";
-    a.href = `/studio?q=${encodeURIComponent(turn.instruction)}`;
-    a.textContent = "Open it in the Studio →";
-    el.append(a);
-  } else if (turn.role === "assistant" && turn.action === "link" && turn.href) {
+  if (turn.role === "assistant" && turn.action === "link" && turn.href) {
     const a = document.createElement("a");
     a.className = "ask__action";
     a.href = turn.href;
@@ -184,7 +177,7 @@ async function ask(question: string): Promise<void> {
     });
     if (!res.ok) throw new Error(String(res.status));
     const body = await res.json();
-    answer = { role: "assistant", text: body.reply, action: body.action, instruction: body.instruction, href: body.href, label: body.label, suggestions: body.suggestions };
+    answer = { role: "assistant", text: body.reply, action: body.action, href: body.href, label: body.label, suggestions: body.suggestions };
   } catch {
     answer = offline(text);
   }
@@ -203,7 +196,7 @@ async function ask(question: string): Promise<void> {
 function offline(question: string): Answer {
   const q = question.toLowerCase();
   if (/\b(show|demo|try|see|tunjuk|演示|看看)\b/.test(q)) {
-    return { role: "assistant", text: "Here's the live demo cell. It opens with a palletising job running.", action: "studio", instruction: "Stack the red boxes on pallet A, three high." };
+    return { role: "assistant", text: "Happy to show you. Book a walkthrough of Kata or a Heimdall briefing and the team will take you through it.", action: "link", href: "/book", label: "Book a walkthrough" };
   }
   if (/\b(contact|call me|quote|start|pilot|sign up|daftar|联系|报价)\b/.test(q)) {
     return { role: "assistant", text: "Happy to set that up. Leave your details and the team will reply within a working day.", action: "lead" };
