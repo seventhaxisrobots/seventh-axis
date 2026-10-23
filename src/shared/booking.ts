@@ -5,6 +5,7 @@ export const MEETING_TYPES = {
   intro: { label: "Intro call", minutes: 30, where: "Google Meet or phone" },
   demo: { label: "Studio walkthrough", minutes: 45, where: "Online, screen share" },
   visit: { label: "Line visit", minutes: 90, where: "At your factory in the Klang Valley, Penang or Johor" },
+  heimdall: { label: "Heimdall briefing", minutes: 45, where: "Online, or at your office in the Klang Valley" },
 } as const;
 
 export type MeetingType = keyof typeof MEETING_TYPES;
