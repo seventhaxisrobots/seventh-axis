@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content" />
-    <title>Heimdall · Maritime surveillance against illegal fishing and drug smuggling</title>
-    <meta name="description" content="Heimdall by Seventh Axis is a maritime surveillance service for Malaysian waters. It finds the vessels that go dark, the fishing fleets that shouldn't be there and the ships that switch off their transponders, and puts each case in front of a named analyst. Briefings by request." />
+    <title>Heimdall · Maritime domain awareness for Malaysian waters</title>
+    <meta name="description" content="Heimdall by Seventh Axis: maritime domain awareness for IUU fishing and narcotics interdiction across the Malaysian EEZ. SAR dark-target correlation, AIS disabling, ship-to-ship encounters and analyst case management. Restricted to authorised agencies." />
     <meta name="theme-color" content="#15171A" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta property="og:title" content="Heimdall: surveillance of Malaysian waters" />
-    <meta property="og:description" content="Satellite radar and live ship tracking that find dark vessels, illegal fishing fleets and transponders switched off at sea, each case decided by a named analyst." />
+    <meta property="og:title" content="Heimdall: maritime domain awareness for Malaysian waters" />
+    <meta property="og:description" content="SAR dark-target correlation, AIS disabling and ship-to-ship encounters across the Malaysian EEZ, with analyst case management. Restricted to authorised agencies." />
     <meta property="og:image" content="/img/heimdall/overview-1280.webp" />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
@@ -20,30 +20,29 @@
       <section class="hero-b" aria-labelledby="page-title">
         <div class="wrap hero-b__grid">
           <div>
-            <h1 id="page-title" class="t-h1 rise">See the boats that don't want to be seen</h1>
-            <p class="t-sub rise" style="--d: 0.08s">Heimdall is a maritime surveillance service for Malaysian waters. It watches the whole EEZ, from the Strait of Malacca to east of Sabah, for the patterns behind illegal fishing and drug smuggling: vessels running dark, fleets working where they shouldn't, and ships that switch off their transponders. Every case goes to a named analyst before anyone acts on it.</p>
+            <h1 id="page-title" class="t-h1 rise">Maritime domain awareness for Malaysian waters</h1>
+            <p class="t-sub rise" style="--d: 0.08s">Heimdall correlates live AIS with satellite SAR detections across the Malaysian EEZ to surface dark targets, deliberate AIS disabling and ship-to-ship encounters. Built for IUU fishing enforcement and narcotics interdiction, with every case dispositioned by a named analyst.</p>
             <div class="hero-b__actions rise" style="--d: 0.16s">
               <a class="btn btn--signal" href="/book?type=heimdall">Request a briefing</a>
             </div>
-            <p class="t-body hero-b__note rise" style="--d: 0.2s">There's no public demo. Heimdall is open only to approved agencies and partners.</p>
+            <p class="t-body hero-b__note rise" style="--d: 0.2s">Restricted to authorised government and enforcement agencies. No public access.</p>
           </div>
           <figure class="hero-b__media rise" style="--d: 0.2s">
-            <img src="/img/heimdall/overview-1280.webp" srcset="/img/heimdall/overview-640.webp 640w, /img/heimdall/overview-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 42vw" width="1280" height="948" alt="Heimdall's picture of the Malaysian EEZ on satellite imagery: radar contacts with no broadcast in yellow, open cases ringed in orange, off the peninsula, Sarawak and Sabah" fetchpriority="high" />
+            <img src="/img/heimdall/overview-1280.webp" srcset="/img/heimdall/overview-640.webp 640w, /img/heimdall/overview-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 42vw" width="1280" height="948" alt="Heimdall common operating picture of the Malaysian EEZ: uncorrelated SAR detections in yellow and open cases ringed in orange" fetchpriority="high" />
           </figure>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="problem-title">
-        <div class="wrap split">
-          <div class="reveal">
-            <h2 id="problem-title" class="t-h2">The sea is big. Patrols are few.</h2>
-            <p class="t-sub">Malaysia's exclusive economic zone is about as large as its land, with some of the world's busiest shipping lanes running through them. Foreign fleets fish inside the EEZ without permission, and smugglers use the same water at night to move drugs between boats and the shore.</p>
-            <p class="t-sub">Most honest vessels announce themselves over AIS. The ones doing something wrong often don't. Patrol boats and aircraft can't be everywhere, so the question is where to send them.</p>
+      <section class="section" aria-labelledby="cap-title">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <h2 id="cap-title" class="t-h2">Capabilities</h2>
           </div>
-          <div class="reveal" style="--i: 1">
-            <h2 class="t-h2">Heimdall answers where to look</h2>
-            <p class="t-sub">It compares what ships broadcast with what radar satellites actually see, day or night and through cloud, and turns the differences into a short list of cases. Each one comes with its evidence, its position relative to the nearest town, and a reason it was raised.</p>
-            <p class="t-sub">Analysts decide which cases are worth a patrol. Heimdall never acts on its own.</p>
+          <div class="features grid grid--4">
+            <div class="feature reveal" style="--i: 0"><svg class="feature__icon" aria-hidden="true"><use href="#i-twin" /></svg><h3>Dark-target correlation</h3><p>Sentinel-1 SAR detections correlated against AIS. Uncorrelated targets are clustered by cell and pass, with fishing / non-fishing classification.</p></div>
+            <div class="feature reveal" style="--i: 1"><svg class="feature__icon" aria-hidden="true"><use href="#i-wait" /></svg><h3>AIS disabling</h3><p>Transmission gaps flagged within the hour where receiver coverage is confirmed, with last track and dead-reckoned position.</p></div>
+            <div class="feature reveal" style="--i: 2"><svg class="feature__icon" aria-hidden="true"><use href="#i-bridge" /></svg><h3>Ship-to-ship encounters</h3><p>Rendezvous at sea with both vessels' identity, flag state, type, duration, separation and distance offshore. Carriers and bunkers marked as probable transfers.</p></div>
+            <div class="feature reveal" style="--i: 3"><svg class="feature__icon" aria-hidden="true"><use href="#i-signature" /></svg><h3>Case management</h3><p>A single queue of cases with evidence. Analysts approve or dismiss with a note; every disposition is logged with identity and time.</p></div>
           </div>
         </div>
       </section>
@@ -51,97 +50,95 @@
       <section class="section" aria-labelledby="missions-title">
         <div class="wrap">
           <div class="section__head reveal">
-            <h2 id="missions-title" class="t-h2">Two missions</h2>
-            <p class="t-sub">The same picture of the sea, read two ways.</p>
+            <h2 id="missions-title" class="t-h2">Mission sets</h2>
           </div>
           <div class="grid grid--2">
             <article class="card reveal" style="--i: 0">
-              <h3 class="t-h3">Illegal fishing</h3>
-              <p>Foreign trawlers and purse seiners that work Malaysian waters without permission rarely broadcast where they are. Heimdall finds dense groups of radar contacts with no broadcast, and tells analysts how many of them look like fishing boats, so a fleet stands out from scattered traffic.</p>
+              <h3 class="t-h3">IUU fishing</h3>
+              <p>Detection of unlicensed and foreign fishing activity inside the EEZ.</p>
               <ul class="ticks">
-                <li>Groups of dark contacts inside the EEZ</li>
-                <li>Likely fishing boats, classified from radar</li>
-                <li>Fishing vessels that went quiet inside Malaysian waters</li>
+                <li>Clusters of uncorrelated SAR targets classified as likely fishing</li>
+                <li>Fishing-to-carrier encounters indicating at-sea transshipment</li>
+                <li>AIS disabling by fishing vessels inside the EEZ</li>
+                <li>Flag state and vessel type on every correlated contact</li>
               </ul>
             </article>
             <article class="card reveal" style="--i: 1">
-              <h3 class="t-h3">Drug smuggling</h3>
-              <p>Smuggling at sea relies on not being noticed: transponders off, meetings after dark, boats that don't match any broadcast. Heimdall flags the vessels that switch AIS off on purpose and the contacts radar sees that nothing accounts for, along the coasts and straits where it matters.</p>
+              <h3 class="t-h3">Narcotics interdiction</h3>
+              <p>Cueing for patrol and interdiction assets against at-sea smuggling patterns.</p>
               <ul class="ticks">
-                <li>Ships that switched off AIS, and for how long</li>
-                <li>Radar contacts with no broadcast, near the coast</li>
-                <li>Each case placed against the nearest town and its track</li>
+                <li>Deliberate AIS disabling with confirmed coverage</li>
+                <li>Ship-to-ship encounters away from port and anchorages</li>
+                <li>Non-fishing dark targets in coastal approaches</li>
+                <li>Fishing traffic filtered out to reduce analyst load</li>
               </ul>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="dark-title">
+      <section class="section" aria-labelledby="case-title">
         <div class="wrap split">
           <figure class="media reveal">
-            <img src="/img/heimdall/alert-1280.webp" srcset="/img/heimdall/alert-640.webp 640w, /img/heimdall/alert-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 50vw" width="1280" height="948" loading="lazy" alt="A case about 100 km south-east of Mersing: eight radar contacts with no matching broadcast, highlighted in orange" />
+            <img src="/img/heimdall/alert-1280.webp" srcset="/img/heimdall/alert-640.webp 640w, /img/heimdall/alert-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 50vw" width="1280" height="948" loading="lazy" alt="Dark-target case 102 km south-east of Mersing: eight uncorrelated SAR detections highlighted in orange" />
           </figure>
           <div class="reveal" style="--i: 1">
-            <h2 id="dark-title" class="t-h2">What a case looks like</h2>
-            <p class="t-sub">"8 radar contacts with no AIS broadcast within 11 km, 102 km south-east of Mersing, 16 October." The contacts are marked on the map, alongside every ship that was broadcasting nearby, so an analyst can see at a glance whether it's a fleet, a convoy or noise.</p>
-            <p class="t-sub">Likely fishing boats can be hidden when the job is smuggling, and shown when it's fisheries enforcement.</p>
+            <h2 id="case-title" class="t-h2">Case view</h2>
+            <p class="t-sub">Each case carries its evidence: detections or track, position and range from the nearest town, time of pass or last transmission, correlated traffic in the area and the rule that raised it. Analysts disposition from the same view.</p>
           </div>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="how-title">
+      <section class="section" aria-labelledby="flow-title">
         <div class="wrap">
           <div class="section__head reveal">
-            <h2 id="how-title" class="t-h2">From a satellite pass to a patrol</h2>
-            <p class="t-sub">Heimdall finds. A person decides.</p>
+            <h2 id="flow-title" class="t-h2">Workflow</h2>
           </div>
           <ol class="steps">
-            <li class="step reveal" style="--i: 0"><span class="step__n">1</span><h3>Seen</h3><p>Radar satellites pass over Malaysian waters and detect vessels, day or night, through cloud.</p></li>
-            <li class="step reveal" style="--i: 1"><span class="step__n">2</span><h3>Matched</h3><p>Every contact is checked against the ships broadcasting AIS at the time. The ones left over are dark.</p></li>
-            <li class="step reveal" style="--i: 2"><span class="step__n">3</span><h3>Raised</h3><p>Dense groups of dark contacts, and ships that switch AIS off, become cases with their evidence.</p></li>
-            <li class="step reveal" style="--i: 3"><span class="step__n">4</span><h3>Decided</h3><p>A named analyst approves or dismisses each case, with a note. Every decision is kept, with who and when.</p></li>
+            <li class="step reveal" style="--i: 0"><span class="step__n">1</span><h3>Detect</h3><p>SAR passes and the live AIS picture over the full EEZ.</p></li>
+            <li class="step reveal" style="--i: 1"><span class="step__n">2</span><h3>Correlate</h3><p>Detections matched to transmitting vessels; residuals and anomalies isolated.</p></li>
+            <li class="step reveal" style="--i: 2"><span class="step__n">3</span><h3>Raise</h3><p>Dark-target clusters, AIS disabling and encounters opened as cases with evidence.</p></li>
+            <li class="step reveal" style="--i: 3"><span class="step__n">4</span><h3>Disposition</h3><p>A named analyst approves or dismisses. Decisions are logged for audit and hand-off.</p></li>
           </ol>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="today-title">
+      <section class="section" aria-labelledby="spec-title">
         <div class="wrap">
           <div class="section__head reveal">
-            <h2 id="today-title" class="t-h2">Working today, and next</h2>
-            <p class="t-sub">We'd rather tell you what it does than what it might.</p>
+            <h2 id="spec-title" class="t-h2">Specification</h2>
           </div>
           <div class="grid grid--2">
             <div class="card reveal" style="--i: 0">
-              <h3 class="t-h3">Working today</h3>
+              <h3 class="t-h3">Operational</h3>
               <ul class="ticks">
-                <li>Live AIS for every broadcasting vessel in the EEZ, with 48-hour tracks</li>
-                <li>Satellite radar contacts with no matching broadcast, last 30 days</li>
-                <li>Cases for groups of dark contacts and for AIS switched off</li>
-                <li>Likely-fishing classification and a filter for it</li>
-                <li>Satellite and daily imagery base maps</li>
-                <li>A case queue with named approvals and a full decision log</li>
+                <li>Coverage: Malaysian EEZ, Strait of Malacca to east of Sabah</li>
+                <li>AIS: terrestrial, live, 48-hour track history</li>
+                <li>SAR: Sentinel-1, 30-day window, published about 5 days after pass</li>
+                <li>AIS-disabling cases raised within 60 minutes</li>
+                <li>Satellite and daily imagery base layers</li>
+                <li>Access control by approved account; full disposition log</li>
               </ul>
             </div>
             <div class="card reveal" style="--i: 1">
-              <h3 class="t-h3">Next</h3>
+              <h3 class="t-h3">In development</h3>
               <ul class="ticks">
-                <li>Meetings at sea: two vessels side by side, far from port</li>
-                <li>Watch zones: protected areas, closed fishing grounds and known landing points</li>
-                <li>Gaps spotted from the live feed itself, minutes after a ship goes quiet</li>
-                <li>Questions in plain English or BM, answered on the map</li>
-                <li>Our own radar detection, for fresher passes</li>
+                <li>Watch zones: MPAs, closed fishing areas, known landing points</li>
+                <li>Satellite AIS for offshore coverage</li>
+                <li>In-house SAR detection for reduced latency</li>
+                <li>Natural-language query for analysts</li>
+                <li>Case export and agency hand-off</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="data-title">
+      <section class="section" aria-labelledby="access-title">
         <div class="wrap">
           <div class="section__head reveal">
-            <h2 id="data-title" class="t-h2">Built on open data</h2>
-            <p class="t-sub">Live AIS, Copernicus Sentinel-1 radar through Global Fishing Watch, Sentinel-2 imagery and Marine Regions boundaries. No new sensors to buy, so a briefing shows the real picture of Malaysian waters, today. Heimdall is built for maritime enforcement, the navy, marine police, customs, fisheries and port authorities.</p>
+            <h2 id="access-title" class="t-h2">Access</h2>
+            <p class="t-sub">Heimdall is available to maritime enforcement, naval, marine police, customs, fisheries and port authorities, and to partners working with them. Briefings are run on the live Malaysian picture.</p>
             <div class="hero-b__actions">
               <a class="btn btn--primary" href="/book?type=heimdall">Request a briefing</a>
             </div>
