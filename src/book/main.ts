@@ -12,12 +12,19 @@ const summary = {
   when: document.querySelector<HTMLElement>("[data-summary-when]")!,
   desc: document.querySelector<HTMLElement>("[data-summary-desc]")!,
 };
-const state: { type: MeetingType; date: string; time: string } = { type: "intro", date: "", time: "" };
+// /book?type=heimdall (or demo, visit) opens with that format chosen.
+const asked = new URLSearchParams(location.search).get("type");
+const state: { type: MeetingType; date: string; time: string } = {
+  type: asked && asked in MEETING_TYPES ? (asked as MeetingType) : "intro",
+  date: "",
+  time: "",
+};
 
 const DESCRIPTIONS: Record<MeetingType, string> = {
   intro: "A conversation about your line and whether a pilot makes sense.",
   demo: "We plan one of your own tasks in the Studio, live.",
   visit: "We come to your factory and look at the cell with you.",
+  heimdall: "A private walkthrough of Heimdall on the live picture of Malaysian waters. There's no public demo.",
 };
 
 const dayFormat = new Intl.DateTimeFormat("en-MY", { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" });
