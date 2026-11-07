@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 948" width="1280" height="948" role="img" aria-hidden="true">
+  <defs>
+    <radialGradient id="globe" cx="0.35" cy="0.3" r="0.9">
+      <stop offset="0" stop-color="#3A3F46"/>
+      <stop offset="0.6" stop-color="#262A30"/>
+      <stop offset="1" stop-color="#1B1E22"/>
+    </radialGradient>
+    <clipPath id="clip"><circle cx="640" cy="560" r="260"/></clipPath>
+  </defs>
+  <rect width="1280" height="948" fill="#15171A"/>
+
+  <!-- stars -->
+  <g fill="#6B727B">
+    <circle cx="120" cy="110" r="1.5"/><circle cx="260" cy="260" r="1"/><circle cx="410" cy="90" r="1.5"/>
+    <circle cx="560" cy="170" r="1"/><circle cx="760" cy="80" r="1.5"/><circle cx="930" cy="190" r="1"/>
+    <circle cx="1120" cy="120" r="1.5"/><circle cx="1210" cy="300" r="1"/><circle cx="90" cy="520" r="1"/>
+    <circle cx="170" cy="780" r="1.5"/><circle cx="360" cy="860" r="1"/><circle cx="980" cy="880" r="1.5"/>
+    <circle cx="1170" cy="720" r="1"/><circle cx="1230" cy="560" r="1.5"/><circle cx="60" cy="300" r="1"/>
+  </g>
+
+  <!-- globe -->
+  <circle cx="640" cy="560" r="260" fill="url(#globe)"/>
+  <g clip-path="url(#clip)" fill="none" stroke="#4A5058" stroke-width="1">
+    <ellipse cx="640" cy="560" rx="260" ry="60"/>
+    <ellipse cx="640" cy="560" rx="260" ry="150"/>
+    <ellipse cx="640" cy="560" rx="90" ry="260"/>
+    <ellipse cx="640" cy="560" rx="190" ry="260"/>
+    <line x1="380" y1="560" x2="900" y2="560"/>
+    <line x1="640" y1="300" x2="640" y2="820"/>
+  </g>
+  <circle cx="640" cy="560" r="260" fill="none" stroke="#5A616A" stroke-width="2"/>
+
+  <!-- orbit paths -->
+  <g fill="none" stroke="#7A828C" stroke-width="1.5">
+    <ellipse cx="640" cy="560" rx="340" ry="320" transform="rotate(-18 640 560)"/>
+    <ellipse cx="640" cy="560" rx="440" ry="250" transform="rotate(22 640 560)"/>
+    <ellipse cx="640" cy="560" rx="560" ry="390" transform="rotate(-50 640 560)" stroke-opacity="0.7"/>
+  </g>
+
+  <!-- transfer ellipse (signal orange, dashed) -->
+  <ellipse cx="760" cy="560" rx="520" ry="300" transform="rotate(-8 640 560)" fill="none" stroke="#FF6A2B" stroke-width="2.5" stroke-dasharray="14 10"/>
+
+  <!-- satellites -->
+  <g fill="#E6E8EB">
+    <circle cx="325" cy="395" r="7"/>
+    <circle cx="1048" cy="640" r="7"/>
+    <circle cx="470" cy="300" r="6"/>
+    <circle cx="900" cy="262" r="6"/>
+  </g>
+  <circle cx="1100" cy="506" r="9" fill="#FF6A2B"/>
+  <circle cx="1100" cy="506" r="16" fill="none" stroke="#FF6A2B" stroke-opacity="0.5" stroke-width="1.5"/>
+
+  <!-- ground stations -->
+  <g fill="#15171A" stroke="#E6E8EB" stroke-width="2">
+    <circle cx="520" cy="420" r="8"/>
+    <circle cx="760" cy="690" r="8"/>
+  </g>
+  <!-- contact lines -->
+  <g stroke="#E6E8EB" stroke-width="1" stroke-opacity="0.6">
+    <line x1="520" y1="420" x2="470" y2="300"/>
+    <line x1="520" y1="420" x2="325" y2="395"/>
+    <line x1="760" y1="690" x2="1048" y2="640"/>
+  </g>
+</svg>
