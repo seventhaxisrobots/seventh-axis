@@ -196,7 +196,7 @@ async function ask(question: string): Promise<void> {
 function offline(question: string): Answer {
   const q = question.toLowerCase();
   if (/\b(show|demo|try|see|tunjuk|演示|看看)\b/.test(q)) {
-    return { role: "assistant", text: "Happy to show you. Book a walkthrough of Kata or a Meridian demo and the team will take you through it.", action: "link", href: "/book", label: "Book a walkthrough" };
+    return { role: "assistant", text: "Happy to show you. Both demos are open with no sign-up: Kata at /demo/kata, Meridian at /demo/meridian.", action: "link", href: "/demo/kata", label: "Try Kata" };
   }
   if (/\b(contact|call me|quote|start|pilot|sign up|daftar|联系|报价)\b/.test(q)) {
     return { role: "assistant", text: "Happy to set that up. Leave your details and the team will reply within a working day.", action: "lead" };
