@@ -12,7 +12,7 @@ const summary = {
   when: document.querySelector<HTMLElement>("[data-summary-when]")!,
   desc: document.querySelector<HTMLElement>("[data-summary-desc]")!,
 };
-// /book?type=heimdall (or demo, visit) opens with that format chosen.
+// /book?type=meridian (or demo, visit) opens with that format chosen.
 const asked = new URLSearchParams(location.search).get("type");
 const state: { type: MeetingType; date: string; time: string } = {
   type: asked && asked in MEETING_TYPES ? (asked as MeetingType) : "intro",
@@ -24,7 +24,7 @@ const DESCRIPTIONS: Record<MeetingType, string> = {
   intro: "A conversation about your line and whether a pilot makes sense.",
   demo: "We plan one of your own tasks in the Studio, live.",
   visit: "We come to your factory and look at the cell with you.",
-  heimdall: "For government and enforcement agencies and their partners. A briefing on Heimdall's capabilities on the live Malaysian picture.",
+  meridian: "For anyone operating spacecraft. We walk through Meridian: fleet registry, maneuver planning, telemetry and the ops view.",
 };
 
 const dayFormat = new Intl.DateTimeFormat("en-MY", { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" });
