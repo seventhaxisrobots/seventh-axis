@@ -126,6 +126,7 @@ export const PAGE_SEO: Record<string, PageSeo> = {
   about: { path: "/about", image: "/og/about.jpg", priority: 0.8, jsonLd: [about, crumbs("About and investors", "/about")] },
   founder: { path: "/founder", image: "/img/founder-full-1920.webp", priority: 0.6, jsonLd: [crumbs("Founder", "/founder")] },
   meridian: { path: "/meridian", image: "/img/meridian/orbits.svg", priority: 0.9, jsonLd: [crumbs("Meridian", "/meridian")] },
+  loom: { path: "/loom", image: "/img/loom/ribosomes.svg", priority: 0.9, jsonLd: [crumbs("Loom", "/loom")] },
   safety: { path: "/safety", image: "/og/safety.jpg", priority: 0.6, jsonLd: [crumbs("Safety", "/safety")] },
   book: { path: "/book", image: "/og/book.jpg", priority: 0.7, jsonLd: [crumbs("Book a meeting", "/book")] },
   privacy: { path: "/privacy", priority: 0.2 },

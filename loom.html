@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content" />
+    <title>Loom · Codon optimisation you can watch</title>
+    <meta name="description" content="Loom by Seventh Axis optimises a gene for its expression host and then simulates the ribosomes reading it, so you can see where translation queues before you order synthesis. E. coli, yeast, CHO and Pichia." />
+    <meta name="theme-color" content="#15171A" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:title" content="Loom: codon optimisation you can watch" />
+    <meta property="og:description" content="An optimised coding sequence for your host, and a live simulation of ribosomes queueing along it. See the jam before you pay for the DNA." />
+    <meta property="og:image" content="/img/loom/ribosomes.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class="page">
+    <!--#header-->
+
+    <main id="main">
+      <section class="hero-b" aria-labelledby="page-title">
+        <div class="wrap hero-b__grid">
+          <div>
+            <h1 id="page-title" class="t-h1 rise">Codon optimisation you can watch</h1>
+            <p class="t-sub rise" style="--d: 0.08s">A gene that expresses well in one host can fail in another, and the lab usually finds out weeks later, after the synthesis order and the first failed induction. Loom optimises the sequence for your host and then runs the ribosomes along it, so the places translation stalls are something you can see rather than infer from an average.</p>
+            <div class="hero-b__actions rise" style="--d: 0.16s">
+              <a class="btn btn--signal" href="/demo/loom">Try the demo</a>
+            </div>
+            <p class="t-body hero-b__note rise" style="--d: 0.2s">The demo runs in your browser. Paste a protein sequence, or load the example.</p>
+          </div>
+          <figure class="hero-b__media rise" style="--d: 0.2s">
+            <img src="/img/loom/ribosomes.svg" width="1280" height="948" alt="Ribosomes moving along an mRNA, three of them queued behind a slow codon marked in amber, with density and collision strips on the same axis below" fetchpriority="high" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="why-title">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <h2 id="why-title" class="t-h2">Why a score is not enough</h2>
+            <p class="t-sub">Codon adaptation scores are averages over a whole sequence. Two designs can score the same and express differently, because ribosomes do not move independently: one slow codon holds up everything behind it, and the queue is where the yield goes. Loom simulates that traffic directly, so the number comes with a picture of what produced it.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="cap-title">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <h2 id="cap-title" class="t-h2">Capabilities</h2>
+          </div>
+          <div class="features grid grid--4">
+            <div class="feature reveal" style="--i: 0"><svg class="feature__icon" aria-hidden="true"><use href="#i-twin" /></svg><h3>Optimise for your host</h3><p>E. coli, S. cerevisiae, CHO and Pichia, with usage counted from each organism's own reference genome. Maximise the adaptation, or harmonise against the source host to keep the slow patches a native gene may depend on.</p></div>
+            <div class="feature reveal" style="--i: 1"><svg class="feature__icon" aria-hidden="true"><use href="#i-wait" /></svg><h3>Constraints that hold</h3><p>Restriction sites you name are removed, GC is held in a window, homopolymers and repeats are broken, and the first codons stay deliberately slow. Every repair is listed in plain language, including the ones that could not be made.</p></div>
+            <div class="feature reveal" style="--i: 2"><svg class="feature__icon" aria-hidden="true"><use href="#i-bridge" /></svg><h3>Ribosome traffic</h3><p>A live simulation of ribosomes initiating, elongating, queueing and colliding along your mRNA, with per-codon density, collisions and protein flux. Change one codon and watch the jam clear.</p></div>
+            <div class="feature reveal" style="--i: 3"><svg class="feature__icon" aria-hidden="true"><use href="#i-signature" /></svg><h3>Nothing leaves unrecorded</h3><p>A sequence cannot be exported for synthesis without a deliberate, recorded act. The gate writes an audit record; the authoritative screen stays the one your synthesis provider runs.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="flow-title">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <h2 id="flow-title" class="t-h2">From sequence to a decision</h2>
+            <p class="t-sub">Four steps, and you can stop at any of them.</p>
+          </div>
+          <ol class="steps">
+            <li class="step reveal" style="--i: 0"><span class="step__n">1</span><h3>Paste the protein</h3><p>A plain sequence or a FASTA record, and the host you intend to express in.</p></li>
+            <li class="step reveal" style="--i: 1"><span class="step__n">2</span><h3>Optimise</h3><p>Loom back-translates, repairs the constraints and reports CAI, tAI, GC, rare-codon runs and repeats against a naive baseline.</p></li>
+            <li class="step reveal" style="--i: 2"><span class="step__n">3</span><h3>Run the traffic</h3><p>Watch where ribosomes pile up. Click a codon, try a synonym, run it again and compare.</p></li>
+            <li class="step reveal" style="--i: 3"><span class="step__n">4</span><h3>Export</h3><p>Take the FASTA to your synthesis provider, with a record of what was screened and when.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="honest-title">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <h2 id="honest-title" class="t-h2">What Loom does not claim</h2>
+            <p class="t-sub">The expression score is a transparent heuristic over sequence features, not a model fitted to expression data, and its coefficients are printed next to the number rather than hidden behind it. The 5′ figure is a structure proxy, not a folding energy. tRNA weights are estimated from gene copy number, and for CHO and Pichia they are derived from codon usage, which the interface says plainly. None of it replaces an expression trial. A tool that states its limits is worth more than one that implies it has none.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="who-title">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <h2 id="who-title" class="t-h2">Who it's for</h2>
+          </div>
+          <div class="grid grid--3">
+            <article class="card reveal" style="--i: 0">
+              <h3 class="t-h3">Protein expression labs</h3>
+              <p>Teams moving a construct into a new host and tired of finding out it expresses poorly only after the synthesis bill.</p>
+            </article>
+            <article class="card reveal" style="--i: 1">
+              <h3 class="t-h3">Biomanufacturing groups</h3>
+              <p>Process teams tuning titre in CHO or Pichia, who want a reason for a yield difference rather than another score.</p>
+            </article>
+            <article class="card reveal" style="--i: 2">
+              <h3 class="t-h3">Teaching and research</h3>
+              <p>Anyone explaining why translation is traffic and not a diagram, with a simulation that can be run in front of a room.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="access-title">
+        <div class="wrap">
+          <div class="section__head reveal">
+            <h2 id="access-title" class="t-h2">See Loom</h2>
+            <p class="t-sub">Loom is built in Kuala Lumpur. The demo is open now, with nothing to sign up for. Want a walkthrough with us? <a class="textlink" href="/book?type=loom">Book one</a>.</p>
+            <div class="hero-b__actions">
+              <a class="btn btn--primary" href="/demo/loom">Try the demo</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--#footer-->
+
+    <script type="module" src="/src/landing/main.ts"></script>
+  </body>
+</html>
