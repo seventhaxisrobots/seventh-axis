@@ -11,3 +11,6 @@ waitlist-*.csv
 bookings-*.csv
 .waitlist-dev.jsonl
 .bookings-dev.jsonl
+.agents/
+implementation_plan.md
+task.md
