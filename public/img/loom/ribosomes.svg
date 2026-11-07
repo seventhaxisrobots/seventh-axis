@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 948" width="1280" height="948" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="loom-strand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#262A30"/>
+      <stop offset="0.5" stop-color="#343941"/>
+      <stop offset="1" stop-color="#262A30"/>
+    </linearGradient>
+    <linearGradient id="loom-heat" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3A4049"/>
+      <stop offset="0.38" stop-color="#5A6270"/>
+      <stop offset="0.52" stop-color="#F2C94C"/>
+      <stop offset="0.6" stop-color="#E8503A"/>
+      <stop offset="0.68" stop-color="#F2C94C"/>
+      <stop offset="0.82" stop-color="#3A4049"/>
+      <stop offset="1" stop-color="#2E333A"/>
+    </linearGradient>
+    <g id="loom-ribosome">
+      <ellipse cx="0" cy="-16" rx="34" ry="26" fill="#F26A1B"/>
+      <ellipse cx="0" cy="14" rx="28" ry="18" fill="#C4510F"/>
+    </g>
+    <g id="loom-ribosome-jam">
+      <ellipse cx="0" cy="-16" rx="34" ry="26" fill="#E8503A"/>
+      <ellipse cx="0" cy="14" rx="28" ry="18" fill="#B33526"/>
+    </g>
+  </defs>
+
+  <rect width="1280" height="948" fill="#15171A"/>
+
+  <!-- codon ticks, the lattice the ribosomes move along -->
+  <g stroke="#2A2E34" stroke-width="2">
+    <!-- generated evenly across the strand -->
+    <path d="M120 430v36M150 430v36M180 430v36M210 430v36M240 430v36M270 430v36M300 430v36M330 430v36M360 430v36M390 430v36M420 430v36M450 430v36M480 430v36M510 430v36M540 430v36M570 430v36M600 430v36M630 430v36M660 430v36M690 430v36M720 430v36M750 430v36M780 430v36M810 430v36M840 430v36M870 430v36M900 430v36M930 430v36M960 430v36M990 430v36M1020 430v36M1050 430v36M1080 430v36M1110 430v36M1140 430v36M1160 430v36"/>
+  </g>
+
+  <!-- the mRNA -->
+  <rect x="110" y="438" width="1060" height="20" rx="10" fill="url(#loom-strand)"/>
+  <circle cx="110" cy="448" r="16" fill="#2E333A"/>
+  <rect x="1150" y="424" width="20" height="48" rx="4" fill="#3A4049"/>
+
+  <!-- the slow codon everything is queueing behind -->
+  <rect x="690" y="420" width="30" height="56" rx="4" fill="#F2C94C" opacity="0.22"/>
+  <path d="M705 400v-34" stroke="#F2C94C" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="705" cy="358" r="7" fill="#F2C94C"/>
+
+  <!-- the queue: ribosomes packed nose to tail behind the slow codon -->
+  <g transform="translate(0 448)">
+    <use href="#loom-ribosome-jam" x="690" y="0"/>
+    <use href="#loom-ribosome-jam" x="618" y="0"/>
+    <use href="#loom-ribosome-jam" x="546" y="0"/>
+    <use href="#loom-ribosome" x="474" y="0"/>
+    <!-- free flow upstream, spaced out -->
+    <use href="#loom-ribosome" x="322" y="0"/>
+    <use href="#loom-ribosome" x="178" y="0"/>
+    <!-- and one that got through, running clear to the stop -->
+    <use href="#loom-ribosome" x="1006" y="0"/>
+  </g>
+
+  <!-- nascent chain off the ribosome that got through -->
+  <path d="M1006 414c0-40 34-46 34-84s-38-40-38-78 30-44 30-44" fill="none" stroke="#9AA0A8" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+  <circle cx="1032" cy="208" r="6" fill="#9AA0A8" opacity="0.85"/>
+
+  <!-- density strip, on the same axis as the strand above it -->
+  <rect x="110" y="556" width="1060" height="26" rx="4" fill="url(#loom-heat)"/>
+  <text x="110" y="612" fill="#6E757E" font-family="system-ui, sans-serif" font-size="22" letter-spacing="2">RIBOSOME DENSITY</text>
+
+  <!-- collision bars, same axis again -->
+  <g fill="#E8503A">
+    <rect x="474" y="664" width="18" height="10" rx="2" opacity="0.5"/>
+    <rect x="546" y="650" width="18" height="24" rx="2" opacity="0.7"/>
+    <rect x="618" y="630" width="18" height="44" rx="2" opacity="0.85"/>
+    <rect x="690" y="606" width="18" height="68" rx="2"/>
+  </g>
+  <g fill="#3A4049">
+    <rect x="178" y="670" width="18" height="4" rx="2"/>
+    <rect x="250" y="670" width="18" height="4" rx="2"/>
+    <rect x="322" y="670" width="18" height="4" rx="2"/>
+    <rect x="394" y="670" width="18" height="4" rx="2"/>
+    <rect x="762" y="670" width="18" height="4" rx="2"/>
+    <rect x="834" y="670" width="18" height="4" rx="2"/>
+    <rect x="906" y="670" width="18" height="4" rx="2"/>
+    <rect x="978" y="670" width="18" height="4" rx="2"/>
+    <rect x="1050" y="670" width="18" height="4" rx="2"/>
+    <rect x="1122" y="670" width="18" height="4" rx="2"/>
+  </g>
+  <text x="110" y="712" fill="#6E757E" font-family="system-ui, sans-serif" font-size="22" letter-spacing="2">COLLISIONS</text>
+</svg>
