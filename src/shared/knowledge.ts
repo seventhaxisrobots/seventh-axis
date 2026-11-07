@@ -52,7 +52,7 @@ export const PRICING: Plan[] = [
       "Operator accounts and an approval step",
       "Updates and email support",
     ],
-    cta: { label: "Book a walkthrough", href: "/book" },
+    cta: { label: "Try the demo", href: "/demo/kata" },
     featured: true,
   },
   {
@@ -131,7 +131,7 @@ export const PAGES: { path: string; title: string; about: string }[] = [
   { path: "/", title: "Home", about: "Seventh Axis, an AI company, and its two products: Kata and Meridian" },
   { path: "/product", title: "Kata", about: "How Kata works: planning, checks, approvals, the bridge; and the FAQ" },
   { path: "/docs", title: "Documentation", about: "Quick start, concepts, URSim, pairing the bridge, bridge commands" },
-  { path: "/meridian", title: "Meridian", about: "Mission control as a service: fleet registry, maneuver planning, telemetry pipeline, one ops view; early access, demos by request" },
+  { path: "/meridian", title: "Meridian", about: "Mission control as a service: fleet registry, maneuver planning, telemetry pipeline, one ops view; early access; the demo is open at /demo/meridian" },
   { path: "/industries", title: "Industries", about: "E&E, palletising, small batches, machine tending; Malaysian labour costs" },
   { path: "/roi", title: "ROI calculator", about: "Payback with Malaysian wages, EPF, SOCSO, levy and the Smart Automation Grant" },
   { path: "/pricing", title: "Pricing", about: "Founding pilot, Cell and Enterprise plans" },
@@ -139,15 +139,15 @@ export const PAGES: { path: string; title: string; about: string }[] = [
   { path: "/about", title: "About and investors", about: "The company, its founder, the business plan, financial model and seed round" },
   { path: "/founder", title: "Founder", about: "Zishaan Ahmed, who founded Seventh Axis and built Kata" },
   { path: "/pilot", title: "Pilot programme", about: "Apply for the free founding pilot" },
-  { path: "/book", title: "Book a meeting", about: "Intro call, Kata walkthrough, line visit or Meridian demo" },
+  { path: "/book", title: "Book a meeting", about: "Intro call, Kata walkthrough, line visit or Meridian walkthrough" },
 ];
 
 /** The assistant's briefing: facts it may state, and nothing else about the company. */
 export function knowledgeText(): string {
   return [
     "Seventh Axis is an AI company in Kuala Lumpur with two products, Kata and Meridian. Both keep a named person in charge: the AI plans or flags, a person approves.",
-    "Kata (Malay for 'word') lets factory staff program industrial and collaborative robot arms by describing the task in English, Bahasa Malaysia, Chinese or Manglish, typed or spoken. Kata is invite-only for now: approved emails sign in at /app; others can apply for the pilot or book a walkthrough.",
-    "Meridian is mission control as a service. Launch is getting cheaper (rideshare missions, reusable rockets), so more teams can put a satellite in orbit than can afford to build and staff a mission-control centre; Meridian gives them one. It is for anyone operating spacecraft: new-space startups flying their first smallsats, universities and research groups, and rideshare customers. It is a global product, built in Kuala Lumpur, and is not restricted to agencies. It has four parts: a fleet registry (every spacecraft, its orbit kept current from public tracking data, its ground stations and next contact windows); maneuver planning (orbit raises and lowers, plane changes and phasing, with delta-v, propellant and timing worked out, and screening against the catalogue for close approaches); a telemetry pipeline (send JSON or CSV; Meridian stores it, checks every value against limits, raises alerts and charts it); and one ops view (live ground tracks, passes, plans, telemetry and alerts on one screen). House rule: Meridian plans the burn, a second named operator approves it, and every decision is logged. Meridian is in early access. There are no public prices; people ask for a demo at /book (Meridian demo). Don't state customers, prices, deployments or performance figures for Meridian.",
+    "Kata (Malay for 'word') lets factory staff program industrial and collaborative robot arms by describing the task in English, Bahasa Malaysia, Chinese or Manglish, typed or spoken. Kata is invite-only for now: approved emails sign in at /app; others can apply for the pilot or book a walkthrough. The Kata demo is open to everyone at /demo/kata, with no sign-up.",
+    "Meridian is mission control as a service. Launch is getting cheaper (rideshare missions, reusable rockets), so more teams can put a satellite in orbit than can afford to build and staff a mission-control centre; Meridian gives them one. It is for anyone operating spacecraft: new-space startups flying their first smallsats, universities and research groups, and rideshare customers. It is a global product, built in Kuala Lumpur, and is not restricted to agencies. It has four parts: a fleet registry (every spacecraft, its orbit kept current from public tracking data, its ground stations and next contact windows); maneuver planning (orbit raises and lowers, plane changes and phasing, with delta-v, propellant and timing worked out, and screening against the catalogue for close approaches); a telemetry pipeline (send JSON or CSV; Meridian stores it, checks every value against limits, raises alerts and charts it); and one ops view (live ground tracks, passes, plans, telemetry and alerts on one screen). House rule: Meridian plans the burn, a second named operator approves it, and every decision is logged. Meridian is in early access. The Meridian demo is open at /demo/meridian, with no sign-up: a full ops dashboard in your browser with live orbits and simulated telemetry. There are no public prices; for a walkthrough with the team, book at /book (Meridian walkthrough). Don't state customers, prices, deployments or performance figures for Meridian.",
     "Every plan is simulated in a digital twin first: reach, collisions, payload, fragile items and cycle time are checked, speeds are capped, and a person approves before the program is exported (URScript for Universal Robots arms today; other controllers on the roadmap).",
     "The Studio demo cell has a conveyor, two pallets, a reject bin, a CNC machine with billets, a 14 kg crate (over the 10 kg payload), a fragile box and a camera-flagged damaged box. It can palletise, sort by colour, tend the CNC, run continuous production, slow down when a person comes near, and has a simulation-only playground (throws, juggling, towers).",
     "Seventh Axis does not sell robots or hardware. Customers buy arms from their usual supplier or integrator.",
