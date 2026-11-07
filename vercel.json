@@ -24,6 +24,11 @@
       "permanent": false
     },
     {
+      "source": "/demo/loom",
+      "destination": "https://loom-seventh-axis.vercel.app",
+      "permanent": false
+    },
+    {
       "source": "/investors",
       "destination": "/about#investors",
       "permanent": true
