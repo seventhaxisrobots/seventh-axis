@@ -22,9 +22,9 @@ const state: { type: MeetingType; date: string; time: string } = {
 
 const DESCRIPTIONS: Record<MeetingType, string> = {
   intro: "A conversation about your line and whether a pilot makes sense.",
-  demo: "We plan one of your own tasks in the Studio, live.",
+  demo: "We plan one of your own tasks in Kata, live. The demo itself is open at /demo/kata.",
   visit: "We come to your factory and look at the cell with you.",
-  meridian: "For anyone operating spacecraft. We walk through Meridian: fleet registry, maneuver planning, telemetry and the ops view.",
+  meridian: "For anyone operating spacecraft. We walk through Meridian with you. The demo itself is open at /demo/meridian.",
 };
 
 const dayFormat = new Intl.DateTimeFormat("en-MY", { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" });
