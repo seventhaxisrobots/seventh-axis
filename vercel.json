@@ -19,6 +19,16 @@
       "permanent": true
     },
     {
+      "source": "/heimdall",
+      "destination": "/meridian",
+      "permanent": true
+    },
+    {
+      "source": "/heimdall.html",
+      "destination": "/meridian",
+      "permanent": true
+    },
+    {
       "source": "/studio",
       "destination": "https://kata-seventh-axis.vercel.app/studio",
       "permanent": false
