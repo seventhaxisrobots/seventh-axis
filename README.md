@@ -8,7 +8,7 @@ The robotics company of Kuala Lumpur. Live at [seventh-axis.vercel.app](https://
 
 ## What's here
 
-This repository is the marketing website. The product, Kata (the Studio, the app, the planner API and the robot bridge), lives in [seventhaxisrobots/kata](https://github.com/seventhaxisrobots/kata) and is served at https://kata-seventh-axis.vercel.app. `/studio` and `/app` here redirect there. Meridian, mission control as a service for spacecraft operators, lives in [seventhaxisrobots/meridian](https://github.com/seventhaxisrobots/meridian); `/meridian` here is its marketing page (`/heimdall` redirects to it).
+This repository is the marketing website. The product, Kata (the Studio, the app, the planner API and the robot bridge), lives in [seventhaxisrobots/kata](https://github.com/seventhaxisrobots/kata) and is served at https://kata-seventh-axis.vercel.app. `/studio` and `/app` here redirect there, as do `/demo/kata` (the open Kata demo) and `/demo/meridian` (the open Meridian demo); every demo link on the site uses those two paths. Meridian, mission control as a service for spacecraft operators, lives in [seventhaxisrobots/meridian](https://github.com/seventhaxisrobots/meridian); `/meridian` here is its marketing page (`/heimdall` redirects to it).
 
 | Path | What it is |
 | --- | --- |
