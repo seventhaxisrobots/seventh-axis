@@ -14,6 +14,16 @@
   ],
   "redirects": [
     {
+      "source": "/demo/kata",
+      "destination": "https://kata-seventh-axis.vercel.app/demo",
+      "permanent": false
+    },
+    {
+      "source": "/demo/meridian",
+      "destination": "https://meridian-seventh-axis.vercel.app",
+      "permanent": false
+    },
+    {
       "source": "/investors",
       "destination": "/about#investors",
       "permanent": true
