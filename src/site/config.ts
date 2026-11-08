@@ -10,6 +10,7 @@ export const SITE = {
   city: "Kuala Lumpur, Malaysia",
   // Optional: a Cal.com or Calendly link for instant scheduling on /book.
   bookingUrl: import.meta.env.VITE_BOOKING_URL as string | undefined,
-  // Set VITE_ANALYTICS=vercel to load Vercel Web Analytics after consent.
-  analytics: import.meta.env.VITE_ANALYTICS as string | undefined,
+  // Vercel Web Analytics, loaded only after the visitor accepts analytics cookies.
+  // Set VITE_ANALYTICS=off to turn it off.
+  analytics: ((import.meta.env.VITE_ANALYTICS as string | undefined) ?? "vercel") === "off" ? undefined : "vercel",
 };
