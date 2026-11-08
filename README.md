@@ -44,7 +44,7 @@ npm run build     # type-check and production build
 1. Import this repository at [vercel.com/new](https://vercel.com/new). The defaults are right: Vite, `npm run build`, output `dist`.
 2. In **Settings → Environment Variables** add `GEMINI_API_KEY` from [Google AI Studio](https://aistudio.google.com/apikey).
 3. In **Storage**, add **Upstash for Redis** from the Marketplace and connect it to the project. It sets `KV_REST_API_URL` and `KV_REST_API_TOKEN` for you.
-4. Optional: enable **Web Analytics** in the project and set `VITE_ANALYTICS=vercel`. It only loads for visitors who accept analytics.
+4. Enable **Web Analytics** in the project. The site loads it only for visitors who accept analytics; set `VITE_ANALYTICS=off` to turn it off.
 5. Optional: set `VITE_BOOKING_URL` to a Cal.com or Calendly link to offer instant scheduling on `/book`.
 6. Redeploy.
 
